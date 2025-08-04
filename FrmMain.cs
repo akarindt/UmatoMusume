@@ -68,12 +68,20 @@ namespace UmatoMusume
             {
                 if (_eventOctRect != null)
                 {
-                    lblEventName.Text = await Task.Run(() => Detector.DetectText((Rectangle)_eventOctRect));
+                    var rect = (Rectangle)_eventOctRect;
+                    if(rect.Width > 0 && rect.Height > 0)
+                    {
+                        lblEventName.Text = await Task.Run(() => Detector.DetectText(rect));
+                    }
                 }
 
                 if (_characterInfoRect != null)
                 {
-                    lblCharacterInfo.Text = await Task.Run(() => Detector.DetectText((Rectangle)_characterInfoRect).Replace("\n", " "));
+                    var rect = (Rectangle)_characterInfoRect;
+                    if (rect.Width > 0 && rect.Height > 0)
+                    {
+                        lblCharacterInfo.Text = await Task.Run(() => Detector.DetectText(rect).Replace("\n", " "));
+                    }
                 }
             }
         }
@@ -296,7 +304,6 @@ namespace UmatoMusume
         private void SetData()
         {
             rtbOptions.Clear();
-
             if (lblCharacterInfo.Text != string.Empty)
             {
                 var objectives = _umaList.GetUmaObjectives(lblCharacterInfo.Text);

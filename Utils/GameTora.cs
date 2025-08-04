@@ -13,6 +13,7 @@ namespace UmatoMusume.Utils
     {
         private const string DEFAULT_SAVE_PATH = "Assets";
         private const int DELAY_TIME = 1000;
+        private const string UMA_DATA_PATH = "Assets/uma_data.json";
 
         // Progress reporting constants
         private const int PROGRESS_INIT = 0;
@@ -21,6 +22,8 @@ namespace UmatoMusume.Utils
         private const int PROGRESS_SAVING = 90;
         private const int PROGRESS_COMPLETE = 100;
         private const int PROGRESS_TOTAL = 100;
+
+
 
         public static async Task DownloadUmaData(IProgress<(int Current, int Total, string Message)>? progress = null, string savePath = DEFAULT_SAVE_PATH + "/uma_data.json")
         {
@@ -32,12 +35,14 @@ namespace UmatoMusume.Utils
             chromeOptions.AddArgument("--no-sandbox");
 
             IWebDriver driver = new ChromeDriver(chromeOptions);
+
             try
             {
                 driver.Navigate().GoToUrl("https://gametora.com/umamusume/characters");
 
                 progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
+                var currentUmaList = Helper.LoadFromJson<Umamusume>(UMA_DATA_PATH);
                 var elements = driver.FindElements(By.CssSelector("body > div#__next > div > div > main > main > div:last-child > a"));
                 var urlList = new List<string>();
                 var umaDataList = new List<Umamusume>();
@@ -67,6 +72,10 @@ namespace UmatoMusume.Utils
                         urlList.Add(href);
                     }
                 }
+
+                int diff = urlList.Count - currentUmaList.Count;
+
+                urlList = urlList.Take(diff).ToList();
 
                 int totalUrls = urlList.Count;
                 int currentUrl = 0;
@@ -154,15 +163,20 @@ namespace UmatoMusume.Utils
                     umaDataList.Add(new Umamusume(name, t, events));
                 }
 
+                umaDataList.AddRange(currentUmaList);
+
                 progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
                 Helper.SaveAsJson(umaDataList, savePath);
 
                 progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show($"Uma data saved to {savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                driver.Quit();
             }
-            finally
+            catch (Exception ex)
             {
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show($"Error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 driver.Quit();
             }
         }
@@ -282,9 +296,12 @@ namespace UmatoMusume.Utils
                 progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show($"Support cards saved to {savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                driver.Quit();
             }
-            finally
+            catch (Exception ex)
             {
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show($"Error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 driver.Quit();
             }
         }

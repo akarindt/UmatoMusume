@@ -13,7 +13,7 @@ namespace UmatoMusume.Data
         public static List<Dictionary<string, string>> GetSupportCardEventOptions(this List<SupportCard> _cards, string _eventName)
         {
             return _cards
-                .Where(x => x.EventName.Contains(_eventName))
+                .Where(x => x.EventName.Contains(_eventName) || Helper.CheckRatio(x.EventName, _eventName))
                 .Select(x => new Dictionary<string, string>(x.EventOptions))
                 .Distinct(new DictionaryComparer())
                 .ToList();

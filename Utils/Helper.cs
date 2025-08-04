@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using FuzzySharp;
 
 namespace UmatoMusume.Utils
 {
@@ -16,6 +17,7 @@ namespace UmatoMusume.Utils
         private const int DEFAULT_OFFSET = 0;
         private const int PROGRESS_INITIAL = 0;
         private const int PROGRESS_TOTAL = 100;
+        private const int RATIO = 80;
 
         public static IWebElement? FindElementSafe(ISearchContext driver, By by)
         {
@@ -131,6 +133,12 @@ namespace UmatoMusume.Utils
                 Console.WriteLine($"Error downloading JSON: {ex.Message}");
                 return false;
             }
+        }
+
+
+        public static bool CheckRatio(string _inputStr, string _compareStr)
+        {
+            return Fuzz.Ratio(_inputStr.Trim().ToLower(), _compareStr.ToLower().ToString()) >= RATIO;
         }
     }
 }
