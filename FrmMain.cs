@@ -18,23 +18,23 @@ namespace UmatoMusume
         private Timer _captureTimer;
         private List<Umamusume> _umaList = new List<Umamusume>();
         private List<SupportCard> _supportCardList = new List<SupportCard>();
+        private List<Career> _careerList = new List<Career>();
 
         protected Hook.WinEventDelegate _winEventDelegate;
         static GCHandle _gcSafetyHandle;
 
-        private const int OFFSET_HEIGHT = 6;
         private const string TARGET_PROCESS_NAME = "UmamusumePrettyDerby";
         private const string FORM_TITLE = "UmatoMusume - Process Window Capture";
         private const int ATTACH_INTERVAL = 500;
         private const int CAPTURE_INTERVAL = 1000;
+
+        // Paths for JSON data files
         private const string UMA_DATA_PATH = "Assets/uma_data.json";
         private const string SUPPORT_CARD_PATH = "Assets/support_card.json";
+        private const string CAREER_DATA_PATH = "Assets/support_card.json";
 
         // Rectangles for storing captured areas
         private Rectangle? _eventOctRect = null;
-
-        // Offsets for each capture area (relative to process window)
-        private Rectangle? _eventOctOffset = null;
 
         public FrmMain()
         {
@@ -59,6 +59,7 @@ namespace UmatoMusume
 
             _umaList = Helper.LoadFromJson<Umamusume>(UMA_DATA_PATH);
             _supportCardList = Helper.LoadFromJson<SupportCard>(SUPPORT_CARD_PATH);
+            _careerList = Helper.LoadFromJson<Career>(CAREER_DATA_PATH);
         }
 
         private async void EventTimer_Tick(object? sender, EventArgs e)
@@ -107,20 +108,13 @@ namespace UmatoMusume
                 _hWinEventHook = Hook.WinEventHookOne(NativeMethods.SWEH_Events.EVENT_OBJECT_LOCATIONCHANGE, _winEventDelegate, (uint)_targetProc.Id, targetThreadId);
                 var rect = Hook.GetWindowRectangle(_processhWnd);
                 Location = new Point(rect.Right, rect.Top);
-                Height = (rect.Bottom - rect.Top) + OFFSET_HEIGHT;
-                WindowState = FormWindowState.Normal;
-            }
-        }
 
-        private void UpdateCaptureAreasWithWindow(Rectangle windowRect)
-        {
-            if (_eventOctOffset != null)
-            {
-                _eventOctRect = new Rectangle(
-                    windowRect.Left + _eventOctOffset.Value.X,
-                    windowRect.Top + _eventOctOffset.Value.Y,
-                    _eventOctOffset.Value.Width,
-                    _eventOctOffset.Value.Height);
+                var primaryScreen = Screen.PrimaryScreen;
+                if (primaryScreen != null) { 
+                    Height = primaryScreen.WorkingArea.Height - 100;
+                }
+
+                WindowState = FormWindowState.Normal;
             }
         }
 
@@ -137,10 +131,13 @@ namespace UmatoMusume
             {
                 var rect = Hook.GetWindowRectangle(hWnd).ToRectangle();
                 Location = new Point(rect.Right, rect.Top);
-                Height = (rect.Bottom - rect.Top) + OFFSET_HEIGHT;
-                UpdateCaptureAreasWithWindow(rect);
-
-
+                
+                var primaryScreen = Screen.PrimaryScreen;
+                if (primaryScreen != null)
+                {
+                    Height = primaryScreen.WorkingArea.Height - 100;
+                }
+                
                 if (_eventOctRect != null)
                 {
                     await _rectConfigData.Upsert(new RectConfig
@@ -192,13 +189,7 @@ namespace UmatoMusume
                 return;
             }
 
-            var windowRect = Hook.GetWindowRectangle(_processhWnd).ToRectangle();
-            _eventOctOffset = new Rectangle(
-                _eventOctRect.Value.X - windowRect.Left,
-                _eventOctRect.Value.Y - windowRect.Top,
-                _eventOctRect.Value.Width,
-                _eventOctRect.Value.Height);
-
+            // Store the absolute coordinates (not relative to window)
             await _rectConfigData.Upsert(new RectConfig
             {
                 RectName = "EVENT_RECT",
@@ -214,17 +205,8 @@ namespace UmatoMusume
         {
             var eventRect = await _rectConfigData.Get("EVENT_RECT");
             var charInfoRect = await _rectConfigData.Get("CHARACTER_INFO_RECT");
-            var windowRect = Hook.GetWindowRectangle(_processhWnd).ToRectangle();
-            _eventOctRect = eventRect?.ToRectangle() ?? null;
 
-            if (_eventOctRect != null)
-            {
-                _eventOctOffset = new Rectangle(
-                    _eventOctRect.Value.X - windowRect.Left,
-                    _eventOctRect.Value.Y - windowRect.Top,
-                    _eventOctRect.Value.Width,
-                    _eventOctRect.Value.Height);
-            }
+            _eventOctRect = eventRect?.ToRectangle() ?? null;
 
             foreach (var uma in _umaList)
             {

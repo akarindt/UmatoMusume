@@ -320,7 +320,7 @@ namespace UmatoMusume.Utils
             try
             {
                 driver.Navigate().GoToUrl("https://gametora.com/umamusume/training-event-helper");
-                var supportCardList = new List<SupportCard>();
+                var careerList = new List<Career>();
                 progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
                 IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
@@ -376,8 +376,8 @@ namespace UmatoMusume.Utils
                         {
                             var eventOption = Helper.FindElementSafe(tr, By.CssSelector("td:nth-of-type(1)"));
                             var eventValue = Helper.FindElementSafe(tr, By.CssSelector("td:nth-of-type(2)"));
-                            supportCardList.Add(
-                                new SupportCard(
+                            careerList.Add(
+                                new Career(
                                     eventName,
                                     new Dictionary<string, string>
                                     {
@@ -392,8 +392,8 @@ namespace UmatoMusume.Utils
                             var eventOption = Helper.FindElementSafe(driver, By.CssSelector("div[data-tippy-root] > div > div > div > div > div > div[class*=tooltips_ttable_cell__]"));
                             if (eventOption != null && eventName != null)
                             {
-                                supportCardList.Add(
-                                    new SupportCard(
+                                careerList.Add(
+                                    new Career(
                                         eventName,
                                         new Dictionary<string, string>
                                         {
@@ -408,7 +408,7 @@ namespace UmatoMusume.Utils
                 }
 
                 progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
-                Helper.SaveAsJson(supportCardList, savePath);
+                Helper.SaveAsJson(careerList, savePath);
 
                 progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
                 Cursor.Current = Cursors.Default;
