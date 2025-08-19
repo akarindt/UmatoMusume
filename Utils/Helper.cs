@@ -8,10 +8,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using FuzzySharp;
+using System.Runtime.CompilerServices;
 
 namespace UmatoMusume.Utils
 {
-    public class Helper
+    public static class Helper
     {
         private const int DEFAULT_BUFFER_SIZE = 8192;
         private const int DEFAULT_OFFSET = 0;
@@ -139,6 +140,12 @@ namespace UmatoMusume.Utils
         public static bool CheckRatio(string _inputStr, string _compareStr)
         {
             return Fuzz.Ratio(_inputStr.Trim().ToLower(), _compareStr.ToLower().ToString()) >= RATIO;
+        }
+
+        public static T? GetSelectedValue<T>(this ComboBox _cbo)
+        {
+            var currentValue = _cbo.Items[_cbo.SelectedIndex];
+            return currentValue is T value ? value : default;
         }
     }
 }

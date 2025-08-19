@@ -35,11 +35,15 @@
             btnDownloadSupport = new Button();
             btnDownloadUma = new Button();
             pbDownload = new ProgressBar();
+            btnDownloadCareer = new Button();
+            btnCrawlCareer = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnCrawlCareer);
+            groupBox1.Controls.Add(btnDownloadCareer);
             groupBox1.Controls.Add(btnCrawlSupport);
             groupBox1.Controls.Add(btnCrawlUma);
             groupBox1.Controls.Add(btnDownloadSupport);
@@ -56,10 +60,10 @@
             // 
             // btnCrawlSupport
             // 
-            btnCrawlSupport.Location = new Point(254, 46);
+            btnCrawlSupport.Location = new Point(171, 46);
             btnCrawlSupport.Margin = new Padding(3, 2, 3, 2);
             btnCrawlSupport.Name = "btnCrawlSupport";
-            btnCrawlSupport.Size = new Size(245, 22);
+            btnCrawlSupport.Size = new Size(166, 22);
             btnCrawlSupport.TabIndex = 4;
             btnCrawlSupport.Text = "Crawl support data";
             btnCrawlSupport.UseVisualStyleBackColor = true;
@@ -70,7 +74,7 @@
             btnCrawlUma.Location = new Point(5, 46);
             btnCrawlUma.Margin = new Padding(3, 2, 3, 2);
             btnCrawlUma.Name = "btnCrawlUma";
-            btnCrawlUma.Size = new Size(245, 22);
+            btnCrawlUma.Size = new Size(160, 22);
             btnCrawlUma.TabIndex = 3;
             btnCrawlUma.Text = "Crawl uma data";
             btnCrawlUma.UseVisualStyleBackColor = true;
@@ -78,10 +82,10 @@
             // 
             // btnDownloadSupport
             // 
-            btnDownloadSupport.Location = new Point(254, 20);
+            btnDownloadSupport.Location = new Point(171, 20);
             btnDownloadSupport.Margin = new Padding(3, 2, 3, 2);
             btnDownloadSupport.Name = "btnDownloadSupport";
-            btnDownloadSupport.Size = new Size(245, 22);
+            btnDownloadSupport.Size = new Size(166, 22);
             btnDownloadSupport.TabIndex = 2;
             btnDownloadSupport.Text = "Download support data";
             btnDownloadSupport.UseVisualStyleBackColor = true;
@@ -92,7 +96,7 @@
             btnDownloadUma.Location = new Point(5, 20);
             btnDownloadUma.Margin = new Padding(3, 2, 3, 2);
             btnDownloadUma.Name = "btnDownloadUma";
-            btnDownloadUma.Size = new Size(245, 22);
+            btnDownloadUma.Size = new Size(160, 22);
             btnDownloadUma.TabIndex = 1;
             btnDownloadUma.Text = "Download uma data";
             btnDownloadUma.UseVisualStyleBackColor = true;
@@ -105,6 +109,26 @@
             pbDownload.Name = "pbDownload";
             pbDownload.Size = new Size(494, 22);
             pbDownload.TabIndex = 0;
+            // 
+            // btnDownloadCareer
+            // 
+            btnDownloadCareer.Location = new Point(343, 20);
+            btnDownloadCareer.Name = "btnDownloadCareer";
+            btnDownloadCareer.Size = new Size(155, 23);
+            btnDownloadCareer.TabIndex = 5;
+            btnDownloadCareer.Text = "Download career data";
+            btnDownloadCareer.UseVisualStyleBackColor = true;
+            btnDownloadCareer.Click += btnDownloadCareer_Click;
+            // 
+            // btnCrawlCareer
+            // 
+            btnCrawlCareer.Location = new Point(343, 45);
+            btnCrawlCareer.Name = "btnCrawlCareer";
+            btnCrawlCareer.Size = new Size(155, 23);
+            btnCrawlCareer.TabIndex = 5;
+            btnCrawlCareer.Text = "Crawl career data";
+            btnCrawlCareer.UseVisualStyleBackColor = true;
+            btnCrawlCareer.Click += btnCrawlCareer_Click;
             // 
             // FrmDownload
             // 
@@ -128,5 +152,7 @@
         private Button btnDownloadSupport;
         private Button btnDownloadUma;
         private ProgressBar pbDownload;
+        private Button btnCrawlCareer;
+        private Button btnDownloadCareer;
     }
 }
