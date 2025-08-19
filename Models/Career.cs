@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UmatoMusume.Models
 {
-    public class SupportCard
+    public class Career
     {
         [JsonProperty("EventName")]
         public string EventName { get; set; } = string.Empty;
@@ -15,8 +15,9 @@ namespace UmatoMusume.Models
         [JsonProperty("EventOptions")]
         public Dictionary<string, string> EventOptions { get; set; } = new Dictionary<string, string>();
 
-        public SupportCard() { }
-        public SupportCard(string _eventName, Dictionary<string, string> _eventOptions)
+        public Career() { }
+
+        public Career(string _eventName, Dictionary<string, string> _eventOptions)
         {
             EventName = _eventName;
             EventOptions = _eventOptions;

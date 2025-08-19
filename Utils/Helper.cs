@@ -1,17 +1,20 @@
-﻿using OpenQA.Selenium;
+﻿using FuzzySharp;
 using Newtonsoft.Json;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using FuzzySharp;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace UmatoMusume.Utils
 {
-    public class Helper
+    public static class Helper
     {
         private const int DEFAULT_BUFFER_SIZE = 8192;
         private const int DEFAULT_OFFSET = 0;
@@ -51,7 +54,7 @@ namespace UmatoMusume.Utils
                 return new List<IWebElement>();
             }
         }
-        public static bool SaveAsJson<T>(List<T> items, string filePath, Formatting formatting = Formatting.Indented)
+        public static bool SaveAsJson<T>(List<T> items, string filePath, Newtonsoft.Json.Formatting formatting = Newtonsoft.Json.Formatting.Indented)
         {
             try
             {
@@ -139,6 +142,36 @@ namespace UmatoMusume.Utils
         public static bool CheckRatio(string _inputStr, string _compareStr)
         {
             return Fuzz.Ratio(_inputStr.Trim().ToLower(), _compareStr.ToLower().ToString()) >= RATIO;
+        }
+
+        public static T? GetSelectedValue<T>(this ComboBox _cbo)
+        {
+            if(_cbo.SelectedIndex < 0 || _cbo.SelectedIndex >= _cbo.Items.Count) return default;
+            var currentValue = _cbo.Items[_cbo.SelectedIndex];
+            return currentValue is T value ? value : default;
+        }
+
+        public static bool ContainsXHTML(this string _input)
+        {
+            try
+            {
+                XElement x = XElement.Parse("<wrapper>" + _input + "</wrapper>");
+                return !(x.DescendantNodes().Count() == 1 && x.DescendantNodes().First().NodeType == XmlNodeType.Text);
+            }
+            catch
+            {
+                return true;
+            }
+        }
+
+        public static string ConvertXHTMLEntities(this string _input)
+        {
+            string output = _input;
+            output = output.Replace("&amp;", "amp_token");
+            output = output.Replace("&", "&amp;");
+            output = output.Replace("amp_token", "&amp;");
+            output = output.Replace("< ", "&lt; ");
+            return output;
         }
     }
 }
