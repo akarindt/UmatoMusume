@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.DevTools.V136.WebAuthn;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -23,8 +24,6 @@ namespace UmatoMusume.Utils
         private const int PROGRESS_SAVING = 90;
         private const int PROGRESS_COMPLETE = 100;
         private const int PROGRESS_TOTAL = 100;
-
-
 
         public static async Task DownloadUmaData(IProgress<(int Current, int Total, string Message)>? progress = null, string savePath = DEFAULT_SAVE_PATH + "/uma_data.json")
         {
@@ -348,6 +347,8 @@ namespace UmatoMusume.Utils
 
                 for (int i = 0; i < careerElements.Length; i++)
                 {
+                    currentElement++;
+
                     int progressPercentage = PROGRESS_URL_GATHERING + (currentElement * PROGRESS_PROCESSING_WEIGHT / totalElement);
                     progress?.Report((progressPercentage, PROGRESS_TOTAL, $"Processing career {currentElement}/{totalElement}"));
 
@@ -409,6 +410,166 @@ namespace UmatoMusume.Utils
 
                 progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
                 Helper.SaveAsJson(careerList, savePath);
+
+                progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show($"Successfully saved to {savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                driver.Quit();
+            }
+            catch (Exception ex)
+            {
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show($"Error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                driver.Quit();
+            }
+        }
+
+        public static async Task DownloadRacesData(IProgress<(int Current, int Total, string Message)>? progress = null, string savePath = DEFAULT_SAVE_PATH + "/races.json")
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddArgument("--headless");
+            chromeOptions.AddArgument("--window-size=1920,1080");
+            chromeOptions.AddArgument("--disable-gpu");
+            chromeOptions.AddArgument("--no-sandbox");
+
+            IWebDriver driver = new ChromeDriver(chromeOptions);
+
+            try
+            {
+                driver.Navigate().GoToUrl("https://gametora.com/umamusume/races");
+                progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
+
+                var accept = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div[class*=legal_cookie_banner_wrapper__] > div > div[class*=legal_cookie_banner_selection__] > div:last-child > button[class*=legal_cookie_banner_button__]"));
+                accept?.Click();
+
+                var option = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div > div[class*=styles_page__] > header[id*=styles_page-header__] > div[class*=styles_header_settings__]"));
+                option?.Click();
+
+                var menuOption = Helper.FindElementSafe(driver, By.CssSelector("body > div[data-tippy-root] > div.tippy-box > div.tippy-content > div > div[class*=tooltips_tooltip__] > div:last-child > div:last-child  > div:last-child > label"));
+                menuOption?.Click();
+
+                await Task.Delay(DELAY_TIME * 2);
+                progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering races data..."));
+
+                var raceElements = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=\"races_race_list\"] > div[class*=\"races_row\"]"));
+                var totalElement = raceElements.Count;
+                var currentElement = 0;
+
+                var raceList = new List<Race>();
+                foreach (var raceElement in raceElements)
+                {
+                    currentElement++;
+                    var raceNameElement = Helper.FindElementSafe(raceElement, By.CssSelector("div[class*=\"races_name\"] > div[class*=\"races_item\"]"));
+                    var raceName = raceNameElement?.GetAttribute("innerText")?.Trim() ?? "";
+
+                    if (string.IsNullOrEmpty(raceName)) continue;
+
+                    int progressPercentage = PROGRESS_URL_GATHERING + (currentElement * PROGRESS_PROCESSING_WEIGHT / totalElement);
+                    progress?.Report((progressPercentage, PROGRESS_TOTAL, $"Processing race {currentElement}/{totalElement}: {raceName}..."));
+
+                    if (raceName == "Junior Make Debut" || raceName == "Junior Maiden Race")
+                    {
+                        raceList.Add(new Race(raceName, "Junior Year Pre-Debut", "Pre Debut", "Varies", "Varies", "Varies", "Varies", "Varies", "Varies"));
+                        continue;
+                    }
+
+
+                    var raceDateElement = Helper.FindElementSafe(raceElement, By.CssSelector("div[class*=\"races_date\"]"));
+
+                    if (raceDateElement == null) continue;
+
+                    var year = Helper.FindElementSafe(raceDateElement, By.CssSelector("div:nth-of-type(1)"))?.GetAttribute("innerText") ?? "";
+                    var month = Helper.FindElementSafe(raceDateElement, By.CssSelector("div:nth-of-type(2)"))?.GetAttribute("innerText") ?? "";
+
+                    if (string.IsNullOrEmpty(year) || string.IsNullOrEmpty(month)) continue;
+
+                    var yearText = "";
+                    var monthText = "";
+
+                    switch (year)
+                    {
+                        case "First Year":
+                            yearText = "Junior Year";
+                            break;
+                        case "Second Year":
+                            yearText = "Classic Year";
+                            break;
+                        case "Third Year":
+                            yearText = "Senior Year";
+                            break;
+                        default:
+                            yearText = year;
+                            break;
+                    }
+
+                    if (DateTime.TryParseExact(month, "MMMM d", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var result))
+                    {
+                        monthText = result.ToString("d MMM");
+                        monthText = monthText.Replace("1", "Early").Replace("2", "Late");
+                    }
+
+                    var dateText = $"{yearText} {monthText}";
+
+                    var distanceTypeElement = Helper.FindElementSafe(raceElement, By.CssSelector("div[class*=\"aces_desc_right\"] > div:nth-of-type(1)"));
+                    var distanceMeterElement = Helper.FindElementSafe(raceElement, By.CssSelector("div[class*=\"aces_desc_right\"] > div:nth-of-type(2)"));
+
+                    if (distanceTypeElement == null || distanceMeterElement == null) continue;
+
+                    var tabtext1 = Helper.FindElementSafe(distanceTypeElement, By.CssSelector("div[class*=\"races_tabtext\"]"))?.GetAttribute("innerText") ?? "";
+                    var tabtext2 = Helper.FindElementSafe(distanceMeterElement, By.CssSelector("div[class*=\"races_tabtext\"]"))?.GetAttribute("innerText") ?? "";
+
+                    var terrainText = distanceTypeElement.GetAttribute("innerText")?.Replace(tabtext1, "").Trim() ?? "";
+                    var distanceTypeText = distanceMeterElement.GetAttribute("innerText")?.Replace(tabtext2, "").Trim() ?? "";
+                    var distanceMeterText = tabtext2;
+
+                    var detailsButtonElement = Helper.FindElementSafe(raceElement, By.CssSelector("div[class*=\"races_ribbon\"] > div[class*=\"utils_linkcolor\"]"));
+                    detailsButtonElement?.Click();
+
+                    await Task.Delay(DELAY_TIME);
+
+                    var dialogElement = Helper.FindElementSafe(driver, By.CssSelector("div[role=\"dialog\"]"));
+                    if (dialogElement == null) continue;
+
+                    var gradeText = Helper.FindElementSafe(dialogElement, By.CssSelector("div[class*=\"races_det_item\"]:nth-of-type(8)"))?.GetAttribute("innerText") ?? "";
+                    var seasonText = Helper.FindElementSafe(dialogElement, By.CssSelector("div[class*=\"races_det_item\"]:nth-of-type(16)"))?.GetAttribute("innerText") ?? "";
+
+                    var racesScheduleItemElement = Helper.FindElementsSafe(dialogElement, By.CssSelector("div[class*=\"races_schedule_item\"]")).ToArray();
+
+                    var fansTotalItem = 2;
+                    var fanReqDivIndex = 0;
+                    var fanGainedDivIndex = 1;
+
+                    if (racesScheduleItemElement.Length < fansTotalItem) continue;
+
+                    var fansRequiredElement = racesScheduleItemElement[fanReqDivIndex];
+                    var fansGainedElement = racesScheduleItemElement[fanGainedDivIndex];
+
+                    var fansRequiredText = fansRequiredElement.GetAttribute("innerText")?.Replace("Fans required", "").Trim() ?? "";
+                    var fansGainedText = fansGainedElement.GetAttribute("innerText")?.Replace("Fans gained", "").Replace("See all", "").Trim() ?? "";
+
+                    raceList.Add(new Race
+                    (
+                        raceName,
+                        dateText,
+                        gradeText,
+                        terrainText,
+                        distanceTypeText,
+                        distanceMeterText,
+                        seasonText,
+                        fansRequiredText,
+                        fansGainedText
+                    ));
+
+
+                    var closeButton = Helper.FindElementSafe(dialogElement, By.CssSelector("img"));
+                    closeButton?.Click();
+
+                    await Task.Delay(DELAY_TIME);
+                }
+
+                progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
+                Helper.SaveAsJson(raceList, savePath);
 
                 progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
                 Cursor.Current = Cursors.Default;

@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using UmatoMusume.Data;
@@ -19,6 +20,7 @@ namespace UmatoMusume
         private List<Umamusume> _umaList = new List<Umamusume>();
         private List<SupportCard> _supportCardList = new List<SupportCard>();
         private List<Career> _careerList = new List<Career>();
+        private List<Race> _raceList = new List<Race>();
 
         protected Hook.WinEventDelegate _winEventDelegate;
         static GCHandle _gcSafetyHandle;
@@ -27,14 +29,17 @@ namespace UmatoMusume
         private const string FORM_TITLE = "UmatoMusume - Process Window Capture";
         private const int ATTACH_INTERVAL = 500;
         private const int CAPTURE_INTERVAL = 1000;
+        private const int OFFSET_HEIGHT = 100;
 
         // Paths for JSON data files
         private const string UMA_DATA_PATH = "Assets/uma_data.json";
         private const string SUPPORT_CARD_PATH = "Assets/support_card.json";
         private const string CAREER_DATA_PATH = "Assets/support_card.json";
+        private const string RACE_DATA_PATH = "Assets/races.json";
 
         // Rectangles for storing captured areas
         private Rectangle? _eventOctRect = null;
+        private Rectangle? _dateTimeRect = null;
 
         public FrmMain()
         {
@@ -60,6 +65,7 @@ namespace UmatoMusume
             _umaList = Helper.LoadFromJson<Umamusume>(UMA_DATA_PATH);
             _supportCardList = Helper.LoadFromJson<SupportCard>(SUPPORT_CARD_PATH);
             _careerList = Helper.LoadFromJson<Career>(CAREER_DATA_PATH);
+            _raceList = Helper.LoadFromJson<Race>(RACE_DATA_PATH);
         }
 
         private async void EventTimer_Tick(object? sender, EventArgs e)
@@ -72,6 +78,15 @@ namespace UmatoMusume
                     if (rect.Width > 0 && rect.Height > 0)
                     {
                         lblEventName.Text = await Task.Run(() => Detector.DetectText(rect));
+                    }
+                }
+
+                if (_dateTimeRect != null)
+                {
+                    var rect = (Rectangle)_dateTimeRect;
+                    if (rect.Width > 0 && rect.Height > 0)
+                    {
+                        lblDate.Text = await Task.Run(() => Detector.DetectText(rect));
                     }
                 }
             }
@@ -110,8 +125,9 @@ namespace UmatoMusume
                 Location = new Point(rect.Right, rect.Top);
 
                 var primaryScreen = Screen.PrimaryScreen;
-                if (primaryScreen != null) { 
-                    Height = primaryScreen.WorkingArea.Height - 100;
+                if (primaryScreen != null)
+                {
+                    Height = primaryScreen.WorkingArea.Height - OFFSET_HEIGHT;
                 }
 
                 WindowState = FormWindowState.Normal;
@@ -131,13 +147,13 @@ namespace UmatoMusume
             {
                 var rect = Hook.GetWindowRectangle(hWnd).ToRectangle();
                 Location = new Point(rect.Right, rect.Top);
-                
+
                 var primaryScreen = Screen.PrimaryScreen;
                 if (primaryScreen != null)
                 {
-                    Height = primaryScreen.WorkingArea.Height - 100;
+                    Height = primaryScreen.WorkingArea.Height - OFFSET_HEIGHT;
                 }
-                
+
                 if (_eventOctRect != null)
                 {
                     await _rectConfigData.Upsert(new RectConfig
@@ -147,6 +163,18 @@ namespace UmatoMusume
                         Y = _eventOctRect.Value.Y,
                         Width = _eventOctRect.Value.Width,
                         Height = _eventOctRect.Value.Height
+                    });
+                }
+
+                if (_dateTimeRect != null)
+                {
+                    await _rectConfigData.Upsert(new RectConfig
+                    {
+                        RectName = "DATETIME_RECT",
+                        X = _dateTimeRect.Value.X,
+                        Y = _dateTimeRect.Value.Y,
+                        Width = _dateTimeRect.Value.Width,
+                        Height = _dateTimeRect.Value.Height
                     });
                 }
 
@@ -204,9 +232,10 @@ namespace UmatoMusume
         private async Task InitConfig()
         {
             var eventRect = await _rectConfigData.Get("EVENT_RECT");
-            var charInfoRect = await _rectConfigData.Get("CHARACTER_INFO_RECT");
+            var dateTimeRect = await _rectConfigData.Get("DATETIME_RECT");
 
             _eventOctRect = eventRect?.ToRectangle() ?? null;
+            _dateTimeRect = dateTimeRect?.ToRectangle() ?? null;
 
             foreach (var uma in _umaList)
             {
@@ -222,7 +251,7 @@ namespace UmatoMusume
         private void SetData()
         {
             rtbOptions.Clear();
-
+            rtbRaces.Clear();
 
             var selectedUma = cboCharacterName.GetSelectedValue<string>();
             if (!string.IsNullOrEmpty(selectedUma))
@@ -256,7 +285,7 @@ namespace UmatoMusume
                         }
 
                         rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
-                        rtbOptions.AppendText(option.Value + "\n---------------\n");
+                        rtbOptions.AppendText(HtmlToText.ConvertHtml(option.Value) + "\n---------------\n");
                     }
                 }
                 else
@@ -272,8 +301,41 @@ namespace UmatoMusume
                                 rtbOptions.AppendText(option.Key + ":\n");
                             }
                             rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
-                            rtbOptions.AppendText(option.Value + "\n---------------\n");
+                            rtbOptions.AppendText(HtmlToText.ConvertHtml(option.Value) + "\n---------------\n");
                         }
+                    }
+                    else
+                    {
+                        var careerOptions = _careerList.GetCareerEvents(lblEventName.Text);
+                        if (careerOptions.Any())
+                        {
+                            foreach (var option in careerOptions.SelectMany(x => x))
+                            {
+                                if (!string.IsNullOrEmpty(option.Key))
+                                {
+                                    rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Bold);
+                                    rtbOptions.AppendText(option.Key + ":\n");
+                                }
+                                rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
+                                rtbOptions.AppendText(HtmlToText.ConvertHtml(option.Value) + "\n---------------\n");
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (!string.IsNullOrEmpty(lblDate.Text))
+            {
+                var races = _raceList.GetRaces(lblDate.Text);
+                if (races.Any())
+                {
+                    foreach (var race in races)
+                    {
+                        rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Bold);
+                        rtbOptions.AppendText($"{race.RaceName}({race.Grade}) - {race.Terrain} - {race.DistanceType} - {race.DistanceMeter}\n");
+
+                        rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
+                        rtbOptions.AppendText($"Fans required: {race.FansRequired} - Gained: {race.FansGained}" + "\n---------------\n");
                     }
                 }
             }
@@ -288,5 +350,28 @@ namespace UmatoMusume
         }
 
         private void cboCharacterName_SelectedIndexChanged(object sender, EventArgs e) => SetData();
+
+        private async void btnCaptureDateTime_Click(object sender, EventArgs e)
+        {
+            _dateTimeRect = Detector.CaptureArea(_processhWnd);
+
+            if (_dateTimeRect == null)
+            {
+                MessageBox.Show("Please select an area to capture.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            await _rectConfigData.Upsert(new RectConfig
+            {
+                RectName = "EVENT_RECT",
+                X = _dateTimeRect.Value.X,
+                Y = _dateTimeRect.Value.Y,
+                Width = _dateTimeRect.Value.Width,
+                Height = _dateTimeRect.Value.Height
+            });
+            return;
+        }
+
+        private void lblDate_Click(object sender, EventArgs e) => SetData();
     }
 }
