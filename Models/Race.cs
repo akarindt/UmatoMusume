@@ -15,7 +15,6 @@ namespace UmatoMusume.Models
         [JsonProperty("Schedule")]
         public string Schedule { get; set; } = string.Empty;
 
-
         [JsonProperty("Grade")]
         public string Grade { get; set; } = string.Empty;
 
@@ -36,6 +35,8 @@ namespace UmatoMusume.Models
 
         [JsonProperty("FansGained")]
         public string FansGained { get; set; } = string.Empty;
+
+        public Race() {}
 
         public Race(string _raceName, string _schedule ,string _grade, string _terrain, string _distanceType, string _distanceMeter, string _season, string _fansRequired, string _fansGained)
         {

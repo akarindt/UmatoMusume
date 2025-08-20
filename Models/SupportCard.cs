@@ -15,6 +15,7 @@ namespace UmatoMusume.Models
         [JsonProperty("EventOptions")]
         public Dictionary<string, string> EventOptions { get; set; } = new Dictionary<string, string>();
 
+        public SupportCard() { }
         public SupportCard(string _eventName, Dictionary<string, string> _eventOptions)
         {
             EventName = _eventName;

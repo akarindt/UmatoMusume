@@ -13,6 +13,8 @@ namespace UmatoMusume.Models
         [JsonProperty("UmaEvents")]
         public List<UmaEvent> UmaEvents { get; set; } = new List<UmaEvent>();
 
+        public Umamusume() { }
+
         public Umamusume(string _name, List<UmaObjective> _umaObjectives, List<UmaEvent> _umaEvents)
         {
 
@@ -38,6 +40,8 @@ namespace UmatoMusume.Models
         [JsonProperty("ObjectiveCondition")]
         public string ObjectiveCondition { get; set; } = string.Empty;
 
+        public UmaObjective() { }
+
         public UmaObjective(string _objectiveName, string _turn, string _time, string _objectiveCondition)
         {
             ObjectiveName = _objectiveName;
@@ -54,6 +58,8 @@ namespace UmatoMusume.Models
 
         [JsonProperty("EventOptions")]
         public Dictionary<string, string> EventOptions { get; set; } = new Dictionary<string, string>();
+
+        public UmaEvent() { }
 
         public UmaEvent(string _eventName, Dictionary<string, string> _eventOptions)
         {

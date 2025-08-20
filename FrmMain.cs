@@ -34,7 +34,7 @@ namespace UmatoMusume
         // Paths for JSON data files
         private const string UMA_DATA_PATH = "Assets/uma_data.json";
         private const string SUPPORT_CARD_PATH = "Assets/support_card.json";
-        private const string CAREER_DATA_PATH = "Assets/support_card.json";
+        private const string CAREER_DATA_PATH = "Assets/career.json";
         private const string RACE_DATA_PATH = "Assets/races.json";
 
         // Rectangles for storing captured areas
@@ -237,6 +237,13 @@ namespace UmatoMusume
             _eventOctRect = eventRect?.ToRectangle() ?? null;
             _dateTimeRect = dateTimeRect?.ToRectangle() ?? null;
 
+            var primaryScreen = Screen.PrimaryScreen;
+            if (primaryScreen != null)
+            {
+                Height = primaryScreen.WorkingArea.Height - OFFSET_HEIGHT;
+            }
+
+
             foreach (var uma in _umaList)
             {
                 cboCharacterName.Items.Add(uma.UmaName);
@@ -251,7 +258,6 @@ namespace UmatoMusume
         private void SetData()
         {
             rtbOptions.Clear();
-            rtbRaces.Clear();
 
             var selectedUma = cboCharacterName.GetSelectedValue<string>();
             if (!string.IsNullOrEmpty(selectedUma))
@@ -270,7 +276,6 @@ namespace UmatoMusume
                 }
             }
 
-
             if (!string.IsNullOrEmpty(selectedUma) && !string.IsNullOrEmpty(lblEventName.Text))
             {
                 var options = _umaList.GetUmaEventOptions(selectedUma, lblEventName.Text);
@@ -284,8 +289,17 @@ namespace UmatoMusume
                             rtbOptions.AppendText(option.Key + ":\n");
                         }
 
-                        rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
-                        rtbOptions.AppendText(HtmlToText.ConvertHtml(option.Value) + "\n---------------\n");
+                        var isContainHtml = option.Value.ConvertXHTMLEntities().ContainsXHTML();
+                        if (isContainHtml)
+                        {
+                            rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
+                            rtbOptions.AppendText(HtmlToText.ConvertHtml(option.Value) + "\n---------------\n");
+                        }
+                        else
+                        {
+                            rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
+                            rtbOptions.AppendText(option.Value + "\n---------------\n");
+                        }
                     }
                 }
                 else
@@ -293,6 +307,7 @@ namespace UmatoMusume
                     var cardOptions = _supportCardList.GetSupportCardEventOptions(lblEventName.Text);
                     if (cardOptions.Any())
                     {
+   
                         foreach (var option in cardOptions.SelectMany(x => x))
                         {
                             if (!string.IsNullOrEmpty(option.Key))
@@ -300,8 +315,18 @@ namespace UmatoMusume
                                 rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Bold);
                                 rtbOptions.AppendText(option.Key + ":\n");
                             }
-                            rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
-                            rtbOptions.AppendText(HtmlToText.ConvertHtml(option.Value) + "\n---------------\n");
+
+                            var isContainHtml = option.Value.ConvertXHTMLEntities().ContainsXHTML();
+                            if (isContainHtml)
+                            {
+                                rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
+                                rtbOptions.AppendText(HtmlToText.ConvertHtml(option.Value) + "\n---------------\n");
+                            }
+                            else
+                            {
+                                rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
+                                rtbOptions.AppendText(option.Value + "\n---------------\n");
+                            }
                         }
                     }
                     else
@@ -309,6 +334,7 @@ namespace UmatoMusume
                         var careerOptions = _careerList.GetCareerEvents(lblEventName.Text);
                         if (careerOptions.Any())
                         {
+       
                             foreach (var option in careerOptions.SelectMany(x => x))
                             {
                                 if (!string.IsNullOrEmpty(option.Key))
@@ -316,14 +342,28 @@ namespace UmatoMusume
                                     rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Bold);
                                     rtbOptions.AppendText(option.Key + ":\n");
                                 }
-                                rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
-                                rtbOptions.AppendText(HtmlToText.ConvertHtml(option.Value) + "\n---------------\n");
+
+                                var isContainHtml = option.Value.ConvertXHTMLEntities().ContainsXHTML();
+                                if (isContainHtml)
+                                {
+                                    rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
+                                    rtbOptions.AppendText(HtmlToText.ConvertHtml(option.Value) + "\n---------------\n");
+                                }
+                                else
+                                {
+                                    rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
+                                    rtbOptions.AppendText(option.Value + "\n---------------\n");
+                                }
                             }
                         }
                     }
                 }
             }
+        }
 
+        private void SetRaceData()
+        {
+            rtbRaces.Clear();
             if (!string.IsNullOrEmpty(lblDate.Text))
             {
                 var races = _raceList.GetRaces(lblDate.Text);
@@ -331,11 +371,11 @@ namespace UmatoMusume
                 {
                     foreach (var race in races)
                     {
-                        rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Bold);
-                        rtbOptions.AppendText($"{race.RaceName}({race.Grade}) - {race.Terrain} - {race.DistanceType} - {race.DistanceMeter}\n");
+                        rtbRaces.SelectionFont = new Font(rtbRaces.Font, FontStyle.Bold);
+                        rtbRaces.AppendText($"{race.RaceName}({race.Grade}) - {race.Terrain} - {race.DistanceType} - {race.DistanceMeter}\n");
 
-                        rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
-                        rtbOptions.AppendText($"Fans required: {race.FansRequired} - Gained: {race.FansGained}" + "\n---------------\n");
+                        rtbRaces.SelectionFont = new Font(rtbRaces.Font, FontStyle.Regular);
+                        rtbRaces.AppendText($"Fans required: {race.FansRequired} - Gained: {race.FansGained}" + "\n---------------\n");
                     }
                 }
             }
@@ -363,7 +403,7 @@ namespace UmatoMusume
 
             await _rectConfigData.Upsert(new RectConfig
             {
-                RectName = "EVENT_RECT",
+                RectName = "DATETIME_RECT",
                 X = _dateTimeRect.Value.X,
                 Y = _dateTimeRect.Value.Y,
                 Width = _dateTimeRect.Value.Width,
@@ -372,6 +412,6 @@ namespace UmatoMusume
             return;
         }
 
-        private void lblDate_Click(object sender, EventArgs e) => SetData();
+        private void lblDate_TextChanged(object sender, EventArgs e) => SetRaceData();
     }
 }
