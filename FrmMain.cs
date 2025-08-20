@@ -362,6 +362,7 @@ namespace UmatoMusume
                         var careerOptions = _careerList.GetCareerEvents(lblEventName.Text);
                         if (careerOptions.Any())
                         {
+       
                             foreach (var option in careerOptions.SelectMany(x => x))
                             {
                                 if (!string.IsNullOrEmpty(option.Key))
@@ -384,11 +385,11 @@ namespace UmatoMusume
                 {
                     foreach (var race in races)
                     {
-                        rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Bold);
-                        rtbOptions.AppendText($"{race.RaceName}({race.Grade}) - {race.Terrain} - {race.DistanceType} - {race.DistanceMeter}\n");
+                        rtbRaces.SelectionFont = new Font(rtbRaces.Font, FontStyle.Bold);
+                        rtbRaces.AppendText($"{race.RaceName}({race.Grade}) - {race.Terrain} - {race.DistanceType} - {race.DistanceMeter}\n");
 
-                        rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
-                        rtbOptions.AppendText($"Fans required: {race.FansRequired} - Gained: {race.FansGained}" + "\n---------------\n");
+                        rtbRaces.SelectionFont = new Font(rtbRaces.Font, FontStyle.Regular);
+                        rtbRaces.AppendText($"Fans required: {race.FansRequired} - Gained: {race.FansGained}" + "\n---------------\n");
                     }
                 }
             }
