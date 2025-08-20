@@ -40,8 +40,6 @@
             btnDownloadSupport = new Button();
             btnDownloadUma = new Button();
             pbDownload = new ProgressBar();
-            btnDownloadCareer = new Button();
-            btnCrawlCareer = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -167,26 +165,6 @@
             pbDownload.Name = "pbDownload";
             pbDownload.Size = new Size(573, 22);
             pbDownload.TabIndex = 0;
-            // 
-            // btnDownloadCareer
-            // 
-            btnDownloadCareer.Location = new Point(343, 20);
-            btnDownloadCareer.Name = "btnDownloadCareer";
-            btnDownloadCareer.Size = new Size(155, 23);
-            btnDownloadCareer.TabIndex = 5;
-            btnDownloadCareer.Text = "Download career data";
-            btnDownloadCareer.UseVisualStyleBackColor = true;
-            btnDownloadCareer.Click += btnDownloadCareer_Click;
-            // 
-            // btnCrawlCareer
-            // 
-            btnCrawlCareer.Location = new Point(343, 45);
-            btnCrawlCareer.Name = "btnCrawlCareer";
-            btnCrawlCareer.Size = new Size(155, 23);
-            btnCrawlCareer.TabIndex = 5;
-            btnCrawlCareer.Text = "Crawl career data";
-            btnCrawlCareer.UseVisualStyleBackColor = true;
-            btnCrawlCareer.Click += btnCrawlCareer_Click;
             // 
             // FrmDownload
             // 

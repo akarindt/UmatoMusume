@@ -52,7 +52,6 @@
             groupBox2.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
-            groupBox4.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -62,7 +61,6 @@
             groupBox1.Controls.Add(btnCaptureEvent);
             groupBox1.Dock = DockStyle.Top;
             groupBox1.Location = new Point(0, 0);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(12, 3, 12, 3);
             groupBox1.Size = new Size(384, 81);
@@ -74,9 +72,10 @@
             // 
             // btnCaptureDateTime
             // 
-            btnCaptureDateTime.Location = new Point(222, 29);
+            btnCaptureDateTime.Location = new Point(194, 22);
+            btnCaptureDateTime.Margin = new Padding(3, 2, 3, 2);
             btnCaptureDateTime.Name = "btnCaptureDateTime";
-            btnCaptureDateTime.Size = new Size(206, 32);
+            btnCaptureDateTime.Size = new Size(180, 24);
             btnCaptureDateTime.TabIndex = 3;
             btnCaptureDateTime.Text = "Capture date/time";
             btnCaptureDateTime.UseVisualStyleBackColor = true;
@@ -84,9 +83,10 @@
             // 
             // btnDownloadUmaData
             // 
-            btnDownloadUmaData.Location = new Point(7, 67);
+            btnDownloadUmaData.Location = new Point(6, 50);
+            btnDownloadUmaData.Margin = new Padding(3, 2, 3, 2);
             btnDownloadUmaData.Name = "btnDownloadUmaData";
-            btnDownloadUmaData.Size = new Size(421, 29);
+            btnDownloadUmaData.Size = new Size(368, 22);
             btnDownloadUmaData.TabIndex = 2;
             btnDownloadUmaData.Text = "Download data";
             btnDownloadUmaData.UseVisualStyleBackColor = true;
@@ -94,10 +94,9 @@
             // 
             // btnCaptureEvent
             // 
-            btnCaptureEvent.Location = new Point(7, 29);
-            btnCaptureEvent.Margin = new Padding(3, 4, 3, 4);
+            btnCaptureEvent.Location = new Point(6, 22);
             btnCaptureEvent.Name = "btnCaptureEvent";
-            btnCaptureEvent.Size = new Size(209, 31);
+            btnCaptureEvent.Size = new Size(183, 23);
             btnCaptureEvent.TabIndex = 0;
             btnCaptureEvent.Text = "Capture event";
             btnCaptureEvent.UseVisualStyleBackColor = true;
@@ -138,8 +137,7 @@
             cboCharacterName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cboCharacterName.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboCharacterName.FormattingEnabled = true;
-            cboCharacterName.Location = new Point(99, 57);
-            cboCharacterName.Margin = new Padding(3, 4, 3, 4);
+            cboCharacterName.Location = new Point(87, 43);
             cboCharacterName.Name = "cboCharacterName";
             cboCharacterName.Size = new Size(319, 28);
             cboCharacterName.TabIndex = 7;
@@ -148,19 +146,20 @@
             // rtbOptions
             // 
             rtbOptions.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtbOptions.Location = new Point(7, 93);
+            rtbOptions.Location = new Point(6, 70);
+            rtbOptions.Margin = new Padding(3, 2, 3, 2);
             rtbOptions.Name = "rtbOptions";
-            rtbOptions.Size = new Size(413, 216);
+            rtbOptions.Size = new Size(362, 163);
             rtbOptions.TabIndex = 6;
             rtbOptions.Text = "";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(7, 57);
+            label4.Location = new Point(6, 43);
             label4.Name = "label4";
-            label4.Padding = new Padding(0, 7, 0, 7);
-            label4.Size = new Size(72, 34);
+            label4.Padding = new Padding(0, 5, 0, 5);
+            label4.Size = new Size(59, 25);
             label4.TabIndex = 4;
             label4.Text = "Char info:";
             // 
@@ -168,7 +167,7 @@
             // 
             lblEventName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblEventName.AutoEllipsis = true;
-            lblEventName.Location = new Point(99, 24);
+            lblEventName.Location = new Point(87, 18);
             lblEventName.Name = "lblEventName";
             lblEventName.Padding = new Padding(0, 5, 0, 5);
             lblEventName.Size = new Size(272, 25);
@@ -181,10 +180,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(7, 24);
+            label1.Location = new Point(6, 18);
             label1.Name = "label1";
-            label1.Padding = new Padding(0, 7, 0, 7);
-            label1.Size = new Size(93, 34);
+            label1.Padding = new Padding(0, 5, 0, 5);
+            label1.Size = new Size(75, 25);
             label1.TabIndex = 0;
             label1.Text = "Event name: ";
             // 
@@ -269,7 +268,8 @@
             // rtbObjectives
             // 
             rtbObjectives.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtbObjectives.Location = new Point(7, 27);
+            rtbObjectives.Location = new Point(6, 20);
+            rtbObjectives.Margin = new Padding(3, 2, 3, 2);
             rtbObjectives.Name = "rtbObjectives";
             rtbObjectives.Size = new Size(413, 312);
             rtbObjectives.TabIndex = 0;
@@ -277,12 +277,15 @@
             // 
             // FrmMain
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(437, 1055);
-            Controls.Add(splitter2);
-            Controls.Add(splitter1);
+            ClientSize = new Size(382, 791);
             Controls.Add(groupBox4);
+            Controls.Add(splitter3);
+            Controls.Add(splitter2);
+            Controls.Add(groupBox2);
+            Controls.Add(splitter1);
+            Controls.Add(groupBox1);
             Controls.Add(groupBox3);
             Controls.Add(splitterOptions);
             ClientSize = new Size(437, 1055);
@@ -294,7 +297,6 @@
             Controls.Add(groupBox1);
             Controls.Add(groupBox3);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmMain";
             Text = "FrmMain";
             FormClosing += FrmMain_FormClosing;
@@ -305,7 +307,6 @@
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             groupBox3.ResumeLayout(false);
-            groupBox4.ResumeLayout(false);
             ResumeLayout(false);
         }
 
