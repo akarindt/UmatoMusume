@@ -7,6 +7,7 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<ApplicationIcon>Resources\09-This PC.ico</ApplicationIcon>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -38,7 +39,7 @@
 		<PackageReference Include="Selenium.WebDriver" Version="4.34.0" />
 		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="138.0.7204.16800" />
 		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.11" />
-		<PackageReference Include="System.Drawing.Common" Version="9.0.7" />
+		<PackageReference Include="System.Drawing.Common" Version="9.0.8" />
 		<PackageReference Include="Tesseract" Version="5.2.0" />
 	</ItemGroup>
 
