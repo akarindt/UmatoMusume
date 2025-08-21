@@ -157,6 +157,24 @@ namespace UmatoMusume.Utils
                                         )
                                     );
                                 }
+
+                                if (!noChoices.Any())
+                                {
+                                    var choice = Helper.FindElementSafe(eventBox, By.CssSelector("div[data-tippy-root] div[class*=tooltips_ttable_cell__]"));
+                                    if (choice != null)
+                                    {
+                                        var eventOption = choice.GetAttribute("innerText") ?? "";
+                                        events.Add(
+                                            new UmaEvent(
+                                                eventName,
+                                                new Dictionary<string, string>
+                                                {
+                                                    { "", eventOption }
+                                                }
+                                            )
+                                        );
+                                    }
+                                }
                             }
                         }
                     }
@@ -285,6 +303,24 @@ namespace UmatoMusume.Utils
                                         )
                                     );
                                 }
+
+                                if (!noChoices.Any())
+                                {
+                                    var choice = Helper.FindElementSafe(eventBox, By.CssSelector("div[data-tippy-root] div[class*=tooltips_ttable_cell__]"));
+                                    if (choice != null)
+                                    {
+                                        var eventOption = choice.GetAttribute("innerText") ?? "";
+                                        supportCardList.Add(
+                                            new SupportCard(
+                                                eventName,
+                                                new Dictionary<string, string>
+                                                {
+                                                    { "", eventOption }
+                                                }
+                                            )
+                                        );
+                                    }
+                                }
                             }
                         }
                     }
@@ -398,7 +434,7 @@ namespace UmatoMusume.Utils
                                         eventName,
                                         new Dictionary<string, string>
                                         {
-                                        { "", eventOption.GetAttribute("innerHTML") ?? "" }
+                                            { "", eventOption.GetAttribute("innerText") ?? "" }
                                         }
                                     )
                                 );
@@ -532,6 +568,13 @@ namespace UmatoMusume.Utils
                     if (dialogElement == null) continue;
 
                     var gradeText = Helper.FindElementSafe(dialogElement, By.CssSelector("div[class*=\"races_det_item\"]:nth-of-type(8)"))?.GetAttribute("innerText") ?? "";
+
+                    if(int.TryParse(gradeText, out var check))
+                    {
+                        gradeText = Helper.FindElementSafe(dialogElement, By.CssSelector("div[class*=\"races_det_item\"]:nth-of-type(10)"))?.GetAttribute("innerText") ?? "";
+                    }
+
+
                     var seasonText = Helper.FindElementSafe(dialogElement, By.CssSelector("div[class*=\"races_det_item\"]:nth-of-type(16)"))?.GetAttribute("innerText") ?? "";
 
                     var racesScheduleItemElement = Helper.FindElementsSafe(dialogElement, By.CssSelector("div[class*=\"races_schedule_item\"]")).ToArray();

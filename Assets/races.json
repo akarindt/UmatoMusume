@@ -57,7 +57,7 @@
   {
     "RaceName": "Dahlia Sho",
     "Schedule": "Junior Year Early Aug",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -90,7 +90,7 @@
   {
     "RaceName": "Niigata Junior Stakes",
     "Schedule": "Junior Year Late Aug",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -101,7 +101,7 @@
   {
     "RaceName": "Aster Sho",
     "Schedule": "Junior Year Early Sep",
-    "Grade": "16",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -123,7 +123,7 @@
   {
     "RaceName": "Nojigiku Stakes",
     "Schedule": "Junior Year Early Sep",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -156,7 +156,7 @@
   {
     "RaceName": "Canna Stakes",
     "Schedule": "Junior Year Late Sep",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -167,7 +167,7 @@
   {
     "RaceName": "Fuyo Stakes",
     "Schedule": "Junior Year Late Sep",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -178,7 +178,7 @@
   {
     "RaceName": "Kikyo Stakes",
     "Schedule": "Junior Year Late Sep",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -189,7 +189,7 @@
   {
     "RaceName": "Saffron Sho",
     "Schedule": "Junior Year Late Sep",
-    "Grade": "16",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -200,7 +200,7 @@
   {
     "RaceName": "Momiji Stakes",
     "Schedule": "Junior Year Early Oct",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -222,7 +222,7 @@
   {
     "RaceName": "Rindo Sho",
     "Schedule": "Junior Year Early Oct",
-    "Grade": "18",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -244,7 +244,7 @@
   {
     "RaceName": "Shigiku Sho",
     "Schedule": "Junior Year Early Oct",
-    "Grade": "18",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -266,7 +266,7 @@
   {
     "RaceName": "Hagi Stakes",
     "Schedule": "Junior Year Late Oct",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -299,7 +299,7 @@
   {
     "RaceName": "Daily Hai Junior Stakes",
     "Schedule": "Junior Year Early Nov",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -310,7 +310,7 @@
   {
     "RaceName": "Fantasy Stakes",
     "Schedule": "Junior Year Early Nov",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -354,7 +354,7 @@
   {
     "RaceName": "Kigiku Sho",
     "Schedule": "Junior Year Early Nov",
-    "Grade": "18",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -420,7 +420,7 @@
   {
     "RaceName": "Habotan Sho",
     "Schedule": "Junior Year Late Nov",
-    "Grade": "18",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -442,7 +442,7 @@
   {
     "RaceName": "Kyoto Junior Stakes",
     "Schedule": "Junior Year Late Nov",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -464,7 +464,7 @@
   {
     "RaceName": "Shiragiku Sho",
     "Schedule": "Junior Year Late Nov",
-    "Grade": "18",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -475,7 +475,7 @@
   {
     "RaceName": "Shumeigiku Sho",
     "Schedule": "Junior Year Late Nov",
-    "Grade": "18",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -497,7 +497,7 @@
   {
     "RaceName": "Asahi Hai Futurity Stakes",
     "Schedule": "Junior Year Early Dec",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -508,7 +508,7 @@
   {
     "RaceName": "Erica Sho",
     "Schedule": "Junior Year Early Dec",
-    "Grade": "16",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -519,7 +519,7 @@
   {
     "RaceName": "Hanshin Juvenile Fillies",
     "Schedule": "Junior Year Early Dec",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -530,7 +530,7 @@
   {
     "RaceName": "Hiiragi Sho",
     "Schedule": "Junior Year Early Dec",
-    "Grade": "16",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -552,7 +552,7 @@
   {
     "RaceName": "Kuromatsu Sho",
     "Schedule": "Junior Year Early Dec",
-    "Grade": "16",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -563,7 +563,7 @@
   {
     "RaceName": "Manryo Sho",
     "Schedule": "Junior Year Early Dec",
-    "Grade": "18",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -574,7 +574,7 @@
   {
     "RaceName": "Sazanka Sho",
     "Schedule": "Junior Year Early Dec",
-    "Grade": "16",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -596,7 +596,7 @@
   {
     "RaceName": "Christmas Rose Stakes",
     "Schedule": "Junior Year Late Dec",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -607,7 +607,7 @@
   {
     "RaceName": "Hopeful Stakes",
     "Schedule": "Junior Year Late Dec",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -618,7 +618,7 @@
   {
     "RaceName": "Senryo Sho",
     "Schedule": "Junior Year Late Dec",
-    "Grade": "18",
+    "Grade": "Pre-OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -629,7 +629,7 @@
   {
     "RaceName": "Fairy Stakes",
     "Schedule": "Classic Year Early Jan",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -640,7 +640,7 @@
   {
     "RaceName": "Junior Cup",
     "Schedule": "Classic Year Early Jan",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -651,7 +651,7 @@
   {
     "RaceName": "Keisei Hai",
     "Schedule": "Classic Year Early Jan",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -662,7 +662,7 @@
   {
     "RaceName": "Kobai Stakes",
     "Schedule": "Classic Year Early Jan",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -673,7 +673,7 @@
   {
     "RaceName": "Shinzan Kinen",
     "Schedule": "Classic Year Early Jan",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -695,7 +695,7 @@
   {
     "RaceName": "Wakagoma Stakes",
     "Schedule": "Classic Year Late Jan",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -706,7 +706,7 @@
   {
     "RaceName": "Elfin Stakes",
     "Schedule": "Classic Year Early Feb",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -717,7 +717,7 @@
   {
     "RaceName": "Kisaragi Sho",
     "Schedule": "Classic Year Early Feb",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -761,7 +761,7 @@
   {
     "RaceName": "Marguerite Stakes",
     "Schedule": "Classic Year Late Feb",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -772,7 +772,7 @@
   {
     "RaceName": "Sumire Stakes",
     "Schedule": "Classic Year Late Feb",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2200 m",
@@ -783,7 +783,7 @@
   {
     "RaceName": "Anemone Stakes",
     "Schedule": "Classic Year Early Mar",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -794,7 +794,7 @@
   {
     "RaceName": "Fillies' Revue",
     "Schedule": "Classic Year Early Mar",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -816,7 +816,7 @@
   {
     "RaceName": "Tulip Sho",
     "Schedule": "Classic Year Early Mar",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -827,7 +827,7 @@
   {
     "RaceName": "Yayoi Sho",
     "Schedule": "Classic Year Early Mar",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -849,7 +849,7 @@
   {
     "RaceName": "Flower Cup",
     "Schedule": "Classic Year Late Mar",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -860,7 +860,7 @@
   {
     "RaceName": "Mainichi Hai",
     "Schedule": "Classic Year Late Mar",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -871,7 +871,7 @@
   {
     "RaceName": "Spring Stakes",
     "Schedule": "Classic Year Late Mar",
-    "Grade": "16",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -882,7 +882,7 @@
   {
     "RaceName": "Wakaba Stakes",
     "Schedule": "Classic Year Late Mar",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -893,7 +893,7 @@
   {
     "RaceName": "Arlington Cup",
     "Schedule": "Classic Year Early Apr",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -915,7 +915,7 @@
   {
     "RaceName": "New Zealand Trophy",
     "Schedule": "Classic Year Early Apr",
-    "Grade": "16",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -926,7 +926,7 @@
   {
     "RaceName": "Oka Sho",
     "Schedule": "Classic Year Early Apr",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -937,7 +937,7 @@
   {
     "RaceName": "Satsuki Sho",
     "Schedule": "Classic Year Early Apr",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -948,7 +948,7 @@
   {
     "RaceName": "Wasurenagusa Sho",
     "Schedule": "Classic Year Early Apr",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -992,7 +992,7 @@
   {
     "RaceName": "Tachibana Stakes",
     "Schedule": "Classic Year Late Apr",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -1014,7 +1014,7 @@
   {
     "RaceName": "Kyoto Shimbun Hai",
     "Schedule": "Classic Year Early May",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2200 m",
@@ -1058,7 +1058,7 @@
   {
     "RaceName": "Aoi Stakes",
     "Schedule": "Classic Year Late May",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -1091,7 +1091,7 @@
   {
     "RaceName": "Shirayuri Stakes",
     "Schedule": "Classic Year Late May",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -1124,7 +1124,7 @@
   {
     "RaceName": "Mermaid Stakes",
     "Schedule": "Classic Year Early Jun",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -1135,7 +1135,7 @@
   {
     "RaceName": "Naruo Kinen",
     "Schedule": "Classic Year Early Jun",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -1234,7 +1234,7 @@
   {
     "RaceName": "Takarazuka Kinen",
     "Schedule": "Classic Year Late Jun",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2200 m",
@@ -1256,7 +1256,7 @@
   {
     "RaceName": "Yonago Stakes",
     "Schedule": "Classic Year Late Jun",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -1432,7 +1432,7 @@
   {
     "RaceName": "Kanetsu Stakes",
     "Schedule": "Classic Year Early Aug",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -1476,7 +1476,7 @@
   {
     "RaceName": "Sekiya Kinen",
     "Schedule": "Classic Year Early Aug",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -1564,7 +1564,7 @@
   {
     "RaceName": "Toki Stakes",
     "Schedule": "Classic Year Late Aug",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -1575,7 +1575,7 @@
   {
     "RaceName": "Centaur Stakes",
     "Schedule": "Classic Year Early Sep",
-    "Grade": "16",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -1597,7 +1597,7 @@
   {
     "RaceName": "Keisei Hai Autumn Handicap",
     "Schedule": "Classic Year Early Sep",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -1608,7 +1608,7 @@
   {
     "RaceName": "Niigata Kinen",
     "Schedule": "Classic Year Early Sep",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -1641,7 +1641,7 @@
   {
     "RaceName": "Rose Stakes",
     "Schedule": "Classic Year Early Sep",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -1652,7 +1652,7 @@
   {
     "RaceName": "Shion Stakes",
     "Schedule": "Classic Year Early Sep",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -1674,7 +1674,7 @@
   {
     "RaceName": "All Comers",
     "Schedule": "Classic Year Late Sep",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2200 m",
@@ -1685,7 +1685,7 @@
   {
     "RaceName": "Kobe Shimbun Hai",
     "Schedule": "Classic Year Late Sep",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2400 m",
@@ -1707,7 +1707,7 @@
   {
     "RaceName": "Port Island Stakes",
     "Schedule": "Classic Year Late Sep",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -1729,7 +1729,7 @@
   {
     "RaceName": "Sprinters Stakes",
     "Schedule": "Classic Year Late Sep",
-    "Grade": "16",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -1740,7 +1740,7 @@
   {
     "RaceName": "St. Lite Kinen",
     "Schedule": "Classic Year Late Sep",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2200 m",
@@ -1773,7 +1773,7 @@
   {
     "RaceName": "Kyoto Daishoten",
     "Schedule": "Classic Year Early Oct",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2400 m",
@@ -1806,7 +1806,7 @@
   {
     "RaceName": "Opal Stakes",
     "Schedule": "Classic Year Early Oct",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -1817,7 +1817,7 @@
   {
     "RaceName": "Shinetsu Stakes",
     "Schedule": "Classic Year Early Oct",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -1850,7 +1850,7 @@
   {
     "RaceName": "Cassiopeia Stakes",
     "Schedule": "Classic Year Late Oct",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -1872,7 +1872,7 @@
   {
     "RaceName": "Kikuka Sho",
     "Schedule": "Classic Year Late Oct",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Long",
     "DistanceMeter": "3000 m",
@@ -1905,7 +1905,7 @@
   {
     "RaceName": "Shuka Sho",
     "Schedule": "Classic Year Late Oct",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -1916,7 +1916,7 @@
   {
     "RaceName": "Swan Stakes",
     "Schedule": "Classic Year Late Oct",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -2026,7 +2026,7 @@
   {
     "RaceName": "Queen Elizabeth II Cup",
     "Schedule": "Classic Year Early Nov",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2200 m",
@@ -2037,7 +2037,7 @@
   {
     "RaceName": "Andromeda Stakes",
     "Schedule": "Classic Year Late Nov",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -2092,7 +2092,7 @@
   {
     "RaceName": "Keihan Hai",
     "Schedule": "Classic Year Late Nov",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -2103,7 +2103,7 @@
   {
     "RaceName": "Mile Championship",
     "Schedule": "Classic Year Late Nov",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -2136,7 +2136,7 @@
   {
     "RaceName": "Challenge Cup",
     "Schedule": "Classic Year Early Dec",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -2169,7 +2169,7 @@
   {
     "RaceName": "December Stakes",
     "Schedule": "Classic Year Early Dec",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -2180,7 +2180,7 @@
   {
     "RaceName": "Lapis Lazuli Stakes",
     "Schedule": "Classic Year Early Dec",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -2191,7 +2191,7 @@
   {
     "RaceName": "Rigel Stakes",
     "Schedule": "Classic Year Early Dec",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -2213,7 +2213,7 @@
   {
     "RaceName": "Stayers Stakes",
     "Schedule": "Classic Year Early Dec",
-    "Grade": "16",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Long",
     "DistanceMeter": "3600 m",
@@ -2224,7 +2224,7 @@
   {
     "RaceName": "Tanzanite Stakes",
     "Schedule": "Classic Year Early Dec",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -2235,7 +2235,7 @@
   {
     "RaceName": "Turquoise Stakes",
     "Schedule": "Classic Year Early Dec",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -2246,7 +2246,7 @@
   {
     "RaceName": "Arima Kinen",
     "Schedule": "Classic Year Late Dec",
-    "Grade": "16",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Long",
     "DistanceMeter": "2500 m",
@@ -2279,7 +2279,7 @@
   {
     "RaceName": "Hanshin Cup",
     "Schedule": "Classic Year Late Dec",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -2312,7 +2312,7 @@
   {
     "RaceName": "Carbuncle Stakes",
     "Schedule": "Senior Year Early Jan",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -2334,7 +2334,7 @@
   {
     "RaceName": "Kyoto Kimpai",
     "Schedule": "Senior Year Early Jan",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -2345,7 +2345,7 @@
   {
     "RaceName": "Manyo Stakes",
     "Schedule": "Senior Year Early Jan",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Long",
     "DistanceMeter": "3000 m",
@@ -2356,7 +2356,7 @@
   {
     "RaceName": "Nakayama Kimpai",
     "Schedule": "Senior Year Early Jan",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -2367,7 +2367,7 @@
   {
     "RaceName": "New Year Stakes",
     "Schedule": "Senior Year Early Jan",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -2378,7 +2378,7 @@
   {
     "RaceName": "Nikkei Shinshun Hai",
     "Schedule": "Senior Year Early Jan",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2400 m",
@@ -2400,7 +2400,7 @@
   {
     "RaceName": "Yodo Tankyori Stakes",
     "Schedule": "Senior Year Early Jan",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -2411,7 +2411,7 @@
   {
     "RaceName": "American JCC",
     "Schedule": "Senior Year Late Jan",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2200 m",
@@ -2444,7 +2444,7 @@
   {
     "RaceName": "Silk Road Stakes",
     "Schedule": "Senior Year Late Jan",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -2488,7 +2488,7 @@
   {
     "RaceName": "Kyoto Kinen",
     "Schedule": "Senior Year Early Feb",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2200 m",
@@ -2499,7 +2499,7 @@
   {
     "RaceName": "Rakuyo Stakes",
     "Schedule": "Senior Year Early Feb",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -2565,7 +2565,7 @@
   {
     "RaceName": "Hankyu Hai",
     "Schedule": "Senior Year Late Feb",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -2598,7 +2598,7 @@
   {
     "RaceName": "Kyoto Umamusume Stakes",
     "Schedule": "Senior Year Late Feb",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -2609,7 +2609,7 @@
   {
     "RaceName": "Nakayama Kinen",
     "Schedule": "Senior Year Late Feb",
-    "Grade": "16",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -2642,7 +2642,7 @@
   {
     "RaceName": "Kochi Stakes",
     "Schedule": "Senior Year Early Mar",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -2653,7 +2653,7 @@
   {
     "RaceName": "Nakayama Umamusume Stakes",
     "Schedule": "Senior Year Early Mar",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -2675,7 +2675,7 @@
   {
     "RaceName": "Ocean Stakes",
     "Schedule": "Senior Year Early Mar",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -2686,7 +2686,7 @@
   {
     "RaceName": "Osakajo Stakes",
     "Schedule": "Senior Year Early Mar",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -2719,7 +2719,7 @@
   {
     "RaceName": "Hanshin Daishoten",
     "Schedule": "Senior Year Late Mar",
-    "Grade": "16",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Long",
     "DistanceMeter": "3000 m",
@@ -2741,7 +2741,7 @@
   {
     "RaceName": "Nikkei Sho",
     "Schedule": "Senior Year Late Mar",
-    "Grade": "16",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Long",
     "DistanceMeter": "2500 m",
@@ -2752,7 +2752,7 @@
   {
     "RaceName": "Osaka Hai",
     "Schedule": "Senior Year Late Mar",
-    "Grade": "16",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -2763,7 +2763,7 @@
   {
     "RaceName": "Rokko Stakes",
     "Schedule": "Senior Year Late Mar",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -2829,7 +2829,7 @@
   {
     "RaceName": "Hanshin Umamusume Stakes",
     "Schedule": "Senior Year Early Apr",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -2851,7 +2851,7 @@
   {
     "RaceName": "Lord Derby Challenge Trophy",
     "Schedule": "Senior Year Early Apr",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -2862,7 +2862,7 @@
   {
     "RaceName": "Shunrai Stakes",
     "Schedule": "Senior Year Early Apr",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -2884,7 +2884,7 @@
   {
     "RaceName": "Milers Cup",
     "Schedule": "Senior Year Late Apr",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -2906,7 +2906,7 @@
   {
     "RaceName": "Tenno Sho (Spring)",
     "Schedule": "Senior Year Late Apr",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Long",
     "DistanceMeter": "3200 m",
@@ -2950,7 +2950,7 @@
   {
     "RaceName": "Kurama Stakes",
     "Schedule": "Senior Year Early May",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -2972,7 +2972,7 @@
   {
     "RaceName": "Miyakooji Stakes",
     "Schedule": "Senior Year Early May",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -2983,7 +2983,7 @@
   {
     "RaceName": "Niigata Daishoten",
     "Schedule": "Senior Year Early May",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -3005,7 +3005,7 @@
   {
     "RaceName": "Tanigawadake Stakes",
     "Schedule": "Senior Year Early May",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -3027,7 +3027,7 @@
   {
     "RaceName": "Azuchijo Stakes",
     "Schedule": "Senior Year Late May",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -3104,7 +3104,7 @@
   {
     "RaceName": "Mermaid Stakes",
     "Schedule": "Senior Year Early Jun",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -3115,7 +3115,7 @@
   {
     "RaceName": "Naruo Kinen",
     "Schedule": "Senior Year Early Jun",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -3214,7 +3214,7 @@
   {
     "RaceName": "Takarazuka Kinen",
     "Schedule": "Senior Year Late Jun",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2200 m",
@@ -3236,7 +3236,7 @@
   {
     "RaceName": "Yonago Stakes",
     "Schedule": "Senior Year Late Jun",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -3390,7 +3390,7 @@
   {
     "RaceName": "Kanetsu Stakes",
     "Schedule": "Senior Year Early Aug",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -3423,7 +3423,7 @@
   {
     "RaceName": "Sekiya Kinen",
     "Schedule": "Senior Year Early Aug",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -3511,7 +3511,7 @@
   {
     "RaceName": "Toki Stakes",
     "Schedule": "Senior Year Late Aug",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -3522,7 +3522,7 @@
   {
     "RaceName": "Centaur Stakes",
     "Schedule": "Senior Year Early Sep",
-    "Grade": "16",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -3544,7 +3544,7 @@
   {
     "RaceName": "Keisei Hai Autumn Handicap",
     "Schedule": "Senior Year Early Sep",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -3555,7 +3555,7 @@
   {
     "RaceName": "Niigata Kinen",
     "Schedule": "Senior Year Early Sep",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -3599,7 +3599,7 @@
   {
     "RaceName": "All Comers",
     "Schedule": "Senior Year Late Sep",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2200 m",
@@ -3621,7 +3621,7 @@
   {
     "RaceName": "Port Island Stakes",
     "Schedule": "Senior Year Late Sep",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -3643,7 +3643,7 @@
   {
     "RaceName": "Sprinters Stakes",
     "Schedule": "Senior Year Late Sep",
-    "Grade": "16",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -3676,7 +3676,7 @@
   {
     "RaceName": "Kyoto Daishoten",
     "Schedule": "Senior Year Early Oct",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2400 m",
@@ -3709,7 +3709,7 @@
   {
     "RaceName": "Opal Stakes",
     "Schedule": "Senior Year Early Oct",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -3720,7 +3720,7 @@
   {
     "RaceName": "Shinetsu Stakes",
     "Schedule": "Senior Year Early Oct",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -3753,7 +3753,7 @@
   {
     "RaceName": "Cassiopeia Stakes",
     "Schedule": "Senior Year Late Oct",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -3797,7 +3797,7 @@
   {
     "RaceName": "Swan Stakes",
     "Schedule": "Senior Year Late Oct",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
@@ -3907,7 +3907,7 @@
   {
     "RaceName": "Queen Elizabeth II Cup",
     "Schedule": "Senior Year Early Nov",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2200 m",
@@ -3918,7 +3918,7 @@
   {
     "RaceName": "Andromeda Stakes",
     "Schedule": "Senior Year Late Nov",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -3973,7 +3973,7 @@
   {
     "RaceName": "Keihan Hai",
     "Schedule": "Senior Year Late Nov",
-    "Grade": "18",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -3984,7 +3984,7 @@
   {
     "RaceName": "Mile Championship",
     "Schedule": "Senior Year Late Nov",
-    "Grade": "18",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -4017,7 +4017,7 @@
   {
     "RaceName": "Challenge Cup",
     "Schedule": "Senior Year Early Dec",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Medium",
     "DistanceMeter": "2000 m",
@@ -4050,7 +4050,7 @@
   {
     "RaceName": "December Stakes",
     "Schedule": "Senior Year Early Dec",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1800 m",
@@ -4061,7 +4061,7 @@
   {
     "RaceName": "Lapis Lazuli Stakes",
     "Schedule": "Senior Year Early Dec",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -4072,7 +4072,7 @@
   {
     "RaceName": "Rigel Stakes",
     "Schedule": "Senior Year Early Dec",
-    "Grade": "18",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -4094,7 +4094,7 @@
   {
     "RaceName": "Stayers Stakes",
     "Schedule": "Senior Year Early Dec",
-    "Grade": "16",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Long",
     "DistanceMeter": "3600 m",
@@ -4105,7 +4105,7 @@
   {
     "RaceName": "Tanzanite Stakes",
     "Schedule": "Senior Year Early Dec",
-    "Grade": "16",
+    "Grade": "OP",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1200 m",
@@ -4116,7 +4116,7 @@
   {
     "RaceName": "Turquoise Stakes",
     "Schedule": "Senior Year Early Dec",
-    "Grade": "16",
+    "Grade": "G3",
     "Terrain": "Turf",
     "DistanceType": "Mile",
     "DistanceMeter": "1600 m",
@@ -4127,7 +4127,7 @@
   {
     "RaceName": "Arima Kinen",
     "Schedule": "Senior Year Late Dec",
-    "Grade": "16",
+    "Grade": "G1",
     "Terrain": "Turf",
     "DistanceType": "Long",
     "DistanceMeter": "2500 m",
@@ -4160,7 +4160,7 @@
   {
     "RaceName": "Hanshin Cup",
     "Schedule": "Senior Year Late Dec",
-    "Grade": "18",
+    "Grade": "G2",
     "Terrain": "Turf",
     "DistanceType": "Short",
     "DistanceMeter": "1400 m",
