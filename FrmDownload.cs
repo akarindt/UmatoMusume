@@ -250,7 +250,7 @@ namespace UmatoMusume
                     lblProgress.Text = message;
                 });
 
-                bool result = await Helper.DownloadJsonAsync(CAREER_DATA_DOWNLOAD_URL, DEFAULT_FOLDER + "/races.json", progress);
+                bool result = await Helper.DownloadJsonAsync(RACES_DATA_DOWNLOAD_URL, DEFAULT_FOLDER + "/races.json", progress);
                 if (!result)
                 {
                     MessageBox.Show("Failed to download races data.", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

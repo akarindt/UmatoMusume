@@ -23,7 +23,7 @@ namespace UmatoMusume
         protected Hook.WinEventDelegate _winEventDelegate;
         static GCHandle _gcSafetyHandle;
 
-        private const string TARGET_PROCESS_NAME = "Photos";
+        private const string TARGET_PROCESS_NAME = "UmamusumePrettyDerby";
         private const string FORM_TITLE = "UmatoMusume - Process Window Capture";
         private const int ATTACH_INTERVAL = 500;
         private const int CAPTURE_INTERVAL = 1000;
