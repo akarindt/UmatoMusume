@@ -12,7 +12,7 @@ namespace UmatoMusume.Utils
 {
     public class Detector
     {
-        private const float IMAGE_SCALE = 2.0f;
+        private const float IMAGE_SCALE = 3.0f;
         private const int OCR_DPI = 300;
 
         private const double GRAYSCALE_WEIGHT_R = 0.299;
@@ -24,7 +24,7 @@ namespace UmatoMusume.Utils
         private const int REMOVE_SMALL_NOISE_MIN_NEIGHBORS = 2;
         private const int REMOVE_SMALL_NOISE_WHITE_NEIGHBORS = 1;
         private const int PREPROCESS_AVG = 3;
-        private const int PREPROCESS_BRIGHTNESS_THRESHOLD = 140;
+        private const int PREPROCESS_BRIGHTNESS_THRESHOLD = 200;
         private const int OTSU_HISTOGRAM_SIZE = 256;
         private const int SHARPEN_FILTER_SIZE = 3;
         private const int SHARPEN_FILTER_CENTER = 9;
@@ -36,7 +36,7 @@ namespace UmatoMusume.Utils
         private const int PIXEL_MAX = 255;
         private const string OCR_DPI_STRING = "300";
         private const string OCR_CHAR_WHITELIST = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,-!?:()[]{}♪☆";
-        private const string OCR_PAGE_SEG_MODE = "8";
+        private const string OCR_PAGE_SEG_MODE = "7";
 
         private static readonly float[][] COLOR_MATRIX = new float[][]
         {
@@ -327,7 +327,7 @@ namespace UmatoMusume.Utils
             int bytes = pbits.Stride * height;
             byte[] rgbValues = new byte[bytes];
 
-            System.Runtime.InteropServices.Marshal.Copy(pbits.Scan0, rgbValues, 0, bytes);
+            Marshal.Copy(pbits.Scan0, rgbValues, 0, bytes);
 
             int rgb;
             for (int x = 0; x < width; ++x)
@@ -370,7 +370,7 @@ namespace UmatoMusume.Utils
                 }
             }
 
-            System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, pbits.Scan0, bytes);
+            Marshal.Copy(rgbValues, 0, pbits.Scan0, bytes);
             sharpenImage.UnlockBits(pbits);
             return sharpenImage;
         }
@@ -390,7 +390,6 @@ namespace UmatoMusume.Utils
                     {
                         int blackCount = 0;
 
-                        // đếm số pixel đen xung quanh (8-neighbors)
                         for (int i = -1; i <= 1; i++)
                         {
                             for (int j = -1; j <= 1; j++)
@@ -405,7 +404,6 @@ namespace UmatoMusume.Utils
                             }
                         }
 
-                        // nếu xung quanh toàn trắng thì coi đây là noise → xóa
                         if (blackCount <= REMOVE_SMALL_NOISE_WHITE_NEIGHBORS)
                         {
                             bmap.SetPixel(x, y, Color.White);
@@ -468,7 +466,6 @@ namespace UmatoMusume.Utils
                         using (var page = engine.Process(img))
                         {
                             string text = page.GetText().Trim();
-                            float confidence = page.GetMeanConfidence();
                             return text;
                         }
                     }

@@ -61,21 +61,19 @@
             groupBox1.Controls.Add(btnCaptureEvent);
             groupBox1.Dock = DockStyle.Top;
             groupBox1.Location = new Point(0, 0);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(12, 3, 12, 3);
-            groupBox1.Size = new Size(384, 81);
-            groupBox1.Padding = new Padding(14, 4, 14, 4);
-            groupBox1.Size = new Size(437, 108);
+            groupBox1.Size = new Size(382, 81);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Capture options";
             // 
             // btnCaptureDateTime
             // 
-            btnCaptureDateTime.Location = new Point(222, 29);
+            btnCaptureDateTime.Location = new Point(194, 22);
+            btnCaptureDateTime.Margin = new Padding(3, 2, 3, 2);
             btnCaptureDateTime.Name = "btnCaptureDateTime";
-            btnCaptureDateTime.Size = new Size(206, 32);
+            btnCaptureDateTime.Size = new Size(180, 24);
             btnCaptureDateTime.TabIndex = 3;
             btnCaptureDateTime.Text = "Capture date/time";
             btnCaptureDateTime.UseVisualStyleBackColor = true;
@@ -83,9 +81,10 @@
             // 
             // btnDownloadUmaData
             // 
-            btnDownloadUmaData.Location = new Point(7, 67);
+            btnDownloadUmaData.Location = new Point(6, 50);
+            btnDownloadUmaData.Margin = new Padding(3, 2, 3, 2);
             btnDownloadUmaData.Name = "btnDownloadUmaData";
-            btnDownloadUmaData.Size = new Size(421, 29);
+            btnDownloadUmaData.Size = new Size(368, 22);
             btnDownloadUmaData.TabIndex = 2;
             btnDownloadUmaData.Text = "Download data";
             btnDownloadUmaData.UseVisualStyleBackColor = true;
@@ -93,10 +92,9 @@
             // 
             // btnCaptureEvent
             // 
-            btnCaptureEvent.Location = new Point(7, 29);
-            btnCaptureEvent.Margin = new Padding(3, 4, 3, 4);
+            btnCaptureEvent.Location = new Point(6, 22);
             btnCaptureEvent.Name = "btnCaptureEvent";
-            btnCaptureEvent.Size = new Size(209, 31);
+            btnCaptureEvent.Size = new Size(183, 23);
             btnCaptureEvent.TabIndex = 0;
             btnCaptureEvent.Text = "Capture event";
             btnCaptureEvent.UseVisualStyleBackColor = true;
@@ -105,10 +103,9 @@
             // splitter1
             // 
             splitter1.Dock = DockStyle.Top;
-            splitter1.Location = new Point(0, 108);
-            splitter1.Margin = new Padding(3, 4, 3, 4);
+            splitter1.Location = new Point(0, 81);
             splitter1.Name = "splitter1";
-            splitter1.Size = new Size(437, 4);
+            splitter1.Size = new Size(382, 3);
             splitter1.TabIndex = 6;
             splitter1.TabStop = false;
             // 
@@ -120,13 +117,10 @@
             groupBox2.Controls.Add(lblEventName);
             groupBox2.Controls.Add(label1);
             groupBox2.Dock = DockStyle.Top;
-            groupBox2.Location = new Point(0, 112);
-            groupBox2.Margin = new Padding(3, 4, 3, 4);
+            groupBox2.Location = new Point(0, 84);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(12, 3, 12, 3);
-            groupBox2.Size = new Size(384, 238);
-            groupBox2.Padding = new Padding(14, 4, 14, 4);
-            groupBox2.Size = new Size(437, 317);
+            groupBox2.Size = new Size(382, 238);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Event selector";
@@ -137,29 +131,29 @@
             cboCharacterName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cboCharacterName.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboCharacterName.FormattingEnabled = true;
-            cboCharacterName.Location = new Point(99, 57);
-            cboCharacterName.Margin = new Padding(3, 4, 3, 4);
+            cboCharacterName.Location = new Point(87, 43);
             cboCharacterName.Name = "cboCharacterName";
-            cboCharacterName.Size = new Size(319, 28);
+            cboCharacterName.Size = new Size(280, 23);
             cboCharacterName.TabIndex = 7;
             cboCharacterName.SelectedIndexChanged += cboCharacterName_SelectedIndexChanged;
             // 
             // rtbOptions
             // 
             rtbOptions.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtbOptions.Location = new Point(7, 93);
+            rtbOptions.Location = new Point(6, 70);
+            rtbOptions.Margin = new Padding(3, 2, 3, 2);
             rtbOptions.Name = "rtbOptions";
-            rtbOptions.Size = new Size(413, 216);
+            rtbOptions.Size = new Size(362, 163);
             rtbOptions.TabIndex = 6;
             rtbOptions.Text = "";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(7, 57);
+            label4.Location = new Point(6, 43);
             label4.Name = "label4";
-            label4.Padding = new Padding(0, 7, 0, 7);
-            label4.Size = new Size(72, 34);
+            label4.Padding = new Padding(0, 5, 0, 5);
+            label4.Size = new Size(59, 25);
             label4.TabIndex = 4;
             label4.Text = "Char info:";
             // 
@@ -167,12 +161,10 @@
             // 
             lblEventName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblEventName.AutoEllipsis = true;
-            lblEventName.Location = new Point(99, 24);
+            lblEventName.Location = new Point(87, 18);
             lblEventName.Name = "lblEventName";
             lblEventName.Padding = new Padding(0, 5, 0, 5);
-            lblEventName.Size = new Size(272, 25);
-            lblEventName.Padding = new Padding(0, 7, 0, 7);
-            lblEventName.Size = new Size(309, 33);
+            lblEventName.Size = new Size(270, 25);
             lblEventName.TabIndex = 3;
             lblEventName.Text = "Capturing...";
             lblEventName.TextChanged += lblEventName_TextChanged;
@@ -180,20 +172,19 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(7, 24);
+            label1.Location = new Point(6, 18);
             label1.Name = "label1";
-            label1.Padding = new Padding(0, 7, 0, 7);
-            label1.Size = new Size(93, 34);
+            label1.Padding = new Padding(0, 5, 0, 5);
+            label1.Size = new Size(75, 25);
             label1.TabIndex = 0;
             label1.Text = "Event name: ";
             // 
             // splitter2
             // 
             splitter2.Dock = DockStyle.Top;
-            splitter2.Location = new Point(0, 429);
-            splitter2.Margin = new Padding(3, 4, 3, 4);
+            splitter2.Location = new Point(0, 322);
             splitter2.Name = "splitter2";
-            splitter2.Size = new Size(437, 4);
+            splitter2.Size = new Size(382, 3);
             splitter2.TabIndex = 7;
             splitter2.TabStop = false;
             // 
@@ -203,9 +194,11 @@
             groupBox4.Controls.Add(label3);
             groupBox4.Controls.Add(rtbRaces);
             groupBox4.Dock = DockStyle.Fill;
-            groupBox4.Location = new Point(0, 433);
+            groupBox4.Location = new Point(0, 325);
+            groupBox4.Margin = new Padding(3, 2, 3, 2);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(437, 274);
+            groupBox4.Padding = new Padding(3, 2, 3, 2);
+            groupBox4.Size = new Size(382, 205);
             groupBox4.TabIndex = 5;
             groupBox4.TabStop = false;
             groupBox4.Text = "Races";
@@ -214,10 +207,10 @@
             // 
             lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblDate.AutoEllipsis = true;
-            lblDate.Location = new Point(99, 24);
+            lblDate.Location = new Point(87, 18);
             lblDate.Name = "lblDate";
-            lblDate.Padding = new Padding(0, 7, 0, 7);
-            lblDate.Size = new Size(309, 33);
+            lblDate.Padding = new Padding(0, 5, 0, 5);
+            lblDate.Size = new Size(270, 25);
             lblDate.TabIndex = 5;
             lblDate.Text = "Capturing...";
             lblDate.TextChanged += lblDate_TextChanged;
@@ -225,42 +218,40 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(7, 24);
+            label3.Location = new Point(6, 18);
             label3.Name = "label3";
-            label3.Padding = new Padding(0, 7, 0, 7);
-            label3.Size = new Size(48, 34);
+            label3.Padding = new Padding(0, 5, 0, 5);
+            label3.Size = new Size(37, 25);
             label3.TabIndex = 4;
             label3.Text = "Date: ";
             // 
             // rtbRaces
             // 
             rtbRaces.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtbRaces.Location = new Point(7, 64);
+            rtbRaces.Location = new Point(6, 48);
+            rtbRaces.Margin = new Padding(3, 2, 3, 2);
             rtbRaces.Name = "rtbRaces";
-            rtbRaces.Size = new Size(413, 201);
+            rtbRaces.Size = new Size(362, 151);
             rtbRaces.TabIndex = 0;
             rtbRaces.Text = "";
             // 
             // splitter3
             // 
             splitter3.Dock = DockStyle.Bottom;
-            splitter3.Location = new Point(0, 707);
-            splitter3.Margin = new Padding(3, 4, 3, 4);
+            splitter3.Location = new Point(0, 530);
             splitter3.Name = "splitter3";
-            splitter3.Size = new Size(437, 4);
+            splitter3.Size = new Size(382, 3);
             splitter3.TabIndex = 8;
             splitter3.TabStop = false;
             // 
             // groupBox3
             // 
-            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox3.Controls.Add(rtbObjectives);
             groupBox3.Dock = DockStyle.Bottom;
-            groupBox3.Location = new Point(0, 711);
-            groupBox3.Margin = new Padding(3, 4, 3, 4);
+            groupBox3.Location = new Point(0, 533);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(14, 4, 14, 4);
-            groupBox3.Size = new Size(437, 344);
+            groupBox3.Padding = new Padding(12, 3, 12, 3);
+            groupBox3.Size = new Size(382, 258);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Objectives";
@@ -268,15 +259,16 @@
             // rtbObjectives
             // 
             rtbObjectives.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtbObjectives.Location = new Point(7, 27);
+            rtbObjectives.Location = new Point(6, 20);
+            rtbObjectives.Margin = new Padding(3, 2, 3, 2);
             rtbObjectives.Name = "rtbObjectives";
-            rtbObjectives.Size = new Size(413, 312);
+            rtbObjectives.Size = new Size(362, 235);
             rtbObjectives.TabIndex = 0;
             rtbObjectives.Text = "";
             // 
             // FrmMain
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(382, 791);
             Controls.Add(groupBox4);
@@ -286,20 +278,12 @@
             Controls.Add(splitter1);
             Controls.Add(groupBox1);
             Controls.Add(groupBox3);
-            ClientSize = new Size(437, 1055);
-            Controls.Add(groupBox4);
-            Controls.Add(splitter3);
-            Controls.Add(splitter2);
-            Controls.Add(groupBox2);
-            Controls.Add(splitter1);
-            Controls.Add(groupBox1);
-            Controls.Add(groupBox3);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmMain";
             Text = "FrmMain";
             FormClosing += FrmMain_FormClosing;
             Load += FrmMain_Load;
+            ResizeEnd += FrmMain_ResizeEnd;
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();

@@ -1,14 +1,7 @@
-﻿using FuzzySharp;
+﻿using F23.StringSimilarity;
 using Newtonsoft.Json;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +14,7 @@ namespace UmatoMusume.Utils
         private const int PROGRESS_INITIAL = 0;
         private const int PROGRESS_TOTAL = 100;
         private const int RATIO = 80;
+        private const int MAX_RATIO = 100;
 
         public static IWebElement? FindElementSafe(ISearchContext driver, By by)
         {
@@ -141,7 +135,9 @@ namespace UmatoMusume.Utils
 
         public static bool CheckRatio(string _inputStr, string _compareStr)
         {
-            return Fuzz.Ratio(_inputStr.Trim().ToLower(), _compareStr.ToLower().ToString()) >= RATIO;
+            var l = new JaroWinkler();
+            var ratio = l.Similarity(_inputStr, _compareStr);
+            return ratio >= (RATIO / MAX_RATIO);
         }
 
         public static T? GetSelectedValue<T>(this ComboBox _cbo)

@@ -28,6 +28,8 @@ namespace UmatoMusume
         private const int ATTACH_INTERVAL = 500;
         private const int CAPTURE_INTERVAL = 1000;
         private const int OFFSET_HEIGHT = 100;
+        private int _appHeight = 0;
+        private int _appWidth = 0;
 
         // Paths for JSON data files
         private const string UMA_DATA_PATH = "Assets/uma_data.json";
@@ -68,6 +70,14 @@ namespace UmatoMusume
             _supportCardList = Helper.LoadFromJson<SupportCard>(SUPPORT_CARD_PATH);
             _careerList = Helper.LoadFromJson<Career>(CAREER_DATA_PATH);
             _raceList = Helper.LoadFromJson<Race>(RACE_DATA_PATH);
+
+            var primaryScreen = Screen.PrimaryScreen;
+            if (primaryScreen != null)
+            {
+                _appHeight = primaryScreen.WorkingArea.Height - OFFSET_HEIGHT;
+            }
+
+            _appWidth = Width;
         }
 
         private async void EventTimer_Tick(object? sender, EventArgs e)
@@ -126,11 +136,8 @@ namespace UmatoMusume
                 var rect = Hook.GetWindowRectangle(_processhWnd);
                 Location = new Point(rect.Right, rect.Top);
 
-                var primaryScreen = Screen.PrimaryScreen;
-                if (primaryScreen != null)
-                {
-                    Height = primaryScreen.WorkingArea.Height - OFFSET_HEIGHT;
-                }
+                Height = _appHeight;
+                Width = _appWidth;
 
                 WindowState = FormWindowState.Normal;
             }
@@ -150,11 +157,8 @@ namespace UmatoMusume
                 var rect = Hook.GetWindowRectangle(hWnd).ToRectangle();
                 Location = new Point(rect.Right, rect.Top);
 
-                var primaryScreen = Screen.PrimaryScreen;
-                if (primaryScreen != null)
-                {
-                    Height = primaryScreen.WorkingArea.Height - OFFSET_HEIGHT;
-                }
+                Height = _appHeight;
+                Width = _appWidth;
 
                 UpdateCaptureAreasWithWindow(rect);
 
@@ -267,16 +271,16 @@ namespace UmatoMusume
         {
             var eventRect = await _rectConfigData.Get("EVENT_RECT");
             var dateTimeRect = await _rectConfigData.Get("DATETIME_RECT");
+            var appSize = await _rectConfigData.Get("WINDOW_RECT");
 
             _eventOctRect = eventRect?.ToRectangle() ?? null;
             _dateTimeRect = dateTimeRect?.ToRectangle() ?? null;
 
-            var primaryScreen = Screen.PrimaryScreen;
-            if (primaryScreen != null)
-            {
-                Height = primaryScreen.WorkingArea.Height - OFFSET_HEIGHT;
-            }
+            _appHeight = appSize?.Height ?? _appHeight;
+            _appWidth = appSize?.Width ?? _appWidth;
 
+            Height = _appHeight;
+            Width = _appWidth;
 
             foreach (var uma in _umaList)
             {
@@ -430,5 +434,20 @@ namespace UmatoMusume
         }
 
         private void lblDate_TextChanged(object sender, EventArgs e) => SetRaceData();
+
+        private async void FrmMain_ResizeEnd(object sender, EventArgs e)
+        {
+            await _rectConfigData.Upsert(new RectConfig
+            {
+                RectName = "WINDOW_RECT",
+                X = Location.X,
+                Y = Location.Y,
+                Width = Width,
+                Height = Height
+            });
+
+            _appHeight = Height;
+            _appWidth = Width;
+        }
     }
 }
