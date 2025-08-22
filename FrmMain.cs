@@ -29,7 +29,7 @@ namespace UmatoMusume
         protected Hook.WinEventDelegate _winEventDelegate;
         static GCHandle _gcSafetyHandle;
 
-        private const string TARGET_PROCESS_NAME = "Photos";
+        private const string TARGET_PROCESS_NAME = "UmamusumePrettyDerby";
         private const string FORM_TITLE = "UmatoMusume - Process Window Capture";
         private const int ATTACH_INTERVAL = 500;
         private const int CAPTURE_INTERVAL = 1000;
@@ -85,7 +85,6 @@ namespace UmatoMusume
             }
 
             _appWidth = Width;
-
             InitFilter();
         }
 
@@ -96,16 +95,8 @@ namespace UmatoMusume
             _raceTerrains = _raceList.GetRaceTerrains();
 
             pGradeCheckboxes.FlowDirection = FlowDirection.LeftToRight;
-            pGradeCheckboxes.WrapContents = false;
+            pGradeCheckboxes.WrapContents = true;
             pGradeCheckboxes.AutoScroll = true;
-
-            pDistantTypeCheckboxes.FlowDirection = FlowDirection.LeftToRight;
-            pDistantTypeCheckboxes.WrapContents = false;
-            pDistantTypeCheckboxes.AutoScroll = true;
-
-            pTerrainCheckboxes.FlowDirection = FlowDirection.LeftToRight;
-            pTerrainCheckboxes.WrapContents = false;
-            pTerrainCheckboxes.AutoScroll = true;
 
             foreach (var grade in _raceGrades)
             {
@@ -126,7 +117,7 @@ namespace UmatoMusume
                     {
                         _filterGrades.Remove(checkbox.Text);
                     }
-                    SetRaceData(_filterGrades);
+                    SetRaceData(_filterGrades, _filterDistanceTypes, _filterTerrainTypes);
                 };
 
                 pGradeCheckboxes.Controls.Add(checkbox);
@@ -150,9 +141,9 @@ namespace UmatoMusume
                     {
                         _filterDistanceTypes.Remove(checkbox.Text);
                     }
-                    SetRaceData(_filterGrades);
+                    SetRaceData(_filterGrades, _filterDistanceTypes, _filterTerrainTypes);
                 };
-                pDistantTypeCheckboxes.Controls.Add(checkbox);
+                pGradeCheckboxes.Controls.Add(checkbox);
             }
 
             foreach (var terrain in _raceTerrains)
@@ -173,9 +164,9 @@ namespace UmatoMusume
                     {
                         _filterTerrainTypes.Remove(checkbox.Text);
                     }
-                    SetRaceData(_filterGrades);
+                    SetRaceData(_filterGrades, _filterDistanceTypes, _filterTerrainTypes);
                 };
-                pTerrainCheckboxes.Controls.Add(checkbox);
+                pGradeCheckboxes.Controls.Add(checkbox);
             }
         }
 
@@ -471,12 +462,12 @@ namespace UmatoMusume
             }
         }
 
-        private void SetRaceData(List<string> _grades)
+        private void SetRaceData(List<string> _grades, List<string> _distanceTypes, List<string> _terrainTypes)
         {
             rtbRaces.Clear();
             if (!string.IsNullOrEmpty(lblDate.Text))
             {
-                var races = _raceList.GetRaces(lblDate.Text, _grades);
+                var races = _raceList.GetRaces(lblDate.Text, _grades, _distanceTypes, _terrainTypes);
                 if (races.Any())
                 {
                     foreach (var race in races)
@@ -532,7 +523,7 @@ namespace UmatoMusume
             return;
         }
 
-        private void lblDate_TextChanged(object sender, EventArgs e) => SetRaceData(_filterGrades);
+        private void lblDate_TextChanged(object sender, EventArgs e) => SetRaceData(_filterGrades, _filterDistanceTypes, _filterTerrainTypes);
 
         private async void FrmMain_ResizeEnd(object sender, EventArgs e)
         {

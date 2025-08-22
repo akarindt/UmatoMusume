@@ -42,8 +42,6 @@
             label1 = new Label();
             splitter2 = new Splitter();
             groupBox4 = new GroupBox();
-            pDistantTypeCheckboxes = new FlowLayoutPanel();
-            pTerrainCheckboxes = new FlowLayoutPanel();
             pGradeCheckboxes = new FlowLayoutPanel();
             lblDate = new Label();
             label3 = new Label();
@@ -73,6 +71,7 @@
             // 
             // btnCaptureDateTime
             // 
+            btnCaptureDateTime.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnCaptureDateTime.Location = new Point(194, 22);
             btnCaptureDateTime.Margin = new Padding(3, 2, 3, 2);
             btnCaptureDateTime.Name = "btnCaptureDateTime";
@@ -84,6 +83,7 @@
             // 
             // btnDownloadUmaData
             // 
+            btnDownloadUmaData.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnDownloadUmaData.Location = new Point(6, 50);
             btnDownloadUmaData.Margin = new Padding(3, 2, 3, 2);
             btnDownloadUmaData.Name = "btnDownloadUmaData";
@@ -193,8 +193,6 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(pDistantTypeCheckboxes);
-            groupBox4.Controls.Add(pTerrainCheckboxes);
             groupBox4.Controls.Add(pGradeCheckboxes);
             groupBox4.Controls.Add(lblDate);
             groupBox4.Controls.Add(label3);
@@ -209,33 +207,13 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Races";
             // 
-            // pDistantTypeCheckboxes
-            // 
-            pDistantTypeCheckboxes.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pDistantTypeCheckboxes.AutoScroll = true;
-            pDistantTypeCheckboxes.Location = new Point(87, 128);
-            pDistantTypeCheckboxes.Name = "pDistantTypeCheckboxes";
-            pDistantTypeCheckboxes.Size = new Size(281, 31);
-            pDistantTypeCheckboxes.TabIndex = 8;
-            pDistantTypeCheckboxes.WrapContents = false;
-            // 
-            // pTerrainCheckboxes
-            // 
-            pTerrainCheckboxes.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pTerrainCheckboxes.AutoScroll = true;
-            pTerrainCheckboxes.Location = new Point(87, 94);
-            pTerrainCheckboxes.Name = "pTerrainCheckboxes";
-            pTerrainCheckboxes.Size = new Size(281, 28);
-            pTerrainCheckboxes.TabIndex = 7;
-            pTerrainCheckboxes.WrapContents = false;
-            // 
             // pGradeCheckboxes
             // 
             pGradeCheckboxes.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pGradeCheckboxes.AutoScroll = true;
             pGradeCheckboxes.Location = new Point(87, 46);
             pGradeCheckboxes.Name = "pGradeCheckboxes";
-            pGradeCheckboxes.Size = new Size(280, 42);
+            pGradeCheckboxes.Size = new Size(280, 93);
             pGradeCheckboxes.TabIndex = 6;
             pGradeCheckboxes.WrapContents = false;
             // 
@@ -264,10 +242,10 @@
             // rtbRaces
             // 
             rtbRaces.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtbRaces.Location = new Point(6, 164);
+            rtbRaces.Location = new Point(6, 144);
             rtbRaces.Margin = new Padding(3, 2, 3, 2);
             rtbRaces.Name = "rtbRaces";
-            rtbRaces.Size = new Size(362, 128);
+            rtbRaces.Size = new Size(362, 148);
             rtbRaces.TabIndex = 0;
             rtbRaces.Text = "";
             // 
@@ -351,7 +329,5 @@
         private Label lblDate;
         private Label label3;
         private FlowLayoutPanel pGradeCheckboxes;
-        private FlowLayoutPanel pDistantTypeCheckboxes;
-        private FlowLayoutPanel pTerrainCheckboxes;
     }
 }
