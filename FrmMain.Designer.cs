@@ -286,7 +286,6 @@
             Controls.Add(splitter1);
             Controls.Add(groupBox1);
             Controls.Add(groupBox3);
-            Controls.Add(splitterOptions);
             ClientSize = new Size(437, 1055);
             Controls.Add(groupBox4);
             Controls.Add(splitter3);
