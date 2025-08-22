@@ -16,7 +16,7 @@ namespace UmatoMusume
         private const string DEFAULT_FOLDER = "Assets";
         private const string SUPPORT_CARD_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/support_card.json";
         private const string UMA_DATA_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/uma_data.json";
-        private const string CAREER_DATA_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/career_data.json";
+        private const string CAREER_DATA_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/career.json";
         private const string RACES_DATA_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/races.json";
         private const int PROGRESS_INITIAL = 0;
         private const int PROGRESS_TOTAL = 100;
@@ -264,6 +264,11 @@ namespace UmatoMusume
             {
                 SetControlsEnabled(true);
             }
+        }
+
+        private void FrmDownload_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

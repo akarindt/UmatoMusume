@@ -176,6 +176,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "FrmDownload";
             Text = "Umamusume Data Downloader";
+            Load += FrmDownload_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
