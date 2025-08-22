@@ -42,6 +42,9 @@
             label1 = new Label();
             splitter2 = new Splitter();
             groupBox4 = new GroupBox();
+            pDistantTypeCheckboxes = new FlowLayoutPanel();
+            pTerrainCheckboxes = new FlowLayoutPanel();
+            pGradeCheckboxes = new FlowLayoutPanel();
             lblDate = new Label();
             label3 = new Label();
             rtbRaces = new RichTextBox();
@@ -190,6 +193,9 @@
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(pDistantTypeCheckboxes);
+            groupBox4.Controls.Add(pTerrainCheckboxes);
+            groupBox4.Controls.Add(pGradeCheckboxes);
             groupBox4.Controls.Add(lblDate);
             groupBox4.Controls.Add(label3);
             groupBox4.Controls.Add(rtbRaces);
@@ -198,10 +204,40 @@
             groupBox4.Margin = new Padding(3, 2, 3, 2);
             groupBox4.Name = "groupBox4";
             groupBox4.Padding = new Padding(3, 2, 3, 2);
-            groupBox4.Size = new Size(382, 205);
+            groupBox4.Size = new Size(382, 298);
             groupBox4.TabIndex = 5;
             groupBox4.TabStop = false;
             groupBox4.Text = "Races";
+            // 
+            // pDistantTypeCheckboxes
+            // 
+            pDistantTypeCheckboxes.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pDistantTypeCheckboxes.AutoScroll = true;
+            pDistantTypeCheckboxes.Location = new Point(87, 128);
+            pDistantTypeCheckboxes.Name = "pDistantTypeCheckboxes";
+            pDistantTypeCheckboxes.Size = new Size(281, 31);
+            pDistantTypeCheckboxes.TabIndex = 8;
+            pDistantTypeCheckboxes.WrapContents = false;
+            // 
+            // pTerrainCheckboxes
+            // 
+            pTerrainCheckboxes.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pTerrainCheckboxes.AutoScroll = true;
+            pTerrainCheckboxes.Location = new Point(87, 94);
+            pTerrainCheckboxes.Name = "pTerrainCheckboxes";
+            pTerrainCheckboxes.Size = new Size(281, 28);
+            pTerrainCheckboxes.TabIndex = 7;
+            pTerrainCheckboxes.WrapContents = false;
+            // 
+            // pGradeCheckboxes
+            // 
+            pGradeCheckboxes.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pGradeCheckboxes.AutoScroll = true;
+            pGradeCheckboxes.Location = new Point(87, 46);
+            pGradeCheckboxes.Name = "pGradeCheckboxes";
+            pGradeCheckboxes.Size = new Size(280, 42);
+            pGradeCheckboxes.TabIndex = 6;
+            pGradeCheckboxes.WrapContents = false;
             // 
             // lblDate
             // 
@@ -228,17 +264,17 @@
             // rtbRaces
             // 
             rtbRaces.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtbRaces.Location = new Point(6, 48);
+            rtbRaces.Location = new Point(6, 164);
             rtbRaces.Margin = new Padding(3, 2, 3, 2);
             rtbRaces.Name = "rtbRaces";
-            rtbRaces.Size = new Size(362, 151);
+            rtbRaces.Size = new Size(362, 128);
             rtbRaces.TabIndex = 0;
             rtbRaces.Text = "";
             // 
             // splitter3
             // 
             splitter3.Dock = DockStyle.Bottom;
-            splitter3.Location = new Point(0, 530);
+            splitter3.Location = new Point(0, 623);
             splitter3.Name = "splitter3";
             splitter3.Size = new Size(382, 3);
             splitter3.TabIndex = 8;
@@ -248,10 +284,10 @@
             // 
             groupBox3.Controls.Add(rtbObjectives);
             groupBox3.Dock = DockStyle.Bottom;
-            groupBox3.Location = new Point(0, 533);
+            groupBox3.Location = new Point(0, 626);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(12, 3, 12, 3);
-            groupBox3.Size = new Size(382, 258);
+            groupBox3.Size = new Size(382, 165);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Objectives";
@@ -262,7 +298,7 @@
             rtbObjectives.Location = new Point(6, 20);
             rtbObjectives.Margin = new Padding(3, 2, 3, 2);
             rtbObjectives.Name = "rtbObjectives";
-            rtbObjectives.Size = new Size(362, 235);
+            rtbObjectives.Size = new Size(362, 142);
             rtbObjectives.TabIndex = 0;
             rtbObjectives.Text = "";
             // 
@@ -314,5 +350,8 @@
         private Splitter splitter3;
         private Label lblDate;
         private Label label3;
+        private FlowLayoutPanel pGradeCheckboxes;
+        private FlowLayoutPanel pDistantTypeCheckboxes;
+        private FlowLayoutPanel pTerrainCheckboxes;
     }
 }

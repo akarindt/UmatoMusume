@@ -19,11 +19,17 @@ namespace UmatoMusume
         private List<SupportCard> _supportCardList = new List<SupportCard>();
         private List<Career> _careerList = new List<Career>();
         private List<Race> _raceList = new List<Race>();
+        private List<string> _raceGrades = new List<string>();
+        private List<string> _raceDistanceTypes = new List<string>();
+        private List<string> _raceTerrains = new List<string>();
+        private List<string> _filterGrades = new List<string>();
+        private List<string> _filterDistanceTypes = new List<string>();
+        private List<string> _filterTerrainTypes = new List<string>();
 
         protected Hook.WinEventDelegate _winEventDelegate;
         static GCHandle _gcSafetyHandle;
 
-        private const string TARGET_PROCESS_NAME = "UmamusumePrettyDerby";
+        private const string TARGET_PROCESS_NAME = "Photos";
         private const string FORM_TITLE = "UmatoMusume - Process Window Capture";
         private const int ATTACH_INTERVAL = 500;
         private const int CAPTURE_INTERVAL = 1000;
@@ -48,6 +54,7 @@ namespace UmatoMusume
         public FrmMain()
         {
             InitializeComponent();
+
 
             WindowState = FormWindowState.Minimized;
             Text = FORM_TITLE;
@@ -78,6 +85,98 @@ namespace UmatoMusume
             }
 
             _appWidth = Width;
+
+            InitFilter();
+        }
+
+        private void InitFilter()
+        {
+            _raceGrades = _raceList.GetRaceGrades();
+            _raceDistanceTypes = _raceList.GetRaceDistanceTypes();
+            _raceTerrains = _raceList.GetRaceTerrains();
+
+            pGradeCheckboxes.FlowDirection = FlowDirection.LeftToRight;
+            pGradeCheckboxes.WrapContents = false;
+            pGradeCheckboxes.AutoScroll = true;
+
+            pDistantTypeCheckboxes.FlowDirection = FlowDirection.LeftToRight;
+            pDistantTypeCheckboxes.WrapContents = false;
+            pDistantTypeCheckboxes.AutoScroll = true;
+
+            pTerrainCheckboxes.FlowDirection = FlowDirection.LeftToRight;
+            pTerrainCheckboxes.WrapContents = false;
+            pTerrainCheckboxes.AutoScroll = true;
+
+            foreach (var grade in _raceGrades)
+            {
+                var checkbox = new CheckBox
+                {
+                    Text = grade,
+                    AutoSize = true,
+                    Checked = false,
+                };
+
+                checkbox.CheckedChanged += (s, e) =>
+                {
+                    if (checkbox.Checked)
+                    {
+                        _filterGrades.Add(checkbox.Text);
+                    }
+                    else
+                    {
+                        _filterGrades.Remove(checkbox.Text);
+                    }
+                    SetRaceData(_filterGrades);
+                };
+
+                pGradeCheckboxes.Controls.Add(checkbox);
+            }
+
+            foreach (var distanceType in _raceDistanceTypes)
+            {
+                var checkbox = new CheckBox
+                {
+                    Text = distanceType,
+                    AutoSize = true,
+                    Checked = false,
+                };
+                checkbox.CheckedChanged += (s, e) =>
+                {
+                    if (checkbox.Checked)
+                    {
+                        _filterDistanceTypes.Add(checkbox.Text);
+                    }
+                    else
+                    {
+                        _filterDistanceTypes.Remove(checkbox.Text);
+                    }
+                    SetRaceData(_filterGrades);
+                };
+                pDistantTypeCheckboxes.Controls.Add(checkbox);
+            }
+
+            foreach (var terrain in _raceTerrains)
+            {
+                var checkbox = new CheckBox
+                {
+                    Text = terrain,
+                    AutoSize = true,
+                    Checked = false,
+                };
+                checkbox.CheckedChanged += (s, e) =>
+                {
+                    if (checkbox.Checked)
+                    {
+                        _filterTerrainTypes.Add(checkbox.Text);
+                    }
+                    else
+                    {
+                        _filterTerrainTypes.Remove(checkbox.Text);
+                    }
+                    SetRaceData(_filterGrades);
+                };
+                pTerrainCheckboxes.Controls.Add(checkbox);
+            }
         }
 
         private async void EventTimer_Tick(object? sender, EventArgs e)
@@ -372,12 +471,12 @@ namespace UmatoMusume
             }
         }
 
-        private void SetRaceData()
+        private void SetRaceData(List<string> _grades)
         {
             rtbRaces.Clear();
             if (!string.IsNullOrEmpty(lblDate.Text))
             {
-                var races = _raceList.GetRaces(lblDate.Text);
+                var races = _raceList.GetRaces(lblDate.Text, _grades);
                 if (races.Any())
                 {
                     foreach (var race in races)
@@ -433,7 +532,7 @@ namespace UmatoMusume
             return;
         }
 
-        private void lblDate_TextChanged(object sender, EventArgs e) => SetRaceData();
+        private void lblDate_TextChanged(object sender, EventArgs e) => SetRaceData(_filterGrades);
 
         private async void FrmMain_ResizeEnd(object sender, EventArgs e)
         {

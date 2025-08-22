@@ -1,4 +1,5 @@
 ﻿using F23.StringSimilarity;
+using FuzzySharp;
 using Newtonsoft.Json;
 using OpenQA.Selenium;
 using System.Text;
@@ -135,9 +136,12 @@ namespace UmatoMusume.Utils
 
         public static bool CheckRatio(string _inputStr, string _compareStr)
         {
+            var ratioFuzzy = Fuzz.PartialRatio(_inputStr, _compareStr);
+            if (ratioFuzzy >= RATIO) return true;
+
             var l = new JaroWinkler();
-            var ratio = l.Similarity(_inputStr, _compareStr);
-            return ratio >= (RATIO / MAX_RATIO);
+            var ratio = l.Similarity(_inputStr, _compareStr) * MAX_RATIO;
+            return ratio >= RATIO;
         }
 
         public static T? GetSelectedValue<T>(this ComboBox _cbo)
