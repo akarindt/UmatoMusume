@@ -14,7 +14,7 @@ namespace UmatoMusume.Utils
         private const int DEFAULT_OFFSET = 0;
         private const int PROGRESS_INITIAL = 0;
         private const int PROGRESS_TOTAL = 100;
-        private const int RATIO = 80;
+        private const int RATIO = 85;
         private const int MAX_RATIO = 100;
 
         public static IWebElement? FindElementSafe(ISearchContext driver, By by)
@@ -136,7 +136,7 @@ namespace UmatoMusume.Utils
 
         public static bool CheckRatio(string _inputStr, string _compareStr)
         {
-            var ratioFuzzy = Fuzz.PartialRatio(_inputStr, _compareStr);
+            var ratioFuzzy = Fuzz.Ratio(_inputStr, _compareStr);
             if (ratioFuzzy >= RATIO) return true;
 
             var l = new JaroWinkler();

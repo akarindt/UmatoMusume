@@ -13,8 +13,13 @@ namespace UmatoMusume.Data
         public static List<Race> GetRaces(this List<Race> _races, string _dateTime, List<string> _grades, List<string> _distanceTypes, List<string> _terrainTypes)
         {
 
-            var result = _races.DistinctBy(x => x.RaceName)
-                .Where(x => x.Schedule.Equals(_dateTime) || Helper.CheckRatio(x.Schedule, _dateTime));
+            var result = _races
+                     .DistinctBy(x => x.RaceName)
+                     .Where(x => x.Schedule.Contains(_dateTime));
+
+            result = result.Any() ? result : _races
+                    .DistinctBy(x => x.RaceName)
+                    .Where(x => Helper.CheckRatio(x.Schedule, _dateTime));
 
             if (_grades.Any())
             {

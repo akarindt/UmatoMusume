@@ -1,71 +1,85 @@
 # UmatoMusume
+A Windows desktop application that assists players of Umamusume Pretty Derby by providing a real-time event tracker and choice assistant using OCR (Optical Character Recognition).
 
-A Windows desktop application that assists players of Umamusume Pretty Derby by providing a real-time event tracker and choice assistant through OCR (Optical Character Recognition) technology.
+# Sections
+- [UmatoMusume](#umatomusume)
+- [Sections](#sections)
+- [Disclaimer](#disclaimer)
+- [How does it works ?](#how-does-it-works-)
+- [Features](#features)
+- [How to use this application ?](#how-to-use-this-application-)
+  - [Installation](#installation)
+  - [Set captures area for OCR](#set-captures-area-for-ocr)
+  - [Download/Crawl new data](#downloadcrawl-new-data)
+- [Build](#build)
+- [Dependencies](#dependencies)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 # Disclaimer
+- I can't guarantee you that using this tool will not get your account banned.  
+- This application interacts with the game through screen capture and OCR, which may violate Cygames' Terms of Service.  
+- Use it at your own risk.
 
-I can't guarantee you that using this tool will not get your account banned.  
-This application interacts with the game through screen capture and OCR, which may violate Cygames' Terms of Service.  
-Use it at your own risk.
+# How does it works ?
+The application uses OCR (Optical Character Recognition) to capture text directly from the game screen. Once the text is recognized, it compares the result with its built-in event database.
+- When an event appears in the game, the app scans it in real-time.
+- The recognized text is then matched against known events using string similarity (to handle OCR mistakes).
+- After matching, the app displays the corresponding choices and their effects so players can make the best decision immediately.
 
-## Features
+# Features
+| Feature              | Description                                                                 |
+|-----------------------|-----------------------------------------------------------------------------|
+| Options suggestion    | Show recommended choices and their effects when an event appears.           |
+| Real-time OCR         | Capture game screen text automatically and detect events instantly.         |
+| String similarity | Handle OCR mistakes by fuzzy matching against event database.               |
 
-### Game Window Tracking
-- Automatically attaches to the Umamusume Pretty Derby game window
-- Dynamically follows the game window's position and size
-- Shows a companion window positioned next to the game
-
-### OCR-Based Event Detection
-- Uses Tesseract OCR to detect in-game events in real-time
-- Captures and recognizes character names and event text
-- Configurable capture areas that can be adjusted to match different screen resolutions
-
-### Event Database
-- Provides recommendations for optimal choices in character events
-- Shows character objectives and their requirements
-- Pre-populated with event data from GameTora
-
-### Data Management
-- Built-in tools for downloading and updating game data
-- Web scraping functionality to get the latest event information
-- Local SQLite database for storing configuration settings
-
-### Customization
-- Configurable capture areas to adapt to different game window sizes
-- Ability to manually update or extend the event database
-- Supports both character events and support card events
-
-## System Requirements
-- Windows OS
-- .NET 9.0 runtime
-- Tesseract OCR libraries (included)
-
+# How to use this application ?
 ## Installation
-1. Download the latest release
-2. Extract the zip file to a folder of your choice
-3. Run UmatoMusume.exe
+- Download the [latest release](https://github.com/akarindt/UmatoMusume/releases/latest).
+- Extract the zip file to a folder of your choice.
+- Run UmatoMusume.exe.
+## Set captures area for OCR
+- At the main menu, there are two capture buttons, [Capture event] & [Capture date/time].
+- How to capture:
+  - Simply click the [Capture event]/[Capture date/time] button.
+  - Hold & drag the area that contains events/datetime.
+  - Enjoy !
+- Set area for events: [Watch the video](https://www.youtube.com/watch?v=QjwQ3tL6vHA)
+- Set area for date/time: [Watch the video](https://www.youtube.com/watch?v=UFjU6cFelxo)
+- The event box only display choices after you choose an uma from combobox.
+## Download/Crawl new data
+- This feature helps you to get the latest data from [gametora](https://gametora.com/umamusume). Basically, it just a web crawler.
+- At the main menu, when click the [Download data], a dialog will appear:
 
-## Getting Started
-1. Launch Umamusume Pretty Derby game
-2. Start UmatoMusume application
-3. Use the "Capture event" and "Capture character info" buttons to configure the capture areas
-4. The application will automatically recognize events and provide recommendations
+![Alt text](md_files/downloader.png)
 
-## Building from Source
-- The project uses .NET 9.0 and can be built using Visual Studio or the .NET CLI:
+- Download button: Fetches JSON files directly from GitHub, which is faster than crawling.
+- Crawl button: Use this when the repo hasn’t been updated recently. It allows you to fetch the data yourself.
+
+| Button                     | Description                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| Download/Crawl uma data    | Get umas events and objectives                                              |
+| Download/Crawl support     | Get support cards events                                                    |
+| Download/Crawl career      | Get careers events                                                          |
+| Download/Crawl races       | Get races infos with date/time                                              |
+
+# Build
+- This project uses [.NET 9.0](https://dotnet.microsoft.com/en-us/download/dotnet/9.0) and can be built using Visual Studio or the .NET CLI.
+```
+git clone https://github.com/akarindt/UmatoMusume.git
+cd UmatoMusume
 dotnet build
-- You will need to migrate the database schema if you are building from source, then copy it to the output directory
-## Dependencies
-- Microsoft.EntityFrameworkCore.Sqlite
-- Newtonsoft.Json
-- Selenium WebDriver (for data scraping)
-- Tesseract OCR
-- System.Drawing.Common
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
+```
+# Dependencies
+- [Selenium](https://www.selenium.dev/)
+- [Tesseract OCR](https://github.com/tesseract-ocr/tessdata_best)
+- [FuzzySharp](https://github.com/JakeBayer/FuzzySharp)
+- [StringSimilarity.NET](https://github.com/feature23/StringSimilarity.NET)
+# License
+- This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+# Acknowledgments
 - Game data sourced from [GameTora](https://gametora.com/umamusume)
 - Special thanks to the Umamusume community
+
+
