@@ -13,17 +13,13 @@ namespace UmatoMusume.Data
         public static List<Dictionary<string, string>> GetCareerEvents(this List<Career> _careers, string _eventName)
         {
             var result = _careers
-                .Where(x => x.EventName.Contains(_eventName))
+                .CompareWithFallback("EventName", _eventName)
                 .Select(x => new Dictionary<string, string>(x.EventOptions))
-                .Distinct(new DictionaryComparer());
-
-            result = result.Any() ? result : _careers
-                .Where(x => Helper.CheckRatio(x.EventName, _eventName))
-                .Select(x => new Dictionary<string, string>(x.EventOptions))
-                .Distinct(new DictionaryComparer());
+                .Distinct(new DictionaryComparer())
+                .ToList();
 
 
-            return result.ToList();
+            return result;
         }
     }
 }

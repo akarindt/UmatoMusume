@@ -2,6 +2,8 @@
 using FuzzySharp;
 using Newtonsoft.Json;
 using OpenQA.Selenium;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
@@ -146,32 +148,45 @@ namespace UmatoMusume.Utils
 
         public static T? GetSelectedValue<T>(this ComboBox _cbo)
         {
-            if(_cbo.SelectedIndex < 0 || _cbo.SelectedIndex >= _cbo.Items.Count) return default;
+            if (_cbo.SelectedIndex < 0 || _cbo.SelectedIndex >= _cbo.Items.Count) return default;
             var currentValue = _cbo.Items[_cbo.SelectedIndex];
             return currentValue is T value ? value : default;
         }
 
-        public static bool ContainsXHTML(this string _input)
+        public static object? GetValue<T>(string _propertyName, object? _obj)
         {
-            try
-            {
-                XElement x = XElement.Parse("<wrapper>" + _input + "</wrapper>");
-                return !(x.DescendantNodes().Count() == 1 && x.DescendantNodes().First().NodeType == XmlNodeType.Text);
-            }
-            catch
-            {
-                return true;
-            }
+            if(_obj == null) return default;
+
+            var prop = typeof(T).GetProperty(_propertyName);
+            return prop != null ? prop.GetValue(_obj) : default;
         }
 
-        public static string ConvertXHTMLEntities(this string _input)
+        public static IEnumerable<T> CompareWithFallback<T>(this IEnumerable<T> _list, string _propertyName, string _compareStr)
         {
-            string output = _input;
-            output = output.Replace("&amp;", "amp_token");
-            output = output.Replace("&", "&amp;");
-            output = output.Replace("amp_token", "&amp;");
-            output = output.Replace("< ", "&lt; ");
-            return output;
+            var result = _list.Where(x =>
+            {
+                var value = GetValue<T>(_propertyName, x)?.ToString() ?? string.Empty;
+                return value.Equals(_compareStr);
+            });
+
+            result = result.Any() ? result : _list.Where(x =>
+            {
+                var value = GetValue<T>(_propertyName, x)?.ToString() ?? string.Empty;
+                return value.Contains(_compareStr);
+            });
+
+            result = result.Any() ? result : _list.Where(x =>
+            {
+                var value = GetValue<T>(_propertyName, x)?.ToString() ?? string.Empty;
+                return CheckRatio(value, _compareStr);
+            });
+
+            return result;
+        }
+
+        public static IEnumerable<T> ListPredicate<T, K>(this IEnumerable<T> _list, IEnumerable<K> _inputList, Func<T, bool> _predicate)
+        {
+            return _inputList.Any() ? _list.Where(_predicate) : _list;
         }
     }
 }

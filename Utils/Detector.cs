@@ -35,7 +35,7 @@ namespace UmatoMusume.Utils
         private const int PIXEL_MIN = 0;
         private const int PIXEL_MAX = 255;
         private const string OCR_DPI_STRING = "300";
-        private const string OCR_CHAR_WHITELIST = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,-!?:()[]{}♪☆";
+        private const string OCR_CHAR_WHITELIST = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         private const string OCR_PAGE_SEG_MODE = "7";
 
         private static readonly float[][] COLOR_MATRIX = new float[][]

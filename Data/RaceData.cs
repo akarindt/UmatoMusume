@@ -12,31 +12,15 @@ namespace UmatoMusume.Data
     {
         public static List<Race> GetRaces(this List<Race> _races, string _dateTime, List<string> _grades, List<string> _distanceTypes, List<string> _terrainTypes)
         {
-
             var result = _races
-                     .DistinctBy(x => x.RaceName)
-                     .Where(x => x.Schedule.Contains(_dateTime));
+                .CompareWithFallback("Schedule", _dateTime)
+                .DistinctBy(x => x.RaceName)
+                .ListPredicate(_grades, x => _grades.Contains(x.Grade))
+                .ListPredicate(_distanceTypes, x => _distanceTypes.Contains(x.DistanceType))
+                .ListPredicate(_terrainTypes, x => _terrainTypes.Contains(x.Terrain))
+                .ToList();
 
-            result = result.Any() ? result : _races
-                    .DistinctBy(x => x.RaceName)
-                    .Where(x => Helper.CheckRatio(x.Schedule, _dateTime));
-
-            if (_grades.Any())
-            {
-                result = result.Where(x => _grades.Contains(x.Grade));
-            }
-
-            if (_distanceTypes.Any())
-            {
-                result = result.Where(x => _distanceTypes.Contains(x.DistanceType));
-            }
-
-            if (_terrainTypes.Any())
-            {
-                result = result.Where(x => _terrainTypes.Contains(x.Terrain));
-            }
-
-            return result.ToList();
+            return result;
         }
 
         public static List<string> GetRaceGrades(this List<Race> _races)
