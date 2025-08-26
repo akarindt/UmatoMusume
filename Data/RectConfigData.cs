@@ -1,12 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using UmatoMusume.Models;
 using UmatoMusume.Utils;
 
 namespace UmatoMusume.Data
 {
-    public class RectConfigData
+    public class RectConfigData : IDisposable
     {
         private readonly UmatoDBContext _dbContext;
+        private bool _disposed = false;
 
         public RectConfigData(UmatoDBContext _context)
         {
@@ -41,6 +42,24 @@ namespace UmatoMusume.Data
             }
 
             await _dbContext.SaveChangesAsync();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _dbContext?.Dispose();
+                }
+                _disposed = true;
+            }
         }
     }
 }

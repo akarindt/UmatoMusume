@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.DevTools.V136.WebAuthn;
 using System;
@@ -25,40 +26,72 @@ namespace UmatoMusume.Utils
         private const int PROGRESS_COMPLETE = 100;
         private const int PROGRESS_TOTAL = 100;
 
-        public static async Task DownloadUmaData(IProgress<(int Current, int Total, string Message)>? progress = null, string savePath = DEFAULT_SAVE_PATH + "/uma_data.json")
+        private static ChromeDriverService? _service;
+        private static readonly ChromeOptions _chromeOptions = new ChromeOptions();
+
+        static GameTora()
+        {
+            _chromeOptions.AddArgument("--headless");
+            _chromeOptions.AddArgument("--window-size=1920,1080");
+            _chromeOptions.AddArgument("--disable-gpu");
+            _chromeOptions.AddArgument("--no-sandbox");
+        }
+
+        private static ChromeDriverService CreateDriverService()
+        {
+            var service = ChromeDriverService.CreateDefaultService();
+            service.HideCommandPromptWindow = true;
+            service.SuppressInitialDiagnosticInformation = true;
+            return service;
+        }
+
+        private static void SetupPage(IWebDriver _driver)
+        {
+            var accept = Helper.FindElementSafe(_driver, By.CssSelector("body > div#__next > div[class*=legal_cookie_banner_wrapper__] > div > div[class*=legal_cookie_banner_selection__] > div:last-child > button[class*=legal_cookie_banner_button__]"));
+            accept?.Click();
+
+            var option = Helper.FindElementSafe(_driver, By.CssSelector("body > div#__next > div > div[class*=styles_page__] > header[id*=styles_page-header__] > div[class*=styles_header_settings__]"));
+            option?.Click();
+
+            var menuOption = Helper.FindElementSafe(_driver, By.CssSelector("body > div[data-tippy-root] > div.tippy-box > div.tippy-content > div > div[class*=tooltips_tooltip__] > div:last-child > div:last-child  > div:last-child > label"));
+            menuOption?.Click();
+        }
+
+        public static void DisposeResources()
+        {
+            try
+            {
+                _service?.Dispose();
+                _service = null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error disposing ChromeDriverService: {ex.Message}");
+            }
+        }
+
+        public static async Task DownloadUmaData(IProgress<(int Current, int Total, string Message)>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/uma_data.json")
         {
             Cursor.Current = Cursors.WaitCursor;
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArgument("--headless");
-            chromeOptions.AddArgument("--window-size=1920,1080");
-            chromeOptions.AddArgument("--disable-gpu");
-            chromeOptions.AddArgument("--no-sandbox");
-
-            IWebDriver driver = new ChromeDriver(chromeOptions);
-
+            _service ??= CreateDriverService();
+            
+            using var driver = new ChromeDriver(_service, _chromeOptions);
             try
             {
                 driver.Navigate().GoToUrl("https://gametora.com/umamusume/characters");
 
-                progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
+                _progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
                 var currentUmaList = Helper.LoadFromJson<Umamusume>(UMA_DATA_PATH);
                 var elements = driver.FindElements(By.CssSelector("body > div#__next > div > div > main > main > div:last-child > a"));
                 var urlList = new List<string>();
                 var umaDataList = new List<Umamusume>();
 
-                var accept = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div[class*=legal_cookie_banner_wrapper__] > div > div[class*=legal_cookie_banner_selection__] > div:last-child > button[class*=legal_cookie_banner_button__]"));
-                accept?.Click();
+                SetupPage(driver);
 
-                var option = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div > div[class*=styles_page__] > header[id*=styles_page-header__] > div[class*=styles_header_settings__]"));
-                option?.Click();
+                await Task.Delay(DELAY_TIME * 2).ConfigureAwait(false);
 
-                var menuOption = Helper.FindElementSafe(driver, By.CssSelector("body > div[data-tippy-root] > div.tippy-box > div.tippy-content > div > div[class*=tooltips_tooltip__] > div:last-child > div:last-child  > div:last-child > label"));
-                menuOption?.Click();
-
-                await Task.Delay(DELAY_TIME * 2);
-
-                progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering character URLs..."));
+                _progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering character URLs..."));
 
                 foreach (var element in elements)
                 {
@@ -85,11 +118,12 @@ namespace UmatoMusume.Utils
                     currentUrl++;
                     string characterName = url.Split('/').Last();
 
-                    int progressPercentage = PROGRESS_URL_GATHERING + (currentUrl * PROGRESS_PROCESSING_WEIGHT / totalUrls);
-                    progress?.Report((progressPercentage, PROGRESS_TOTAL, $"Processing character {currentUrl}/{totalUrls}: {characterName}..."));
+                    int _progressPercentage = PROGRESS_URL_GATHERING + (currentUrl * PROGRESS_PROCESSING_WEIGHT / totalUrls);
+                    _progress?.Report((_progressPercentage, PROGRESS_TOTAL, $"Processing character {currentUrl}/{totalUrls}: {characterName}..."));
 
                     driver.Navigate().GoToUrl(url);
-                    await Task.Delay(DELAY_TIME);
+                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
+                    
                     var nameElement = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div > div > main > main > div:last-child > div > div[class*=characters_infobox_top] > div[class*=characters_infobox_character_name] > a"));
                     var name = nameElement?.GetAttribute("innerText")?.Replace("\n", "") ?? "";
 
@@ -120,10 +154,9 @@ namespace UmatoMusume.Utils
                         foreach (var eventElement in eventElements)
                         {
                             var eventName = eventElement.GetAttribute("innerText") ?? "";
-
                             eventElement.Click();
 
-                            await Task.Delay(DELAY_TIME);
+                            await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
                             var trs = Helper.FindElementsSafe(eventBox, By.CssSelector("div[data-tippy-root] > div > div > div > div > div > table[class*=tooltips_ttable__] > tbody > tr"));
                             foreach (var tr in trs)
@@ -183,54 +216,41 @@ namespace UmatoMusume.Utils
 
                 umaDataList.AddRange(currentUmaList);
 
-                progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
-                Helper.SaveAsJson(umaDataList, savePath);
+                _progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
+                Helper.SaveAsJson(umaDataList, _savePath);
 
-                progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
+                _progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show($"Uma data saved to {savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                driver.Quit();
+                MessageBox.Show($"Uma data saved to {_savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show($"Error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                driver.Quit();
+                throw;
             }
         }
 
-        public static async Task DownloadSupportData(IProgress<(int Current, int Total, string Message)>? progress = null, string savePath = DEFAULT_SAVE_PATH + "/support_card.json")
+        public static async Task DownloadSupportData(IProgress<(int Current, int Total, string Message)>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/support_card.json")
         {
             Cursor.Current = Cursors.WaitCursor;
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArgument("--headless");
-            chromeOptions.AddArgument("--window-size=1920,1080");
-            chromeOptions.AddArgument("--disable-gpu");
-            chromeOptions.AddArgument("--no-sandbox");
-
-            IWebDriver driver = new ChromeDriver(chromeOptions);
-
+            _service ??= CreateDriverService();
+            
+            using var driver = new ChromeDriver(_service, _chromeOptions);
             try
             {
                 driver.Navigate().GoToUrl("https://gametora.com/umamusume/supports");
-                progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
+                _progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
                 var elements = driver.FindElements(By.CssSelector("body > div#__next > div > div > main > main > div:last-child > a"));
                 var urlList = new List<string>();
                 var supportCardList = new List<SupportCard>();
 
-                var accept = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div[class*=legal_cookie_banner_wrapper__] > div > div[class*=legal_cookie_banner_selection__] > div:last-child > button[class*=legal_cookie_banner_button__]"));
-                accept?.Click();
+                SetupPage(driver);
 
-                var option = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div > div[class*=styles_page__] > header[id*=styles_page-header__] > div[class*=styles_header_settings__]"));
-                option?.Click();
+                await Task.Delay(DELAY_TIME * 2).ConfigureAwait(false);
 
-                var menuOption = Helper.FindElementSafe(driver, By.CssSelector("body > div[data-tippy-root] > div.tippy-box > div.tippy-content > div > div[class*=tooltips_tooltip__] > div:last-child > div:last-child  > div:last-child > label"));
-                menuOption?.Click();
-
-                await Task.Delay(DELAY_TIME * 2);
-
-                progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering support card URLs..."));
+                _progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering support card URLs..."));
 
                 foreach (var element in elements)
                 {
@@ -253,11 +273,11 @@ namespace UmatoMusume.Utils
                     currentUrl++;
                     string supportName = url.Split('/').Last();
 
-                    int progressPercentage = PROGRESS_URL_GATHERING + (currentUrl * PROGRESS_PROCESSING_WEIGHT / totalUrls);
-                    progress?.Report((progressPercentage, PROGRESS_TOTAL, $"Processing support {currentUrl}/{totalUrls}: {supportName}..."));
+                    int _progressPercentage = PROGRESS_URL_GATHERING + (currentUrl * PROGRESS_PROCESSING_WEIGHT / totalUrls);
+                    _progress?.Report((_progressPercentage, PROGRESS_TOTAL, $"Processing support {currentUrl}/{totalUrls}: {supportName}..."));
 
                     driver.Navigate().GoToUrl(url);
-                    await Task.Delay(DELAY_TIME);
+                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
                     var eventBoxes = Helper.FindElementsSafe(driver, By.CssSelector("body > div#__next > div > div > main > main > div:last-child > div > div:last-child > div > div[class*=eventhelper_elist]"));
                     foreach (var eventBox in eventBoxes)
@@ -269,7 +289,7 @@ namespace UmatoMusume.Utils
 
                             eventElement.Click();
 
-                            await Task.Delay(DELAY_TIME);
+                            await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
                             var trs = Helper.FindElementsSafe(eventBox, By.CssSelector("div[data-tippy-root] > div > div > div > div > div > table[class*=tooltips_ttable__] > tbody > tr"));
                             foreach (var tr in trs)
@@ -326,53 +346,47 @@ namespace UmatoMusume.Utils
                     }
                 }
 
-                progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
-                Helper.SaveAsJson(supportCardList, savePath);
+                _progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
+                Helper.SaveAsJson(supportCardList, _savePath);
 
-                progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
+                _progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show($"Support cards saved to {savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                driver.Quit();
+                MessageBox.Show($"Support cards saved to {_savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (WebDriverException ex)
+            {
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show($"WebDriver error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
             catch (Exception ex)
             {
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show($"Error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                driver.Quit();
+                throw;
             }
         }
 
-        public static async Task DownloadAllCareerData(IProgress<(int Current, int Total, string Message)>? progress = null, string savePath = DEFAULT_SAVE_PATH + "/career.json")
+        public static async Task DownloadAllCareerData(IProgress<(int Current, int Total, string Message)>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/career.json")
         {
             Cursor.Current = Cursors.WaitCursor;
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArgument("--headless");
-            chromeOptions.AddArgument("--window-size=1920,1080");
-            chromeOptions.AddArgument("--disable-gpu");
-            chromeOptions.AddArgument("--no-sandbox");
-
-            IWebDriver driver = new ChromeDriver(chromeOptions);
+            _service ??= CreateDriverService();
+            
+            using var driver = new ChromeDriver(_service, _chromeOptions);
             try
             {
                 driver.Navigate().GoToUrl("https://gametora.com/umamusume/training-event-helper");
                 var careerList = new List<Career>();
-                progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
+                _progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
                 IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
                 js.ExecuteScript("localStorage.setItem('u-eh-d1','[\"Deck 1\",106101,1,30024,30024,30009,30024,30009,30008]')");
                 driver.Navigate().Refresh();
 
-                var accept = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div[class*=legal_cookie_banner_wrapper__] > div > div[class*=legal_cookie_banner_selection__] > div:last-child > button[class*=legal_cookie_banner_button__]"));
-                accept?.Click();
+                SetupPage(driver);
 
-                var option = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div > div[class*=styles_page__] > header[id*=styles_page-header__] > div[class*=styles_header_settings__]"));
-                option?.Click();
-
-                var menuOption = Helper.FindElementSafe(driver, By.CssSelector("body > div[data-tippy-root] > div.tippy-box > div.tippy-content > div > div[class*=tooltips_tooltip__] > div:last-child > div:last-child  > div:last-child > label"));
-                menuOption?.Click();
-
-                await Task.Delay(DELAY_TIME * 2);
-                progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering career data..."));
+                await Task.Delay(DELAY_TIME * 2).ConfigureAwait(false);
+                _progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering career data..."));
 
                 Helper.FindElementSafe(driver, By.Id("boxScenario"))?.Click();
 
@@ -385,20 +399,20 @@ namespace UmatoMusume.Utils
                 {
                     currentElement++;
 
-                    int progressPercentage = PROGRESS_URL_GATHERING + (currentElement * PROGRESS_PROCESSING_WEIGHT / totalElement);
-                    progress?.Report((progressPercentage, PROGRESS_TOTAL, $"Processing career {currentElement}/{totalElement}"));
+                    int _progressPercentage = PROGRESS_URL_GATHERING + (currentElement * PROGRESS_PROCESSING_WEIGHT / totalElement);
+                    _progress?.Report((_progressPercentage, PROGRESS_TOTAL, $"Processing career {currentElement}/{totalElement}"));
 
                     Helper.FindElementSafe(driver, By.Id("boxScenario"))?.Click();
-                    await Task.Delay(DELAY_TIME);
+                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
                     var careerElement = Helper.FindElementSafe(driver, By.CssSelector($"div[class*=tooltips_tooltip_striped] > div:nth-of-type({i + 1})"));
                     careerElement?.Click();
-                    await Task.Delay(DELAY_TIME);
+                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
 
                     var careerButton = Helper.FindElementSafe(driver, By.CssSelector($"[id=\"{i + 1}\"][class*=\"filters_viewer_image_\"]"));
                     careerButton?.Click();
-                    await Task.Delay(DELAY_TIME);
+                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
                     var eventElements = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=eventhelper_elist] > div[class*=compatibility_viewer_item]"));
                     foreach (var eventElement in eventElements)
@@ -406,7 +420,7 @@ namespace UmatoMusume.Utils
                         var eventName = eventElement.GetAttribute("innerText") ?? "";
                         eventElement.Click();
 
-                        await Task.Delay(DELAY_TIME);
+                        await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
                         var trs = Helper.FindElementsSafe(driver, By.CssSelector("div[data-tippy-root] > div > div > div > div > div > table[class*=tooltips_ttable__] > tbody > tr"));
                         foreach (var tr in trs)
@@ -444,49 +458,42 @@ namespace UmatoMusume.Utils
 
                 }
 
-                progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
-                Helper.SaveAsJson(careerList, savePath);
+                _progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
+                Helper.SaveAsJson(careerList, _savePath);
 
-                progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
+                _progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show($"Successfully saved to {savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                driver.Quit();
+                MessageBox.Show($"Successfully saved to {_savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (WebDriverException ex)
+            {
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show($"WebDriver error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
             catch (Exception ex)
             {
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show($"Error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                driver.Quit();
+                throw;
             }
         }
 
-        public static async Task DownloadRacesData(IProgress<(int Current, int Total, string Message)>? progress = null, string savePath = DEFAULT_SAVE_PATH + "/races.json")
+        public static async Task DownloadRacesData(IProgress<(int Current, int Total, string Message)>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/races.json")
         {
             Cursor.Current = Cursors.WaitCursor;
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArgument("--headless");
-            chromeOptions.AddArgument("--window-size=1920,1080");
-            chromeOptions.AddArgument("--disable-gpu");
-            chromeOptions.AddArgument("--no-sandbox");
-
-            IWebDriver driver = new ChromeDriver(chromeOptions);
-
+            _service ??= CreateDriverService();
+            
+            using var driver = new ChromeDriver(_service, _chromeOptions);
             try
             {
                 driver.Navigate().GoToUrl("https://gametora.com/umamusume/races");
-                progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
+                _progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
-                var accept = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div[class*=legal_cookie_banner_wrapper__] > div > div[class*=legal_cookie_banner_selection__] > div:last-child > button[class*=legal_cookie_banner_button__]"));
-                accept?.Click();
+                SetupPage(driver);
 
-                var option = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div > div[class*=styles_page__] > header[id*=styles_page-header__] > div[class*=styles_header_settings__]"));
-                option?.Click();
-
-                var menuOption = Helper.FindElementSafe(driver, By.CssSelector("body > div[data-tippy-root] > div.tippy-box > div.tippy-content > div > div[class*=tooltips_tooltip__] > div:last-child > div:last-child  > div:last-child > label"));
-                menuOption?.Click();
-
-                await Task.Delay(DELAY_TIME * 2);
-                progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering races data..."));
+                await Task.Delay(DELAY_TIME * 2).ConfigureAwait(false);
+                _progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering races data..."));
 
                 var raceElements = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=\"races_race_list\"] > div[class*=\"races_row\"]"));
                 var totalElement = raceElements.Count;
@@ -501,8 +508,8 @@ namespace UmatoMusume.Utils
 
                     if (string.IsNullOrEmpty(raceName)) continue;
 
-                    int progressPercentage = PROGRESS_URL_GATHERING + (currentElement * PROGRESS_PROCESSING_WEIGHT / totalElement);
-                    progress?.Report((progressPercentage, PROGRESS_TOTAL, $"Processing race {currentElement}/{totalElement}: {raceName}..."));
+                    int _progressPercentage = PROGRESS_URL_GATHERING + (currentElement * PROGRESS_PROCESSING_WEIGHT / totalElement);
+                    _progress?.Report((_progressPercentage, PROGRESS_TOTAL, $"Processing race {currentElement}/{totalElement}: {raceName}..."));
 
                     if (raceName == "Junior Make Debut" || raceName == "Junior Maiden Race")
                     {
@@ -562,7 +569,7 @@ namespace UmatoMusume.Utils
                     var detailsButtonElement = Helper.FindElementSafe(raceElement, By.CssSelector("div[class*=\"races_ribbon\"] > div[class*=\"utils_linkcolor\"]"));
                     detailsButtonElement?.Click();
 
-                    await Task.Delay(DELAY_TIME);
+                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
                     var dialogElement = Helper.FindElementSafe(driver, By.CssSelector("div[role=\"dialog\"]"));
                     if (dialogElement == null) continue;
@@ -608,22 +615,27 @@ namespace UmatoMusume.Utils
                     var closeButton = Helper.FindElementSafe(dialogElement, By.CssSelector("img"));
                     closeButton?.Click();
 
-                    await Task.Delay(DELAY_TIME);
+                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
                 }
 
-                progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
-                Helper.SaveAsJson(raceList, savePath);
+                _progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
+                Helper.SaveAsJson(raceList, _savePath);
 
-                progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
+                _progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show($"Successfully saved to {savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                driver.Quit();
+                MessageBox.Show($"Successfully saved to {_savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (WebDriverException ex)
+            {
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show($"WebDriver error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
             catch (Exception ex)
             {
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show($"Error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                driver.Quit();
+                throw;
             }
         }
     }

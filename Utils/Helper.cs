@@ -2,6 +2,7 @@
 using FuzzySharp;
 using Newtonsoft.Json;
 using OpenQA.Selenium;
+using System.Drawing.Imaging;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -19,11 +20,11 @@ namespace UmatoMusume.Utils
         private const int RATIO = 85;
         private const int MAX_RATIO = 100;
 
-        public static IWebElement? FindElementSafe(ISearchContext driver, By by)
+        public static IWebElement? FindElementSafe(ISearchContext _driver, By _by)
         {
             try
             {
-                return driver.FindElement(by);
+                return _driver.FindElement(_by);
             }
             catch (NoSuchElementException)
             {
@@ -36,11 +37,11 @@ namespace UmatoMusume.Utils
         }
 
 
-        public static IReadOnlyCollection<IWebElement> FindElementsSafe(ISearchContext driver, By by)
+        public static IReadOnlyCollection<IWebElement> FindElementsSafe(ISearchContext _driver, By _by)
         {
             try
             {
-                return driver.FindElements(by);
+                return _driver.FindElements(_by);
             }
             catch (NoSuchElementException)
             {
@@ -51,18 +52,18 @@ namespace UmatoMusume.Utils
                 return new List<IWebElement>();
             }
         }
-        public static bool SaveAsJson<T>(List<T> items, string filePath, Newtonsoft.Json.Formatting formatting = Newtonsoft.Json.Formatting.Indented)
+        public static bool SaveAsJson<T>(List<T> _items, string _filePath, Newtonsoft.Json.Formatting _formatting = Newtonsoft.Json.Formatting.Indented)
         {
             try
             {
-                string? directory = Path.GetDirectoryName(filePath);
+                string? directory = Path.GetDirectoryName(_filePath);
                 if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
                 {
                     Directory.CreateDirectory(directory);
                 }
 
-                string json = JsonConvert.SerializeObject(items, formatting);
-                File.WriteAllText(filePath, json, Encoding.UTF8);
+                string json = JsonConvert.SerializeObject(_items, _formatting);
+                File.WriteAllText(_filePath, json, Encoding.UTF8);
                 return true;
             }
             catch (Exception ex)
@@ -72,16 +73,16 @@ namespace UmatoMusume.Utils
             }
         }
 
-        public static List<T> LoadFromJson<T>(string filePath)
+        public static List<T> LoadFromJson<T>(string _filePath)
         {
             try
             {
-                if (!File.Exists(filePath))
+                if (!File.Exists(_filePath))
                 {
                     return new List<T>();
                 }
 
-                string json = File.ReadAllText(filePath, Encoding.UTF8);
+                string json = File.ReadAllText(_filePath, Encoding.UTF8);
                 return JsonConvert.DeserializeObject<List<T>>(json) ?? new List<T>();
             }
             catch (Exception ex)
@@ -91,24 +92,43 @@ namespace UmatoMusume.Utils
             }
         }
 
-        public static async Task<bool> DownloadJsonAsync(string url, string filePath, IProgress<(int Current, int Total, string Message)>? progress = null)
+        public static T? SingleLoadFromJson<T>(string _filePath) where T : class
+        {
+            try
+            {
+                if (!File.Exists(_filePath))
+                {
+                    return null;
+                }
+
+                string json = File.ReadAllText(_filePath, Encoding.UTF8);
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading JSON file: {ex.Message}");
+                return null;
+            }
+        }
+
+        public static async Task<bool> DownloadJsonAsync(string _url, string _filePath, IProgress<(int Current, int Total, string Message)>? _progress = null)
         {
             try
             {
                 using var httpClient = new HttpClient();
-                progress?.Report((PROGRESS_INITIAL, PROGRESS_TOTAL, "Starting download..."));
-                using var response = await httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
+                _progress?.Report((PROGRESS_INITIAL, PROGRESS_TOTAL, "Starting download..."));
+                using var response = await httpClient.GetAsync(_url, HttpCompletionOption.ResponseHeadersRead);
                 response.EnsureSuccessStatusCode();
                 var contentLength = response.Content.Headers.ContentLength;
                 using var stream = await response.Content.ReadAsStreamAsync();
-                string? directory = Path.GetDirectoryName(filePath);
+                string? directory = Path.GetDirectoryName(_filePath);
 
                 if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
                 {
                     Directory.CreateDirectory(directory);
                 }
 
-                using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
+                using (var fileStream = new FileStream(_filePath, FileMode.Create, FileAccess.Write, FileShare.None))
                 {
                     var buffer = new byte[DEFAULT_BUFFER_SIZE];
                     long totalRead = 0;
@@ -120,16 +140,16 @@ namespace UmatoMusume.Utils
                         if (contentLength.HasValue && contentLength.Value > 0)
                         {
                             int percent = (int)(totalRead * PROGRESS_TOTAL / contentLength.Value);
-                            progress?.Report((percent, PROGRESS_TOTAL, $"Downloading... {percent}%"));
+                            _progress?.Report((percent, PROGRESS_TOTAL, $"Downloading... {percent}%"));
                         }
                     }
-                    progress?.Report((PROGRESS_TOTAL, PROGRESS_TOTAL, "Download complete!"));
+                    _progress?.Report((PROGRESS_TOTAL, PROGRESS_TOTAL, "Download complete!"));
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                progress?.Report((PROGRESS_INITIAL, PROGRESS_TOTAL, $"Error: {ex.Message}"));
+                _progress?.Report((PROGRESS_INITIAL, PROGRESS_TOTAL, $"Error: {ex.Message}"));
                 Console.WriteLine($"Error downloading JSON: {ex.Message}");
                 return false;
             }
@@ -155,7 +175,7 @@ namespace UmatoMusume.Utils
 
         public static object? GetValue<T>(string _propertyName, object? _obj)
         {
-            if(_obj == null) return default;
+            if (_obj == null) return default;
 
             var prop = typeof(T).GetProperty(_propertyName);
             return prop != null ? prop.GetValue(_obj) : default;
@@ -187,6 +207,38 @@ namespace UmatoMusume.Utils
         public static IEnumerable<T> ListPredicate<T, K>(this IEnumerable<T> _list, IEnumerable<K> _inputList, Func<T, bool> _predicate)
         {
             return _inputList.Any() ? _list.Where(_predicate) : _list;
+        }
+
+        public static byte[] ToByteArray(this Bitmap _bitmap, ImageFormat? _format = null)
+        {
+            using var ms = new MemoryStream();
+            _bitmap.Save(ms, _format ?? ImageFormat.Png);
+            return ms.ToArray();
+        }
+
+        public static T? JsonToData<T>(this string _str)
+        {
+            if (string.IsNullOrWhiteSpace(_str)) return default;
+
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(_str);
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine($"JSON parsing error: {ex.Message}");
+                return default;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error parsing JSON: {ex.Message}");
+                return default;
+            }
+        }
+
+        public static string GetWindowsVersion()
+        {
+            return Environment.Is64BitOperatingSystem ? "win-x64" : "win-x86";
         }
     }
 }

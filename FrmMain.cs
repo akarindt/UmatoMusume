@@ -26,10 +26,13 @@ namespace UmatoMusume
         private List<string> _filterDistanceTypes = new List<string>();
         private List<string> _filterTerrainTypes = new List<string>();
 
+        private Font _boldFont = new Font(Control.DefaultFont, FontStyle.Bold);
+        private Font _regularFont = new Font(Control.DefaultFont, FontStyle.Regular);
+
         protected Hook.WinEventDelegate _winEventDelegate;
         static GCHandle _gcSafetyHandle;
 
-        private const string TARGET_PROCESS_NAME = "UmamusumePrettyDerby";
+        private const string TARGET_PROCESS_NAME = "Photos";
         private const string FORM_TITLE = "UmatoMusume - Process Window Capture";
         private const int ATTACH_INTERVAL = 500;
         private const int CAPTURE_INTERVAL = 1000;
@@ -54,7 +57,6 @@ namespace UmatoMusume
         public FrmMain()
         {
             InitializeComponent();
-
 
             WindowState = FormWindowState.Minimized;
             Text = FORM_TITLE;
@@ -172,6 +174,8 @@ namespace UmatoMusume
 
         private async void EventTimer_Tick(object? sender, EventArgs e)
         {
+            _captureTimer.Stop();
+
             if (_processhWnd != IntPtr.Zero)
             {
                 if (_eventOctRect != null)
@@ -188,10 +192,13 @@ namespace UmatoMusume
                     var rect = (Rectangle)_dateTimeRect;
                     if (rect.Width > 0 && rect.Height > 0)
                     {
-                        lblDate.Text = await Task.Run(() => Detector.DetectText(rect, true));
+                        lblDate.Text = await Task.Run(() => Detector.DetectText(rect));
                     }
                 }
             }
+
+            await Task.Delay(CAPTURE_INTERVAL);
+            _captureTimer.Start();
         }
 
         private void AttachTimer_Tick(object? sender, EventArgs e)
@@ -293,18 +300,6 @@ namespace UmatoMusume
             }
         }
 
-        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (!e.Cancel)
-            {
-                if (_gcSafetyHandle.IsAllocated)
-                {
-                    _gcSafetyHandle.Free();
-                }
-                Hook.WinEventUnhook(_hWinEventHook);
-            }
-        }
-
         private async void btnCaptureEvent_Click(object sender, EventArgs e)
         {
             _eventOctRect = Detector.CaptureArea(_processhWnd);
@@ -396,9 +391,9 @@ namespace UmatoMusume
                     rtbObjectives.Clear();
                     foreach (var objective in objectives)
                     {
-                        rtbObjectives.SelectionFont = new Font(rtbObjectives.Font, FontStyle.Bold);
+                        rtbObjectives.SelectionFont = _boldFont;
                         rtbObjectives.AppendText(objective.ObjectiveName + ":\n");
-                        rtbObjectives.SelectionFont = new Font(rtbObjectives.Font, FontStyle.Regular);
+                        rtbObjectives.SelectionFont = _regularFont;
                         rtbObjectives.AppendText($"Turn: {objective.Turn} \nTime: {objective.Time} \nCondition: {objective.ObjectiveCondition}\n");
                     }
                 }
@@ -413,11 +408,11 @@ namespace UmatoMusume
                     {
                         if (!string.IsNullOrEmpty(option.Key))
                         {
-                            rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Bold);
+                            rtbOptions.SelectionFont = _boldFont;
                             rtbOptions.AppendText(option.Key + ":\n");
                         }
 
-                        rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
+                        rtbOptions.SelectionFont = _regularFont;
                         rtbOptions.AppendText(option.Value + "\n---------------\n");
                     }
                 }
@@ -431,11 +426,11 @@ namespace UmatoMusume
                         {
                             if (!string.IsNullOrEmpty(option.Key))
                             {
-                                rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Bold);
+                                rtbOptions.SelectionFont = _boldFont;
                                 rtbOptions.AppendText(option.Key + ":\n");
                             }
 
-                            rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
+                            rtbOptions.SelectionFont = _regularFont;
                             rtbOptions.AppendText(option.Value + "\n---------------\n");
                         }
                     }
@@ -449,11 +444,11 @@ namespace UmatoMusume
                             {
                                 if (!string.IsNullOrEmpty(option.Key))
                                 {
-                                    rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Bold);
+                                    rtbOptions.SelectionFont = _boldFont;
                                     rtbOptions.AppendText(option.Key + ":\n");
                                 }
 
-                                rtbOptions.SelectionFont = new Font(rtbOptions.Font, FontStyle.Regular);
+                                rtbOptions.SelectionFont = _regularFont;
                                 rtbOptions.AppendText(option.Value + "\n---------------\n");
                             }
                         }
@@ -472,10 +467,10 @@ namespace UmatoMusume
                 {
                     foreach (var race in races)
                     {
-                        rtbRaces.SelectionFont = new Font(rtbRaces.Font, FontStyle.Bold);
+                        rtbRaces.SelectionFont = _boldFont;
                         rtbRaces.AppendText($"{race.RaceName}({race.Grade}) - {race.Terrain} - {race.DistanceType} - {race.DistanceMeter}\n");
 
-                        rtbRaces.SelectionFont = new Font(rtbRaces.Font, FontStyle.Regular);
+                        rtbRaces.SelectionFont = _regularFont;
                         rtbRaces.AppendText($"Fans required: {race.FansRequired} - Fans gained: {race.FansGained}" + "\n---------------\n");
                     }
                 }
@@ -538,6 +533,27 @@ namespace UmatoMusume
 
             _appHeight = Height;
             _appWidth = Width;
+        }
+
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (_gcSafetyHandle.IsAllocated)
+            {
+                _gcSafetyHandle.Free();
+            }
+
+            Hook.WinEventUnhook(_hWinEventHook);
+
+            Detector.Dispose();
+
+            _attachTimer?.Stop();
+            _attachTimer?.Dispose();
+
+            _captureTimer?.Stop();
+            _captureTimer?.Dispose();
+
+            _rectConfigData?.Dispose();
+            GameTora.DisposeResources();
         }
     }
 }

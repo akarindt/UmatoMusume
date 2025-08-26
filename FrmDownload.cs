@@ -102,7 +102,6 @@ namespace UmatoMusume
                 }
 
                 MessageBox.Show("Uma data downloaded successfully. Please restart the application to load the newest data", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
             }
             finally
             {
@@ -132,7 +131,6 @@ namespace UmatoMusume
                 }
 
                 MessageBox.Show("Support Card data downloaded successfully. Please restart the application to load the newest data", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
             }
             finally
             {
@@ -174,7 +172,6 @@ namespace UmatoMusume
                 }
 
                 MessageBox.Show("Career data downloaded successfully. Please restart the application to load the newest data", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
             }
             finally
             {
@@ -257,8 +254,7 @@ namespace UmatoMusume
                     return;
                 }
 
-                MessageBox.Show("races data downloaded successfully. Please restart the application to load the newest data", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                MessageBox.Show("Races data downloaded successfully. Please restart the application to load the newest data", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally
             {
@@ -266,9 +262,9 @@ namespace UmatoMusume
             }
         }
 
-        private void FrmDownload_Load(object sender, EventArgs e)
+        private void FrmDownload_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            GameTora.DisposeResources();
         }
     }
 }
