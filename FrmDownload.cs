@@ -36,8 +36,18 @@ namespace UmatoMusume
                 var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
                 {
                     var (current, total, message) = progressData;
-                    pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                    lblProgress.Text = message;
+                    if (InvokeRequired)
+                    {
+                        Invoke(() => {
+                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                            lblProgress.Text = message;
+                        });
+                    }
+                    else
+                    {
+                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                        lblProgress.Text = message;
+                    }
                 });
 
                 await GameTora.DownloadUmaData(progress);
@@ -63,8 +73,18 @@ namespace UmatoMusume
                 var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
                 {
                     var (current, total, message) = progressData;
-                    pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                    lblProgress.Text = message;
+                    if (InvokeRequired)
+                    {
+                        Invoke(() => {
+                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                            lblProgress.Text = message;
+                        });
+                    }
+                    else
+                    {
+                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                        lblProgress.Text = message;
+                    }
                 });
 
                 await GameTora.DownloadSupportData(progress);
@@ -90,8 +110,18 @@ namespace UmatoMusume
                 var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
                 {
                     var (current, total, message) = progressData;
-                    pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                    lblProgress.Text = message;
+                    if (InvokeRequired)
+                    {
+                        Invoke(() => {
+                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                            lblProgress.Text = message;
+                        });
+                    }
+                    else
+                    {
+                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                        lblProgress.Text = message;
+                    }
                 });
 
                 bool result = await Helper.DownloadJsonAsync(UMA_DATA_DOWNLOAD_URL, DEFAULT_FOLDER + "/uma_data.json", progress);
@@ -119,8 +149,18 @@ namespace UmatoMusume
                 var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
                 {
                     var (current, total, message) = progressData;
-                    pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                    lblProgress.Text = message;
+                    if (InvokeRequired)
+                    {
+                        Invoke(() => {
+                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                            lblProgress.Text = message;
+                        });
+                    }
+                    else
+                    {
+                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                        lblProgress.Text = message;
+                    }
                 });
 
                 bool result = await Helper.DownloadJsonAsync(SUPPORT_CARD_DOWNLOAD_URL, DEFAULT_FOLDER + "/support_card.json", progress);
@@ -160,8 +200,18 @@ namespace UmatoMusume
                 var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
                 {
                     var (current, total, message) = progressData;
-                    pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                    lblProgress.Text = message;
+                    if (InvokeRequired)
+                    {
+                        Invoke(() => {
+                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                            lblProgress.Text = message;
+                        });
+                    }
+                    else
+                    {
+                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                        lblProgress.Text = message;
+                    }
                 });
 
                 bool result = await Helper.DownloadJsonAsync(CAREER_DATA_DOWNLOAD_URL, DEFAULT_FOLDER + "/career.json", progress);
@@ -189,8 +239,18 @@ namespace UmatoMusume
                 var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
                 {
                     var (current, total, message) = progressData;
-                    pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                    lblProgress.Text = message;
+                    if (InvokeRequired)
+                    {
+                        Invoke(() => {
+                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                            lblProgress.Text = message;
+                        });
+                    }
+                    else
+                    {
+                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                        lblProgress.Text = message;
+                    }
                 });
 
                 await GameTora.DownloadAllCareerData(progress);
@@ -216,8 +276,18 @@ namespace UmatoMusume
                 var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
                 {
                     var (current, total, message) = progressData;
-                    pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                    lblProgress.Text = message;
+                    if (InvokeRequired)
+                    {
+                        Invoke(() => {
+                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                            lblProgress.Text = message;
+                        });
+                    }
+                    else
+                    {
+                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                        lblProgress.Text = message;
+                    }
                 });
 
                 await GameTora.DownloadRacesData(progress);
@@ -243,8 +313,18 @@ namespace UmatoMusume
                 var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
                 {
                     var (current, total, message) = progressData;
-                    pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                    lblProgress.Text = message;
+                    if (InvokeRequired)
+                    {
+                        Invoke(() => {
+                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                            lblProgress.Text = message;
+                        });
+                    }
+                    else
+                    {
+                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
+                        lblProgress.Text = message;
+                    }
                 });
 
                 bool result = await Helper.DownloadJsonAsync(RACES_DATA_DOWNLOAD_URL, DEFAULT_FOLDER + "/races.json", progress);

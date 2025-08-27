@@ -32,7 +32,7 @@ namespace UmatoMusume
         protected Hook.WinEventDelegate _winEventDelegate;
         static GCHandle _gcSafetyHandle;
 
-        private const string TARGET_PROCESS_NAME = "Photos";
+        private const string TARGET_PROCESS_NAME = "UmamusumePrettyDerby";
         private const string FORM_TITLE = "UmatoMusume - Process Window Capture";
         private const int ATTACH_INTERVAL = 500;
         private const int CAPTURE_INTERVAL = 1000;
@@ -240,7 +240,7 @@ namespace UmatoMusume
             }
         }
 
-        protected async void WinEventCallback(
+        protected void WinEventCallback(
             IntPtr hWinEventHook,
             NativeMethods.SWEH_Events eventType,
             IntPtr hWnd,
@@ -252,50 +252,62 @@ namespace UmatoMusume
                 idObject == (NativeMethods.SWEH_ObjectId)NativeMethods.SWEH_CHILDID_SELF)
             {
                 var rect = Hook.GetWindowRectangle(hWnd).ToRectangle();
-                Location = new Point(rect.Right, rect.Top);
-
-                Height = _appHeight;
-                Width = _appWidth;
-
-                UpdateCaptureAreasWithWindow(rect);
-
-                if (_eventOctRect != null)
+                
+                if (InvokeRequired)
                 {
-                    await _rectConfigData.Upsert(new RectConfig
-                    {
-                        RectName = "EVENT_RECT",
-                        X = _eventOctRect.Value.X,
-                        Y = _eventOctRect.Value.Y,
-                        Width = _eventOctRect.Value.Width,
-                        Height = _eventOctRect.Value.Height
-                    });
-                }
-
-                if (_dateTimeRect != null)
-                {
-                    await _rectConfigData.Upsert(new RectConfig
-                    {
-                        RectName = "DATETIME_RECT",
-                        X = _dateTimeRect.Value.X,
-                        Y = _dateTimeRect.Value.Y,
-                        Width = _dateTimeRect.Value.Width,
-                        Height = _dateTimeRect.Value.Height
-                    });
-                }
-
-                if (NativeMethods.IsIconic(hWnd))
-                {
-                    if (WindowState != FormWindowState.Minimized)
-                    {
-                        WindowState = FormWindowState.Minimized;
-                    }
+                    Invoke(() => UpdateUI(rect));
                 }
                 else
                 {
-                    if (WindowState == FormWindowState.Minimized)
-                    {
-                        WindowState = FormWindowState.Normal;
-                    }
+                    UpdateUI(rect);
+                }
+            }
+        }
+
+        private async void UpdateUI(Rectangle rect)
+        {
+            Location = new Point(rect.Right, rect.Top);
+            Height = _appHeight;
+            Width = _appWidth;
+
+            UpdateCaptureAreasWithWindow(rect);
+
+            if (_eventOctRect != null)
+            {
+                await _rectConfigData.Upsert(new RectConfig
+                {
+                    RectName = "EVENT_RECT",
+                    X = _eventOctRect.Value.X,
+                    Y = _eventOctRect.Value.Y,
+                    Width = _eventOctRect.Value.Width,
+                    Height = _eventOctRect.Value.Height
+                });
+            }
+
+            if (_dateTimeRect != null)
+            {
+                await _rectConfigData.Upsert(new RectConfig
+                {
+                    RectName = "DATETIME_RECT",
+                    X = _dateTimeRect.Value.X,
+                    Y = _dateTimeRect.Value.Y,
+                    Width = _dateTimeRect.Value.Width,
+                    Height = _dateTimeRect.Value.Height
+                });
+            }
+
+            if (NativeMethods.IsIconic(_processhWnd))
+            {
+                if (WindowState != FormWindowState.Minimized)
+                {
+                    WindowState = FormWindowState.Minimized;
+                }
+            }
+            else
+            {
+                if (WindowState == FormWindowState.Minimized)
+                {
+                    WindowState = FormWindowState.Normal;
                 }
             }
         }
@@ -354,6 +366,22 @@ namespace UmatoMusume
 
         private async Task InitConfig()
         {
+            if(chkCheckUpdate.Checked)
+            {
+                var check = await Updater.CheckForUpdates();
+                if (check)
+                {
+                    var dialogResult = MessageBox.Show("An update is available. Do you want to download and install it now?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        FrmUpdater frmUpdater = new FrmUpdater();
+                        frmUpdater._shouldUpdate = true;
+                        frmUpdater.ShowDialog();
+                    }
+                }
+            }
+
+
             var eventRect = await _rectConfigData.Get("EVENT_RECT");
             var dateTimeRect = await _rectConfigData.Get("DATETIME_RECT");
             var appSize = await _rectConfigData.Get("WINDOW_RECT");
@@ -459,6 +487,8 @@ namespace UmatoMusume
 
         private void SetRaceData(List<string> _grades, List<string> _distanceTypes, List<string> _terrainTypes)
         {
+            lblDate.Text = Helper.SegmentWords(lblDate.Text);
+
             rtbRaces.Clear();
             if (!string.IsNullOrEmpty(lblDate.Text))
             {

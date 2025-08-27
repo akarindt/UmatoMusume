@@ -41,15 +41,21 @@
 		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="138.0.7204.16800" />
 		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.11" />
 		<PackageReference Include="System.Drawing.Common" Version="9.0.8" />
-		<PackageReference Include="Tesseract" Version="5.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="tessdata\**" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="UmamusumePD.sqlite" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="Assets\**" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="Extras\**" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="version_control.json" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="restart.bat" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
+
+	<Target Name="DeleteObjBeforeBuild" BeforeTargets="BeforeBuild">
+		<RemoveDir Directories="$(BaseOutputPath)" />
+		<RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+		<Exec Command="dotnet restore &quot;$(ProjectPath)&quot;" />
+	</Target>
 
 	<ItemGroup>
 	  <Content Include="Resources\09-This PC.ico" />

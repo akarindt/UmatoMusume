@@ -20,6 +20,11 @@ namespace UmatoMusume.Utils
         private const int RATIO = 85;
         private const int MAX_RATIO = 100;
 
+        private static readonly string[] VOCAB = new string[]
+        {
+            "Junior", "Classic", "Senior", "Pre", "Debut", "Early", "Late", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+        };
+
         public static IWebElement? FindElementSafe(ISearchContext _driver, By _by)
         {
             try
@@ -239,6 +244,44 @@ namespace UmatoMusume.Utils
         public static string GetWindowsVersion()
         {
             return Environment.Is64BitOperatingSystem ? "win-x64" : "win-x86";
+        }
+
+        public static string SegmentWords(string input)
+        {
+            List<string> result = new List<string>();
+            string remaining = input;
+
+            foreach (var word in VOCAB)
+            {
+                string bestMatch = "";
+                int bestScore = 0;
+                int bestStart = -1;
+                int bestLen = 0;
+
+                for (int i = 0; i < remaining.Length; i++)
+                {
+                    for (int j = i + 1; j <= remaining.Length; j++)
+                    {
+                        string sub = remaining.Substring(i, j - i);
+                        int score = Fuzz.Ratio(sub, word);
+                        if (score > bestScore)
+                        {
+                            bestScore = score;
+                            bestMatch = word;
+                            bestStart = i;
+                            bestLen = sub.Length;
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(bestMatch) && bestScore >= RATIO)
+                {
+                    result.Add(bestMatch);
+                    remaining = remaining.Remove(bestStart, bestLen);
+                }
+            }
+
+            return string.Join(" ", result);
         }
     }
 }

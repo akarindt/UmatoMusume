@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             groupBox1 = new GroupBox();
+            chkCheckUpdate = new CheckBox();
             btnCaptureDateTime = new Button();
             btnDownloadUmaData = new Button();
             btnCaptureEvent = new Button();
@@ -57,6 +58,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(chkCheckUpdate);
             groupBox1.Controls.Add(btnCaptureDateTime);
             groupBox1.Controls.Add(btnDownloadUmaData);
             groupBox1.Controls.Add(btnCaptureEvent);
@@ -68,6 +70,18 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Capture options";
+            // 
+            // chkCheckUpdate
+            // 
+            chkCheckUpdate.AutoSize = true;
+            chkCheckUpdate.Checked = true;
+            chkCheckUpdate.CheckState = CheckState.Checked;
+            chkCheckUpdate.Location = new Point(195, 53);
+            chkCheckUpdate.Name = "chkCheckUpdate";
+            chkCheckUpdate.Size = new Size(122, 19);
+            chkCheckUpdate.TabIndex = 4;
+            chkCheckUpdate.Text = "Check for updates";
+            chkCheckUpdate.UseVisualStyleBackColor = true;
             // 
             // btnCaptureDateTime
             // 
@@ -85,7 +99,7 @@
             btnDownloadUmaData.Location = new Point(6, 50);
             btnDownloadUmaData.Margin = new Padding(3, 2, 3, 2);
             btnDownloadUmaData.Name = "btnDownloadUmaData";
-            btnDownloadUmaData.Size = new Size(368, 22);
+            btnDownloadUmaData.Size = new Size(183, 22);
             btnDownloadUmaData.TabIndex = 2;
             btnDownloadUmaData.Text = "Download data";
             btnDownloadUmaData.UseVisualStyleBackColor = true;
@@ -297,6 +311,7 @@
             Load += FrmMain_Load;
             ResizeEnd += FrmMain_ResizeEnd;
             groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox4.ResumeLayout(false);
@@ -327,5 +342,6 @@
         private Label lblDate;
         private Label label3;
         private FlowLayoutPanel pGradeCheckboxes;
+        private CheckBox chkCheckUpdate;
     }
 }
