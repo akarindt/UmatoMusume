@@ -436,8 +436,6 @@ namespace UmatoMusume
             {
                 cboCharacterName.EndUpdate();
             }
-
-            lblEventName.Text = "Victory!";
         }
 
         private async void FrmMain_Load(object sender, EventArgs e)
