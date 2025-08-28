@@ -49,22 +49,17 @@
 		<None Include="Extras\**" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="version_control.json" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="restart.bat" CopyToOutputDirectory="PreserveNewest" />
-	</ItemGroup>
-
-	<Target Name="DeleteObjBeforeBuild" BeforeTargets="BeforeBuild">
-		<RemoveDir Directories="$(BaseOutputPath)" />
-		<RemoveDir Directories="$(BaseIntermediateOutputPath)" />
-		<Exec Command="dotnet restore &quot;$(ProjectPath)&quot;" />
-	</Target>
-
-	<ItemGroup>
-	  <Content Include="Resources\09-This PC.ico" />
+		<None Include="config.txt" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Reference Include="PaddleOCRJson">
-	    <HintPath>References\PaddleOCRJson.NET\PaddleOCRJson.dll</HintPath>
-	  </Reference>
+		<Content Include="Resources\09-This PC.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="PaddleOCRJson">
+			<HintPath>References\PaddleOCRJson.NET\PaddleOCRJson.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 
 </Project>

@@ -16,7 +16,10 @@ namespace UmatoMusume.Models
             Data = _data;
         }
 
-        public OcrResult() { }
+        public OcrResult()
+        {
+            Data = new object();
+        }
 
         [JsonProperty("code")]
         public int Code { get; set; }
@@ -27,7 +30,7 @@ namespace UmatoMusume.Models
         [JsonIgnore] public bool Succeed => Code == 100;
 
         [JsonIgnore]
-        public OcrData[] OcrData => Succeed ? JsonConvert.DeserializeObject<OcrData[]>(Data.ToString()) : null;
+        public OcrData[]? OcrData => Succeed && Data != null ? JsonConvert.DeserializeObject<OcrData[]>(Data.ToString() ?? string.Empty) : null;
     }
 
     public class OcrData
@@ -39,7 +42,11 @@ namespace UmatoMusume.Models
             Text = _text;
         }
 
-        public OcrData() { }
+        public OcrData()
+        {
+            Box = Array.Empty<int[]>();
+            Text = string.Empty;
+        }
 
         [JsonProperty("box")]
         public int[][] Box { get; set; }

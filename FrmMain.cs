@@ -25,6 +25,7 @@ namespace UmatoMusume
         private List<string> _filterGrades = new List<string>();
         private List<string> _filterDistanceTypes = new List<string>();
         private List<string> _filterTerrainTypes = new List<string>();
+        private Dictionary<string, string> _configValues = new Dictionary<string, string>();
 
         private Font _boldFont = new Font(Control.DefaultFont, FontStyle.Bold);
         private Font _regularFont = new Font(Control.DefaultFont, FontStyle.Regular);
@@ -36,9 +37,11 @@ namespace UmatoMusume
         private const string FORM_TITLE = "UmatoMusume - Process Window Capture";
         private const int ATTACH_INTERVAL = 500;
         private const int CAPTURE_INTERVAL = 1000;
+        private const int DELAY_AFTER_CAPTURE = 200;
         private const int OFFSET_HEIGHT = 100;
         private int _appHeight = 0;
         private int _appWidth = 0;
+
 
         // Paths for JSON data files
         private const string UMA_DATA_PATH = "Assets/uma_data.json";
@@ -87,6 +90,9 @@ namespace UmatoMusume
             }
 
             _appWidth = Width;
+
+            _configValues = Helper.ReadConfig();
+
             InitFilter();
         }
 
@@ -197,7 +203,7 @@ namespace UmatoMusume
                 }
             }
 
-            await Task.Delay(CAPTURE_INTERVAL);
+            await Task.Delay(DELAY_AFTER_CAPTURE);
             _captureTimer.Start();
         }
 
@@ -252,7 +258,7 @@ namespace UmatoMusume
                 idObject == (NativeMethods.SWEH_ObjectId)NativeMethods.SWEH_CHILDID_SELF)
             {
                 var rect = Hook.GetWindowRectangle(hWnd).ToRectangle();
-                
+
                 if (InvokeRequired)
                 {
                     Invoke(() => UpdateUI(rect));
@@ -366,12 +372,43 @@ namespace UmatoMusume
 
         private async Task InitConfig()
         {
-            if(chkCheckUpdate.Checked)
+            var configTasks = new[]
+            {
+                _rectConfigData.Get("EVENT_RECT"),
+                _rectConfigData.Get("DATETIME_RECT"),
+                _rectConfigData.Get("WINDOW_RECT"),
+            };
+
+            var results = await Task.WhenAll(configTasks);
+            var eventRect = results[0];
+            var dateTimeRect = results[1];
+            var appSize = results[2];
+            var checkForUpdates = bool.Parse(_configValues["AutoUpdate"] ?? "False");
+
+            _eventOctRect = eventRect?.ToRectangle() ?? null;
+            _dateTimeRect = dateTimeRect?.ToRectangle() ?? null;
+
+            _appHeight = appSize?.Height ?? _appHeight;
+            _appWidth = appSize?.Width ?? _appWidth;
+
+            chkCheckUpdate.Checked = checkForUpdates;
+
+            if (InvokeRequired)
+            {
+                Invoke(() => UpdateUIAfterConfig());
+            }
+            else
+            {
+                UpdateUIAfterConfig();
+            }
+
+            if (chkCheckUpdate.Checked)
             {
                 var check = await Updater.CheckForUpdates();
                 if (check)
                 {
-                    var dialogResult = MessageBox.Show("An update is available. Do you want to download and install it now?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    var dialogResult = MessageBox.Show("An update is available. Do you want to download and install it now?",
+                        "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
                         FrmUpdater frmUpdater = new FrmUpdater();
@@ -380,30 +417,46 @@ namespace UmatoMusume
                     }
                 }
             }
-
-
-            var eventRect = await _rectConfigData.Get("EVENT_RECT");
-            var dateTimeRect = await _rectConfigData.Get("DATETIME_RECT");
-            var appSize = await _rectConfigData.Get("WINDOW_RECT");
-
-            _eventOctRect = eventRect?.ToRectangle() ?? null;
-            _dateTimeRect = dateTimeRect?.ToRectangle() ?? null;
-
-            _appHeight = appSize?.Height ?? _appHeight;
-            _appWidth = appSize?.Width ?? _appWidth;
-
-            Height = _appHeight;
-            Width = _appWidth;
-
-            foreach (var uma in _umaList)
-            {
-                cboCharacterName.Items.Add(uma.UmaName);
-            }
         }
 
-        private void FrmMain_Load(object sender, EventArgs e)
+        private void UpdateUIAfterConfig()
         {
-            _ = InitConfig();
+            Height = _appHeight;
+            Width = _appWidth;
+            cboCharacterName.BeginUpdate();
+            try
+            {
+                cboCharacterName.Items.Clear();
+                foreach (var uma in _umaList)
+                {
+                    cboCharacterName.Items.Add(uma.UmaName);
+                }
+            }
+            finally
+            {
+                cboCharacterName.EndUpdate();
+            }
+
+            lblEventName.Text = "Victory!";
+        }
+
+        private async void FrmMain_Load(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+
+            try
+            {
+                await InitConfig();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during initialization: {ex.Message}", "Initialization Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
         }
 
         private void SetData()
@@ -429,7 +482,7 @@ namespace UmatoMusume
 
             if (!string.IsNullOrEmpty(selectedUma) && !string.IsNullOrEmpty(lblEventName.Text))
             {
-                var options = _umaList.GetUmaEventOptions(selectedUma, lblEventName.Text);
+                var options = _umaList.GetUmaEventOptions(selectedUma, lblEventName.Text, _raceGrades);
                 if (options.Any())
                 {
                     foreach (var option in options.SelectMany(x => x))
@@ -487,8 +540,6 @@ namespace UmatoMusume
 
         private void SetRaceData(List<string> _grades, List<string> _distanceTypes, List<string> _terrainTypes)
         {
-            lblDate.Text = Helper.SegmentWords(lblDate.Text);
-
             rtbRaces.Clear();
             if (!string.IsNullOrEmpty(lblDate.Text))
             {
@@ -584,6 +635,12 @@ namespace UmatoMusume
 
             _rectConfigData?.Dispose();
             GameTora.DisposeResources();
+        }
+
+        private void chkCheckUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            var value = chkCheckUpdate.Checked;
+            Helper.UpdateConfigValue("AutoUpdate", value.ToString());
         }
     }
 }

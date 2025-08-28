@@ -15,7 +15,8 @@ namespace UmatoMusume.Utils
     public static class Updater
     {
         private const string VERSION_CONTROL_FILE = "version_control.json";
-        private readonly static string[] EXCLUDE_FILES = new string[] { "restart.bat" };
+        private readonly static string[] EXCLUDE_FILES = new string[] { "restart.bat", "UmamusumePD.sqlite", "config.txt" };
+        private readonly static string[] EXCLUDE_FOLDERS = new string[] { };
         private const int DOWNLOAD_BUFFER_SIZE = 8192;
 
         // Progress reporting constants
@@ -148,6 +149,7 @@ namespace UmatoMusume.Utils
                 {
                     try
                     {
+                        if(EXCLUDE_FOLDERS.Contains(Path.GetFileName(dir))) continue;
 
                         string newName = Path.Combine(baseDir, $"{Path.GetFileName(dir)}_OLD");
                         if (Directory.Exists(newName)) Directory.Delete(newName, true);
@@ -218,12 +220,16 @@ namespace UmatoMusume.Utils
 
             foreach (FileInfo fi in _source.GetFiles())
             {
+                if(EXCLUDE_FILES.Contains(fi.Name)) continue;
+
                 string targetFilePath = Path.Combine(_target.FullName, fi.Name);
                 fi.CopyTo(targetFilePath, true);
             }
 
             foreach (DirectoryInfo di in _source.GetDirectories())
             {
+                if(EXCLUDE_FOLDERS.Contains(di.Name)) continue;
+
                 DirectoryInfo nextTargetSubDir = _target.CreateSubdirectory(di.Name);
                 CopyAll(di, nextTargetSubDir);
             }

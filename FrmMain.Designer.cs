@@ -82,6 +82,7 @@
             chkCheckUpdate.TabIndex = 4;
             chkCheckUpdate.Text = "Check for updates";
             chkCheckUpdate.UseVisualStyleBackColor = true;
+            chkCheckUpdate.CheckedChanged += chkCheckUpdate_CheckedChanged;
             // 
             // btnCaptureDateTime
             // 

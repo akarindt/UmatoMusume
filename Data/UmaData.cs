@@ -13,12 +13,25 @@ namespace UmatoMusume.Data
                 .ToList();
         }
 
-        public static List<Dictionary<string, string>> GetUmaEventOptions(this List<Umamusume> _umas, string _umaName, string _eventName)
+        public static List<Dictionary<string, string>> GetUmaEventOptions(this List<Umamusume> _umas, string _umaName, string _eventName, List<string>? _grades = null)
         {
             var result = _umas.Where(x => x.UmaName.Equals(_umaName))
                 .SelectMany(x => x.UmaEvents)
                 .CompareWithFallback("EventName", _eventName)
-                .Select(e => new Dictionary<string, string>(e.EventOptions))
+                .Select(e =>
+                {
+                    if (_grades != null)
+                    {
+                        if (!_grades.Any(grade => e.EventName.Contains(grade)))
+                        {
+                            return new Dictionary<string, string>(e.EventOptions);
+                        }
+
+                        return e.EventOptions.ToDictionary(d => $"{d.Key} {e.EventName.Split(" ")[1]}", d => d.Value);
+                    }
+
+                    return new Dictionary<string, string>(e.EventOptions);
+                })
                 .Distinct(new DictionaryComparer())
                 .ToList();
 

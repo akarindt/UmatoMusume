@@ -50,10 +50,10 @@ namespace UmatoMusume.Utils
             var accept = Helper.FindElementSafe(_driver, By.CssSelector("body > div#__next > div[class*=legal_cookie_banner_wrapper__] > div > div[class*=legal_cookie_banner_selection__] > div:last-child > button[class*=legal_cookie_banner_button__]"));
             accept?.Click();
 
-            var option = Helper.FindElementSafe(_driver, By.CssSelector("body > div#__next > div > div[class*=styles_page__] > header[id*=styles_page-header__] > div[class*=styles_header_settings__]"));
+            var option = Helper.FindElementSafe(_driver, By.CssSelector("div[class*=styles_header_settings__]"));
             option?.Click();
 
-            var menuOption = Helper.FindElementSafe(_driver, By.CssSelector("body > div[data-tippy-root] > div.tippy-box > div.tippy-content > div > div[class*=tooltips_tooltip__] > div:last-child > div:last-child  > div:last-child > label"));
+            var menuOption = Helper.FindElementSafe(_driver, By.CssSelector("div[class*=tooltips_tooltip__] > div:last-child > div:last-child  > div:last-child > label"));
             menuOption?.Click();
         }
 
@@ -74,7 +74,7 @@ namespace UmatoMusume.Utils
         {
             Cursor.Current = Cursors.WaitCursor;
             _service ??= CreateDriverService();
-            
+
             using var driver = new ChromeDriver(_service, _chromeOptions);
             try
             {
@@ -123,11 +123,11 @@ namespace UmatoMusume.Utils
 
                     driver.Navigate().GoToUrl(url);
                     await Task.Delay(DELAY_TIME).ConfigureAwait(false);
-                    
-                    var nameElement = Helper.FindElementSafe(driver, By.CssSelector("body > div#__next > div > div > main > main > div:last-child > div > div[class*=characters_infobox_top] > div[class*=characters_infobox_character_name] > a"));
+
+                    var nameElement = Helper.FindElementSafe(driver, By.CssSelector("div[class*=characters_infobox_top] > div[class*=characters_infobox_character_name] > a"));
                     var name = nameElement?.GetAttribute("innerText")?.Replace("\n", "") ?? "";
 
-                    var objectives = Helper.FindElementsSafe(driver, By.CssSelector("body > div#__next > div > div > main > main > div:last-child > div > div[class*=characters_objective_box] > div[class*=characters_objective]"));
+                    var objectives = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=characters_objective_box] > div[class*=characters_objective]"));
                     var t = new List<UmaObjective>();
                     foreach (var objective in objectives)
                     {
@@ -146,7 +146,7 @@ namespace UmatoMusume.Utils
                         );
                     }
 
-                    var eventBoxes = Helper.FindElementsSafe(driver, By.CssSelector("body > div#__next > div > div > main > main > div:last-child > div > div:last-child > div > div[class*=eventhelper_elist]"));
+                    var eventBoxes = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=eventhelper_elist]"));
                     var events = new List<UmaEvent>();
                     foreach (var eventBox in eventBoxes)
                     {
@@ -158,7 +158,7 @@ namespace UmatoMusume.Utils
 
                             await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
-                            var trs = Helper.FindElementsSafe(eventBox, By.CssSelector("div[data-tippy-root] > div > div > div > div > div > table[class*=tooltips_ttable__] > tbody > tr"));
+                            var trs = Helper.FindElementsSafe(eventBox, By.CssSelector("table[class*=tooltips_ttable__] > tbody > tr"));
                             foreach (var tr in trs)
                             {
                                 var eventOption = Helper.FindElementSafe(tr, By.CssSelector("td:nth-of-type(1)"));
@@ -176,7 +176,7 @@ namespace UmatoMusume.Utils
 
                             if (!trs.Any())
                             {
-                                var noChoices = Helper.FindElementsSafe(eventBox, By.CssSelector("div[data-tippy-root] > div > div > div > div > div > div[class*=tooltips_ttable_cell___] > div"));
+                                var noChoices = Helper.FindElementsSafe(eventBox, By.CssSelector("div[class*=tooltips_ttable_cell___] > div"));
                                 foreach (var noChoice in noChoices)
                                 {
                                     var eventOption = noChoice.GetAttribute("innerText") ?? "";
@@ -235,7 +235,7 @@ namespace UmatoMusume.Utils
         {
             Cursor.Current = Cursors.WaitCursor;
             _service ??= CreateDriverService();
-            
+
             using var driver = new ChromeDriver(_service, _chromeOptions);
             try
             {
@@ -279,7 +279,7 @@ namespace UmatoMusume.Utils
                     driver.Navigate().GoToUrl(url);
                     await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
-                    var eventBoxes = Helper.FindElementsSafe(driver, By.CssSelector("body > div#__next > div > div > main > main > div:last-child > div > div:last-child > div > div[class*=eventhelper_elist]"));
+                    var eventBoxes = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=eventhelper_elist]"));
                     foreach (var eventBox in eventBoxes)
                     {
                         var eventElements = Helper.FindElementsSafe(eventBox, By.CssSelector("div[class*=compatibility_viewer_item]"));
@@ -291,7 +291,7 @@ namespace UmatoMusume.Utils
 
                             await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
-                            var trs = Helper.FindElementsSafe(eventBox, By.CssSelector("div[data-tippy-root] > div > div > div > div > div > table[class*=tooltips_ttable__] > tbody > tr"));
+                            var trs = Helper.FindElementsSafe(eventBox, By.CssSelector("table[class*=tooltips_ttable__] > tbody > tr"));
                             foreach (var tr in trs)
                             {
                                 var eventOption = Helper.FindElementSafe(tr, By.CssSelector("td:nth-of-type(1)"));
@@ -309,7 +309,7 @@ namespace UmatoMusume.Utils
 
                             if (!trs.Any())
                             {
-                                var noChoices = Helper.FindElementsSafe(eventBox, By.CssSelector("div[data-tippy-root] > div > div > div > div > div > div[class*=tooltips_ttable_cell___] > div"));
+                                var noChoices = Helper.FindElementsSafe(eventBox, By.CssSelector("div[class*=tooltips_ttable_cell___] > div"));
                                 foreach (var noChoice in noChoices)
                                 {
                                     var eventOption = noChoice.GetAttribute("innerText") ?? "";
@@ -371,7 +371,7 @@ namespace UmatoMusume.Utils
         {
             Cursor.Current = Cursors.WaitCursor;
             _service ??= CreateDriverService();
-            
+
             using var driver = new ChromeDriver(_service, _chromeOptions);
             try
             {
@@ -379,13 +379,14 @@ namespace UmatoMusume.Utils
                 var careerList = new List<Career>();
                 _progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
+                SetupPage(driver);
+                await Task.Delay(DELAY_TIME * 2).ConfigureAwait(false);
+
                 IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
                 js.ExecuteScript("localStorage.setItem('u-eh-d1','[\"Deck 1\",106101,1,30024,30024,30009,30024,30009,30008]')");
                 driver.Navigate().Refresh();
 
-                SetupPage(driver);
 
-                await Task.Delay(DELAY_TIME * 2).ConfigureAwait(false);
                 _progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering career data..."));
 
                 Helper.FindElementSafe(driver, By.Id("boxScenario"))?.Click();
@@ -406,15 +407,18 @@ namespace UmatoMusume.Utils
                     await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
                     var careerElement = Helper.FindElementSafe(driver, By.CssSelector($"div[class*=tooltips_tooltip_striped] > div:nth-of-type({i + 1})"));
-                    careerElement?.Click();
                     await Task.Delay(DELAY_TIME).ConfigureAwait(false);
+                    careerElement?.Click();
 
 
                     var careerButton = Helper.FindElementSafe(driver, By.CssSelector($"[id=\"{i + 1}\"][class*=\"filters_viewer_image_\"]"));
-                    careerButton?.Click();
                     await Task.Delay(DELAY_TIME).ConfigureAwait(false);
+                    careerButton?.Click();
+
 
                     var eventElements = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=eventhelper_elist] > div[class*=compatibility_viewer_item]"));
+
+                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
                     foreach (var eventElement in eventElements)
                     {
                         var eventName = eventElement.GetAttribute("innerText") ?? "";
@@ -422,7 +426,7 @@ namespace UmatoMusume.Utils
 
                         await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
-                        var trs = Helper.FindElementsSafe(driver, By.CssSelector("div[data-tippy-root] > div > div > div > div > div > table[class*=tooltips_ttable__] > tbody > tr"));
+                        var trs = Helper.FindElementsSafe(driver, By.CssSelector("table[class*=tooltips_ttable__] > tbody > tr"));
                         foreach (var tr in trs)
                         {
                             var eventOption = Helper.FindElementSafe(tr, By.CssSelector("td:nth-of-type(1)"));
@@ -440,7 +444,7 @@ namespace UmatoMusume.Utils
 
                         if (!trs.Any())
                         {
-                            var eventOption = Helper.FindElementSafe(driver, By.CssSelector("div[data-tippy-root] > div > div > div > div > div > div[class*=tooltips_ttable_cell__]"));
+                            var eventOption = Helper.FindElementSafe(driver, By.CssSelector("div[class*=tooltips_ttable_cell__]"));
                             if (eventOption != null && eventName != null)
                             {
                                 careerList.Add(
@@ -483,7 +487,7 @@ namespace UmatoMusume.Utils
         {
             Cursor.Current = Cursors.WaitCursor;
             _service ??= CreateDriverService();
-            
+
             using var driver = new ChromeDriver(_service, _chromeOptions);
             try
             {
@@ -576,7 +580,7 @@ namespace UmatoMusume.Utils
 
                     var gradeText = Helper.FindElementSafe(dialogElement, By.CssSelector("div[class*=\"races_det_item\"]:nth-of-type(8)"))?.GetAttribute("innerText") ?? "";
 
-                    if(int.TryParse(gradeText, out var check))
+                    if (int.TryParse(gradeText, out var check))
                     {
                         gradeText = Helper.FindElementSafe(dialogElement, By.CssSelector("div[class*=\"races_det_item\"]:nth-of-type(10)"))?.GetAttribute("innerText") ?? "";
                     }
