@@ -1,5 +1,155 @@
 ﻿[
   {
+    "EventName": "(❯) Modestly! Boldly!",
+    "EventOptions": {
+      "Top Option": "Mood +1\r\nSpeed +5\r\nKawakami Princess bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) Modestly! Boldly!",
+    "EventOptions": {
+      "Bottom Option": "Skill points +10\r\nTether hint +1\r\nKawakami Princess bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Princess Power ☆ to the Max!",
+    "EventOptions": {
+      "": "Speed +5\r\nGuts +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Hit It! Princess Road!",
+    "EventOptions": {
+      "Top Option": "Speed +15\r\nGuts +15\r\nCenter Stage hint +1\r\nKawakami Princess bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Hit It! Princess Road!",
+    "EventOptions": {
+      "Bottom Option": "Energy +25\r\nSkill points +25"
+    }
+  },
+  {
+    "EventName": "Princess Punch!",
+    "EventOptions": {
+      "Top Option": "Guts +10\r\nKawakami Princess bond +5"
+    }
+  },
+  {
+    "EventName": "Princess Punch!",
+    "EventOptions": {
+      "Bottom Option": "Mood +1\r\nKawakami Princess bond +5"
+    }
+  },
+  {
+    "EventName": "Princess Escape!",
+    "EventOptions": {
+      "Top Option": "Energy +10\r\nKawakami Princess bond +5"
+    }
+  },
+  {
+    "EventName": "Princess Escape!",
+    "EventOptions": {
+      "Bottom Option": "Steadfast hint +1\r\nKawakami Princess bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) I'm Buono Just the Way I Am ♪",
+    "EventOptions": {
+      "": "Maximum Energy +4\r\nGuts +5\r\nHishi Akebono bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) はっけよーい……ボーノ☆",
+    "EventOptions": {
+      "Top Option": "Energy +30\r\nGuts +5\r\nHishi Akebono bond +5\r\n(random) Get Slow Metabolism status"
+    }
+  },
+  {
+    "EventName": "(❯❯) はっけよーい……ボーノ☆",
+    "EventOptions": {
+      "Bottom Option": "Stamina +5\r\nPower +5\r\nHishi Akebono bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Buono For You, Buono For Me ☆",
+    "EventOptions": {
+      "": "Stamina +5\r\nGuts +10\r\nSixth Sense hint +3 or Dodging Danger hint +3"
+    }
+  },
+  {
+    "EventName": "Eat Up ♪",
+    "EventOptions": {
+      "Top Option": "Energy +10\r\nHishi Akebono bond +5"
+    }
+  },
+  {
+    "EventName": "Eat Up ♪",
+    "EventOptions": {
+      "Bottom Option": "Energy -5\r\nPower +15\r\nHishi Akebono bond +5"
+    }
+  },
+  {
+    "EventName": "Leave It to Me ♪",
+    "EventOptions": {
+      "Top Option": "Stamina +10\r\nHishi Akebono bond +5"
+    }
+  },
+  {
+    "EventName": "Leave It to Me ♪",
+    "EventOptions": {
+      "Bottom Option": "Energy -15\r\nSprinting Gear hint +2\r\nHishi Akebono bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) One Step Forward",
+    "EventOptions": {
+      "Top Option": "Energy -10\r\nSkill points +15/+45\r\nMejiro Dober bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) One Step Forward",
+    "EventOptions": {
+      "Bottom Option": "Guts +5\r\nWisdom +5\r\nMejiro Dober bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Two Steps Up",
+    "EventOptions": {
+      "": "Guts +3\r\nWisdom +3\r\nSkill points +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Three Steps Forward, Two Steps Back",
+    "EventOptions": {
+      "": "Energy -10\r\nGuts +5\r\nWisdom +5\r\nThe Bigger Picture hint +1"
+    }
+  },
+  {
+    "EventName": "Give It a Try",
+    "EventOptions": {
+      "Top Option": "Energy +15\r\nMejiro Dober bond +5"
+    }
+  },
+  {
+    "EventName": "Give It a Try",
+    "EventOptions": {
+      "Bottom Option": "Mood +1\r\nSkill points +15\r\nMejiro Dober bond +5"
+    }
+  },
+  {
+    "EventName": "Hope She'll Like It...",
+    "EventOptions": {
+      "Top Option": "Skill points +45\r\nMejiro Dober bond +5"
+    }
+  },
+  {
+    "EventName": "Hope She'll Like It...",
+    "EventOptions": {
+      "Bottom Option": "Unyielding Spirit hint +1\r\nMejiro Dober bond +5"
+    }
+  },
+  {
     "EventName": "(❯) One Step toward Blooming!",
     "EventOptions": {
       "": "Skill points +15"
@@ -2781,6 +2931,54 @@
     "EventName": "A Bond with Aoi: Being a Good Mentor",
     "EventOptions": {
       "": "Wisdom +18\r\nSkill points +18\r\nMood +1\r\nShake It Out hint +1/+3\r\nAoi Kiryuin bond +5"
+    }
+  },
+  {
+    "EventName": "Princess Punch!",
+    "EventOptions": {
+      "Top Option": "Guts +10\r\nKawakami Princess bond +5"
+    }
+  },
+  {
+    "EventName": "Princess Punch!",
+    "EventOptions": {
+      "Bottom Option": "Mood +1\r\nKawakami Princess bond +5"
+    }
+  },
+  {
+    "EventName": "Princess Escape!",
+    "EventOptions": {
+      "Top Option": "Energy +10\r\nKawakami Princess bond +5"
+    }
+  },
+  {
+    "EventName": "Princess Escape!",
+    "EventOptions": {
+      "Bottom Option": "Steadfast hint +1\r\nKawakami Princess bond +5"
+    }
+  },
+  {
+    "EventName": "Eat Up ♪",
+    "EventOptions": {
+      "Top Option": "Energy +10\r\nHishi Akebono bond +5"
+    }
+  },
+  {
+    "EventName": "Eat Up ♪",
+    "EventOptions": {
+      "Bottom Option": "Energy -5\r\nPower +15\r\nHishi Akebono bond +5"
+    }
+  },
+  {
+    "EventName": "Leave It to Me ♪",
+    "EventOptions": {
+      "Top Option": "Stamina +10\r\nHishi Akebono bond +5"
+    }
+  },
+  {
+    "EventName": "Leave It to Me ♪",
+    "EventOptions": {
+      "Bottom Option": "Energy -15\r\nSprinting Gear hint +2\r\nHishi Akebono bond +5"
     }
   },
   {
