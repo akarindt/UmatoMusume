@@ -13,13 +13,10 @@ namespace UmatoMusume
 {
     public partial class FrmSetting : Form
     {
-        private readonly Dictionary<string, string> _config = new Dictionary<string, string>();
 
         public FrmSetting()
         {
             InitializeComponent();
-
-            _config = Helper.ReadConfig();
 
             chkCheckForUpdates.Checked = bool.Parse(Helper.GetConfigValue("AutoUpdate", "False"));
             chkRightMenu.Checked = bool.Parse(Helper.GetConfigValue("RightMenu", "False"));
