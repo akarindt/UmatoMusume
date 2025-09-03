@@ -25,7 +25,7 @@ namespace UmatoMusume
         private List<string> _filterGrades = new List<string>();
         private List<string> _filterDistanceTypes = new List<string>();
         private List<string> _filterTerrainTypes = new List<string>();
-        private Dictionary<string, string> _configValues = new Dictionary<string, string>();
+
 
         private Font _boldFont = new Font(Control.DefaultFont, FontStyle.Bold);
         private Font _regularFont = new Font(Control.DefaultFont, FontStyle.Regular);
@@ -33,7 +33,7 @@ namespace UmatoMusume
         protected Hook.WinEventDelegate _winEventDelegate;
         static GCHandle _gcSafetyHandle;
 
-        private const string TARGET_PROCESS_NAME = "UmamusumePrettyDerby";
+        private const string TARGET_PROCESS_NAME = "Photos";
         private const string FORM_TITLE = "UmatoMusume - Process Window Capture";
         private const int ATTACH_INTERVAL = 500;
         private const int CAPTURE_INTERVAL = 1000;
@@ -90,9 +90,6 @@ namespace UmatoMusume
             }
 
             _appWidth = Width;
-
-            _configValues = Helper.ReadConfig();
-
             InitFilter();
         }
 
@@ -237,10 +234,32 @@ namespace UmatoMusume
                 uint targetThreadId = Hook.GetWindowThread(_processhWnd);
                 _hWinEventHook = Hook.WinEventHookOne(NativeMethods.SWEH_Events.EVENT_OBJECT_LOCATIONCHANGE, _winEventDelegate, (uint)_targetProc.Id, targetThreadId);
                 var rect = Hook.GetWindowRectangle(_processhWnd);
-                Location = new Point(rect.Right, rect.Top);
 
                 Height = _appHeight;
                 Width = _appWidth;
+
+                var isFullScreen = bool.Parse(Helper.GetConfigValue("FullScreen", "False"));
+                if (isFullScreen)
+                {
+                    TopMost = true;
+                    if (Location.X == 0 && Location.Y == 0)
+                    {
+                        StartPosition = FormStartPosition.CenterScreen;
+                    }
+                }
+                else
+                {
+                    TopMost = false;
+                    var isRightMenu = bool.Parse(Helper.GetConfigValue("RightMenu", "False"));
+                    if (isRightMenu)
+                    {
+                        Location = new Point(rect.Right, rect.Top);
+                    }
+                    else
+                    {
+                        Location = new Point(rect.Left - _appWidth, rect.Top);
+                    }
+                }
 
                 WindowState = FormWindowState.Normal;
             }
@@ -272,7 +291,25 @@ namespace UmatoMusume
 
         private async void UpdateUI(Rectangle rect)
         {
-            Location = new Point(rect.Right, rect.Top);
+            var isFullScreen = bool.Parse(Helper.GetConfigValue("FullScreen", "False"));
+            if (isFullScreen)
+            {
+                TopMost = true;
+            }
+            else
+            {
+                TopMost = false;
+                var isRightMenu = bool.Parse(Helper.GetConfigValue("RightMenu", "False"));
+                if (isRightMenu)
+                {
+                    Location = new Point(rect.Right, rect.Top);
+                }
+                else
+                {
+                    Location = new Point(rect.Left - _appWidth, rect.Top);
+                }
+            }
+            
             Height = _appHeight;
             Width = _appWidth;
 
@@ -383,15 +420,13 @@ namespace UmatoMusume
             var eventRect = results[0];
             var dateTimeRect = results[1];
             var appSize = results[2];
-            var checkForUpdates = bool.Parse(_configValues["AutoUpdate"] ?? "False");
+            var checkForUpdates = bool.Parse(Helper.GetConfigValue("AutoUpdate", "False"));
 
             _eventOctRect = eventRect?.ToRectangle() ?? null;
             _dateTimeRect = dateTimeRect?.ToRectangle() ?? null;
 
             _appHeight = appSize?.Height ?? _appHeight;
             _appWidth = appSize?.Width ?? _appWidth;
-
-            chkCheckUpdate.Checked = checkForUpdates;
 
             if (InvokeRequired)
             {
@@ -402,13 +437,18 @@ namespace UmatoMusume
                 UpdateUIAfterConfig();
             }
 
-            if (chkCheckUpdate.Checked)
+            if (checkForUpdates)
             {
                 var check = await Updater.CheckForUpdates();
                 if (check)
                 {
-                    var dialogResult = MessageBox.Show("An update is available. Do you want to download and install it now?",
-                        "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    var dialogResult = MessageBox
+                        .Show(
+                        "An update is available. Do you want to download and install it now?",
+                        "Update Available",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
                     if (dialogResult == DialogResult.Yes)
                     {
                         FrmUpdater frmUpdater = new FrmUpdater();
@@ -440,8 +480,6 @@ namespace UmatoMusume
 
         private async void FrmMain_Load(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
-
             try
             {
                 await InitConfig();
@@ -450,10 +488,6 @@ namespace UmatoMusume
             {
                 MessageBox.Show($"Error during initialization: {ex.Message}", "Initialization Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                Cursor = Cursors.Default;
             }
         }
 
@@ -635,10 +669,10 @@ namespace UmatoMusume
             GameTora.DisposeResources();
         }
 
-        private void chkCheckUpdate_CheckedChanged(object sender, EventArgs e)
+        private void btnOpenConfig_Click(object sender, EventArgs e)
         {
-            var value = chkCheckUpdate.Checked;
-            Helper.UpdateConfigValue("AutoUpdate", value.ToString());
+            var form = new FrmSetting();
+            form.ShowDialog();
         }
     }
 }

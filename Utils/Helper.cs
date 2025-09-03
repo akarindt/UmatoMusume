@@ -20,10 +20,12 @@ namespace UmatoMusume.Utils
         private const int RATIO = 85;
         private const int MAX_RATIO = 100;
 
-        private static readonly string[] VOCAB = new string[]
+        public static string GetConfigValue(string _configName, string _defaultValue, string _configFilePath = "config.txt")
         {
-            "Junior", "Classic", "Senior", "Pre", "Debut", "Early", "Late", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-        };
+            var configDict = ReadConfig(_configFilePath);
+            return configDict.GetValueOrDefault(_configName, _defaultValue);
+        }
+
 
         public static Dictionary<string, string> ReadConfig(string _configFilePath = "config.txt")
         {

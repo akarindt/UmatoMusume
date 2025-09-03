@@ -1,1 +1,3 @@
 AutoUpdate=True
+RightMenu=True
+FullScreen=False
