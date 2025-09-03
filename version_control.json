@@ -1,6 +1,6 @@
 {
   "CurrentVersion": "v1.7",
-  "VersionCheckUrl": "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/dev/version_control.json",
+  "VersionCheckUrl": "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/version_control.json",
   "DownloadUrl": "https://github.com/akarindt/UmatoMusume/releases/download/#TAG/#FILE_NAME",
   "PrefixFileName": "umato-musume",
   "Extension": "zip"
