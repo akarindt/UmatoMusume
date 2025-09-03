@@ -73,7 +73,8 @@ dotnet build
 ```
 # Dependencies
 - [Selenium](https://www.selenium.dev/)
-- [Tesseract OCR](https://github.com/tesseract-ocr/tessdata_best)
+- [Tesseract OCR](https://github.com/tesseract-ocr/tessdata_best) (Old versions)
+- [RapidOCR](https://github.com/RapidAI/RapidOCR) (Newest versions)
 - [FuzzySharp](https://github.com/JakeBayer/FuzzySharp)
 - [StringSimilarity.NET](https://github.com/feature23/StringSimilarity.NET)
 # License
