@@ -64,6 +64,13 @@ The application uses OCR (Optical Character Recognition) to capture text directl
 | Download/Crawl career      | Get careers events                                                          |
 | Download/Crawl races       | Get races infos with date/time                                              |
 
+## Choose OCR engine from config
+- I gave you two options for OCR engine: PaddleOCR & RapidOCR.
+	- PaddleOCR: More accurate than RapidOCR but uses more RAM (=< 600mb). (Default)
+	- RapidOCR: Less accurate but uses less RAM (=< 300mb).
+- Choose one that fits your PC.
+- You should be fine with PaddleOCR if you have 8GB+ RAM.
+
 # Build
 - This project uses [.NET 9.0](https://dotnet.microsoft.com/en-us/download/dotnet/9.0) and can be built using Visual Studio or the .NET CLI.
 ```
@@ -71,10 +78,12 @@ git clone https://github.com/akarindt/UmatoMusume.git
 cd UmatoMusume
 dotnet build
 ```
+
 # Dependencies
 - [Selenium](https://www.selenium.dev/)
 - [Tesseract OCR](https://github.com/tesseract-ocr/tessdata_best) (Old versions)
 - [RapidOCR](https://github.com/RapidAI/RapidOCR) (Newest versions)
+- [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) (Newest versions)
 - [FuzzySharp](https://github.com/JakeBayer/FuzzySharp)
 - [StringSimilarity.NET](https://github.com/feature23/StringSimilarity.NET)
 # License
