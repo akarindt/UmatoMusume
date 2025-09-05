@@ -8,7 +8,7 @@ namespace UmatoMusume.Utils
     {
         private const float IMAGE_SCALE = 3.0f;
         private const int OCR_DPI = 300;
-        private const string ENGINE_PATH = "Extras/RapidOCR/RapidOCR-json.exe";
+        private const string ENGINE_PATH = "Extras/PaddleOCR/PaddleOCR-json.exe";
 
         private static readonly OcrEngine _engine;
         private static readonly OcrClient _client;
