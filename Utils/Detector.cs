@@ -8,15 +8,25 @@ namespace UmatoMusume.Utils
     {
         private const float IMAGE_SCALE = 3.0f;
         private const int OCR_DPI = 300;
-        private const string ENGINE_PATH = "Extras/RapidOCR/RapidOCR-json.exe";
+        private const string ENGINE_PATH_PADDLE = "Extras/PaddleOCR/PaddleOCR-json.exe";
+        private const string ENGINE_PATH_RAPID = "Extras/RapidOCR/RapidOCR-json.exe";
 
         private static readonly OcrEngine _engine;
         private static readonly OcrClient _client;
 
         static Detector()
         {
+            var isRapid = bool.Parse(Helper.GetConfigValue("UseRapidOCR", "False"));
+            string enginePath = ENGINE_PATH_PADDLE;
+
+            if (isRapid)
+            {
+                enginePath = ENGINE_PATH_RAPID;
+            }
+
             var startupArgs = OcrEngineStartupArgs
-                .WithPipeMode(ENGINE_PATH)
+                .WithPipeMode(enginePath)
+                .CpuThreads(1)
                 .EnableMkldnn(true);
 
             _engine = new OcrEngine(startupArgs);

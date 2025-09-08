@@ -1,3 +1,5 @@
 AutoUpdate=True
 RightMenu=True
 FullScreen=False
+UsePaddleOCR=True
+UseRapidOCR=False
