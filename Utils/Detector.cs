@@ -1,4 +1,6 @@
-﻿using PaddleOCRJson;
+﻿using OpenCvSharp;
+using OpenCvSharp.Extensions;
+using PaddleOCRJson;
 using System.Drawing.Drawing2D;
 using UmatoMusume.Models;
 
@@ -71,29 +73,6 @@ namespace UmatoMusume.Utils
             return bitmap;
         }
 
-        public static Bitmap ScaleImage(Bitmap _image)
-        {
-            int newWidth = (int)(_image.Width * IMAGE_SCALE);
-            int newHeight = (int)(_image.Height * IMAGE_SCALE);
-
-            Bitmap resized = new Bitmap(newWidth, newHeight);
-            resized.SetResolution(OCR_DPI, OCR_DPI);
-
-            using (Graphics g = Graphics.FromImage(resized))
-            {
-                g.CompositingMode = CompositingMode.SourceCopy;
-                g.CompositingQuality = CompositingQuality.HighQuality;
-                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                g.SmoothingMode = SmoothingMode.HighQuality;
-                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-
-                var destRect = new Rectangle(0, 0, newWidth, newHeight);
-                g.DrawImage(_image, destRect, 0, 0, _image.Width, _image.Height, GraphicsUnit.Pixel);
-            }
-
-            return resized;
-        }
-
         public static OcrResult? RunOCR(Bitmap _bitmap)
         {
             byte[] imageBytes = _bitmap.ToByteArray();
@@ -104,9 +83,14 @@ namespace UmatoMusume.Utils
         public static string DetectText(Rectangle _captureArea)
         {
             using var capturedImage = CaptureScreen(_captureArea);
-            using var scaledImage = ScaleImage(capturedImage);
-            var result = RunOCR(scaledImage);
-            return result?.OcrData?.OrderByDescending(x => x.Score).FirstOrDefault()?.Text ?? string.Empty;
+            using var scaled = Resize(capturedImage);
+            using var norm = Normalization(scaled);
+            using var gray = ToGray(norm);
+            using var denoise = Denoise(gray);
+            using var binary = Threshold(denoise);
+
+            var result = RunOCR(scaled);
+            return string.Join(" ", result?.OcrData?.OrderByDescending(x => x.Score).Select(x => x.Text) ?? []);
         }
 
         public static void Dispose()
@@ -114,5 +98,158 @@ namespace UmatoMusume.Utils
             _client.Dispose();
             _engine.Dispose();
         }
+
+        public static Mat BitmapToMat(Bitmap bmp) => BitmapConverter.ToMat(bmp);
+
+        public static Bitmap MatToBitmap(Mat mat) => BitmapConverter.ToBitmap(mat);
+
+        public static Bitmap Normalization(Bitmap bmp)
+        {
+            using var mat = BitmapToMat(bmp);
+            using var normalized = new Mat();
+            Cv2.Normalize(mat, normalized, 0, 255, NormTypes.MinMax);
+            return MatToBitmap(normalized);
+        }
+
+        public static Bitmap ToGray(Bitmap bmp)
+        {
+            using var mat = BitmapToMat(bmp);
+            if (mat.Channels() == 1)
+                return MatToBitmap(mat);
+
+            using var gray = new Mat();
+            Cv2.CvtColor(mat, gray, ColorConversionCodes.BGR2GRAY);
+            return MatToBitmap(gray);
+        }
+
+        public static Bitmap Threshold(Bitmap bmp)
+        {
+            using var mat = BitmapToMat(bmp);
+            Mat gray;
+            if (mat.Channels() == 1)
+                gray = mat.Clone();
+            else
+            {
+                gray = new Mat();
+                Cv2.CvtColor(mat, gray, ColorConversionCodes.BGR2GRAY);
+            }
+
+            using (gray)
+            {
+                using var bin = new Mat();
+                Cv2.Threshold(gray, bin, 0, 255, ThresholdTypes.Binary | ThresholdTypes.Otsu);
+                return MatToBitmap(bin);
+            }
+        }
+
+        public static Bitmap Denoise(Bitmap bmp)
+        {
+            using var mat = BitmapToMat(bmp);
+            using var dst = new Mat();
+
+            if (mat.Channels() == 1)
+                Cv2.FastNlMeansDenoising(mat, dst);
+            else
+                Cv2.FastNlMeansDenoisingColored(mat, dst);
+
+            return MatToBitmap(dst);
+        }
+
+        public static Bitmap Resize(Bitmap bmp, double scale = 1.5)
+        {
+            int width = (int)(bmp.Width * scale);
+            int height = (int)(bmp.Height * scale);
+
+            using var mat = BitmapToMat(bmp);
+            using var resized = new Mat();
+            Cv2.Resize(mat, resized, new OpenCvSharp.Size(width, height), 0, 0, InterpolationFlags.Area);
+            return MatToBitmap(resized);
+        }
+
+        public static Bitmap Thinning(Bitmap bmp)
+        {
+            using var mat = BitmapToMat(bmp);
+            Mat gray;
+            if (mat.Channels() == 1)
+                gray = mat.Clone();
+            else
+            {
+                gray = new Mat();
+                Cv2.CvtColor(mat, gray, ColorConversionCodes.BGR2GRAY);
+            }
+
+            using (gray)
+            {
+                using var bin = new Mat();
+                Cv2.Threshold(gray, bin, 0, 255, ThresholdTypes.Binary | ThresholdTypes.Otsu);
+
+                var skeleton = new Mat(bin.Size(), MatType.CV_8UC1, Scalar.Black);
+                var element = Cv2.GetStructuringElement(MorphShapes.Cross, new OpenCvSharp.Size(3, 3));
+
+                var temp = new Mat();
+                var eroded = new Mat();
+                var working = bin.Clone();
+
+                bool done;
+                do
+                {
+                    Cv2.Erode(working, eroded, element);
+                    Cv2.Dilate(eroded, temp, element);
+                    Cv2.Subtract(working, temp, temp);
+                    Cv2.BitwiseOr(skeleton, temp, skeleton);
+                    eroded.CopyTo(working);
+                    done = (Cv2.CountNonZero(working) == 0);
+                } while (!done);
+
+                return MatToBitmap(skeleton);
+            }
+        }
+
+        public static Bitmap Deskew(Bitmap bmp)
+        {
+            using var mat = BitmapToMat(bmp);
+            Mat gray;
+            if (mat.Channels() == 1)
+                gray = mat.Clone();
+            else
+            {
+                gray = new Mat();
+                Cv2.CvtColor(mat, gray, ColorConversionCodes.BGR2GRAY);
+            }
+
+            using (gray)
+            {
+                using var bin = gray.Threshold(0, 255, ThresholdTypes.Binary | ThresholdTypes.Otsu);
+                using var edges = bin.Canny(50, 200);
+
+                var lines = Cv2.HoughLines(edges, 1, Math.PI / 180, 100);
+                double angle = 0;
+                int count = 0;
+                foreach (var line in lines)
+                {
+                    angle += line.Theta;
+                    count++;
+                }
+
+                if (count > 0)
+                    angle /= count;
+
+                double angleDeg = (angle * 180 / Math.PI) - 90;
+                var center = new Point2f(mat.Width / 2f, mat.Height / 2f);
+                var rotMat = Cv2.GetRotationMatrix2D(center, angleDeg, 1.0);
+
+                var rotated = new Mat();
+                Cv2.WarpAffine(mat, rotated, rotMat, mat.Size(),
+                    InterpolationFlags.Linear, BorderTypes.Constant, Scalar.White);
+
+                return MatToBitmap(rotated);
+            }
+        }
+
+        private static void SaveBitmap(Bitmap bmp, string path)
+        {
+            bmp.Save(path, System.Drawing.Imaging.ImageFormat.Png);
+        }
+
     }
 }

@@ -36,9 +36,11 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.7" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="OpenCvSharp4" Version="4.11.0.20250507" />
+		<PackageReference Include="OpenCvSharp4.Extensions" Version="4.11.0.20250507" />
+		<PackageReference Include="OpenCvSharp4.runtime.win" Version="4.11.0.20250507" />
 		<PackageReference Include="Selenium.Support" Version="4.35.0" />
 		<PackageReference Include="Selenium.WebDriver" Version="4.35.0" />
-		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="140.0.7339.8000" />
 		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.11" />
 		<PackageReference Include="System.Drawing.Common" Version="9.0.8" />
 	</ItemGroup>
@@ -62,4 +64,36 @@
 		</Reference>
 	</ItemGroup>
 
+	<ItemGroup>
+		<Folder Include="Extras\ChromeProfile\AmountExtractionHeuristicRegexes\" />
+		<Folder Include="Extras\ChromeProfile\AutofillStates\" />
+		<Folder Include="Extras\ChromeProfile\CookieReadinessList\" />
+		<Folder Include="Extras\ChromeProfile\Crashpad\attachments\" />
+		<Folder Include="Extras\ChromeProfile\Crashpad\reports\" />
+		<Folder Include="Extras\ChromeProfile\Crowd Deny\" />
+		<Folder Include="Extras\ChromeProfile\Default\blob_storage\23d89c36-199c-4c31-a342-9209323e7269\" />
+		<Folder Include="Extras\ChromeProfile\Default\Download Service\Files\" />
+		<Folder Include="Extras\ChromeProfile\FileTypePolicies\" />
+		<Folder Include="Extras\ChromeProfile\Fingerprinting Protection Filter\Unindexed Rules\" />
+		<Folder Include="Extras\ChromeProfile\FirstPartySetsPreloaded\" />
+		<Folder Include="Extras\ChromeProfile\HistorySearch\" />
+		<Folder Include="Extras\ChromeProfile\hyphen-data\" />
+		<Folder Include="Extras\ChromeProfile\MaskedDomainListPreloaded\" />
+		<Folder Include="Extras\ChromeProfile\MEIPreload\" />
+		<Folder Include="Extras\ChromeProfile\OnDeviceHeadSuggestModel\" />
+		<Folder Include="Extras\ChromeProfile\OpenCookieDatabase\" />
+		<Folder Include="Extras\ChromeProfile\OptimizationHints\" />
+		<Folder Include="Extras\ChromeProfile\OriginTrials\" />
+		<Folder Include="Extras\ChromeProfile\PKIMetadata\" />
+		<Folder Include="Extras\ChromeProfile\PlusAddressBlocklist\" />
+		<Folder Include="Extras\ChromeProfile\PrivacySandboxAttestationsPreloaded\" />
+		<Folder Include="Extras\ChromeProfile\ProbabilisticRevealTokenRegistry\" />
+		<Folder Include="Extras\ChromeProfile\SafetyTips\" />
+		<Folder Include="Extras\ChromeProfile\SSLErrorAssistant\" />
+		<Folder Include="Extras\ChromeProfile\TpcdMetadata\" />
+		<Folder Include="Extras\ChromeProfile\TrustTokenKeyCommitments\" />
+		<Folder Include="Extras\ChromeProfile\WasmTtsEngine\" />
+		<Folder Include="Extras\ChromeProfile\WidevineCdm\" />
+		<Folder Include="Extras\ChromeProfile\ZxcvbnData\" />
+	</ItemGroup>
 </Project>
