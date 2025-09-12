@@ -76,7 +76,7 @@ The application uses OCR (Optical Character Recognition) to capture text directl
 ```
 git clone https://github.com/akarindt/UmatoMusume.git
 cd UmatoMusume
-dotnet build
+./build.bat [target]
 ```
 
 # Dependencies
