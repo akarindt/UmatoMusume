@@ -30,15 +30,24 @@ namespace UmatoMusume.Utils
 
         static GameTora()
         {
-            _chromeOptions.AddArgument("--headless");
+            var userDataDir = Path.Combine(Directory.GetCurrentDirectory(), "Extras", "ChromeProfile");
+            var extensionDir = Path.Combine(Directory.GetCurrentDirectory(), "Extras", "uBlockOrigin.crx");
+
+            _chromeOptions.BinaryLocation = $"Extras/chrome-{Helper.GetWindowsVersion()}/chrome.exe";
+            _chromeOptions.AddArgument("--headless=new");
             _chromeOptions.AddArgument("--window-size=1920,1080");
             _chromeOptions.AddArgument("--disable-gpu");
             _chromeOptions.AddArgument("--no-sandbox");
+            _chromeOptions.AddArgument("--enable-features=AllowLegacyMV2Extensions");
+            _chromeOptions.AddArgument("--disable-features=ExtensionManifestV2DeprecationWarnings");
+            _chromeOptions.AddArgument("--disable-dev-shm-usage");
+            _chromeOptions.AddArgument($"user-data-dir={userDataDir}");
+            _chromeOptions.AddExtension(extensionDir);
         }
 
         private static ChromeDriverService CreateDriverService()
         {
-            var service = ChromeDriverService.CreateDefaultService();
+            var service = ChromeDriverService.CreateDefaultService($"Extras/chrome-driver-{Helper.GetWindowsVersion()}/");
             service.HideCommandPromptWindow = true;
             service.SuppressInitialDiagnosticInformation = true;
             return service;
@@ -46,13 +55,13 @@ namespace UmatoMusume.Utils
 
         private static void SetupPage(IWebDriver _driver)
         {
-            var accept = Helper.FindElementSafe(_driver, By.CssSelector("body > div#__next > div[class*=legal_cookie_banner_wrapper__] > div > div[class*=legal_cookie_banner_selection__] > div:last-child > button[class*=legal_cookie_banner_button__]"));
+            var accept = Helper.FindElementSafe(_driver, By.CssSelector("body > div#__next > div[class*='legal_cookie_banner_wrapper__'] > div > div[class*='legal_cookie_banner_selection__'] > div:last-child > button[class*='legal_cookie_banner_button__']"));
             accept?.Click();
 
-            var option = Helper.FindElementSafe(_driver, By.CssSelector("div[class*=styles_header_settings__]"));
+            var option = Helper.FindElementSafe(_driver, By.CssSelector("div[class*='styles_header_settings__']"));
             option?.Click();
 
-            var menuOption = Helper.FindElementSafe(_driver, By.CssSelector("div[class*=tooltips_tooltip__] > div:last-child > div:last-child  > div:last-child > label"));
+            var menuOption = Helper.FindElementSafe(_driver, By.CssSelector("div[class*='tooltips_tooltip__'] > div:last-child > div:last-child  > div:last-child > label"));
             menuOption?.Click();
         }
 
@@ -82,7 +91,8 @@ namespace UmatoMusume.Utils
                 _progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
                 var currentUmaList = Helper.LoadFromJson<Umamusume>(UMA_DATA_PATH);
-                var elements = driver.FindElements(By.CssSelector("body > div#__next > div > div > main > main > div:last-child > a"));
+                var elements = Helper.FindElementsSafe(driver, By.CssSelector("a[href^='/umamusume/characters']"));
+
                 var urlList = new List<string>();
                 var umaDataList = new List<Umamusume>();
 
@@ -94,7 +104,9 @@ namespace UmatoMusume.Utils
 
                 foreach (var element in elements)
                 {
-                    var divEl = element.FindElement(By.CssSelector("div"));
+                    var divEl = Helper.FindElementSafe(element, By.CssSelector("div"));
+                    if (divEl == null) continue;
+
                     var hiddenEL = divEl.GetAttribute("hidden");
                     if (hiddenEL != null) continue;
 
@@ -123,17 +135,17 @@ namespace UmatoMusume.Utils
                     driver.Navigate().GoToUrl(url);
                     await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
-                    var nameElement = Helper.FindElementSafe(driver, By.CssSelector("div[class*=characters_infobox_top] > div[class*=characters_infobox_character_name] > a"));
+                    var nameElement = Helper.FindElementSafe(driver, By.CssSelector("div[class*='characters_infobox_top'] > div[class*='characters_infobox_character_name'] > a"));
                     var name = nameElement?.GetAttribute("innerText")?.Replace("\n", "") ?? "";
 
-                    var objectives = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=characters_objective_box] > div[class*=characters_objective]"));
+                    var objectives = Helper.FindElementsSafe(driver, By.CssSelector("div[class*='characters_objective_box'] > div[class*='characters_objective']"));
                     var t = new List<UmaObjective>();
                     foreach (var objective in objectives)
                     {
-                        var objectiveName = Helper.FindElementSafe(objective, By.CssSelector("div[class*=characters_objective_text] > div:nth-of-type(1)"));
-                        var turn = Helper.FindElementSafe(objective, By.CssSelector("div[class*=characters_objective_text] > div:nth-of-type(2)"));
-                        var time = Helper.FindElementSafe(objective, By.CssSelector("div[class*=characters_objective_text] > div:nth-of-type(3)"));
-                        var objectiveCondition = Helper.FindElementSafe(objective, By.CssSelector("div[class*=characters_objective_text] > div:nth-of-type(4)"));
+                        var objectiveName = Helper.FindElementSafe(objective, By.CssSelector("div[class*='characters_objective_text'] > div:nth-of-type(1)"));
+                        var turn = Helper.FindElementSafe(objective, By.CssSelector("div[class*='characters_objective_text'] > div:nth-of-type(2)"));
+                        var time = Helper.FindElementSafe(objective, By.CssSelector("div[class*='characters_objective_text'] > div:nth-of-type(3)"));
+                        var objectiveCondition = Helper.FindElementSafe(objective, By.CssSelector("div[class*='characters_objective_text'] > div:nth-of-type(4)"));
 
                         t.Add(
                             new UmaObjective(
@@ -145,11 +157,11 @@ namespace UmatoMusume.Utils
                         );
                     }
 
-                    var eventBoxes = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=eventhelper_elist]"));
+                    var eventBoxes = Helper.FindElementsSafe(driver, By.CssSelector("div[class*='eventhelper_elist']"));
                     var events = new List<UmaEvent>();
                     foreach (var eventBox in eventBoxes)
                     {
-                        var eventElements = Helper.FindElementsSafe(eventBox, By.CssSelector("div[class*=compatibility_viewer_item]"));
+                        var eventElements = Helper.FindElementsSafe(eventBox, By.CssSelector("div[class*='compatibility_viewer_item']"));
                         foreach (var eventElement in eventElements)
                         {
                             var eventName = eventElement.GetAttribute("innerText") ?? "";
@@ -157,7 +169,7 @@ namespace UmatoMusume.Utils
 
                             await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
-                            var trs = Helper.FindElementsSafe(eventBox, By.CssSelector("table[class*=tooltips_ttable__] > tbody > tr"));
+                            var trs = Helper.FindElementsSafe(eventBox, By.CssSelector("table[class*='tooltips_ttable__'] > tbody > tr"));
                             foreach (var tr in trs)
                             {
                                 var eventOption = Helper.FindElementSafe(tr, By.CssSelector("td:nth-of-type(1)"));
@@ -175,7 +187,7 @@ namespace UmatoMusume.Utils
 
                             if (!trs.Any())
                             {
-                                var noChoices = Helper.FindElementsSafe(eventBox, By.CssSelector("div[class*=tooltips_ttable_cell___] > div"));
+                                var noChoices = Helper.FindElementsSafe(eventBox, By.CssSelector("div[class*='tooltips_ttable_cell___'] > div"));
                                 foreach (var noChoice in noChoices)
                                 {
                                     var eventOption = noChoice.GetAttribute("innerText") ?? "";
@@ -192,7 +204,7 @@ namespace UmatoMusume.Utils
 
                                 if (!noChoices.Any())
                                 {
-                                    var choice = Helper.FindElementSafe(eventBox, By.CssSelector("div[data-tippy-root] div[class*=tooltips_ttable_cell__]"));
+                                    var choice = Helper.FindElementSafe(eventBox, By.CssSelector("div[data-tippy-root] div[class*='tooltips_ttable_cell__']"));
                                     if (choice != null)
                                     {
                                         var eventOption = choice.GetAttribute("innerText") ?? "";
@@ -241,7 +253,9 @@ namespace UmatoMusume.Utils
                 driver.Navigate().GoToUrl("https://gametora.com/umamusume/supports");
                 _progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
-                var elements = driver.FindElements(By.CssSelector("body > div#__next > div > div > main > main > div:last-child > a"));
+                await Task.Delay(DELAY_TIME * 2).ConfigureAwait(false);
+
+                var elements = Helper.FindElementsSafe(driver, By.CssSelector("a[href^='/umamusume/supports']"));
                 var urlList = new List<string>();
                 var supportCardList = new List<SupportCard>();
 
@@ -253,7 +267,9 @@ namespace UmatoMusume.Utils
 
                 foreach (var element in elements)
                 {
-                    var divEl = element.FindElement(By.CssSelector("div"));
+                    var divEl = Helper.FindElementSafe(element, By.CssSelector("div"));
+                    if (divEl == null) continue;
+
                     var hiddenEL = divEl.GetAttribute("hidden");
                     if (hiddenEL != null) continue;
 
@@ -278,10 +294,10 @@ namespace UmatoMusume.Utils
                     driver.Navigate().GoToUrl(url);
                     await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
-                    var eventBoxes = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=eventhelper_elist]"));
+                    var eventBoxes = Helper.FindElementsSafe(driver, By.CssSelector("div[class*='eventhelper_elist']"));
                     foreach (var eventBox in eventBoxes)
                     {
-                        var eventElements = Helper.FindElementsSafe(eventBox, By.CssSelector("div[class*=compatibility_viewer_item]"));
+                        var eventElements = Helper.FindElementsSafe(eventBox, By.CssSelector("div[class*='compatibility_viewer_item']"));
                         foreach (var eventElement in eventElements)
                         {
                             var eventName = eventElement.GetAttribute("innerText") ?? "";
@@ -290,7 +306,7 @@ namespace UmatoMusume.Utils
 
                             await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
-                            var trs = Helper.FindElementsSafe(eventBox, By.CssSelector("table[class*=tooltips_ttable__] > tbody > tr"));
+                            var trs = Helper.FindElementsSafe(eventBox, By.CssSelector("table[class*='tooltips_ttable__'] > tbody > tr"));
                             foreach (var tr in trs)
                             {
                                 var eventOption = Helper.FindElementSafe(tr, By.CssSelector("td:nth-of-type(1)"));
@@ -308,7 +324,7 @@ namespace UmatoMusume.Utils
 
                             if (!trs.Any())
                             {
-                                var noChoices = Helper.FindElementsSafe(eventBox, By.CssSelector("div[class*=tooltips_ttable_cell___] > div"));
+                                var noChoices = Helper.FindElementsSafe(eventBox, By.CssSelector("div[class*='tooltips_ttable_cell___'] > div"));
                                 foreach (var noChoice in noChoices)
                                 {
                                     var eventOption = noChoice.GetAttribute("innerText") ?? "";
@@ -325,7 +341,7 @@ namespace UmatoMusume.Utils
 
                                 if (!noChoices.Any())
                                 {
-                                    var choice = Helper.FindElementSafe(eventBox, By.CssSelector("div[data-tippy-root] div[class*=tooltips_ttable_cell__]"));
+                                    var choice = Helper.FindElementSafe(eventBox, By.CssSelector("div[data-tippy-root] div[class*='tooltips_ttable_cell__']"));
                                     if (choice != null)
                                     {
                                         var eventOption = choice.GetAttribute("innerText") ?? "";
@@ -371,114 +387,116 @@ namespace UmatoMusume.Utils
             Cursor.Current = Cursors.WaitCursor;
             _service ??= CreateDriverService();
 
-            using var driver = new ChromeDriver(_service, _chromeOptions);
-            try
+            using (var driver = new ChromeDriver(_service, _chromeOptions))
             {
-                driver.Navigate().GoToUrl("https://gametora.com/umamusume/training-event-helper");
-                var careerList = new List<Career>();
-                _progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
-
-                SetupPage(driver);
-                await Task.Delay(DELAY_TIME * 2).ConfigureAwait(false);
-
-                IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-                js.ExecuteScript("localStorage.setItem('u-eh-d1','[\"Deck 1\",106101,1,30024,30024,30009,30024,30009,30008]')");
-                driver.Navigate().Refresh();
-
-
-                _progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering career data..."));
-
-                Helper.FindElementSafe(driver, By.Id("boxScenario"))?.Click();
-
-                var careerElements = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=tooltips_tooltip_striped] > div")).ToArray();
-
-                int totalElement = careerElements.Length;
-                int currentElement = 0;
-
-                for (int i = 0; i < careerElements.Length; i++)
+                try
                 {
-                    currentElement++;
+                    driver.Navigate().GoToUrl("https://gametora.com/umamusume/training-event-helper");
+                    var careerList = new List<Career>();
+                    _progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
-                    int _progressPercentage = PROGRESS_URL_GATHERING + (currentElement * PROGRESS_PROCESSING_WEIGHT / totalElement);
-                    _progress?.Report((_progressPercentage, PROGRESS_TOTAL, $"Processing career {currentElement}/{totalElement}"));
+                    SetupPage(driver);
+                    await Task.Delay(DELAY_TIME * 2).ConfigureAwait(false);
+
+                    IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+                    js.ExecuteScript("localStorage.setItem('u-eh-d1','[\"Deck 1\",106101,1,30024,30024,30009,30024,30009,30008]')");
+                    driver.Navigate().Refresh();
+
+
+                    _progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering career data..."));
 
                     Helper.FindElementSafe(driver, By.Id("boxScenario"))?.Click();
-                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
-                    var careerElement = Helper.FindElementSafe(driver, By.CssSelector($"div[class*=tooltips_tooltip_striped] > div:nth-of-type({i + 1})"));
-                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
-                    careerElement?.Click();
+                    var careerElements = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=tooltips_tooltip_striped] > div")).ToArray();
 
+                    int totalElement = careerElements.Length;
+                    int currentElement = 0;
 
-                    var careerButton = Helper.FindElementSafe(driver, By.CssSelector($"[id=\"{i + 1}\"][class*=\"filters_viewer_image_\"]"));
-                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
-                    careerButton?.Click();
-
-
-                    var eventElements = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=eventhelper_elist] > div[class*=compatibility_viewer_item]"));
-
-                    await Task.Delay(DELAY_TIME).ConfigureAwait(false);
-                    foreach (var eventElement in eventElements)
+                    for (int i = 0; i < careerElements.Length; i++)
                     {
-                        var eventName = eventElement.GetAttribute("innerText") ?? "";
-                        eventElement.Click();
+                        currentElement++;
 
+                        int _progressPercentage = PROGRESS_URL_GATHERING + (currentElement * PROGRESS_PROCESSING_WEIGHT / totalElement);
+                        _progress?.Report((_progressPercentage, PROGRESS_TOTAL, $"Processing career {currentElement}/{totalElement}"));
+
+                        Helper.FindElementSafe(driver, By.Id("boxScenario"))?.Click();
                         await Task.Delay(DELAY_TIME).ConfigureAwait(false);
 
-                        var trs = Helper.FindElementsSafe(driver, By.CssSelector("table[class*=tooltips_ttable__] > tbody > tr"));
-                        foreach (var tr in trs)
-                        {
-                            var eventOption = Helper.FindElementSafe(tr, By.CssSelector("td:nth-of-type(1)"));
-                            var eventValue = Helper.FindElementSafe(tr, By.CssSelector("td:nth-of-type(2)"));
-                            careerList.Add(
-                                new Career(
-                                    eventName,
-                                    new Dictionary<string, string>
-                                    {
-                                    { eventOption?.GetAttribute("innerText") ?? "", eventValue?.GetAttribute("innerText") ?? "" }
-                                    }
-                                )
-                            );
-                        }
+                        var careerElement = Helper.FindElementSafe(driver, By.CssSelector($"div[class*=tooltips_tooltip_striped] > div:nth-of-type({i + 1})"));
+                        await Task.Delay(DELAY_TIME).ConfigureAwait(false);
+                        careerElement?.Click();
 
-                        if (!trs.Any())
+
+                        var careerButton = Helper.FindElementSafe(driver, By.CssSelector($"[id=\"{i + 1}\"][class*=\"filters_viewer_image_\"]"));
+                        await Task.Delay(DELAY_TIME).ConfigureAwait(false);
+                        careerButton?.Click();
+
+
+                        var eventElements = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=eventhelper_elist] > div[class*=compatibility_viewer_item]"));
+
+                        await Task.Delay(DELAY_TIME).ConfigureAwait(false);
+                        foreach (var eventElement in eventElements)
                         {
-                            var eventOption = Helper.FindElementSafe(driver, By.CssSelector("div[class*=tooltips_ttable_cell__]"));
-                            if (eventOption != null && eventName != null)
+                            var eventName = eventElement.GetAttribute("innerText") ?? "";
+                            eventElement.Click();
+
+                            await Task.Delay(DELAY_TIME).ConfigureAwait(false);
+
+                            var trs = Helper.FindElementsSafe(driver, By.CssSelector("table[class*=tooltips_ttable__] > tbody > tr"));
+                            foreach (var tr in trs)
                             {
+                                var eventOption = Helper.FindElementSafe(tr, By.CssSelector("td:nth-of-type(1)"));
+                                var eventValue = Helper.FindElementSafe(tr, By.CssSelector("td:nth-of-type(2)"));
                                 careerList.Add(
                                     new Career(
                                         eventName,
                                         new Dictionary<string, string>
                                         {
-                                            { "", eventOption.GetAttribute("innerText") ?? "" }
+                                    { eventOption?.GetAttribute("innerText") ?? "", eventValue?.GetAttribute("innerText") ?? "" }
                                         }
                                     )
                                 );
                             }
+
+                            if (!trs.Any())
+                            {
+                                var eventOption = Helper.FindElementSafe(driver, By.CssSelector("div[class*=tooltips_ttable_cell__]"));
+                                if (eventOption != null && eventName != null)
+                                {
+                                    careerList.Add(
+                                        new Career(
+                                            eventName,
+                                            new Dictionary<string, string>
+                                            {
+                                            { "", eventOption.GetAttribute("innerText") ?? "" }
+                                            }
+                                        )
+                                    );
+                                }
+                            }
                         }
+
                     }
 
+                    _progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
+                    Helper.SaveAsJson(careerList, _savePath);
+
+                    _progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
+                    Cursor.Current = Cursors.Default;
+                    MessageBox.Show($"Successfully saved to {_savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                _progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
-                Helper.SaveAsJson(careerList, _savePath);
-
-                _progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
-                Cursor.Current = Cursors.Default;
-                MessageBox.Show($"Successfully saved to {_savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (WebDriverException ex)
-            {
-                Cursor.Current = Cursors.Default;
-                MessageBox.Show($"WebDriver error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
-            }
-            catch (Exception ex)
-            {
-                Cursor.Current = Cursors.Default;
-                MessageBox.Show($"Error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                catch (WebDriverException ex)
+                {
+                    Cursor.Current = Cursors.Default;
+                    MessageBox.Show($"WebDriver error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    Cursor.Current = Cursors.Default;
+                    MessageBox.Show($"Error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
             }
         }
 

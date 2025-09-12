@@ -8,8 +8,7 @@ namespace UmatoMusume
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            Environment.SetEnvironmentVariable("SE_MANAGER", "0");
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmMain());
         }

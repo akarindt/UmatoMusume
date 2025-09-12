@@ -1,7 +1,3 @@
-config_chinese.txt 简体中文
-config_en.txt English
-config_chinese_cht(v2).txt 繁體中文(V2)
-config_chinese_cht.txt 繁體中文(V3)
-config_japan.txt 日本語
-config_korean.txt 한국어
-config_cyrillic.txt Русский
+version https://git-lfs.github.com/spec/v1
+oid sha256:59e816455a7bfef4001a7bdde972e62a939942d7d68045978c6fd1d21eb9c65f
+size 233
