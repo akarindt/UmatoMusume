@@ -1,5 +1,173 @@
 ﻿[
   {
+    "EventName": "(❯) Sudden Murder Mystery! Part 1",
+    "EventOptions": {
+      "Top Option": "Wit +5\r\nSkill points +10\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) Sudden Murder Mystery! Part 1",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Sudden Murder Mystery! Part 2",
+    "EventOptions": {
+      "Top Option": "Wit +5\r\nFrenzied Pace Chasers hint +1\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Sudden Murder Mystery! Part 2",
+    "EventOptions": {
+      "Bottom Option": "Energy +5\r\nSkill points +10\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Sudden Murder Mystery! Part 3",
+    "EventOptions": {
+      "Top Option": "Wit +5/+10\r\nVanguard Spirit hint +1/+3\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Sudden Murder Mystery! Part 3",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nStamina +10\r\nSkill points +15"
+    }
+  },
+  {
+    "EventName": "Recruiting Cat Catchers",
+    "EventOptions": {
+      "Top Option": "Energy +10\r\nWit +5\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "Recruiting Cat Catchers",
+    "EventOptions": {
+      "Bottom Option": "Energy -10\r\nSpeed +15\r\nStamina +5\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "Recruiting Advisors",
+    "EventOptions": {
+      "Top Option": "Wit +15\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "Recruiting Advisors",
+    "EventOptions": {
+      "Bottom Option": "Keeping the Lead hint +1\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) A Captivating Invitation",
+    "EventOptions": {
+      "Top Option": "Power +10\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) A Captivating Invitation",
+    "EventOptions": {
+      "Bottom Option": "Guts +10\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Dancer's Pride",
+    "EventOptions": {
+      "Top Option": "Energy -5\r\nStamina +10\r\nPower +5\r\nSkill points +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Dancer's Pride",
+    "EventOptions": {
+      "Bottom Option": "Energy +15\r\nSkill points +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Glittering Star of the Ball",
+    "EventOptions": {
+      "": "Randomly either\r\nEnergy -10\r\nPower +25\r\nBlinding Flash hint +3\r\nor\r\nEnergy -10\r\nPower +20\r\nGap Closer hint +3"
+    }
+  },
+  {
+    "EventName": "You May Socialize With Me!",
+    "EventOptions": {
+      "Top Option": "Energy -20\r\nSpeed +10\r\nPower +10\r\nWit +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Socialize With Me!",
+    "EventOptions": {
+      "Bottom Option": "Mood -1\r\nGuts +25\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Advise Me!",
+    "EventOptions": {
+      "Top Option": "Guts +10\r\nWit +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Advise Me!",
+    "EventOptions": {
+      "Bottom Option": "Homestretch Haste hint +1\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) Raising the Uma Lord's Castle",
+    "EventOptions": {
+      "Top Option": "Maximum Energy +4\r\nGold Ship bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) Raising the Uma Lord's Castle",
+    "EventOptions": {
+      "Bottom Option": "Speed +10\r\nGold Ship bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Plotting the Uma Lord's Dungeon",
+    "EventOptions": {
+      "": "Energy -15\r\nSpeed +5\r\nStamina +5\r\nLong Straightaways ○ hint +1"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Assembling the Uma Lord's Minions",
+    "EventOptions": {
+      "Top Option": "Randomly either\r\nEnergy -10\r\nSpeed +5\r\nStamina +5\r\nInside Scoop hint +3\r\nGold Ship bond +5\r\nor\r\nEnergy -10\r\nSpeed +10\r\nStamina +10\r\nInnate Experience hint +3\r\nGold Ship bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Assembling the Uma Lord's Minions",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nMaverick ○ hint +1"
+    }
+  },
+  {
+    "EventName": "Adventurer Gold Ship",
+    "EventOptions": {
+      "Top Option": "Stamina +15\r\nGold Ship bond +5"
+    }
+  },
+  {
+    "EventName": "Adventurer Gold Ship",
+    "EventOptions": {
+      "Bottom Option": "Guts +10\r\nSkill points +15\r\nGold Ship bond +5"
+    }
+  },
+  {
+    "EventName": "Revive the Brand! Golshi's Yakisoba",
+    "EventOptions": {
+      "Top Option": "Mood +1\r\nStamina +5"
+    }
+  },
+  {
+    "EventName": "Revive the Brand! Golshi's Yakisoba",
+    "EventOptions": {
+      "Bottom Option": "Hanshin Racecourse ○ hint +1\r\nGold Ship bond +5"
+    }
+  },
+  {
     "EventName": "(❯) Ready for the Test!",
     "EventOptions": {
       "": "Energy -10\r\nStamina +3\r\nPower +3\r\nGuts +3\r\nCompetitive Spirit ○ hint +1"
@@ -4722,99 +4890,117 @@
     }
   },
   {
-    "EventName": "(❯) Dig Here, Windy!",
+    "EventName": "(❯) Sudden Murder Mystery! Part 1",
     "EventOptions": {
-      "Top Option": "Speed +10\r\nShinko Windy bond +5"
+      "Top Option": "Wit +5\r\nSkill points +10\r\nSeiun Sky bond +5"
     }
   },
   {
-    "EventName": "(❯) Dig Here, Windy!",
+    "EventName": "(❯) Sudden Murder Mystery! Part 1",
     "EventOptions": {
-      "Bottom Option": "Energy -5\r\nSkill points +30\r\nShinko Windy bond +5"
+      "Bottom Option": "Energy +10\r\nSeiun Sky bond +5"
     }
   },
   {
-    "EventName": "(❯❯) C'mon Gates, Open Already!",
+    "EventName": "(❯❯) Sudden Murder Mystery! Part 2",
     "EventOptions": {
-      "": "Randomly either\r\nSpeed +10\r\nSkill points +15\r\nShifting Gears hint +3\r\nShinko Windy bond +5\r\nor\r\nSpeed +5\r\nSkill points +10\r\nShinko Windy bond +5"
+      "Top Option": "Wit +5\r\nFrenzied Pace Chasers hint +1\r\nSeiun Sky bond +5"
     }
   },
   {
-    "EventName": "Chomp Extermination!",
+    "EventName": "(❯❯) Sudden Murder Mystery! Part 2",
     "EventOptions": {
-      "Top Option": "Speed +3\r\nMood +1\r\nShinko Windy bond +5"
+      "Bottom Option": "Energy +5\r\nSkill points +10\r\nSeiun Sky bond +5"
     }
   },
   {
-    "EventName": "Chomp Extermination!",
+    "EventName": "(❯❯❯) Sudden Murder Mystery! Part 3",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nSkill points +5\r\nShinko Windy bond +5"
+      "Top Option": "Wit +5/+10\r\nVanguard Spirit hint +1/+3\r\nSeiun Sky bond +5"
     }
   },
   {
-    "EventName": "Chomp Attack!",
+    "EventName": "(❯❯❯) Sudden Murder Mystery! Part 3",
     "EventOptions": {
-      "Top Option": "Skill points +15\r\nShinko Windy bond +5"
+      "Bottom Option": "Energy +10\r\nStamina +10\r\nSkill points +15"
     }
   },
   {
-    "EventName": "Chomp Attack!",
+    "EventName": "Recruiting Cat Catchers",
     "EventOptions": {
-      "Bottom Option": "Speed +3\r\nUnyielding Spirit hint +1\r\nShinko Windy bond +5"
+      "Top Option": "Energy +10\r\nWit +5\r\nSeiun Sky bond +5"
     }
   },
   {
-    "EventName": "(❯) Ready for the Test!",
+    "EventName": "Recruiting Cat Catchers",
     "EventOptions": {
-      "": "Energy -10\r\nStamina +3\r\nPower +3\r\nGuts +3\r\nCompetitive Spirit ○ hint +1"
+      "Bottom Option": "Energy -10\r\nSpeed +15\r\nStamina +5\r\nSeiun Sky bond +5"
     }
   },
   {
-    "EventName": "(❯❯) No One Is Above Discipline!",
+    "EventName": "Recruiting Advisors",
     "EventOptions": {
-      "Top Option": "Randomly either\r\nMaximum Energy +4\r\nEnergy -10\r\nStamina +10\r\nPower +10\r\nGuts +5\r\nHomestretch Haste hint +1\r\nBamboo Memory bond +5\r\nor\r\nEnergy -20\r\nStamina +10\r\nPower +10\r\nGuts +5\r\nBamboo Memory bond +5\r\nor\r\nEnergy -20\r\nStamina +10\r\nGuts +10\r\nObtain Running Idle skill"
+      "Top Option": "Wit +15\r\nSeiun Sky bond +5"
     }
   },
   {
-    "EventName": "(❯❯) No One Is Above Discipline!",
+    "EventName": "Recruiting Advisors",
     "EventOptions": {
-      "Middle Option": "Energy -10\r\nMood +1\r\nStamina +5\r\nPower +5\r\nBamboo Memory bond +5"
+      "Bottom Option": "Keeping the Lead hint +1\r\nSeiun Sky bond +5"
     }
   },
   {
-    "EventName": "(❯❯) No One Is Above Discipline!",
+    "EventName": "(❯) A Captivating Invitation",
     "EventOptions": {
-      "Bottom Option": "Energy +30\r\nHesitant Late Surgers hint +1\r\nEvent chain ended"
+      "Top Option": "Power +10\r\nKing Halo bond +5"
     }
   },
   {
-    "EventName": "(❯❯❯) Someday, I'll Be Your Rival!",
+    "EventName": "(❯) A Captivating Invitation",
     "EventOptions": {
-      "": "Randomly either\r\nMaximum Energy +4\r\nStamina +10\r\nPower +15\r\nRising Dragon hint +3\r\nBamboo Memory bond +5\r\nor\r\nEnergy -15\r\nStamina +10\r\nPower +15\r\nOuter Swell hint +3"
+      "Bottom Option": "Guts +10\r\nKing Halo bond +5"
     }
   },
   {
-    "EventName": "Overthrow the Rival!",
+    "EventName": "(❯❯) Dancer's Pride",
     "EventOptions": {
-      "Top Option": "Guts +10\r\nBamboo Memory bond +5"
+      "Top Option": "Energy -5\r\nStamina +10\r\nPower +5\r\nSkill points +5\r\nKing Halo bond +5"
     }
   },
   {
-    "EventName": "Overthrow the Rival!",
+    "EventName": "(❯❯) Dancer's Pride",
     "EventOptions": {
-      "Bottom Option": "Maximum Energy +4\r\nEnergy -5\r\nBamboo Memory bond +5"
+      "Bottom Option": "Energy +15\r\nSkill points +5\r\nKing Halo bond +5"
     }
   },
   {
-    "EventName": "Tons of Trouble!",
+    "EventName": "(❯❯❯) Glittering Star of the Ball",
     "EventOptions": {
-      "Top Option": "Stamina +5\r\nGuts +5\r\nBamboo Memory bond +5"
+      "": "Randomly either\r\nEnergy -10\r\nPower +25\r\nBlinding Flash hint +3\r\nor\r\nEnergy -10\r\nPower +20\r\nGap Closer hint +3"
     }
   },
   {
-    "EventName": "Tons of Trouble!",
+    "EventName": "You May Socialize With Me!",
     "EventOptions": {
-      "Bottom Option": "Energy -10\r\nStandard Distance ○ hint +5\r\nBamboo Memory bond +5"
+      "Top Option": "Energy -20\r\nSpeed +10\r\nPower +10\r\nWit +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Socialize With Me!",
+    "EventOptions": {
+      "Bottom Option": "Mood -1\r\nGuts +25\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Advise Me!",
+    "EventOptions": {
+      "Top Option": "Guts +10\r\nWit +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Advise Me!",
+    "EventOptions": {
+      "Bottom Option": "Homestretch Haste hint +1\r\nKing Halo bond +5"
     }
   }
 ]
