@@ -1,105 +1,96 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using UmatoMusume.Utils;
 
 namespace UmatoMusume
 {
-    public partial class FrmUpdater : Form
-    {
-        private const int PROGRESS_TOTAL = 100;
-        public bool _shouldUpdate = false;
+	public partial class FrmUpdater : Form
+	{
+		private const int PROGRESS_TOTAL = 100;
+		public bool _shouldUpdate = false;
 
-        public FrmUpdater()
-        {
-            InitializeComponent();
-        }
+		public FrmUpdater()
+		{
+			InitializeComponent();
+		}
 
-        private async void btnCheckUpdate_Click(object sender, EventArgs e)
-        {
-            SetButtons(true);
-            var dialogResult = MessageBox.Show("Do you want to check for updates?", "Check for Updates", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.No) return;
+		#region Functions
+		private async Task CheckUpdate()
+		{
+			SetButtons(true);
+			var dialogResult = MessageBox.Show("Do you want to check for updates?", "Check for Updates", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if (dialogResult == DialogResult.No) return;
 
-            var check = await Updater.CheckForUpdates();
-            if (!check)
-            {
-                MessageBox.Show("You are already using the latest version.", "No Updates", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+			var check = await Updater.CheckForUpdates();
+			if (!check)
+			{
+				MessageBox.Show("You are already using the latest version.", "No Updates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
 
-            dialogResult = MessageBox.Show("An update is available. Do you want to download and install it now?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.No) return;
+			dialogResult = MessageBox.Show("An update is available. Do you want to download and install it now?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if (dialogResult == DialogResult.No) return;
 
-            await StartUpdate().ConfigureAwait(false);
-        }
+			await StartUpdate();
+		}
 
-        public async Task StartUpdate()
-        {
-            SetButtons(false);
+		public async Task StartUpdate()
+		{
+			SetButtons(false);
 
-            foreach (Form f in Application.OpenForms.Cast<Form>().ToList())
-            {
-                if (f.Name != this.Name) f.Hide();
-            }
+			foreach (Form f in Application.OpenForms.Cast<Form>().ToList())
+			{
+				if (f.Name != this.Name) f.Hide();
+			}
 
-            var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
-            {
-                var (current, total, message) = progressData;
-                if (InvokeRequired)
-                {
-                    Invoke(() => {
-                        pUpdater.Value = Math.Min(current, PROGRESS_TOTAL);
-                        lblUpdate.Text = message;
-                    });
-                }
-                else
-                {
-                    pUpdater.Value = Math.Min(current, PROGRESS_TOTAL);
-                    lblUpdate.Text = message;
-                }
-            });
+			var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
+			{
+				var (current, total, message) = progressData;
+				pUpdater.Value = Math.Min(current, PROGRESS_TOTAL);
+				lblUpdate.Text = message;
+			});
 
-            var check = await Updater.DownloadAndUpdate(progress);
-            if (!check)
-            {
-                var frmMain = new FrmMain();
-                frmMain.Show();
-                this.Hide();
-                return;
-            }
+			var check = await Updater.DownloadAndUpdate(progress);
+			if (!check)
+			{
+				var frmMain = new FrmMain();
+				frmMain.Show();
+				this.Hide();
+				return;
+			}
 
-            SetButtons(true);
-            Updater.RestartApplication();
-            Application.Exit();
-        }
+			SetButtons(true);
+			Updater.RestartApplication();
+			Application.Exit();
+		}
 
-        private void SetButtons(bool _isEnable = true)
-        {
-            btnCheckUpdate.Enabled = _isEnable;
-            btnReDown.Enabled = _isEnable;
-        }
+		private void SetButtons(bool _isEnable = true)
+		{
+			btnCheckUpdate.Enabled = _isEnable;
+			btnReDown.Enabled = _isEnable;
+		}
+		#endregion
 
-        private async void btnReDown_Click(object sender, EventArgs e)
-        {
-            var dialogResult = MessageBox.Show("Do you want to re-download and install the update?", "Re-Download Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.No) return;
+		#region Event Handlers
+		private async void btnCheckUpdate_Click(object sender, EventArgs e)
+		{
+			await CheckUpdate();
+		}
 
-            await StartUpdate().ConfigureAwait(false);
-        }
+		private async void btnReDown_Click(object sender, EventArgs e)
+		{
+			var dialogResult = MessageBox.Show("Do you want to re-download and install the update?", "Re-Download Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if (dialogResult == DialogResult.No) return;
 
-        private async void FrmUpdater_Load(object sender, EventArgs e)
-        {
-            if(_shouldUpdate)
-            {
-                await StartUpdate().ConfigureAwait(false);
-            }
-        }
-    }
+			await StartUpdate();
+		}
+
+		private async void FrmUpdater_Load(object sender, EventArgs e)
+		{
+			if (_shouldUpdate)
+			{
+				await StartUpdate();
+			}
+		}
+		#endregion
+	}
 }

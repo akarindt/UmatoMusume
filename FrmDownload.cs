@@ -1,350 +1,113 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using UmatoMusume.Utils;
 
 namespace UmatoMusume
 {
-    public partial class FrmDownload : Form
-    {
-        private const string DEFAULT_FOLDER = "Assets";
-        private const string SUPPORT_CARD_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/support_card.json";
-        private const string UMA_DATA_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/uma_data.json";
-        private const string CAREER_DATA_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/career.json";
-        private const string RACES_DATA_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/races.json";
-        private const int PROGRESS_INITIAL = 0;
-        private const int PROGRESS_TOTAL = 100;
+	public partial class FrmDownload : Form
+	{
+		private const string DEFAULT_FOLDER = "Assets";
+		private const string SUPPORT_CARD_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/support_card.json";
+		private const string UMA_DATA_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/uma_data.json";
+		private const string CAREER_DATA_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/career.json";
+		private const string RACES_DATA_DOWNLOAD_URL = "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/Assets/races.json";
+		private const int PROGRESS_INITIAL = 0;
+		private const int PROGRESS_TOTAL = 100;
 
-        public FrmDownload()
-        {
-            InitializeComponent();
-        }
+		public FrmDownload()
+		{
+			InitializeComponent();
+		}
 
-        private async void btnCrawlUma_Click(object sender, EventArgs e)
-        {
-            SetControlsEnabled(false);
-            pbDownload.Value = PROGRESS_INITIAL;
+		#region Functions
+		private void SetControlsEnabled(bool enabled)
+		{
+			btnCrawlUma.Enabled = enabled;
+			btnCrawlSupport.Enabled = enabled;
+			btnDownloadUma.Enabled = enabled;
+			btnDownloadSupport.Enabled = enabled;
+			btnDownloadCareer.Enabled = enabled;
+			btnCrawlCareer.Enabled = enabled;
+			btnCrawlRaces.Enabled = enabled;
+			btnDownloadRaces.Enabled = enabled;
+		}
 
-            try
-            {
-                var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
-                {
-                    var (current, total, message) = progressData;
-                    if (InvokeRequired)
-                    {
-                        Invoke(() => {
-                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                            lblProgress.Text = message;
-                        });
-                    }
-                    else
-                    {
-                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                        lblProgress.Text = message;
-                    }
-                });
+		private async Task InitAction(Label _label, ProgressBar _progressBar, Func<Progress<(int Current, int Total, string Message)>, Task> _func, string _type)
+		{
+			SetControlsEnabled(false);
+			_progressBar.Value = PROGRESS_INITIAL;
 
-                await GameTora.DownloadUmaData(progress);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error occurred: {ex.Message}", "Download Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                SetControlsEnabled(true);
-            }
-        }
+			try
+			{
+				var progress = new Progress<(int Current, int Total, string Message)>(data =>
+				{
+					_progressBar.Value = Math.Min(data.Current, PROGRESS_TOTAL);
+					_label.Text = data.Message;
+				});
 
-        private async void btnCrawlSupport_Click(object sender, EventArgs e)
-        {
-            SetControlsEnabled(false);
-            pbDownload.Value = PROGRESS_INITIAL;
+				await _func(progress);
 
-            try
-            {
-                var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
-                {
-                    var (current, total, message) = progressData;
-                    if (InvokeRequired)
-                    {
-                        Invoke(() => {
-                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                            lblProgress.Text = message;
-                        });
-                    }
-                    else
-                    {
-                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                        lblProgress.Text = message;
-                    }
-                });
+				MessageBox.Show(
+					$"{_type} data downloaded successfully. Please restart the application to load the newest data.",
+					"Download Complete",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Information
+				);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Error occurred: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally
+			{
+				SetControlsEnabled(true);
+			}
+		}
+		#endregion
 
-                await GameTora.DownloadSupportData(progress);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error occurred: {ex.Message}", "Download Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                SetControlsEnabled(true);
-            }
-        }
+		#region Event Handlers
+		private async void btnCrawlUma_Click(object sender, EventArgs e)
+		{
+			await InitAction(lblProgress, pbDownload, progress => GameTora.DownloadUmaData(progress), "Uma");
+		}
 
-        private async void btnDownloadUma_Click(object sender, EventArgs e)
-        {
-            SetControlsEnabled(false);
-            pbDownload.Value = PROGRESS_INITIAL;
+		private async void btnCrawlSupport_Click(object sender, EventArgs e)
+		{
+			await InitAction(lblProgress, pbDownload, progress => GameTora.DownloadSupportData(progress), "Support Card");
+		}
 
-            try
-            {
-                var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
-                {
-                    var (current, total, message) = progressData;
-                    if (InvokeRequired)
-                    {
-                        Invoke(() => {
-                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                            lblProgress.Text = message;
-                        });
-                    }
-                    else
-                    {
-                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                        lblProgress.Text = message;
-                    }
-                });
+		private async void btnDownloadUma_Click(object sender, EventArgs e)
+		{
+			await InitAction(lblProgress, pbDownload, progress => Helper.DownloadJsonAsync(UMA_DATA_DOWNLOAD_URL, DEFAULT_FOLDER + "/uma_data.json", progress), "Uma");
+		}
 
-                bool result = await Helper.DownloadJsonAsync(UMA_DATA_DOWNLOAD_URL, DEFAULT_FOLDER + "/uma_data.json", progress);
-                if (!result)
-                {
-                    MessageBox.Show("Failed to download Uma data.", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+		private async void btnDownloadSupport_Click(object sender, EventArgs e)
+		{
+			await InitAction(lblProgress, pbDownload, progress => Helper.DownloadJsonAsync(SUPPORT_CARD_DOWNLOAD_URL, DEFAULT_FOLDER + "/support_card.json", progress), "Support Card");
+		}
 
-                MessageBox.Show("Uma data downloaded successfully. Please restart the application to load the newest data", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            finally
-            {
-                SetControlsEnabled(true);
-            }
-        }
+		private async void btnDownloadCareer_Click(object sender, EventArgs e)
+		{
+			await InitAction(lblProgress, pbDownload, progress => Helper.DownloadJsonAsync(CAREER_DATA_DOWNLOAD_URL, DEFAULT_FOLDER + "/career.json", progress), "Career");
+		}
 
-        private async void btnDownloadSupport_Click(object sender, EventArgs e)
-        {
-            SetControlsEnabled(false);
-            pbDownload.Value = PROGRESS_INITIAL;
+		private async void btnCrawlCareer_Click(object sender, EventArgs e)
+		{
+			await InitAction(lblProgress, pbDownload, progress => GameTora.DownloadAllCareerData(progress), "Career");
+		}
 
-            try
-            {
-                var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
-                {
-                    var (current, total, message) = progressData;
-                    if (InvokeRequired)
-                    {
-                        Invoke(() => {
-                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                            lblProgress.Text = message;
-                        });
-                    }
-                    else
-                    {
-                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                        lblProgress.Text = message;
-                    }
-                });
+		private async void btnCrawlRaces_Click(object sender, EventArgs e)
+		{
+			await InitAction(lblProgress, pbDownload, progress => GameTora.DownloadRacesData(progress), "Races");
+		}
 
-                bool result = await Helper.DownloadJsonAsync(SUPPORT_CARD_DOWNLOAD_URL, DEFAULT_FOLDER + "/support_card.json", progress);
-                if (!result)
-                {
-                    MessageBox.Show("Failed to download Support Card data.", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+		private async void btnDownloadRaces_Click(object sender, EventArgs e)
+		{
+			await InitAction(lblProgress, pbDownload, progress => Helper.DownloadJsonAsync(RACES_DATA_DOWNLOAD_URL, DEFAULT_FOLDER + "/races.json", progress), "Races");
+		}
 
-                MessageBox.Show("Support Card data downloaded successfully. Please restart the application to load the newest data", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            finally
-            {
-                SetControlsEnabled(true);
-            }
-        }
-
-        private void SetControlsEnabled(bool enabled)
-        {
-            btnCrawlUma.Enabled = enabled;
-            btnCrawlSupport.Enabled = enabled;
-            btnDownloadUma.Enabled = enabled;
-            btnDownloadSupport.Enabled = enabled;
-            btnDownloadCareer.Enabled = enabled;
-            btnCrawlCareer.Enabled = enabled;
-            btnCrawlRaces.Enabled = enabled;
-            btnDownloadRaces.Enabled = enabled;
-        }
-
-        private async void btnDownloadCareer_Click(object sender, EventArgs e)
-        {
-            SetControlsEnabled(false);
-            pbDownload.Value = PROGRESS_INITIAL;
-
-            try
-            {
-                var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
-                {
-                    var (current, total, message) = progressData;
-                    if (InvokeRequired)
-                    {
-                        Invoke(() => {
-                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                            lblProgress.Text = message;
-                        });
-                    }
-                    else
-                    {
-                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                        lblProgress.Text = message;
-                    }
-                });
-
-                bool result = await Helper.DownloadJsonAsync(CAREER_DATA_DOWNLOAD_URL, DEFAULT_FOLDER + "/career.json", progress);
-                if (!result)
-                {
-                    MessageBox.Show("Failed to download Career data.", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                MessageBox.Show("Career data downloaded successfully. Please restart the application to load the newest data", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            finally
-            {
-                SetControlsEnabled(true);
-            }
-        }
-
-        private async void btnCrawlCareer_Click(object sender, EventArgs e)
-        {
-            SetControlsEnabled(false);
-            pbDownload.Value = PROGRESS_INITIAL;
-
-            try
-            {
-                var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
-                {
-                    var (current, total, message) = progressData;
-                    if (InvokeRequired)
-                    {
-                        Invoke(() => {
-                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                            lblProgress.Text = message;
-                        });
-                    }
-                    else
-                    {
-                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                        lblProgress.Text = message;
-                    }
-                });
-
-                await GameTora.DownloadAllCareerData(progress);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error occurred: {ex.Message}", "Download Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                SetControlsEnabled(true);
-            }
-        }
-
-        private async void btnCrawlRaces_Click(object sender, EventArgs e)
-        {
-            SetControlsEnabled(false);
-            pbDownload.Value = PROGRESS_INITIAL;
-
-            try
-            {
-                var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
-                {
-                    var (current, total, message) = progressData;
-                    if (InvokeRequired)
-                    {
-                        Invoke(() => {
-                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                            lblProgress.Text = message;
-                        });
-                    }
-                    else
-                    {
-                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                        lblProgress.Text = message;
-                    }
-                });
-
-                await GameTora.DownloadRacesData(progress);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error occurred: {ex.Message}", "Download Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                SetControlsEnabled(true);
-            }
-        }
-
-        private async void btnDownloadRaces_Click(object sender, EventArgs e)
-        {
-            SetControlsEnabled(false);
-            pbDownload.Value = PROGRESS_INITIAL;
-
-            try
-            {
-                var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
-                {
-                    var (current, total, message) = progressData;
-                    if (InvokeRequired)
-                    {
-                        Invoke(() => {
-                            pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                            lblProgress.Text = message;
-                        });
-                    }
-                    else
-                    {
-                        pbDownload.Value = Math.Min(current, PROGRESS_TOTAL);
-                        lblProgress.Text = message;
-                    }
-                });
-
-                bool result = await Helper.DownloadJsonAsync(RACES_DATA_DOWNLOAD_URL, DEFAULT_FOLDER + "/races.json", progress);
-                if (!result)
-                {
-                    MessageBox.Show("Failed to download races data.", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                MessageBox.Show("Races data downloaded successfully. Please restart the application to load the newest data", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            finally
-            {
-                SetControlsEnabled(true);
-            }
-        }
-
-        private void FrmDownload_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            GameTora.DisposeResources();
-        }
-    }
+		private void FrmDownload_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			GameTora.DisposeResources();
+		}
+		#endregion
+	}
 }

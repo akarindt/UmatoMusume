@@ -46,6 +46,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Include="C:\Users\ITTEAM\Desktop\Personal Projects\UmatoMusume\.editorconfig" />
 		<None Include="UmamusumePD.sqlite" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="Assets\**" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="Extras\**" CopyToOutputDirectory="PreserveNewest" />
@@ -95,5 +96,9 @@
 		<Folder Include="Extras\ChromeProfile\WasmTtsEngine\" />
 		<Folder Include="Extras\ChromeProfile\WidevineCdm\" />
 		<Folder Include="Extras\ChromeProfile\ZxcvbnData\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EditorConfigFiles Remove="C:\Users\ITTEAM\Desktop\Personal Projects\UmatoMusume\.editorconfig" />
 	</ItemGroup>
 </Project>
