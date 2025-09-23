@@ -1,4 +1,4 @@
-﻿using F23.StringSimilarity;
+using F23.StringSimilarity;
 using FuzzySharp;
 using Newtonsoft.Json;
 using OpenQA.Selenium;
@@ -15,6 +15,10 @@ namespace UmatoMusume.Utils
 		private const int PROGRESS_TOTAL = 100;
 		private const int RATIO = 85;
 		private const int MAX_RATIO = 100;
+
+		private readonly static string[] YEAR = new string[] { "Junior", "Classic", "Senior" };
+		private readonly static string[] TIME = new string[] { "Early", "Late" };
+		private readonly static string[] MONTH = new string[] { "PreDebut", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 
 		public static string GetConfigValue(string _configName, string _defaultValue, string _configFilePath = "config.txt")
 		{
@@ -334,6 +338,59 @@ namespace UmatoMusume.Utils
 		public static string GetWindowsVersion()
 		{
 			return Environment.Is64BitOperatingSystem ? "win-x64" : "win-x86";
+		}
+
+		public static string CompleteText(string _str)
+		{
+			if (string.IsNullOrEmpty(_str)) return string.Empty;
+
+			var input = _str.Replace(" ", "").Replace("-", "");
+			if (string.IsNullOrEmpty(input)) return string.Empty;
+
+			var str = "";
+			var totalLength = 0;
+
+			foreach (var year in YEAR)
+			{
+				if (input.Length >= year.Length)
+				{
+					var yearSubstr = input.Substring(0, year.Length);
+					if (CheckRatio(yearSubstr, year))
+					{
+						str += year + " Year ";
+						totalLength += year.Length + 4;
+						break;
+					}
+				}
+			}
+
+			foreach (var time in TIME)
+			{
+				if (input.Length >= totalLength + time.Length)
+				{
+					var timeSubstr = input.Substring(totalLength, time.Length);
+					if (CheckRatio(timeSubstr, time))
+					{
+						str += time + " ";
+						break;
+					}
+				}
+			}
+
+			foreach (var month in MONTH)
+			{
+				if (input.Length >= month.Length)
+				{
+					var monthSubstr = input.Substring(input.Length - month.Length, month.Length);
+					if (CheckRatio(monthSubstr, month))
+					{
+						str += month;
+						break;
+					}
+				}
+			}
+
+			return str.Trim();
 		}
 	}
 }

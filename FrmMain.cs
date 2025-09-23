@@ -33,12 +33,12 @@ namespace UmatoMusume
 		protected Hook.WinEventDelegate _winEventDelegate;
 		static GCHandle _gcSafetyHandle;
 
-		private const string TARGET_PROCESS_NAME = "Photos";
+		private const string TARGET_PROCESS_NAME = "UmamusumePrettyDerby";
 		private const string FORM_TITLE = "UmatoMusume - Process Window Capture";
 		private const int ATTACH_INTERVAL = 500;
 		private const int FAST_ATTACH_INTERVAL = 30;
 		private const int CAPTURE_INTERVAL = 1000;
-		private const int DELAY_AFTER_CAPTURE = 200;
+		private const int DELAY_AFTER_CAPTURE = 30;
 		private const int OFFSET_HEIGHT = 100;
 		private int _appHeight = 0;
 		private int _appWidth = 0;
@@ -182,7 +182,6 @@ namespace UmatoMusume
 		private async Task StartCapture()
 		{
 			_captureTimer.Stop();
-
 			if (_processhWnd != IntPtr.Zero)
 			{
 				if (_eventOctRect != null)
@@ -199,17 +198,16 @@ namespace UmatoMusume
 					var rect = (Rectangle)_dateTimeRect;
 					if (rect.Width > 0 && rect.Height > 0)
 					{
-						lblDate.Text = await Task.Run(() => Detector.DetectText(rect));
+						lblDate.Text = Helper.CompleteText(await Task.Run(() => Detector.DetectText(rect)));
 					}
 				}
 			}
-
-			await Task.Delay(DELAY_AFTER_CAPTURE);
 			_captureTimer.Start();
 		}
 
 		private void WinEventCallback(IntPtr _, NativeMethods.SWEH_Events _eventType, IntPtr _hWnd, NativeMethods.SWEH_ObjectId _idObject, long _idChild, uint _dwEventThread, uint _dwmsEventTime)
 		{
+			if (!IsHandleCreated && IsDisposed) return; 
 			if (_hWnd == IntPtr.Zero || _hWnd != _processhWnd) return;
 
 			switch (_eventType)
