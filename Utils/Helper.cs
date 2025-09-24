@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using OpenQA.Selenium;
 using System.Drawing.Imaging;
 using System.Text;
+using UmatoMusume.Models;
 
 namespace UmatoMusume.Utils
 {
@@ -210,12 +211,12 @@ namespace UmatoMusume.Utils
 			}
 		}
 
-		public static async Task<bool> DownloadJsonAsync(string _url, string _filePath, IProgress<(int Current, int Total, string Message)>? _progress = null)
+		public static async Task<bool> DownloadJsonAsync(string _url, string _filePath, IProgress<ProgressGroup>? _progress = null)
 		{
 			try
 			{
 				using var httpClient = new HttpClient();
-				_progress?.Report((PROGRESS_INITIAL, PROGRESS_TOTAL, "Starting download..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_INITIAL, PROGRESS_TOTAL, "Starting download..."));
 				using var response = await httpClient.GetAsync(_url, HttpCompletionOption.ResponseHeadersRead);
 				response.EnsureSuccessStatusCode();
 				var contentLength = response.Content.Headers.ContentLength;
@@ -239,16 +240,16 @@ namespace UmatoMusume.Utils
 						if (contentLength.HasValue && contentLength.Value > 0)
 						{
 							int percent = (int)(totalRead * PROGRESS_TOTAL / contentLength.Value);
-							_progress?.Report((percent, PROGRESS_TOTAL, $"Downloading... {percent}%"));
+							_progress?.Report(new ProgressGroup(percent, PROGRESS_TOTAL, $"Downloading... {percent}%"));
 						}
 					}
-					_progress?.Report((PROGRESS_TOTAL, PROGRESS_TOTAL, "Download complete!"));
+					_progress?.Report(new ProgressGroup(PROGRESS_TOTAL, PROGRESS_TOTAL, "Download complete!"));
 					return true;
 				}
 			}
 			catch (Exception ex)
 			{
-				_progress?.Report((PROGRESS_INITIAL, PROGRESS_TOTAL, $"Error: {ex.Message}"));
+				_progress?.Report(new ProgressGroup(PROGRESS_INITIAL, PROGRESS_TOTAL, $"Error: {ex.Message}"));
 				Console.WriteLine($"Error downloading JSON: {ex.Message}");
 				return false;
 			}
@@ -263,6 +264,17 @@ namespace UmatoMusume.Utils
 			var l = new JaroWinkler();
 			var ratio = l.Similarity(_inputStr, _compareStr) * MAX_RATIO;
 			return ratio >= RATIO;
+		}
+
+		public static (bool, string) FuzzyContains(string input, string target)
+		{
+			int len = target.Length;
+			for (int i = 0; i <= input.Length - len; i++)
+			{
+				var sub = input.Substring(i, len);
+				if (CheckRatio(sub, target)) return (true, sub);
+			}
+			return (false, string.Empty);
 		}
 
 		public static T? GetSelectedValue<T>(this ComboBox _cbo)
@@ -347,50 +359,42 @@ namespace UmatoMusume.Utils
 			var input = _str.Replace(" ", "").Replace("-", "");
 			if (string.IsNullOrEmpty(input)) return string.Empty;
 
-			var str = "";
-			var totalLength = 0;
+			var str = new StringBuilder();
 
 			foreach (var year in YEAR)
 			{
-				if (input.Length >= year.Length)
+				var (isContains, subStr) = FuzzyContains(input, year);
+				if (isContains)
 				{
-					var yearSubstr = input.Substring(0, year.Length);
-					if (CheckRatio(yearSubstr, year))
-					{
-						str += year + " Year ";
-						totalLength += year.Length + 4;
-						break;
-					}
+					str.Append(year).Append(" Year ");
+					input = input.Replace(subStr, "");
+					break;
 				}
 			}
 
 			foreach (var time in TIME)
 			{
-				if (input.Length >= totalLength + time.Length)
+				var (isContains, subStr) = FuzzyContains(input, time);
+				if (isContains)
 				{
-					var timeSubstr = input.Substring(totalLength, time.Length);
-					if (CheckRatio(timeSubstr, time))
-					{
-						str += time + " ";
-						break;
-					}
+					str.Append(time).Append(' ');
+					input = input.Replace(subStr, "");
+					break;
 				}
 			}
 
 			foreach (var month in MONTH)
 			{
-				if (input.Length >= month.Length)
+				var (isContains, subStr) = FuzzyContains(input, month);
+				if (isContains)
 				{
-					var monthSubstr = input.Substring(input.Length - month.Length, month.Length);
-					if (CheckRatio(monthSubstr, month))
-					{
-						str += month;
-						break;
-					}
+					str.Append(month).Append(' ');
+					input = input.Replace(subStr, "");
+					break;
 				}
 			}
 
-			return str.Trim();
+			return str.ToString().Trim();
 		}
 	}
 }

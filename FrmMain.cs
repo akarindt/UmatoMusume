@@ -207,7 +207,7 @@ namespace UmatoMusume
 
 		private void WinEventCallback(IntPtr _, NativeMethods.SWEH_Events _eventType, IntPtr _hWnd, NativeMethods.SWEH_ObjectId _idObject, long _idChild, uint _dwEventThread, uint _dwmsEventTime)
 		{
-			if (!IsHandleCreated && IsDisposed) return; 
+			if (!IsHandleCreated && IsDisposed) return;
 			if (_hWnd == IntPtr.Zero || _hWnd != _processhWnd) return;
 
 			switch (_eventType)
@@ -597,70 +597,74 @@ namespace UmatoMusume
 
 		private void AttachTimer_Tick(object? sender, EventArgs e)
 		{
-			if (_targetProc == null || _targetProc.HasExited)
+			try
 			{
-				_targetProc = Process.GetProcessesByName(TARGET_PROCESS_NAME).FirstOrDefault(p => p != null);
-				if (_targetProc == null)
+				if (_targetProc == null || _targetProc.HasExited)
 				{
-					return;
-				}
-				_targetProc.EnableRaisingEvents = true;
-				_targetProc.Exited += (s, ev) =>
-				{
-					BeginInvoke(new Action(() => Close()));
-					return;
-				};
-			}
-
-			_processhWnd = _targetProc.MainWindowHandle;
-			if (_processhWnd != IntPtr.Zero)
-			{
-				uint targetThreadId = Hook.GetWindowThread(_processhWnd);
-				_hWinEventHook = Hook.WinEventHookRange(NativeMethods.SWEH_Events.EVENT_SYSTEM_FOREGROUND, NativeMethods.SWEH_Events.EVENT_SYSTEM_MINIMIZEEND, _winEventDelegate, (uint)_targetProc.Id, targetThreadId);
-				var rect = Hook.GetWindowRectangle(_processhWnd);
-
-				Height = _appHeight;
-				Width = _appWidth;
-
-				var isFullScreen = bool.Parse(Helper.GetConfigValue("FullScreen", "False"));
-				if (isFullScreen)
-				{
-					TopMost = true;
-					if (Location.X == 0 && Location.Y == 0)
+					_targetProc = Process.GetProcessesByName(TARGET_PROCESS_NAME).FirstOrDefault(p => p != null);
+					if (_targetProc == null)
 					{
-						StartPosition = FormStartPosition.CenterScreen;
+						return;
 					}
-				}
-				else
-				{
-					TopMost = false;
-					var isRightMenu = bool.Parse(Helper.GetConfigValue("RightMenu", "False"));
-					if (isRightMenu)
+					_targetProc.EnableRaisingEvents = true;
+					_targetProc.Exited += (s, ev) =>
 					{
-						Location = new Point(rect.Right, rect.Top);
+						BeginInvoke(new Action(() => Close()));
+						return;
+					};
+				}
+
+				_processhWnd = _targetProc.MainWindowHandle;
+				if (_processhWnd != IntPtr.Zero)
+				{
+					uint targetThreadId = Hook.GetWindowThread(_processhWnd);
+					_hWinEventHook = Hook.WinEventHookRange(NativeMethods.SWEH_Events.EVENT_SYSTEM_FOREGROUND, NativeMethods.SWEH_Events.EVENT_SYSTEM_MINIMIZEEND, _winEventDelegate, (uint)_targetProc.Id, targetThreadId);
+					var rect = Hook.GetWindowRectangle(_processhWnd);
+
+					Height = _appHeight;
+					Width = _appWidth;
+
+					var isFullScreen = bool.Parse(Helper.GetConfigValue("FullScreen", "False"));
+					if (isFullScreen)
+					{
+						TopMost = true;
+						if (Location.X == 0 && Location.Y == 0)
+						{
+							StartPosition = FormStartPosition.CenterScreen;
+						}
 					}
 					else
 					{
-						Location = new Point(rect.Left - _appWidth, rect.Top);
+						TopMost = false;
+						var isRightMenu = bool.Parse(Helper.GetConfigValue("RightMenu", "False"));
+						if (isRightMenu)
+						{
+							Location = new Point(rect.Right, rect.Top);
+						}
+						else
+						{
+							Location = new Point(rect.Left - _appWidth, rect.Top);
+						}
 					}
-				}
 
-				if (NativeMethods.IsIconic(_processhWnd))
-				{
-					if (WindowState != FormWindowState.Minimized)
+					if (NativeMethods.IsIconic(_processhWnd))
 					{
-						WindowState = FormWindowState.Minimized;
+						if (WindowState != FormWindowState.Minimized)
+						{
+							WindowState = FormWindowState.Minimized;
+						}
 					}
-				}
-				else
-				{
-					if (WindowState == FormWindowState.Minimized)
+					else
 					{
-						this.Show();
-						WindowState = FormWindowState.Normal;
+						if (WindowState == FormWindowState.Minimized)
+						{
+							this.Show();
+							WindowState = FormWindowState.Normal;
+						}
 					}
 				}
 			}
+			catch { }
 		}
 
 		private async void btnCaptureEvent_Click(object sender, EventArgs e)
@@ -699,6 +703,8 @@ namespace UmatoMusume
 
 		private async void FrmMain_ResizeEnd(object sender, EventArgs e)
 		{
+			_attachTimer.Stop();
+
 			await _rectConfigData.Upsert(new RectConfig
 			{
 				RectName = "WINDOW_RECT",
@@ -710,6 +716,8 @@ namespace UmatoMusume
 
 			_appHeight = Height;
 			_appWidth = Width;
+
+			_attachTimer.Start();
 		}
 
 		private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)

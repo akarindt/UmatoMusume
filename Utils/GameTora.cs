@@ -71,7 +71,7 @@ namespace UmatoMusume.Utils
 			}
 		}
 
-		public static async Task DownloadUmaData(IProgress<(int Current, int Total, string Message)>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/uma_data.json")
+		public static async Task DownloadUmaData(IProgress<ProgressGroup>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/uma_data.json")
 		{
 			Cursor.Current = Cursors.WaitCursor;
 			_service ??= CreateDriverService();
@@ -81,7 +81,7 @@ namespace UmatoMusume.Utils
 			{
 				driver.Navigate().GoToUrl("https://gametora.com/umamusume/characters");
 
-				_progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
 				var currentUmaList = Helper.LoadFromJson<Umamusume>(UMA_DATA_PATH);
 				var elements = Helper.FindElementsSafe(driver, By.CssSelector("a[href^='/umamusume/characters']"));
@@ -93,7 +93,7 @@ namespace UmatoMusume.Utils
 
 				await Task.Delay(DELAY_TIME * 2);
 
-				_progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering character URLs..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering character URLs..."));
 
 				foreach (var element in elements)
 				{
@@ -123,7 +123,7 @@ namespace UmatoMusume.Utils
 					string characterName = url.Split('/').Last();
 
 					int _progressPercentage = PROGRESS_URL_GATHERING + (currentUrl * PROGRESS_PROCESSING_WEIGHT / totalUrls);
-					_progress?.Report((_progressPercentage, PROGRESS_TOTAL, $"Processing character {currentUrl}/{totalUrls}: {characterName}..."));
+					_progress?.Report(new ProgressGroup(_progressPercentage, PROGRESS_TOTAL, $"Processing character {currentUrl}/{totalUrls}: {characterName}..."));
 
 					driver.Navigate().GoToUrl(url);
 					await Task.Delay(DELAY_TIME);
@@ -220,10 +220,10 @@ namespace UmatoMusume.Utils
 
 				umaDataList.AddRange(currentUmaList);
 
-				_progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
 				Helper.SaveAsJson(umaDataList, _savePath);
 
-				_progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
+				_progress?.Report(new ProgressGroup(PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
 				Cursor.Current = Cursors.Default;
 				MessageBox.Show($"Uma data saved to {_savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
@@ -235,7 +235,7 @@ namespace UmatoMusume.Utils
 			}
 		}
 
-		public static async Task DownloadSupportData(IProgress<(int Current, int Total, string Message)>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/support_card.json")
+		public static async Task DownloadSupportData(IProgress<ProgressGroup>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/support_card.json")
 		{
 			Cursor.Current = Cursors.WaitCursor;
 			_service ??= CreateDriverService();
@@ -244,7 +244,7 @@ namespace UmatoMusume.Utils
 			try
 			{
 				driver.Navigate().GoToUrl("https://gametora.com/umamusume/supports");
-				_progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
 				await Task.Delay(DELAY_TIME * 2);
 
@@ -256,7 +256,7 @@ namespace UmatoMusume.Utils
 
 				await Task.Delay(DELAY_TIME * 2);
 
-				_progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering support card URLs..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering support card URLs..."));
 
 				foreach (var element in elements)
 				{
@@ -282,7 +282,7 @@ namespace UmatoMusume.Utils
 					string supportName = url.Split('/').Last();
 
 					int _progressPercentage = PROGRESS_URL_GATHERING + (currentUrl * PROGRESS_PROCESSING_WEIGHT / totalUrls);
-					_progress?.Report((_progressPercentage, PROGRESS_TOTAL, $"Processing support {currentUrl}/{totalUrls}: {supportName}..."));
+					_progress?.Report(new ProgressGroup(_progressPercentage, PROGRESS_TOTAL, $"Processing support {currentUrl}/{totalUrls}: {supportName}..."));
 
 					driver.Navigate().GoToUrl(url);
 					await Task.Delay(DELAY_TIME);
@@ -354,10 +354,10 @@ namespace UmatoMusume.Utils
 					}
 				}
 
-				_progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
 				Helper.SaveAsJson(supportCardList, _savePath);
 
-				_progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
+				_progress?.Report(new ProgressGroup(PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
 				Cursor.Current = Cursors.Default;
 				MessageBox.Show($"Support cards saved to {_savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
@@ -375,7 +375,7 @@ namespace UmatoMusume.Utils
 			}
 		}
 
-		public static async Task DownloadAllCareerData(IProgress<(int Current, int Total, string Message)>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/career.json")
+		public static async Task DownloadAllCareerData(IProgress<ProgressGroup>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/career.json")
 		{
 			Cursor.Current = Cursors.WaitCursor;
 			_service ??= CreateDriverService();
@@ -386,7 +386,7 @@ namespace UmatoMusume.Utils
 				{
 					driver.Navigate().GoToUrl("https://gametora.com/umamusume/training-event-helper");
 					var careerList = new List<Career>();
-					_progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
+					_progress?.Report(new ProgressGroup(PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
 					SetupPage(driver);
 					await Task.Delay(DELAY_TIME * 2);
@@ -396,7 +396,7 @@ namespace UmatoMusume.Utils
 					driver.Navigate().Refresh();
 
 
-					_progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering career data..."));
+					_progress?.Report(new ProgressGroup(PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering career data..."));
 
 					Helper.FindElementSafe(driver, By.Id("boxScenario"))?.Click();
 
@@ -410,7 +410,7 @@ namespace UmatoMusume.Utils
 						currentElement++;
 
 						int _progressPercentage = PROGRESS_URL_GATHERING + (currentElement * PROGRESS_PROCESSING_WEIGHT / totalElement);
-						_progress?.Report((_progressPercentage, PROGRESS_TOTAL, $"Processing career {currentElement}/{totalElement}"));
+						_progress?.Report(new ProgressGroup(_progressPercentage, PROGRESS_TOTAL, $"Processing career {currentElement}/{totalElement}"));
 
 						Helper.FindElementSafe(driver, By.Id("boxScenario"))?.Click();
 						await Task.Delay(DELAY_TIME);
@@ -471,10 +471,10 @@ namespace UmatoMusume.Utils
 
 					}
 
-					_progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
+					_progress?.Report(new ProgressGroup(PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
 					Helper.SaveAsJson(careerList, _savePath);
 
-					_progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
+					_progress?.Report(new ProgressGroup(PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
 					Cursor.Current = Cursors.Default;
 					MessageBox.Show($"Successfully saved to {_savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
@@ -493,7 +493,7 @@ namespace UmatoMusume.Utils
 			}
 		}
 
-		public static async Task DownloadRacesData(IProgress<(int Current, int Total, string Message)>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/races.json")
+		public static async Task DownloadRacesData(IProgress<ProgressGroup>? _progress = null, string _savePath = DEFAULT_SAVE_PATH + "/races.json")
 		{
 			Cursor.Current = Cursors.WaitCursor;
 			_service ??= CreateDriverService();
@@ -502,12 +502,12 @@ namespace UmatoMusume.Utils
 			try
 			{
 				driver.Navigate().GoToUrl("https://gametora.com/umamusume/races");
-				_progress?.Report((PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_INIT, PROGRESS_TOTAL, "Initializing browser in headless mode..."));
 
 				SetupPage(driver);
 
 				await Task.Delay(DELAY_TIME * 2);
-				_progress?.Report((PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering races data..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_URL_GATHERING, PROGRESS_TOTAL, "Gathering races data..."));
 
 				var raceElements = Helper.FindElementsSafe(driver, By.CssSelector("div[class*=\"races_race_list\"] > div[class*=\"races_row\"]"));
 				var totalElement = raceElements.Count;
@@ -523,7 +523,7 @@ namespace UmatoMusume.Utils
 					if (string.IsNullOrEmpty(raceName)) continue;
 
 					int _progressPercentage = PROGRESS_URL_GATHERING + (currentElement * PROGRESS_PROCESSING_WEIGHT / totalElement);
-					_progress?.Report((_progressPercentage, PROGRESS_TOTAL, $"Processing race {currentElement}/{totalElement}: {raceName}..."));
+					_progress?.Report(new ProgressGroup(_progressPercentage, PROGRESS_TOTAL, $"Processing race {currentElement}/{totalElement}: {raceName}..."));
 
 					if (raceName == "Junior Make Debut" || raceName == "Junior Maiden Race")
 					{
@@ -632,10 +632,10 @@ namespace UmatoMusume.Utils
 					await Task.Delay(DELAY_TIME);
 				}
 
-				_progress?.Report((PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_SAVING, PROGRESS_TOTAL, "Saving data..."));
 				Helper.SaveAsJson(raceList, _savePath);
 
-				_progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
+				_progress?.Report(new ProgressGroup(PROGRESS_COMPLETE, PROGRESS_TOTAL, "Complete!"));
 				Cursor.Current = Cursors.Default;
 				MessageBox.Show($"Successfully saved to {_savePath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}

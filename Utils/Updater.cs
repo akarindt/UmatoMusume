@@ -57,25 +57,25 @@ namespace UmatoMusume.Utils
 			}
 		}
 
-		public static async Task<bool> DownloadAndUpdate(IProgress<(int Current, int Total, string Message)>? _progress = null)
+		public static async Task<bool> DownloadAndUpdate(IProgress<ProgressGroup>? _progress = null)
 		{
 			try
 			{
-				_progress?.Report((PROGRESS_INITIAL, PROGRESS_TOTAL, "Checking for updates..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_INITIAL, PROGRESS_TOTAL, "Checking for updates..."));
 
 				var check = await CheckForUpdates();
 				if (!check)
 				{
-					_progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "No updates available"));
+					_progress?.Report(new ProgressGroup(PROGRESS_COMPLETE, PROGRESS_TOTAL, "No updates available"));
 					return false;
 				}
 
-				_progress?.Report((PROGRESS_CHECKING, PROGRESS_TOTAL, "Fetching update information..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_CHECKING, PROGRESS_TOTAL, "Fetching update information..."));
 
 				var (currentVersion, latestVersion) = await FetchMetadata();
 				if (currentVersion == null || latestVersion == null)
 				{
-					_progress?.Report((PROGRESS_INITIAL, PROGRESS_TOTAL, "Error: Unable to fetch update information"));
+					_progress?.Report(new ProgressGroup(PROGRESS_INITIAL, PROGRESS_TOTAL, "Error: Unable to fetch update information"));
 					return false;
 				}
 
@@ -90,7 +90,7 @@ namespace UmatoMusume.Utils
 				string tempExtractFolder = Path.Combine(Path.GetTempPath(), Path.GetFileNameWithoutExtension(fileName));
 				string baseDir = AppContext.BaseDirectory;
 
-				_progress?.Report((PROGRESS_DOWNLOADING, PROGRESS_TOTAL, $"Downloading update {latestVersion.CurrentVersion}..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_DOWNLOADING, PROGRESS_TOTAL, $"Downloading update {latestVersion.CurrentVersion}..."));
 
 				using (HttpClient client = new HttpClient())
 				using (HttpResponseMessage response = await client.GetAsync(downloadUrl, HttpCompletionOption.ResponseHeadersRead))
@@ -114,16 +114,16 @@ namespace UmatoMusume.Utils
 							{
 								int downloadPercent = (int)(totalRead * DOWNLOAD_PROGRESS_WEIGHT / contentLength.Value);
 								int currentProgress = PROGRESS_DOWNLOADING + downloadPercent;
-								_progress?.Report((currentProgress, PROGRESS_TOTAL, $"Downloading... {currentProgress}%"));
+								_progress?.Report(new ProgressGroup(currentProgress, PROGRESS_TOTAL, $"Downloading... {currentProgress}%"));
 							}
 						}
 					}
 				}
 
-				_progress?.Report((PROGRESS_EXTRACTING, PROGRESS_TOTAL, "Extracting update files..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_EXTRACTING, PROGRESS_TOTAL, "Extracting update files..."));
 				ZipFile.ExtractToDirectory(tempZipPath, tempExtractFolder, true);
 
-				_progress?.Report((PROGRESS_INSTALLING, PROGRESS_TOTAL, "Installing update..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_INSTALLING, PROGRESS_TOTAL, "Installing update..."));
 
 				foreach (var file in Directory.GetFiles(baseDir))
 				{
@@ -153,17 +153,17 @@ namespace UmatoMusume.Utils
 
 				CopyAll(new DirectoryInfo(Path.Combine(tempExtractFolder, windowsVersion)), new DirectoryInfo(baseDir));
 
-				_progress?.Report((PROGRESS_CLEANUP, PROGRESS_TOTAL, "Cleaning up temporary files..."));
+				_progress?.Report(new ProgressGroup(PROGRESS_CLEANUP, PROGRESS_TOTAL, "Cleaning up temporary files..."));
 				DeleteObject(tempZipPath, true);
 				DeleteObject(tempExtractFolder);
 
-				_progress?.Report((PROGRESS_COMPLETE, PROGRESS_TOTAL, "Update completed successfully!"));
+				_progress?.Report(new ProgressGroup(PROGRESS_COMPLETE, PROGRESS_TOTAL, "Update completed successfully!"));
 				MessageBox.Show("Update completed successfully! The application now will be restarted", "Update Complete!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return true;
 			}
 			catch (Exception ex)
 			{
-				_progress?.Report((PROGRESS_INITIAL, PROGRESS_TOTAL, $"Error during update: {ex.Message}"));
+				_progress?.Report(new ProgressGroup(PROGRESS_INITIAL, PROGRESS_TOTAL, $"Error during update: {ex.Message}"));
 				return false;
 			}
 		}

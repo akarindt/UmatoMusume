@@ -1,3 +1,4 @@
+using UmatoMusume.Models;
 using UmatoMusume.Utils;
 
 namespace UmatoMusume
@@ -30,14 +31,14 @@ namespace UmatoMusume
 			btnDownloadRaces.Enabled = enabled;
 		}
 
-		private async Task InitAction(Label _label, ProgressBar _progressBar, Func<Progress<(int Current, int Total, string Message)>, Task> _func, string _type)
+		private async Task InitAction(Label _label, ProgressBar _progressBar, Func<Progress<ProgressGroup>, Task> _func, string _type)
 		{
 			SetControlsEnabled(false);
 			_progressBar.Value = PROGRESS_INITIAL;
 
 			try
 			{
-				var progress = new Progress<(int Current, int Total, string Message)>(data =>
+				var progress = new Progress<ProgressGroup>(data =>
 				{
 					_progressBar.Value = Math.Min(data.Current, PROGRESS_TOTAL);
 					_label.Text = data.Message;

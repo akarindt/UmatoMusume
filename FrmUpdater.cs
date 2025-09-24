@@ -1,4 +1,5 @@
 using System.Data;
+using UmatoMusume.Models;
 using UmatoMusume.Utils;
 
 namespace UmatoMusume
@@ -42,9 +43,9 @@ namespace UmatoMusume
 				if (f.Name != this.Name) f.Hide();
 			}
 
-			var progress = new Progress<(int Current, int Total, string Message)>(progressData =>
+			var progress = new Progress<ProgressGroup>(progressData =>
 			{
-				var (current, total, message) = progressData;
+				var (current, total, message) = progressData.Deconstruct();
 				pUpdater.Value = Math.Min(current, PROGRESS_TOTAL);
 				lblUpdate.Text = message;
 			});
