@@ -38,7 +38,6 @@ namespace UmatoMusume
 		private const int ATTACH_INTERVAL = 500;
 		private const int FAST_ATTACH_INTERVAL = 30;
 		private const int CAPTURE_INTERVAL = 1000;
-		private const int DELAY_AFTER_CAPTURE = 30;
 		private const int OFFSET_HEIGHT = 100;
 		private int _appHeight = 0;
 		private int _appWidth = 0;
@@ -209,26 +208,36 @@ namespace UmatoMusume
 		{
 			if (!IsHandleCreated && IsDisposed) return;
 			if (_hWnd == IntPtr.Zero || _hWnd != _processhWnd) return;
+			var isFullScreen = bool.Parse(Helper.GetConfigValue("FullScreen", "False"));
 
 			switch (_eventType)
 			{
 				case NativeMethods.SWEH_Events.EVENT_SYSTEM_MOVESIZESTART:
-					_attachTimer.Interval = FAST_ATTACH_INTERVAL;
-					_attachTimer.Start();
+					if (!isFullScreen)
+					{
+						_attachTimer.Interval = FAST_ATTACH_INTERVAL;
+						_attachTimer.Start();
+					}
 					break;
 
 				case NativeMethods.SWEH_Events.EVENT_SYSTEM_MOVESIZEEND:
-					_attachTimer.Stop();
-					_attachTimer.Interval = ATTACH_INTERVAL;
-					var rectEnd = Hook.GetWindowRectangle(_hWnd).ToRectangle();
-					BeginInvoke(new Action(() => UpdateUI(rectEnd)));
+					if (!isFullScreen)
+					{
+						_attachTimer.Stop();
+						_attachTimer.Interval = ATTACH_INTERVAL;
+						var rectEnd = Hook.GetWindowRectangle(_hWnd).ToRectangle();
+						BeginInvoke(new Action(() => UpdateUI(rectEnd)));
+					}
 					break;
 
 				case NativeMethods.SWEH_Events.EVENT_OBJECT_LOCATIONCHANGE:
-					if (_idObject == NativeMethods.SWEH_ObjectId.OBJID_WINDOW)
+					if (!isFullScreen)
 					{
-						var rect = Hook.GetWindowRectangle(_hWnd).ToRectangle();
-						BeginInvoke(new Action(() => UpdateUI(rect)));
+						if (_idObject == NativeMethods.SWEH_ObjectId.OBJID_WINDOW)
+						{
+							var rect = Hook.GetWindowRectangle(_hWnd).ToRectangle();
+							BeginInvoke(new Action(() => UpdateUI(rect)));
+						}
 					}
 					break;
 

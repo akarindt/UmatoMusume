@@ -1,5 +1,227 @@
 ﻿[
   {
+    "EventName": "(❯) Sudden Murder Mystery! Part 1",
+    "EventOptions": {
+      "Top Option": "Wit +5\r\nSkill points +10\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) Sudden Murder Mystery! Part 1",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Sudden Murder Mystery! Part 2",
+    "EventOptions": {
+      "Top Option": "Wit +5\r\nFrenzied Pace Chasers hint +1\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Sudden Murder Mystery! Part 2",
+    "EventOptions": {
+      "Bottom Option": "Energy +5\r\nSkill points +10\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Sudden Murder Mystery! Part 3",
+    "EventOptions": {
+      "Top Option": "Wit +5/+10\r\nVanguard Spirit hint +1/+3\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Sudden Murder Mystery! Part 3",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nStamina +10\r\nSkill points +15"
+    }
+  },
+  {
+    "EventName": "Recruiting Cat Catchers",
+    "EventOptions": {
+      "Top Option": "Energy +10\r\nWit +5\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "Recruiting Cat Catchers",
+    "EventOptions": {
+      "Bottom Option": "Energy -10\r\nSpeed +15\r\nStamina +5\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "Recruiting Advisors",
+    "EventOptions": {
+      "Top Option": "Wit +15\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "Recruiting Advisors",
+    "EventOptions": {
+      "Bottom Option": "Keeping the Lead hint +1\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) A Captivating Invitation",
+    "EventOptions": {
+      "Top Option": "Power +10\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) A Captivating Invitation",
+    "EventOptions": {
+      "Bottom Option": "Guts +10\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Dancer's Pride",
+    "EventOptions": {
+      "Top Option": "Energy -5\r\nStamina +10\r\nPower +5\r\nSkill points +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Dancer's Pride",
+    "EventOptions": {
+      "Bottom Option": "Energy +15\r\nSkill points +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Glittering Star of the Ball",
+    "EventOptions": {
+      "": "Randomly either\r\nEnergy -10\r\nPower +25\r\nBlinding Flash hint +3\r\nor\r\nEnergy -10\r\nPower +20\r\nGap Closer hint +3"
+    }
+  },
+  {
+    "EventName": "You May Socialize With Me!",
+    "EventOptions": {
+      "Top Option": "Energy -20\r\nSpeed +10\r\nPower +10\r\nWit +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Socialize With Me!",
+    "EventOptions": {
+      "Bottom Option": "Mood -1\r\nGuts +25\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Advise Me!",
+    "EventOptions": {
+      "Top Option": "Guts +10\r\nWit +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Advise Me!",
+    "EventOptions": {
+      "Bottom Option": "Homestretch Haste hint +1\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) Raising the Uma Lord's Castle",
+    "EventOptions": {
+      "Top Option": "Maximum Energy +4\r\nGold Ship bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) Raising the Uma Lord's Castle",
+    "EventOptions": {
+      "Bottom Option": "Speed +10\r\nGold Ship bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Plotting the Uma Lord's Dungeon",
+    "EventOptions": {
+      "": "Energy -15\r\nSpeed +5\r\nStamina +5\r\nLong Straightaways ○ hint +1"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Assembling the Uma Lord's Minions",
+    "EventOptions": {
+      "Top Option": "Randomly either\r\nEnergy -10\r\nSpeed +5\r\nStamina +5\r\nInside Scoop hint +3\r\nGold Ship bond +5\r\nor\r\nEnergy -10\r\nSpeed +10\r\nStamina +10\r\nInnate Experience hint +3\r\nGold Ship bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Assembling the Uma Lord's Minions",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nMaverick ○ hint +1"
+    }
+  },
+  {
+    "EventName": "Adventurer Gold Ship",
+    "EventOptions": {
+      "Top Option": "Stamina +15\r\nGold Ship bond +5"
+    }
+  },
+  {
+    "EventName": "Adventurer Gold Ship",
+    "EventOptions": {
+      "Bottom Option": "Guts +10\r\nSkill points +15\r\nGold Ship bond +5"
+    }
+  },
+  {
+    "EventName": "Revive the Brand! Golshi's Yakisoba",
+    "EventOptions": {
+      "Top Option": "Mood +1\r\nStamina +5"
+    }
+  },
+  {
+    "EventName": "Revive the Brand! Golshi's Yakisoba",
+    "EventOptions": {
+      "Bottom Option": "Hanshin Racecourse ○ hint +1\r\nGold Ship bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) Ready for the Test!",
+    "EventOptions": {
+      "": "Energy -10\r\nStamina +3\r\nPower +3\r\nGuts +3\r\nCompetitive Spirit ○ hint +1"
+    }
+  },
+  {
+    "EventName": "(❯❯) No One Is Above Discipline!",
+    "EventOptions": {
+      "Top Option": "Randomly either\r\nMaximum Energy +4\r\nEnergy -10\r\nStamina +10\r\nPower +10\r\nGuts +5\r\nHomestretch Haste hint +1\r\nBamboo Memory bond +5\r\nor\r\nEnergy -20\r\nStamina +10\r\nPower +10\r\nGuts +5\r\nBamboo Memory bond +5\r\nor\r\nEnergy -20\r\nStamina +10\r\nGuts +10\r\nObtain Running Idle skill"
+    }
+  },
+  {
+    "EventName": "(❯❯) No One Is Above Discipline!",
+    "EventOptions": {
+      "Middle Option": "Energy -10\r\nMood +1\r\nStamina +5\r\nPower +5\r\nBamboo Memory bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) No One Is Above Discipline!",
+    "EventOptions": {
+      "Bottom Option": "Energy +30\r\nHesitant Late Surgers hint +1\r\nEvent chain ended"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Someday, I'll Be Your Rival!",
+    "EventOptions": {
+      "": "Randomly either\r\nMaximum Energy +4\r\nStamina +10\r\nPower +15\r\nRising Dragon hint +3\r\nBamboo Memory bond +5\r\nor\r\nEnergy -15\r\nStamina +10\r\nPower +15\r\nOuter Swell hint +3"
+    }
+  },
+  {
+    "EventName": "Overthrow the Rival!",
+    "EventOptions": {
+      "Top Option": "Guts +10\r\nBamboo Memory bond +5"
+    }
+  },
+  {
+    "EventName": "Overthrow the Rival!",
+    "EventOptions": {
+      "Bottom Option": "Maximum Energy +4\r\nEnergy -5\r\nBamboo Memory bond +5"
+    }
+  },
+  {
+    "EventName": "Tons of Trouble!",
+    "EventOptions": {
+      "Top Option": "Stamina +5\r\nGuts +5\r\nBamboo Memory bond +5"
+    }
+  },
+  {
+    "EventName": "Tons of Trouble!",
+    "EventOptions": {
+      "Bottom Option": "Energy -10\r\nStandard Distance ○ hint +5\r\nBamboo Memory bond +5"
+    }
+  },
+  {
     "EventName": "(❯) Modestly! Boldly!",
     "EventOptions": {
       "Top Option": "Mood +1\r\nSpeed +5\r\nKawakami Princess bond +5"
@@ -60,13 +282,13 @@
     }
   },
   {
-    "EventName": "(❯❯) はっけよーい……ボーノ☆",
+    "EventName": "(❯❯) Let's Go... Buono ☆",
     "EventOptions": {
       "Top Option": "Energy +30\r\nGuts +5\r\nHishi Akebono bond +5\r\n(random) Get Slow Metabolism status"
     }
   },
   {
-    "EventName": "(❯❯) はっけよーい……ボーノ☆",
+    "EventName": "(❯❯) Let's Go... Buono ☆",
     "EventOptions": {
       "Bottom Option": "Stamina +5\r\nPower +5\r\nHishi Akebono bond +5"
     }
@@ -110,19 +332,19 @@
   {
     "EventName": "(❯) One Step Forward",
     "EventOptions": {
-      "Bottom Option": "Guts +5\r\nWisdom +5\r\nMejiro Dober bond +5"
+      "Bottom Option": "Guts +5\r\nWit +5\r\nMejiro Dober bond +5"
     }
   },
   {
     "EventName": "(❯❯) Two Steps Up",
     "EventOptions": {
-      "": "Guts +3\r\nWisdom +3\r\nSkill points +5"
+      "": "Guts +3\r\nWit +3\r\nSkill points +5"
     }
   },
   {
     "EventName": "(❯❯❯) Three Steps Forward, Two Steps Back",
     "EventOptions": {
-      "": "Energy -10\r\nGuts +5\r\nWisdom +5\r\nThe Bigger Picture hint +1"
+      "": "Energy -10\r\nGuts +5\r\nWit +5\r\nThe Bigger Picture hint +1"
     }
   },
   {
@@ -218,7 +440,7 @@
   {
     "EventName": "(❯❯) A Reasonable Diet vs. an Explosive Diet",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +10\r\nSkill points +10\r\nPlaytime's Over! hint +3\r\nEvent chain ended"
+      "Bottom Option": "Energy +10\r\nWit +10\r\nSkill points +10\r\nPlaytime's Over! hint +3\r\nEvent chain ended"
     }
   },
   {
@@ -314,7 +536,7 @@
   {
     "EventName": "(❯❯) The Class Rep's Intense Crash Course",
     "EventOptions": {
-      "Bottom Option": "Power +3\r\nGuts +3\r\nWisdom +3\r\nYukino Bijin bond +5"
+      "Bottom Option": "Power +3\r\nGuts +3\r\nWit +3\r\nYukino Bijin bond +5"
     }
   },
   {
@@ -326,7 +548,7 @@
   {
     "EventName": "(❯❯❯) I Wanna Win!",
     "EventOptions": {
-      "Bottom Option": "Power +3\r\nGuts +3\r\nWisdom +3\r\nNo Stopping Me! hint +1\r\nYukino Bijin bond +5"
+      "Bottom Option": "Power +3\r\nGuts +3\r\nWit +3\r\nNo Stopping Me! hint +1\r\nYukino Bijin bond +5"
     }
   },
   {
@@ -356,7 +578,7 @@
   {
     "EventName": "(❯) Chasing Brilliance",
     "EventOptions": {
-      "": "Mood +1\r\nSpeed +2\r\nPower +2\r\nWisdom +2\r\nKitasan Black bond +5"
+      "": "Mood +1\r\nSpeed +2\r\nPower +2\r\nWit +2\r\nKitasan Black bond +5"
     }
   },
   {
@@ -404,13 +626,13 @@
   {
     "EventName": "(❯) Hope Bearer",
     "EventOptions": {
-      "": "Energy +10\r\nStamina +2\r\nGuts +2\r\nWisdom +2"
+      "": "Energy +10\r\nStamina +2\r\nGuts +2\r\nWit +2"
     }
   },
   {
     "EventName": "(❯❯) Diamond Fixation",
     "EventOptions": {
-      "Top Option": "Wisdom +10\r\nSatono Diamond bond +5"
+      "Top Option": "Wit +10\r\nSatono Diamond bond +5"
     }
   },
   {
@@ -512,13 +734,13 @@
   {
     "EventName": "(❯) Run Away to First Base",
     "EventOptions": {
-      "Bottom Option": "Energy -15\r\nGuts +10\r\nWisdom +10\r\nMejiro Palmer bond +5"
+      "Bottom Option": "Energy -15\r\nGuts +10\r\nWit +10\r\nMejiro Palmer bond +5"
     }
   },
   {
     "EventName": "(❯❯) Runaway Romance",
     "EventOptions": {
-      "Top Option": "Energy +10\r\nGuts +5\r\nWisdom +5\r\nMejiro Palmer bond +5"
+      "Top Option": "Energy +10\r\nGuts +5\r\nWit +5\r\nMejiro Palmer bond +5"
     }
   },
   {
@@ -746,7 +968,7 @@
   {
     "EventName": "(❯❯) A Roller Coaster of Feelings!",
     "EventOptions": {
-      "Bottom Option": "Energy +20\r\nWisdom +10\r\nSpecial Week bond +5\r\nEvent chain ended"
+      "Bottom Option": "Energy +20\r\nWit +10\r\nSpecial Week bond +5\r\nEvent chain ended"
     }
   },
   {
@@ -812,7 +1034,7 @@
   {
     "EventName": "What Should I Do?",
     "EventOptions": {
-      "Top Option": "Speed +5\r\nStamina +5\r\nWisdom +5\r\nSilence Suzuka bond +5"
+      "Top Option": "Speed +5\r\nStamina +5\r\nWit +5\r\nSilence Suzuka bond +5"
     }
   },
   {
@@ -830,7 +1052,7 @@
   {
     "EventName": "(❯❯) Short Interlude",
     "EventOptions": {
-      "": "Energy +10\r\nSpeed +5\r\nWisdom +5"
+      "": "Energy +10\r\nSpeed +5\r\nWit +5"
     }
   },
   {
@@ -950,7 +1172,7 @@
   {
     "EventName": "(❯) Quiet Passion",
     "EventOptions": {
-      "": "Energy +10\r\nWisdom +5\r\nSkill points +15\r\nGrass Wonder bond +5"
+      "": "Energy +10\r\nWit +5\r\nSkill points +15\r\nGrass Wonder bond +5"
     }
   },
   {
@@ -962,25 +1184,25 @@
   {
     "EventName": "(❯❯) A Moment's Respite",
     "EventOptions": {
-      "Bottom Option": "Randomly either\r\nEnergy -10\r\nPower +5\r\nGuts +5\r\nWisdom +5\r\nGrass Wonder bond +5\r\nor\r\nPower +5\r\nGuts +5\r\nWisdom +10\r\nGrass Wonder bond +5"
+      "Bottom Option": "Randomly either\r\nEnergy -10\r\nPower +5\r\nGuts +5\r\nWit +5\r\nGrass Wonder bond +5\r\nor\r\nPower +5\r\nGuts +5\r\nWit +10\r\nGrass Wonder bond +5"
     }
   },
   {
     "EventName": "(❯❯❯) Hidden Petals",
     "EventOptions": {
-      "": "Randomly either\r\nEnergy -10\r\nSpeed +5\r\nGuts +5\r\nWisdom +5\r\nUpdrafters hint +1\r\nGrass Wonder bond +5\r\nor\r\nEnergy -10\r\nSpeed +5\r\nGuts +10\r\nWisdom +5\r\nFurious Feat hint +3\r\nGrass Wonder bond +5"
+      "": "Randomly either\r\nEnergy -10\r\nSpeed +5\r\nGuts +5\r\nWit +5\r\nUpdrafters hint +1\r\nGrass Wonder bond +5\r\nor\r\nEnergy -10\r\nSpeed +5\r\nGuts +10\r\nWit +5\r\nFurious Feat hint +3\r\nGrass Wonder bond +5"
     }
   },
   {
     "EventName": "Library Vexation",
     "EventOptions": {
-      "Top Option": "Wisdom +10\r\nGrass Wonder bond +5"
+      "Top Option": "Wit +10\r\nGrass Wonder bond +5"
     }
   },
   {
     "EventName": "Library Vexation",
     "EventOptions": {
-      "Bottom Option": "Guts +5\r\nWisdom +5\r\nGrass Wonder bond +5"
+      "Bottom Option": "Guts +5\r\nWit +5\r\nGrass Wonder bond +5"
     }
   },
   {
@@ -1046,7 +1268,7 @@
   {
     "EventName": "(❯) Be Strategic ☆",
     "EventOptions": {
-      "Top Option": "Energy +10\r\nWisdom +5\r\nSeiun Sky bond +5"
+      "Top Option": "Energy +10\r\nWit +5\r\nSeiun Sky bond +5"
     }
   },
   {
@@ -1064,13 +1286,13 @@
   {
     "EventName": "(❯❯❯) It's All to Win",
     "EventOptions": {
-      "": "Energy +10\r\nMood +1\r\nSpeed +5\r\nStamina +5\r\nWisdom +5\r\nSkill points +5\r\nEscape Artist hint +1/+3 or Fast-Paced hint +1"
+      "": "Energy +10\r\nMood +1\r\nSpeed +5\r\nStamina +5\r\nWit +5\r\nSkill points +5\r\nEscape Artist hint +1/+3 or Fast-Paced hint +1"
     }
   },
   {
     "EventName": "Recruiting Cat Catchers",
     "EventOptions": {
-      "Top Option": "Energy +10\r\nWisdom +5\r\nSeiun Sky bond +5"
+      "Top Option": "Energy +10\r\nWit +5\r\nSeiun Sky bond +5"
     }
   },
   {
@@ -1082,7 +1304,7 @@
   {
     "EventName": "Recruiting Advisors",
     "EventOptions": {
-      "Top Option": "Wisdom +15\r\nSeiun Sky bond +5"
+      "Top Option": "Wit +15\r\nSeiun Sky bond +5"
     }
   },
   {
@@ -1112,7 +1334,7 @@
   {
     "EventName": "Tamamo's School Tour",
     "EventOptions": {
-      "Top Option": "Wisdom +10\r\nTamamo Cross bond +5"
+      "Top Option": "Wit +10\r\nTamamo Cross bond +5"
     }
   },
   {
@@ -1130,13 +1352,13 @@
   {
     "EventName": "A Battle I Can't Lose!",
     "EventOptions": {
-      "Bottom Option": "Stamina +5\r\nWisdom +5\r\nTamamo Cross bond +5"
+      "Bottom Option": "Stamina +5\r\nWit +5\r\nTamamo Cross bond +5"
     }
   },
   {
     "EventName": "(❯) Lovely Training Weather ♪",
     "EventOptions": {
-      "Top Option": "Wisdom +5\r\nSkill points +20\r\nFine Motion bond +5"
+      "Top Option": "Wit +5\r\nSkill points +20\r\nFine Motion bond +5"
     }
   },
   {
@@ -1160,7 +1382,7 @@
   {
     "EventName": "(❯❯❯) Lovely Racing Weather ♪",
     "EventOptions": {
-      "": "Energy -10\r\nGuts +5\r\nWisdom +5/+10\r\nSkill points +15\r\nSpeed Star hint +1/+3 or Prepared to Pass hint +1"
+      "": "Energy -10\r\nGuts +5\r\nWit +5/+10\r\nSkill points +15\r\nSpeed Star hint +1/+3 or Prepared to Pass hint +1"
     }
   },
   {
@@ -1202,7 +1424,7 @@
   {
     "EventName": "(❯❯❯) Aim for That Sparkling Moment!",
     "EventOptions": {
-      "": "Randomly either\r\nEnergy -10\r\nGuts +10\r\nRestless hint +1 or Moxie hint +1\r\nor\r\nEnergy -10\r\nGuts +20\r\nWisdom +5\r\nRestless hint +3"
+      "": "Randomly either\r\nEnergy -10\r\nGuts +10\r\nRestless hint +1 or Moxie hint +1\r\nor\r\nEnergy -10\r\nGuts +20\r\nWit +5\r\nRestless hint +3"
     }
   },
   {
@@ -1226,7 +1448,7 @@
   {
     "EventName": "Ten Minutes Left!",
     "EventOptions": {
-      "Bottom Option": "Wisdom +15\r\nInes Fujin bond +5"
+      "Bottom Option": "Wit +15\r\nInes Fujin bond +5"
     }
   },
   {
@@ -1274,19 +1496,19 @@
   {
     "EventName": "(❯) Block Out the Noise",
     "EventOptions": {
-      "": "Stamina +5\r\nWisdom +5"
+      "": "Stamina +5\r\nWit +5"
     }
   },
   {
     "EventName": "(❯❯) A Realist's Passion",
     "EventOptions": {
-      "": "Stamina +5\r\nWisdom +5\r\nSkill points +5"
+      "": "Stamina +5\r\nWit +5\r\nSkill points +5"
     }
   },
   {
     "EventName": "(❯❯❯) I'm the Strongest",
     "EventOptions": {
-      "": "Stamina +15\r\nWisdom +15\r\nSkill points +30\r\nUnyielding hint +2"
+      "": "Stamina +15\r\nWit +15\r\nSkill points +30\r\nUnyielding hint +2"
     }
   },
   {
@@ -1340,7 +1562,7 @@
   {
     "EventName": "08:36 / Crap, I Overslept",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +5\r\nGold City bond +5"
+      "Bottom Option": "Energy +10\r\nWit +5\r\nGold City bond +5"
     }
   },
   {
@@ -1442,7 +1664,7 @@
   {
     "EventName": "(❯) Always on Stage ☆",
     "EventOptions": {
-      "Top Option": "Wisdom +10\r\nSmart Falcon bond +5"
+      "Top Option": "Wit +10\r\nSmart Falcon bond +5"
     }
   },
   {
@@ -1460,7 +1682,7 @@
   {
     "EventName": "(❯❯❯) My Umadol Way ☆",
     "EventOptions": {
-      "": "Maximum Energy +4\r\nStamina +5\r\nPower +5\r\nWisdom +5\r\nPrudent Positioning hint +1 or Center Stage hint +3"
+      "": "Maximum Energy +4\r\nStamina +5\r\nPower +5\r\nWit +5\r\nPrudent Positioning hint +1 or Center Stage hint +3"
     }
   },
   {
@@ -1472,7 +1694,7 @@
   {
     "EventName": "Chants Are the Life of a Concert ☆",
     "EventOptions": {
-      "Bottom Option": "Wisdom +15\r\nSmart Falcon bond +5"
+      "Bottom Option": "Wit +15\r\nSmart Falcon bond +5"
     }
   },
   {
@@ -1484,7 +1706,7 @@
   {
     "EventName": "If I'm Cute, Come to My Show! ☆",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +5\r\nSmart Falcon bond +5"
+      "Bottom Option": "Energy +10\r\nWit +5\r\nSmart Falcon bond +5"
     }
   },
   {
@@ -1496,19 +1718,19 @@
   {
     "EventName": "(❯❯) Aspiring to Adulthood",
     "EventOptions": {
-      "Top Option": "Energy -10\r\nWisdom +20\r\nNishino Flower bond +5"
+      "Top Option": "Energy -10\r\nWit +20\r\nNishino Flower bond +5"
     }
   },
   {
     "EventName": "(❯❯) Aspiring to Adulthood",
     "EventOptions": {
-      "Bottom Option": "Wisdom +5\r\nSkill points +15"
+      "Bottom Option": "Wit +5\r\nSkill points +15"
     }
   },
   {
     "EventName": "(❯❯❯) What's Important!",
     "EventOptions": {
-      "": "Speed +5\r\nWisdom +10\r\nBeeline Burst hint +1/+3 or Straightaway Adept hint +1"
+      "": "Speed +5\r\nWit +10\r\nBeeline Burst hint +1/+3 or Straightaway Adept hint +1"
     }
   },
   {
@@ -1526,7 +1748,7 @@
   {
     "EventName": "Let's Bloom Beautifully ♪",
     "EventOptions": {
-      "Top Option": "Wisdom +15\r\nNishino Flower bond +5"
+      "Top Option": "Wit +15\r\nNishino Flower bond +5"
     }
   },
   {
@@ -1556,13 +1778,13 @@
   {
     "EventName": "Urara's ☆ Study Review",
     "EventOptions": {
-      "Top Option": "Energy +10\r\nWisdom +5\r\nHaru Urara bond +5"
+      "Top Option": "Energy +10\r\nWit +5\r\nHaru Urara bond +5"
     }
   },
   {
     "EventName": "Urara's ☆ Study Review",
     "EventOptions": {
-      "Bottom Option": "Mood +1\r\nWisdom +5\r\nHaru Urara bond +5"
+      "Bottom Option": "Mood +1\r\nWit +5\r\nHaru Urara bond +5"
     }
   },
   {
@@ -1646,7 +1868,7 @@
   {
     "EventName": "(❯❯❯❯) A Sigh and a Bandage",
     "EventOptions": {
-      "": "Energy +49\r\nWisdom +6\r\nMood +1\r\nTazuna Hayakawa bond +5\r\nHeal a negative status effect"
+      "": "Energy +49\r\nWit +6\r\nMood +1\r\nTazuna Hayakawa bond +5\r\nHeal a negative status effect"
     }
   },
   {
@@ -1664,13 +1886,13 @@
   {
     "EventName": "My Chosen Way of Life",
     "EventOptions": {
-      "Bottom Option": "Mood +1\r\nWisdom +6\r\nTazuna Hayakawa bond +5"
+      "Bottom Option": "Mood +1\r\nWit +6\r\nTazuna Hayakawa bond +5"
     }
   },
   {
     "EventName": "Enthusiastic Pair",
     "EventOptions": {
-      "Top Option": "Energy +14\r\nWisdom +6\r\nMood +1\r\nTazuna Hayakawa bond +5\r\nCan start dating"
+      "Top Option": "Energy +14\r\nWit +6\r\nMood +1\r\nTazuna Hayakawa bond +5\r\nCan start dating"
     }
   },
   {
@@ -1794,6 +2016,48 @@
     }
   },
   {
+    "EventName": "(❯) Dig Here, Windy!",
+    "EventOptions": {
+      "Top Option": "Speed +10\r\nShinko Windy bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) Dig Here, Windy!",
+    "EventOptions": {
+      "Bottom Option": "Energy -5\r\nSkill points +30\r\nShinko Windy bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) C'mon Gates, Open Already!",
+    "EventOptions": {
+      "": "Randomly either\r\nSpeed +10\r\nSkill points +15\r\nShifting Gears hint +3\r\nShinko Windy bond +5\r\nor\r\nSpeed +5\r\nSkill points +10\r\nShinko Windy bond +5"
+    }
+  },
+  {
+    "EventName": "Chomp Extermination!",
+    "EventOptions": {
+      "Top Option": "Speed +3\r\nMood +1\r\nShinko Windy bond +5"
+    }
+  },
+  {
+    "EventName": "Chomp Extermination!",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nSkill points +5\r\nShinko Windy bond +5"
+    }
+  },
+  {
+    "EventName": "Chomp Attack!",
+    "EventOptions": {
+      "Top Option": "Skill points +15\r\nShinko Windy bond +5"
+    }
+  },
+  {
+    "EventName": "Chomp Attack!",
+    "EventOptions": {
+      "Bottom Option": "Speed +3\r\nUnyielding Spirit hint +1\r\nShinko Windy bond +5"
+    }
+  },
+  {
     "EventName": "(❯) No More Words ♪ Use Body Language!",
     "EventOptions": {
       "Top Option": "Mood +1\r\nLucky Seven hint +1\r\nSeeking the Pearl bond +5"
@@ -1832,7 +2096,7 @@
   {
     "EventName": "Full-Power Thinking!",
     "EventOptions": {
-      "Top Option": "Wisdom +20\r\nSeeking the Pearl bond +5"
+      "Top Option": "Wit +20\r\nSeeking the Pearl bond +5"
     }
   },
   {
@@ -1844,7 +2108,7 @@
   {
     "EventName": "(❯) The Bookworm and the Magical Girl",
     "EventOptions": {
-      "Top Option": "Stamina +5\r\nWisdom +5\r\nZenno Rob Roy bond +5"
+      "Top Option": "Stamina +5\r\nWit +5\r\nZenno Rob Roy bond +5"
     }
   },
   {
@@ -1856,13 +2120,13 @@
   {
     "EventName": "(❯❯) Someday, I'll Be the Main Character",
     "EventOptions": {
-      "": "Stamina +10\r\nWisdom +10\r\nSharp Gaze hint +1"
+      "": "Stamina +10\r\nWit +10\r\nSharp Gaze hint +1"
     }
   },
   {
     "EventName": "Book-lover Quirks",
     "EventOptions": {
-      "Top Option": "Speed +5\r\nWisdom +5\r\nZenno Rob Roy bond +5"
+      "Top Option": "Speed +5\r\nWit +5\r\nZenno Rob Roy bond +5"
     }
   },
   {
@@ -1874,7 +2138,7 @@
   {
     "EventName": "A Tale Entrusted",
     "EventOptions": {
-      "Top Option": "Stamina +10\r\nWisdom +10\r\nZenno Rob Roy bond +5"
+      "Top Option": "Stamina +10\r\nWit +10\r\nZenno Rob Roy bond +5"
     }
   },
   {
@@ -1886,7 +2150,7 @@
   {
     "EventName": "(❯) I Want You to Rest!",
     "EventOptions": {
-      "": "Mood +1\r\nSpeed +3\r\nPower +3\r\nWisdom +3"
+      "": "Mood +1\r\nSpeed +3\r\nPower +3\r\nWit +3"
     }
   },
   {
@@ -1898,7 +2162,7 @@
   {
     "EventName": "(❯❯) I Want to Say Thank You!",
     "EventOptions": {
-      "Bottom Option": "Wisdom +5\r\nStraightaway Acceleration hint +1\r\nNishino Flower bond +5"
+      "Bottom Option": "Wit +5\r\nStraightaway Acceleration hint +1\r\nNishino Flower bond +5"
     }
   },
   {
@@ -1916,7 +2180,7 @@
   {
     "EventName": "Let's Bloom Beautifully ♪",
     "EventOptions": {
-      "Top Option": "Wisdom +15\r\nNishino Flower bond +5"
+      "Top Option": "Wit +15\r\nNishino Flower bond +5"
     }
   },
   {
@@ -1928,7 +2192,7 @@
   {
     "EventName": "(❯) Chasing Their Backs",
     "EventOptions": {
-      "Top Option": "Energy +5\r\nWisdom +3\r\nNice Nature bond +5"
+      "Top Option": "Energy +5\r\nWit +3\r\nNice Nature bond +5"
     }
   },
   {
@@ -1940,7 +2204,7 @@
   {
     "EventName": "(❯❯) Wind at My Back",
     "EventOptions": {
-      "": "Energy +10\r\nWisdom +5\r\nLong Shot ○ hint +3\r\nNice Nature bond +5"
+      "": "Energy +10\r\nWit +5\r\nLong Shot ○ hint +3\r\nNice Nature bond +5"
     }
   },
   {
@@ -1952,7 +2216,7 @@
   {
     "EventName": "Not like Meow",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +5\r\nNice Nature bond +5"
+      "Bottom Option": "Energy +10\r\nWit +5\r\nNice Nature bond +5"
     }
   },
   {
@@ -1970,25 +2234,25 @@
   {
     "EventName": "(❯) Ikuno-Style Friendship",
     "EventOptions": {
-      "": "Wisdom +10\r\nSkill points +20"
+      "": "Wit +10\r\nSkill points +20"
     }
   },
   {
     "EventName": "(❯❯) Ikuno-Style Support",
     "EventOptions": {
-      "Top Option": "Wisdom +15\r\nFrenzied Front Runners hint +3\r\nIkuno Dictus bond +5"
+      "Top Option": "Wit +15\r\nFrenzied Front Runners hint +3\r\nIkuno Dictus bond +5"
     }
   },
   {
     "EventName": "(❯❯) Ikuno-Style Support",
     "EventOptions": {
-      "Bottom Option": "Wisdom +15\r\nFrenzied End Closers hint +3\r\nIkuno Dictus bond +5"
+      "Bottom Option": "Wit +15\r\nFrenzied End Closers hint +3\r\nIkuno Dictus bond +5"
     }
   },
   {
     "EventName": "Ikuno-Style Flawless Method",
     "EventOptions": {
-      "Top Option": "Wisdom +10\r\nIkuno Dictus bond +5"
+      "Top Option": "Wit +10\r\nIkuno Dictus bond +5"
     }
   },
   {
@@ -2108,19 +2372,19 @@
   {
     "EventName": "(❯) Abracadabra",
     "EventOptions": {
-      "": "Wisdom +10"
+      "": "Wit +10"
     }
   },
   {
     "EventName": "(❯❯) Out of This World",
     "EventOptions": {
-      "": "Wisdom +10\r\nSkill points +15\r\nFlustered End Closers hint +1"
+      "": "Wit +10\r\nSkill points +15\r\nFlustered End Closers hint +1"
     }
   },
   {
     "EventName": "Sleight of Hand",
     "EventOptions": {
-      "Top Option": "Wisdom +5\r\nSkill points +15\r\nFuji Kiseki bond +5"
+      "Top Option": "Wit +5\r\nSkill points +15\r\nFuji Kiseki bond +5"
     }
   },
   {
@@ -2144,19 +2408,19 @@
   {
     "EventName": "(❯) I Won't Lose to Anyone!",
     "EventOptions": {
-      "": "Energy +15\r\nWisdom +5\r\nDaiwa Scarlet bond +5"
+      "": "Energy +15\r\nWit +5\r\nDaiwa Scarlet bond +5"
     }
   },
   {
     "EventName": "(❯❯) I Can Clean Better than Anyone!",
     "EventOptions": {
-      "": "Wisdom +10\r\nTactical Tweak hint +1"
+      "": "Wit +10\r\nTactical Tweak hint +1"
     }
   },
   {
     "EventName": "I'm Going to Win Tomorrow!",
     "EventOptions": {
-      "Top Option": "Wisdom +10\r\nDaiwa Scarlet bond +5"
+      "Top Option": "Wit +10\r\nDaiwa Scarlet bond +5"
     }
   },
   {
@@ -2192,7 +2456,7 @@
   {
     "EventName": "Hishiama's Struggles: Problem Children",
     "EventOptions": {
-      "Top Option": "Energy +10\r\nWisdom +5\r\nHishi Amazon bond +5"
+      "Top Option": "Energy +10\r\nWit +5\r\nHishi Amazon bond +5"
     }
   },
   {
@@ -2222,7 +2486,7 @@
   {
     "EventName": "(❯❯) Bloom by the Oak",
     "EventOptions": {
-      "": "Energy -20\r\nPower +5\r\nGuts +5\r\nStraightaway Acceleration hint +1\r\nAir Groove bond +5"
+      "": "Randomly either\r\nEnergy -20\r\nPower +5\r\nStraightaway Acceleration hint +1\r\nor\r\nEnergy -20\r\nPower +5\r\nGuts +5\r\nStraightaway Acceleration hint +1\r\nAir Groove bond +5\r\nor\r\nEnergy -10\r\nStamina +5\r\nPower +5\r\nGuts +10\r\nStraightaway Acceleration hint +3\r\nAir Groove bond +5"
     }
   },
   {
@@ -2234,7 +2498,7 @@
   {
     "EventName": "Strict but Gracious",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +10"
+      "Bottom Option": "Energy +10\r\nWit +10"
     }
   },
   {
@@ -2420,7 +2684,7 @@
   {
     "EventName": "Do No Harm",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +5\r\nMihono Bourbon bond +5"
+      "Bottom Option": "Energy +10\r\nWit +5\r\nMihono Bourbon bond +5"
     }
   },
   {
@@ -2480,7 +2744,7 @@
   {
     "EventName": "(❯❯) A Natural City Girl",
     "EventOptions": {
-      "": "Mood +1\r\nWisdom +25"
+      "": "Mood +1\r\nWit +25"
     }
   },
   {
@@ -2510,25 +2774,25 @@
   {
     "EventName": "(❯) Report: Potential of Specialized Training",
     "EventOptions": {
-      "": "Wisdom +5\r\nSkill points +15"
+      "": "Wit +5\r\nSkill points +15"
     }
   },
   {
     "EventName": "(❯❯) Report: N/A (On Break)",
     "EventOptions": {
-      "": "Wisdom +10\r\nSkill points +15\r\nSubdued Front Runners hint +1"
+      "": "Wit +10\r\nSkill points +15\r\nSubdued Front Runners hint +1"
     }
   },
   {
     "EventName": "The Correlation between Sleep and Efficiency",
     "EventOptions": {
-      "Top Option": "Power +5\r\nWisdom +5\r\nAgnes Tachyon bond +5"
+      "Top Option": "Power +5\r\nWit +5\r\nAgnes Tachyon bond +5"
     }
   },
   {
     "EventName": "The Correlation between Sleep and Efficiency",
     "EventOptions": {
-      "Bottom Option": "Wisdom +10\r\nAgnes Tachyon bond +5"
+      "Bottom Option": "Wit +10\r\nAgnes Tachyon bond +5"
     }
   },
   {
@@ -2540,7 +2804,7 @@
   {
     "EventName": "Happenstance Introduced Through Intervention",
     "EventOptions": {
-      "Bottom Option": "Wisdom +10\r\nAgnes Tachyon bond +5"
+      "Bottom Option": "Wit +10\r\nAgnes Tachyon bond +5"
     }
   },
   {
@@ -2618,13 +2882,13 @@
   {
     "EventName": "(❯) Marvelous World Plan ☆",
     "EventOptions": {
-      "": "Guts +5\r\nWisdom +5"
+      "": "Guts +5\r\nWit +5"
     }
   },
   {
     "EventName": "(❯❯) Marvelously Marvelous ☆",
     "EventOptions": {
-      "": "Guts +15\r\nWisdom +15"
+      "": "Guts +15\r\nWit +15"
     }
   },
   {
@@ -2672,7 +2936,7 @@
   {
     "EventName": "Maximum Spirituality",
     "EventOptions": {
-      "Top Option": "Wisdom +5\r\nSkill points +15\r\nMatikanefukukitaru bond +5"
+      "Top Option": "Wit +5\r\nSkill points +15\r\nMatikanefukukitaru bond +5"
     }
   },
   {
@@ -2702,7 +2966,7 @@
   {
     "EventName": "(❯) What I'm Destined For...",
     "EventOptions": {
-      "Bottom Option": "Randomly either\r\nEnergy -10\r\nWisdom +5\r\nor\r\nMaximum Energy +4\r\nMood +1\r\nGuts +5\r\nWisdom +5\r\nMeisho Doto bond +5"
+      "Bottom Option": "Randomly either\r\nEnergy -10\r\nWit +5\r\nor\r\nMaximum Energy +4\r\nMood +1\r\nGuts +5\r\nWit +5\r\nMeisho Doto bond +5"
     }
   },
   {
@@ -2726,7 +2990,7 @@
   {
     "EventName": "Please... Buy Some Carrots",
     "EventOptions": {
-      "Top Option": "Energy +10\r\nWisdom +5\r\nMeisho Doto bond +5"
+      "Top Option": "Energy +10\r\nWit +5\r\nMeisho Doto bond +5"
     }
   },
   {
@@ -2792,7 +3056,7 @@
   {
     "EventName": "Not like Meow",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +5\r\nNice Nature bond +5"
+      "Bottom Option": "Energy +10\r\nWit +5\r\nNice Nature bond +5"
     }
   },
   {
@@ -2822,7 +3086,7 @@
   {
     "EventName": "You May Socialize With Me!",
     "EventOptions": {
-      "Top Option": "Energy -20\r\nSpeed +10\r\nPower +10\r\nWisdom +5\r\nKing Halo bond +5"
+      "Top Option": "Energy -20\r\nSpeed +10\r\nPower +10\r\nWit +5\r\nKing Halo bond +5"
     }
   },
   {
@@ -2834,7 +3098,7 @@
   {
     "EventName": "You May Advise Me!",
     "EventOptions": {
-      "Top Option": "Guts +10\r\nWisdom +5\r\nKing Halo bond +5"
+      "Top Option": "Guts +10\r\nWit +5\r\nKing Halo bond +5"
     }
   },
   {
@@ -2852,7 +3116,7 @@
   {
     "EventName": "(❯❯) How I Play at the Park",
     "EventOptions": {
-      "Top Option": "Energy +35\r\nWisdom +6\r\nAoi Kiryuin bond +5\r\n(random) Mood +1"
+      "Top Option": "Energy +35\r\nWit +6\r\nAoi Kiryuin bond +5\r\n(random) Mood +1"
     }
   },
   {
@@ -2888,7 +3152,7 @@
   {
     "EventName": "Trainer Tip: Always Improve Your Coaching",
     "EventOptions": {
-      "Bottom Option": "Speed +6\r\nWisdom +6\r\nAoi Kiryuin bond +5"
+      "Bottom Option": "Speed +6\r\nWit +6\r\nAoi Kiryuin bond +5"
     }
   },
   {
@@ -2912,7 +3176,7 @@
   {
     "EventName": "Good Job!",
     "EventOptions": {
-      "": "(random) Mood +1\r\nWisdom +3\r\nAoi Kiryuin bond +5"
+      "": "(random) Mood +1\r\nWit +3\r\nAoi Kiryuin bond +5"
     }
   },
   {
@@ -2930,7 +3194,55 @@
   {
     "EventName": "A Bond with Aoi: Being a Good Mentor",
     "EventOptions": {
-      "": "Wisdom +18\r\nSkill points +18\r\nMood +1\r\nShake It Out hint +1/+3\r\nAoi Kiryuin bond +5"
+      "": "Wit +18\r\nSkill points +18\r\nMood +1\r\nShake It Out hint +1/+3\r\nAoi Kiryuin bond +5"
+    }
+  },
+  {
+    "EventName": "Overthrow the Rival!",
+    "EventOptions": {
+      "Top Option": "Guts +10\r\nBamboo Memory bond +5"
+    }
+  },
+  {
+    "EventName": "Overthrow the Rival!",
+    "EventOptions": {
+      "Bottom Option": "Maximum Energy +4\r\nEnergy -5\r\nBamboo Memory bond +5"
+    }
+  },
+  {
+    "EventName": "Tons of Trouble!",
+    "EventOptions": {
+      "Top Option": "Stamina +5\r\nGuts +5\r\nBamboo Memory bond +5"
+    }
+  },
+  {
+    "EventName": "Tons of Trouble!",
+    "EventOptions": {
+      "Bottom Option": "Energy -10\r\nStandard Distance ○ hint +5\r\nBamboo Memory bond +5"
+    }
+  },
+  {
+    "EventName": "Chomp Extermination!",
+    "EventOptions": {
+      "Top Option": "Speed +3\r\nMood +1\r\nShinko Windy bond +5"
+    }
+  },
+  {
+    "EventName": "Chomp Extermination!",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nSkill points +5\r\nShinko Windy bond +5"
+    }
+  },
+  {
+    "EventName": "Chomp Attack!",
+    "EventOptions": {
+      "Top Option": "Skill points +15\r\nShinko Windy bond +5"
+    }
+  },
+  {
+    "EventName": "Chomp Attack!",
+    "EventOptions": {
+      "Bottom Option": "Speed +3\r\nUnyielding Spirit hint +1\r\nShinko Windy bond +5"
     }
   },
   {
@@ -2996,7 +3308,7 @@
   {
     "EventName": "Full-Power Thinking!",
     "EventOptions": {
-      "Top Option": "Wisdom +20\r\nSeeking the Pearl bond +5"
+      "Top Option": "Wit +20\r\nSeeking the Pearl bond +5"
     }
   },
   {
@@ -3056,7 +3368,7 @@
   {
     "EventName": "Book-lover Quirks",
     "EventOptions": {
-      "Top Option": "Speed +5\r\nWisdom +5\r\nZenno Rob Roy bond +5"
+      "Top Option": "Speed +5\r\nWit +5\r\nZenno Rob Roy bond +5"
     }
   },
   {
@@ -3068,7 +3380,7 @@
   {
     "EventName": "A Tale Entrusted",
     "EventOptions": {
-      "Top Option": "Stamina +10\r\nWisdom +10\r\nZenno Rob Roy bond +5"
+      "Top Option": "Stamina +10\r\nWit +10\r\nZenno Rob Roy bond +5"
     }
   },
   {
@@ -3152,7 +3464,7 @@
   {
     "EventName": "Ikuno-Style Flawless Method",
     "EventOptions": {
-      "Top Option": "Wisdom +10\r\nIkuno Dictus bond +5"
+      "Top Option": "Wit +10\r\nIkuno Dictus bond +5"
     }
   },
   {
@@ -3308,7 +3620,7 @@
   {
     "EventName": "What Should I Do?",
     "EventOptions": {
-      "Top Option": "Speed +5\r\nStamina +5\r\nWisdom +5\r\nSilence Suzuka bond +5"
+      "Top Option": "Speed +5\r\nStamina +5\r\nWit +5\r\nSilence Suzuka bond +5"
     }
   },
   {
@@ -3362,7 +3674,7 @@
   {
     "EventName": "Drive Destination",
     "EventOptions": {
-      "Bottom Option": "Mood +1\r\nWisdom +5"
+      "Bottom Option": "Mood +1\r\nWit +5"
     }
   },
   {
@@ -3464,13 +3776,13 @@
   {
     "EventName": "Library Vexation",
     "EventOptions": {
-      "Top Option": "Wisdom +10\r\nGrass Wonder bond +5"
+      "Top Option": "Wit +10\r\nGrass Wonder bond +5"
     }
   },
   {
     "EventName": "Library Vexation",
     "EventOptions": {
-      "Bottom Option": "Guts +5\r\nWisdom +5\r\nGrass Wonder bond +5"
+      "Bottom Option": "Guts +5\r\nWit +5\r\nGrass Wonder bond +5"
     }
   },
   {
@@ -3584,7 +3896,7 @@
   {
     "EventName": "Recruiting Cat Catchers",
     "EventOptions": {
-      "Top Option": "Energy +10\r\nWisdom +5\r\nSeiun Sky bond +5"
+      "Top Option": "Energy +10\r\nWit +5\r\nSeiun Sky bond +5"
     }
   },
   {
@@ -3596,7 +3908,7 @@
   {
     "EventName": "Recruiting Advisors",
     "EventOptions": {
-      "Top Option": "Wisdom +15\r\nSeiun Sky bond +5"
+      "Top Option": "Wit +15\r\nSeiun Sky bond +5"
     }
   },
   {
@@ -3662,7 +3974,7 @@
   {
     "EventName": "08:36 / Crap, I Overslept",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +5\r\nGold City bond +5"
+      "Bottom Option": "Energy +10\r\nWit +5\r\nGold City bond +5"
     }
   },
   {
@@ -3728,13 +4040,13 @@
   {
     "EventName": "Urara's ☆ Study Review",
     "EventOptions": {
-      "Top Option": "Energy +10\r\nWisdom +5\r\nHaru Urara bond +5"
+      "Top Option": "Energy +10\r\nWit +5\r\nHaru Urara bond +5"
     }
   },
   {
     "EventName": "Urara's ☆ Study Review",
     "EventOptions": {
-      "Bottom Option": "Mood +1\r\nWisdom +5\r\nHaru Urara bond +5"
+      "Bottom Option": "Mood +1\r\nWit +5\r\nHaru Urara bond +5"
     }
   },
   {
@@ -3776,7 +4088,7 @@
   {
     "EventName": "(❯❯❯❯) A Sigh and a Bandage",
     "EventOptions": {
-      "": "Energy +45\r\nWisdom +6\r\nMood +1\r\nTazuna Hayakawa bond +5\r\nHeal a negative status effect"
+      "": "Energy +45\r\nWit +6\r\nMood +1\r\nTazuna Hayakawa bond +5\r\nHeal a negative status effect"
     }
   },
   {
@@ -3794,13 +4106,13 @@
   {
     "EventName": "My Chosen Way of Life",
     "EventOptions": {
-      "Bottom Option": "Mood +1\r\nWisdom +6\r\nTazuna Hayakawa bond +5"
+      "Bottom Option": "Mood +1\r\nWit +6\r\nTazuna Hayakawa bond +5"
     }
   },
   {
     "EventName": "Enthusiastic Pair",
     "EventOptions": {
-      "Top Option": "Energy +13\r\nWisdom +6\r\nMood +1\r\nTazuna Hayakawa bond +5\r\nCan start dating"
+      "Top Option": "Energy +13\r\nWit +6\r\nMood +1\r\nTazuna Hayakawa bond +5\r\nCan start dating"
     }
   },
   {
@@ -3848,7 +4160,7 @@
   {
     "EventName": "(❯❯) How I Play at the Park",
     "EventOptions": {
-      "Top Option": "Energy +32\r\nWisdom +6\r\nAoi Kiryuin bond +5\r\n(random) Mood +1"
+      "Top Option": "Energy +32\r\nWit +6\r\nAoi Kiryuin bond +5\r\n(random) Mood +1"
     }
   },
   {
@@ -3884,7 +4196,7 @@
   {
     "EventName": "Trainer Tip: Always Improve Your Coaching",
     "EventOptions": {
-      "Bottom Option": "Speed +6\r\nWisdom +6\r\nAoi Kiryuin bond +5"
+      "Bottom Option": "Speed +6\r\nWit +6\r\nAoi Kiryuin bond +5"
     }
   },
   {
@@ -3908,7 +4220,7 @@
   {
     "EventName": "Good Job!",
     "EventOptions": {
-      "": "(random) Mood +1\r\nWisdom +3\r\nAoi Kiryuin bond +5"
+      "": "(random) Mood +1\r\nWit +3\r\nAoi Kiryuin bond +5"
     }
   },
   {
@@ -3926,13 +4238,13 @@
   {
     "EventName": "A Bond with Aoi: Being a Good Mentor",
     "EventOptions": {
-      "": "Wisdom +18\r\nSkill points +18\r\nMood +1\r\nShake It Out hint +1/+3\r\nAoi Kiryuin bond +5"
+      "": "Wit +18\r\nSkill points +18\r\nMood +1\r\nShake It Out hint +1/+3\r\nAoi Kiryuin bond +5"
     }
   },
   {
     "EventName": "I'm Going to Win Tomorrow!",
     "EventOptions": {
-      "Top Option": "Wisdom +10\r\nDaiwa Scarlet bond +5"
+      "Top Option": "Wit +10\r\nDaiwa Scarlet bond +5"
     }
   },
   {
@@ -3956,7 +4268,7 @@
   {
     "EventName": "Hishiama's Struggles: Problem Children",
     "EventOptions": {
-      "Top Option": "Energy +10\r\nWisdom +5\r\nHishi Amazon bond +5"
+      "Top Option": "Energy +10\r\nWit +5\r\nHishi Amazon bond +5"
     }
   },
   {
@@ -3986,7 +4298,7 @@
   {
     "EventName": "Strict but Gracious",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +10"
+      "Bottom Option": "Energy +10\r\nWit +10"
     }
   },
   {
@@ -4028,7 +4340,7 @@
   {
     "EventName": "Tamamo's School Tour",
     "EventOptions": {
-      "Top Option": "Wisdom +10\r\nTamamo Cross bond +5"
+      "Top Option": "Wit +10\r\nTamamo Cross bond +5"
     }
   },
   {
@@ -4046,7 +4358,7 @@
   {
     "EventName": "A Battle I Can't Lose!",
     "EventOptions": {
-      "Bottom Option": "Stamina +5\r\nWisdom +5\r\nTamamo Cross bond +5"
+      "Bottom Option": "Stamina +5\r\nWit +5\r\nTamamo Cross bond +5"
     }
   },
   {
@@ -4154,7 +4466,7 @@
   {
     "EventName": "Do No Harm",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +5\r\nMihono Bourbon bond +5"
+      "Bottom Option": "Energy +10\r\nWit +5\r\nMihono Bourbon bond +5"
     }
   },
   {
@@ -4238,19 +4550,19 @@
   {
     "EventName": "Ten Minutes Left!",
     "EventOptions": {
-      "Bottom Option": "Wisdom +15\r\nInes Fujin bond +5"
+      "Bottom Option": "Wit +15\r\nInes Fujin bond +5"
     }
   },
   {
     "EventName": "The Correlation between Sleep and Efficiency",
     "EventOptions": {
-      "Top Option": "Power +5\r\nWisdom +5\r\nAgnes Tachyon bond +5"
+      "Top Option": "Power +5\r\nWit +5\r\nAgnes Tachyon bond +5"
     }
   },
   {
     "EventName": "The Correlation between Sleep and Efficiency",
     "EventOptions": {
-      "Bottom Option": "Wisdom +10\r\nAgnes Tachyon bond +5"
+      "Bottom Option": "Wit +10\r\nAgnes Tachyon bond +5"
     }
   },
   {
@@ -4262,7 +4574,7 @@
   {
     "EventName": "Happenstance Introduced Through Intervention",
     "EventOptions": {
-      "Bottom Option": "Wisdom +10\r\nAgnes Tachyon bond +5"
+      "Bottom Option": "Wit +10\r\nAgnes Tachyon bond +5"
     }
   },
   {
@@ -4322,7 +4634,7 @@
   {
     "EventName": "Chants Are the Life of a Concert ☆",
     "EventOptions": {
-      "Bottom Option": "Wisdom +15\r\nSmart Falcon bond +5"
+      "Bottom Option": "Wit +15\r\nSmart Falcon bond +5"
     }
   },
   {
@@ -4334,7 +4646,7 @@
   {
     "EventName": "If I'm Cute, Come to My Show! ☆",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +5\r\nSmart Falcon bond +5"
+      "Bottom Option": "Energy +10\r\nWit +5\r\nSmart Falcon bond +5"
     }
   },
   {
@@ -4376,7 +4688,7 @@
   {
     "EventName": "Let's Bloom Beautifully ♪",
     "EventOptions": {
-      "Top Option": "Wisdom +15\r\nNishino Flower bond +5"
+      "Top Option": "Wit +15\r\nNishino Flower bond +5"
     }
   },
   {
@@ -4436,7 +4748,7 @@
   {
     "EventName": "Maximum Spirituality",
     "EventOptions": {
-      "Top Option": "Wisdom +5\r\nSkill points +15\r\nMatikanefukukitaru bond +5"
+      "Top Option": "Wit +5\r\nSkill points +15\r\nMatikanefukukitaru bond +5"
     }
   },
   {
@@ -4472,7 +4784,7 @@
   {
     "EventName": "Please... Buy Some Carrots",
     "EventOptions": {
-      "Top Option": "Energy +10\r\nWisdom +5\r\nMeisho Doto bond +5"
+      "Top Option": "Energy +10\r\nWit +5\r\nMeisho Doto bond +5"
     }
   },
   {
@@ -4514,7 +4826,7 @@
   {
     "EventName": "Not like Meow",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWisdom +5\r\nNice Nature bond +5"
+      "Bottom Option": "Energy +10\r\nWit +5\r\nNice Nature bond +5"
     }
   },
   {
@@ -4532,7 +4844,7 @@
   {
     "EventName": "You May Socialize With Me!",
     "EventOptions": {
-      "Top Option": "Energy -20\r\nSpeed +10\r\nPower +10\r\nWisdom +5\r\nKing Halo bond +5"
+      "Top Option": "Energy -20\r\nSpeed +10\r\nPower +10\r\nWit +5\r\nKing Halo bond +5"
     }
   },
   {
@@ -4544,7 +4856,7 @@
   {
     "EventName": "You May Advise Me!",
     "EventOptions": {
-      "Top Option": "Guts +10\r\nWisdom +5\r\nKing Halo bond +5"
+      "Top Option": "Guts +10\r\nWit +5\r\nKing Halo bond +5"
     }
   },
   {
@@ -4556,7 +4868,7 @@
   {
     "EventName": "Sleight of Hand",
     "EventOptions": {
-      "Top Option": "Wisdom +5\r\nSkill points +15\r\nFuji Kiseki bond +5"
+      "Top Option": "Wit +5\r\nSkill points +15\r\nFuji Kiseki bond +5"
     }
   },
   {
@@ -4575,6 +4887,120 @@
     "EventName": "Misdirection",
     "EventOptions": {
       "Bottom Option": "Skill points +30\r\nFuji Kiseki bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) Sudden Murder Mystery! Part 1",
+    "EventOptions": {
+      "Top Option": "Wit +5\r\nSkill points +10\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) Sudden Murder Mystery! Part 1",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Sudden Murder Mystery! Part 2",
+    "EventOptions": {
+      "Top Option": "Wit +5\r\nFrenzied Pace Chasers hint +1\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Sudden Murder Mystery! Part 2",
+    "EventOptions": {
+      "Bottom Option": "Energy +5\r\nSkill points +10\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Sudden Murder Mystery! Part 3",
+    "EventOptions": {
+      "Top Option": "Wit +5/+10\r\nVanguard Spirit hint +1/+3\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Sudden Murder Mystery! Part 3",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nStamina +10\r\nSkill points +15"
+    }
+  },
+  {
+    "EventName": "Recruiting Cat Catchers",
+    "EventOptions": {
+      "Top Option": "Energy +10\r\nWit +5\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "Recruiting Cat Catchers",
+    "EventOptions": {
+      "Bottom Option": "Energy -10\r\nSpeed +15\r\nStamina +5\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "Recruiting Advisors",
+    "EventOptions": {
+      "Top Option": "Wit +15\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "Recruiting Advisors",
+    "EventOptions": {
+      "Bottom Option": "Keeping the Lead hint +1\r\nSeiun Sky bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) A Captivating Invitation",
+    "EventOptions": {
+      "Top Option": "Power +10\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) A Captivating Invitation",
+    "EventOptions": {
+      "Bottom Option": "Guts +10\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Dancer's Pride",
+    "EventOptions": {
+      "Top Option": "Energy -5\r\nStamina +10\r\nPower +5\r\nSkill points +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Dancer's Pride",
+    "EventOptions": {
+      "Bottom Option": "Energy +15\r\nSkill points +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Glittering Star of the Ball",
+    "EventOptions": {
+      "": "Randomly either\r\nEnergy -10\r\nPower +25\r\nBlinding Flash hint +3\r\nor\r\nEnergy -10\r\nPower +20\r\nGap Closer hint +3"
+    }
+  },
+  {
+    "EventName": "You May Socialize With Me!",
+    "EventOptions": {
+      "Top Option": "Energy -20\r\nSpeed +10\r\nPower +10\r\nWit +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Socialize With Me!",
+    "EventOptions": {
+      "Bottom Option": "Mood -1\r\nGuts +25\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Advise Me!",
+    "EventOptions": {
+      "Top Option": "Guts +10\r\nWit +5\r\nKing Halo bond +5"
+    }
+  },
+  {
+    "EventName": "You May Advise Me!",
+    "EventOptions": {
+      "Bottom Option": "Homestretch Haste hint +1\r\nKing Halo bond +5"
     }
   }
 ]
