@@ -84,20 +84,23 @@ namespace UmatoMusume.Utils
 			return ret;
 		}
 
-		public static string DetectText(Rectangle _captureArea)
+		public static async Task<string> DetectText(Rectangle _captureArea)
 		{
-			using var capturedImage = CaptureScreen(_captureArea);
-			using var scaled = Smoother(capturedImage);
-			using var norm = Normalization(scaled);
-			using var gray = ToGray(norm);
-			using var denoise = Denoise(gray);
-			using var binary = Threshold(denoise);
+			return await Task.Run(() =>
+			{
+				using var capturedImage = CaptureScreen(_captureArea);
+				using var scaled = Smoother(capturedImage);
+				using var norm = Normalization(scaled);
+				using var gray = ToGray(norm);
+				using var denoise = Denoise(gray);
+				using var binary = Threshold(denoise);
 
-			// For debugging purposes, uncomment to save intermediate images
-			//SaveBitmap(binary, Path.Combine(Path.GetTempPath(), "debug_binary.png"));
+				// For debugging purposes, uncomment to save intermediate images
+				//SaveBitmap(binary, Path.Combine(Path.GetTempPath(), "debug_binary.png"));
 
-			var result = RunOCR(binary);
-			return string.Join(" ", result?.OcrData?.Select(x => x.Text) ?? []);
+				var result = RunOCR(binary);
+				return string.Join(" ", result?.OcrData?.Select(x => x.Text) ?? []);
+			});
 		}
 
 		public static void Dispose()
@@ -186,7 +189,6 @@ namespace UmatoMusume.Utils
 				return MatToBitmap(bin);
 			}
 		}
-
 		public static Bitmap Denoise(Bitmap _bmp)
 		{
 			using var mat = BitmapToMat(_bmp);
@@ -199,6 +201,8 @@ namespace UmatoMusume.Utils
 
 			return MatToBitmap(dst);
 		}
+
+
 
 		private static void SaveBitmap(Bitmap bmp, string path)
 		{

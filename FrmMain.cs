@@ -25,6 +25,10 @@ namespace UmatoMusume
 		private List<string> _filterGrades = new List<string>();
 		private List<string> _filterDistanceTypes = new List<string>();
 		private List<string> _filterTerrainTypes = new List<string>();
+		private bool _firstTimeSetWindowState = false;
+		private CancellationTokenSource _cts = new CancellationTokenSource();
+		private DateTime _lastUpdateDate = DateTime.MinValue;
+		private readonly TimeSpan _debounceInterval = TimeSpan.FromMilliseconds(200);
 
 
 		private Font _boldFont = new Font(Control.DefaultFont, FontStyle.Bold);
@@ -36,7 +40,6 @@ namespace UmatoMusume
 		private const string TARGET_PROCESS_NAME = "UmamusumePrettyDerby";
 		private const string FORM_TITLE = "UmatoMusume - Process Window Capture";
 		private const int ATTACH_INTERVAL = 500;
-		private const int FAST_ATTACH_INTERVAL = 30;
 		private const int CAPTURE_INTERVAL = 1000;
 		private const int OFFSET_HEIGHT = 100;
 		private int _appHeight = 0;
@@ -178,31 +181,57 @@ namespace UmatoMusume
 			}
 		}
 
-		private async Task StartCapture()
+		private void StartCapture()
 		{
 			_captureTimer.Stop();
-			if (_processhWnd != IntPtr.Zero)
-			{
-				if (_eventOctRect != null)
-				{
-					var rect = (Rectangle)_eventOctRect;
-					if (rect.Width > 0 && rect.Height > 0)
-					{
-						lblEventName.Text = await Task.Run(() => Detector.DetectText(rect));
-					}
-				}
 
-				if (_dateTimeRect != null)
-				{
-					var rect = (Rectangle)_dateTimeRect;
-					if (rect.Width > 0 && rect.Height > 0)
-					{
-						lblDate.Text = Helper.CompleteText(await Task.Run(() => Detector.DetectText(rect)));
-					}
-				}
+			if (_processhWnd == IntPtr.Zero)
+			{
+				_captureTimer.Start();
+				return;
 			}
+
+			if (_eventOctRect is Rectangle eventRect && eventRect.Width > 0 && eventRect.Height > 0)
+			{
+				_ = Task.Run(async () =>
+				{
+					try
+					{
+						var text = await Detector.DetectText(eventRect);
+						BeginInvoke(new Action(() => lblEventName.Text = text));
+					}
+					catch (Exception ex)
+					{
+						Debug.WriteLine($"Event OCR error: {ex.Message}");
+					}
+				});
+			}
+
+			if (_dateTimeRect is Rectangle dateRect && dateRect.Width > 0 && dateRect.Height > 0)
+			{
+				_ = Task.Run(async () =>
+				{
+					try
+					{
+						var text = await Detector.DetectText(dateRect);
+						var completed = Helper.CompleteText(text);
+
+						if (!string.IsNullOrWhiteSpace(completed) && (DateTime.Now - _lastUpdateDate > _debounceInterval))
+						{
+							_lastUpdateDate = DateTime.Now;
+							BeginInvoke(new Action(() => lblDate.Text = completed));
+						}
+					}
+					catch (Exception ex)
+					{
+						Debug.WriteLine($"Date OCR error: {ex.Message}");
+					}
+				});
+			}
+
 			_captureTimer.Start();
 		}
+
 
 		private void WinEventCallback(IntPtr _, NativeMethods.SWEH_Events _eventType, IntPtr _hWnd, NativeMethods.SWEH_ObjectId _idObject, long _idChild, uint _dwEventThread, uint _dwmsEventTime)
 		{
@@ -212,35 +241,13 @@ namespace UmatoMusume
 
 			switch (_eventType)
 			{
-				case NativeMethods.SWEH_Events.EVENT_SYSTEM_MOVESIZESTART:
-					if (!isFullScreen)
+				case NativeMethods.SWEH_Events.EVENT_OBJECT_LOCATIONCHANGE:
+					if (!isFullScreen && _idObject == NativeMethods.SWEH_ObjectId.OBJID_WINDOW)
 					{
-						_attachTimer.Interval = FAST_ATTACH_INTERVAL;
-						_attachTimer.Start();
-					}
-					break;
-
-				case NativeMethods.SWEH_Events.EVENT_SYSTEM_MOVESIZEEND:
-					if (!isFullScreen)
-					{
-						_attachTimer.Stop();
-						_attachTimer.Interval = ATTACH_INTERVAL;
 						var rectEnd = Hook.GetWindowRectangle(_hWnd).ToRectangle();
 						BeginInvoke(new Action(() => UpdateUI(rectEnd)));
 					}
 					break;
-
-				case NativeMethods.SWEH_Events.EVENT_OBJECT_LOCATIONCHANGE:
-					if (!isFullScreen)
-					{
-						if (_idObject == NativeMethods.SWEH_ObjectId.OBJID_WINDOW)
-						{
-							var rect = Hook.GetWindowRectangle(_hWnd).ToRectangle();
-							BeginInvoke(new Action(() => UpdateUI(rect)));
-						}
-					}
-					break;
-
 				case NativeMethods.SWEH_Events.EVENT_SYSTEM_FOREGROUND:
 					var fg = NativeMethods.GetForegroundWindow();
 					if (fg == _processhWnd)
@@ -256,16 +263,6 @@ namespace UmatoMusume
 							NativeMethods.BringWindowToTop(this.Handle);
 							TopMost = true;
 							TopMost = false;
-						}));
-					}
-					else
-					{
-						BeginInvoke(new Action(() =>
-						{
-							if (WindowState != FormWindowState.Minimized)
-							{
-								WindowState = FormWindowState.Minimized;
-							}
 						}));
 					}
 					break;
@@ -599,10 +596,7 @@ namespace UmatoMusume
 		#endregion
 
 		#region Event Handlers
-		private async void EventTimer_Tick(object? sender, EventArgs e)
-		{
-			await StartCapture();
-		}
+		private void EventTimer_Tick(object? sender, EventArgs e) => StartCapture();
 
 		private void AttachTimer_Tick(object? sender, EventArgs e)
 		{
@@ -626,8 +620,9 @@ namespace UmatoMusume
 				_processhWnd = _targetProc.MainWindowHandle;
 				if (_processhWnd != IntPtr.Zero)
 				{
+					_attachTimer.Stop();
 					uint targetThreadId = Hook.GetWindowThread(_processhWnd);
-					_hWinEventHook = Hook.WinEventHookRange(NativeMethods.SWEH_Events.EVENT_SYSTEM_FOREGROUND, NativeMethods.SWEH_Events.EVENT_SYSTEM_MINIMIZEEND, _winEventDelegate, (uint)_targetProc.Id, targetThreadId);
+					_hWinEventHook = Hook.WinEventHookRange(NativeMethods.SWEH_Events.EVENT_SYSTEM_FOREGROUND, NativeMethods.SWEH_Events.EVENT_OBJECT_LOCATIONCHANGE, _winEventDelegate, (uint)_targetProc.Id, targetThreadId);
 					var rect = Hook.GetWindowRectangle(_processhWnd);
 
 					Height = _appHeight;
@@ -655,7 +650,10 @@ namespace UmatoMusume
 							Location = new Point(rect.Left - _appWidth, rect.Top);
 						}
 					}
+				}
 
+				if (!_firstTimeSetWindowState)
+				{
 					if (NativeMethods.IsIconic(_processhWnd))
 					{
 						if (WindowState != FormWindowState.Minimized)
@@ -671,6 +669,8 @@ namespace UmatoMusume
 							WindowState = FormWindowState.Normal;
 						}
 					}
+
+					_firstTimeSetWindowState = true;
 				}
 			}
 			catch { }

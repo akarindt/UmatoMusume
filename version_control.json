@@ -1,5 +1,5 @@
 {
-  "CurrentVersion": "v1.9",
+  "CurrentVersion": "v2.0",
   "VersionCheckUrl": "https://raw.githubusercontent.com/akarindt/UmatoMusume/refs/heads/master/version_control.json",
   "DownloadUrl": "https://github.com/akarindt/UmatoMusume/releases/download/#TAG/#FILE_NAME",
   "PrefixFileName": "umato-musume",

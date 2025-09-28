@@ -388,11 +388,17 @@ namespace UmatoMusume.Utils
 				var (isContains, subStr) = FuzzyContains(input, month);
 				if (isContains)
 				{
-					str.Append(month).Append(' ');
+					if(month == "PreDebut")
+					{
+						str.Append("Pre-Debut").Append(' ');
+					} else
+					{
+						str.Append(month).Append(' ');
+					}
 					input = input.Replace(subStr, "");
 					break;
 				}
-			}
+			 }
 
 			return str.ToString().Trim();
 		}
