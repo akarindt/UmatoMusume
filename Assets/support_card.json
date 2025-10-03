@@ -1,5 +1,53 @@
 ﻿[
   {
+    "EventName": "(❯) Flustered Afternoon Tea!",
+    "EventOptions": {
+      "Top Option": "Energy +10\r\nMood +1"
+    }
+  },
+  {
+    "EventName": "(❯) Flustered Afternoon Tea!",
+    "EventOptions": {
+      "Bottom Option": "Wit +10\r\nSkill points +15\r\nPace Chaser Savvy ○ hint +3"
+    }
+  },
+  {
+    "EventName": "(❯❯) Home Run Derby!",
+    "EventOptions": {
+      "": "Power +10\r\nGuts +5"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Indomitable Hearts on Fire!",
+    "EventOptions": {
+      "": "Power +10\r\nGuts +5\r\nUnyielding hint +1"
+    }
+  },
+  {
+    "EventName": "My Muscles and Me, Onward to Tomorrow!",
+    "EventOptions": {
+      "Top Option": "Energy -10\r\nPower +15\r\nMejiro Ryan bond +5"
+    }
+  },
+  {
+    "EventName": "My Muscles and Me, Onward to Tomorrow!",
+    "EventOptions": {
+      "Bottom Option": "Maximum Energy +4\r\nPower +5\r\nMejiro Ryan bond +5"
+    }
+  },
+  {
+    "EventName": "It's Not Like I Like Romance!",
+    "EventOptions": {
+      "Top Option": "Pace Strategy hint +1\r\nMejiro Ryan bond +5"
+    }
+  },
+  {
+    "EventName": "It's Not Like I Like Romance!",
+    "EventOptions": {
+      "Bottom Option": "Energy +30\r\nMejiro Ryan bond +5"
+    }
+  },
+  {
     "EventName": "(❯) Sudden Murder Mystery! Part 1",
     "EventOptions": {
       "Top Option": "Wit +5\r\nSkill points +10\r\nSeiun Sky bond +5"
@@ -2016,6 +2064,48 @@
     }
   },
   {
+    "EventName": "(❯) Special Drinks Made with Friends ♪",
+    "EventOptions": {
+      "Top Option": "Randomly either\r\nEnergy +10\r\nSpeed +5\r\nWit +5\r\nSkill points +10\r\nor\r\nWit +10"
+    }
+  },
+  {
+    "EventName": "(❯) Special Drinks Made with Friends ♪",
+    "EventOptions": {
+      "Bottom Option": "Mood +1\r\nSpeed +10"
+    }
+  },
+  {
+    "EventName": "(❯❯) The Place I Wish to Stand",
+    "EventOptions": {
+      "": "Energy +30\r\nMood +1"
+    }
+  },
+  {
+    "EventName": "The Glass Girl Wants to Study",
+    "EventOptions": {
+      "Top Option": "Speed +10\r\nMejiro Ardan bond +5"
+    }
+  },
+  {
+    "EventName": "The Glass Girl Wants to Study",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nWit +5\r\nMejiro Ardan bond +5"
+    }
+  },
+  {
+    "EventName": "The Glass Girl Wants to Play",
+    "EventOptions": {
+      "Top Option": "Speed +10\r\nWit +10\r\nMejiro Ardan bond +5"
+    }
+  },
+  {
+    "EventName": "The Glass Girl Wants to Play",
+    "EventOptions": {
+      "Bottom Option": "Hesitant Pace Chasers hint +1\r\nMejiro Ardan bond +5"
+    }
+  },
+  {
     "EventName": "(❯) Dig Here, Windy!",
     "EventOptions": {
       "Top Option": "Speed +10\r\nShinko Windy bond +5"
@@ -3195,6 +3285,30 @@
     "EventName": "A Bond with Aoi: Being a Good Mentor",
     "EventOptions": {
       "": "Wit +18\r\nSkill points +18\r\nMood +1\r\nShake It Out hint +1/+3\r\nAoi Kiryuin bond +5"
+    }
+  },
+  {
+    "EventName": "The Glass Girl Wants to Study",
+    "EventOptions": {
+      "Top Option": "Speed +10\r\nMejiro Ardan bond +5"
+    }
+  },
+  {
+    "EventName": "The Glass Girl Wants to Study",
+    "EventOptions": {
+      "Bottom Option": "Energy +10\r\nWit +5\r\nMejiro Ardan bond +5"
+    }
+  },
+  {
+    "EventName": "The Glass Girl Wants to Play",
+    "EventOptions": {
+      "Top Option": "Speed +10\r\nWit +10\r\nMejiro Ardan bond +5"
+    }
+  },
+  {
+    "EventName": "The Glass Girl Wants to Play",
+    "EventOptions": {
+      "Bottom Option": "Hesitant Pace Chasers hint +1\r\nMejiro Ardan bond +5"
     }
   },
   {
@@ -4890,117 +5004,183 @@
     }
   },
   {
-    "EventName": "(❯) Sudden Murder Mystery! Part 1",
+    "EventName": "(❯) Special Drinks Made with Friends ♪",
     "EventOptions": {
-      "Top Option": "Wit +5\r\nSkill points +10\r\nSeiun Sky bond +5"
+      "Top Option": "Randomly either\r\nEnergy +10\r\nSpeed +5\r\nWit +5\r\nSkill points +10\r\nor\r\nWit +10"
     }
   },
   {
-    "EventName": "(❯) Sudden Murder Mystery! Part 1",
+    "EventName": "(❯) Special Drinks Made with Friends ♪",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nSeiun Sky bond +5"
+      "Bottom Option": "Mood +1\r\nSpeed +10"
     }
   },
   {
-    "EventName": "(❯❯) Sudden Murder Mystery! Part 2",
+    "EventName": "(❯❯) The Place I Wish to Stand",
     "EventOptions": {
-      "Top Option": "Wit +5\r\nFrenzied Pace Chasers hint +1\r\nSeiun Sky bond +5"
+      "": "Energy +30\r\nMood +1"
     }
   },
   {
-    "EventName": "(❯❯) Sudden Murder Mystery! Part 2",
+    "EventName": "The Glass Girl Wants to Study",
     "EventOptions": {
-      "Bottom Option": "Energy +5\r\nSkill points +10\r\nSeiun Sky bond +5"
+      "Top Option": "Speed +10\r\nMejiro Ardan bond +5"
     }
   },
   {
-    "EventName": "(❯❯❯) Sudden Murder Mystery! Part 3",
+    "EventName": "The Glass Girl Wants to Study",
     "EventOptions": {
-      "Top Option": "Wit +5/+10\r\nVanguard Spirit hint +1/+3\r\nSeiun Sky bond +5"
+      "Bottom Option": "Energy +10\r\nWit +5\r\nMejiro Ardan bond +5"
     }
   },
   {
-    "EventName": "(❯❯❯) Sudden Murder Mystery! Part 3",
+    "EventName": "The Glass Girl Wants to Play",
     "EventOptions": {
-      "Bottom Option": "Energy +10\r\nStamina +10\r\nSkill points +15"
+      "Top Option": "Speed +10\r\nWit +10\r\nMejiro Ardan bond +5"
     }
   },
   {
-    "EventName": "Recruiting Cat Catchers",
+    "EventName": "The Glass Girl Wants to Play",
     "EventOptions": {
-      "Top Option": "Energy +10\r\nWit +5\r\nSeiun Sky bond +5"
+      "Bottom Option": "Hesitant Pace Chasers hint +1\r\nMejiro Ardan bond +5"
     }
   },
   {
-    "EventName": "Recruiting Cat Catchers",
+    "EventName": "(❯) Flustered Afternoon Tea!",
     "EventOptions": {
-      "Bottom Option": "Energy -10\r\nSpeed +15\r\nStamina +5\r\nSeiun Sky bond +5"
+      "Top Option": "Energy +10\r\nMood +1"
     }
   },
   {
-    "EventName": "Recruiting Advisors",
+    "EventName": "(❯) Flustered Afternoon Tea!",
     "EventOptions": {
-      "Top Option": "Wit +15\r\nSeiun Sky bond +5"
+      "Bottom Option": "Wit +10\r\nSkill points +15\r\nPace Chaser Savvy ○ hint +3"
     }
   },
   {
-    "EventName": "Recruiting Advisors",
+    "EventName": "(❯❯) Home Run Derby!",
     "EventOptions": {
-      "Bottom Option": "Keeping the Lead hint +1\r\nSeiun Sky bond +5"
+      "": "Power +10\r\nGuts +5"
     }
   },
   {
-    "EventName": "(❯) A Captivating Invitation",
+    "EventName": "(❯❯❯) Indomitable Hearts on Fire!",
     "EventOptions": {
-      "Top Option": "Power +10\r\nKing Halo bond +5"
+      "": "Power +10\r\nGuts +5\r\nUnyielding hint +1"
     }
   },
   {
-    "EventName": "(❯) A Captivating Invitation",
+    "EventName": "My Muscles and Me, Onward to Tomorrow!",
     "EventOptions": {
-      "Bottom Option": "Guts +10\r\nKing Halo bond +5"
+      "Top Option": "Energy -10\r\nPower +15\r\nMejiro Ryan bond +5"
     }
   },
   {
-    "EventName": "(❯❯) Dancer's Pride",
+    "EventName": "My Muscles and Me, Onward to Tomorrow!",
     "EventOptions": {
-      "Top Option": "Energy -5\r\nStamina +10\r\nPower +5\r\nSkill points +5\r\nKing Halo bond +5"
+      "Bottom Option": "Maximum Energy +4\r\nPower +5\r\nMejiro Ryan bond +5"
     }
   },
   {
-    "EventName": "(❯❯) Dancer's Pride",
+    "EventName": "It's Not Like I Like Romance!",
     "EventOptions": {
-      "Bottom Option": "Energy +15\r\nSkill points +5\r\nKing Halo bond +5"
+      "Top Option": "Pace Strategy hint +1\r\nMejiro Ryan bond +5"
     }
   },
   {
-    "EventName": "(❯❯❯) Glittering Star of the Ball",
+    "EventName": "It's Not Like I Like Romance!",
     "EventOptions": {
-      "": "Randomly either\r\nEnergy -10\r\nPower +25\r\nBlinding Flash hint +3\r\nor\r\nEnergy -10\r\nPower +20\r\nGap Closer hint +3"
+      "Bottom Option": "Energy +30\r\nMejiro Ryan bond +5"
     }
   },
   {
-    "EventName": "You May Socialize With Me!",
+    "EventName": "(❯) Gotta Follow My Heart",
     "EventOptions": {
-      "Top Option": "Energy -20\r\nSpeed +10\r\nPower +10\r\nWit +5\r\nKing Halo bond +5"
+      "": "Power +5\r\nSkill points +15"
     }
   },
   {
-    "EventName": "You May Socialize With Me!",
+    "EventName": "(❯❯) A Vow to the Setting Sun",
     "EventOptions": {
-      "Bottom Option": "Mood -1\r\nGuts +25\r\nKing Halo bond +5"
+      "": "Power +5\r\nSkill points +15"
     }
   },
   {
-    "EventName": "You May Advise Me!",
+    "EventName": "(❯❯❯) Put That on the Record, Okay?",
     "EventOptions": {
-      "Top Option": "Guts +10\r\nWit +5\r\nKing Halo bond +5"
+      "": "Power +5\r\nSkill points +30\r\nBreath of Fresh Air hint +1"
     }
   },
   {
-    "EventName": "You May Advise Me!",
+    "EventName": "The Coolest Line",
     "EventOptions": {
-      "Bottom Option": "Homestretch Haste hint +1\r\nKing Halo bond +5"
+      "Top Option": "Power +10\r\nVodka bond +5"
+    }
+  },
+  {
+    "EventName": "The Coolest Line",
+    "EventOptions": {
+      "Bottom Option": "Power +5\r\nSkill points +15\r\nVodka bond +5"
+    }
+  },
+  {
+    "EventName": "Enemies on Main Street",
+    "EventOptions": {
+      "Top Option": "Nimble Navigator hint +1\r\nVodka bond +5"
+    }
+  },
+  {
+    "EventName": "Enemies on Main Street",
+    "EventOptions": {
+      "Bottom Option": "Power +5\r\nSkill points +15\r\nVodka bond +5"
+    }
+  },
+  {
+    "EventName": "(❯) How I Can Help",
+    "EventOptions": {
+      "": "Maximum Energy +4\r\nSkill points +10"
+    }
+  },
+  {
+    "EventName": "(❯❯) Aspiring to Adulthood",
+    "EventOptions": {
+      "Top Option": "Energy -10\r\nWit +20\r\nNishino Flower bond +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Aspiring to Adulthood",
+    "EventOptions": {
+      "Bottom Option": "Wit +5\r\nSkill points +15"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) What's Important!",
+    "EventOptions": {
+      "": "Speed +5\r\nWit +10\r\nBeeline Burst hint +1/+3 or Straightaway Adept hint +1"
+    }
+  },
+  {
+    "EventName": "Warmth, Love, and Lunch",
+    "EventOptions": {
+      "Top Option": "Get Charming ○ status\r\nNishino Flower bond +5"
+    }
+  },
+  {
+    "EventName": "Warmth, Love, and Lunch",
+    "EventOptions": {
+      "Bottom Option": "Energy +20\r\nNishino Flower bond +5"
+    }
+  },
+  {
+    "EventName": "Let's Bloom Beautifully ♪",
+    "EventOptions": {
+      "Top Option": "Wit +15\r\nNishino Flower bond +5"
+    }
+  },
+  {
+    "EventName": "Let's Bloom Beautifully ♪",
+    "EventOptions": {
+      "Bottom Option": "Speed +10\r\nPower +5\r\nNishino Flower bond +5"
     }
   }
 ]
