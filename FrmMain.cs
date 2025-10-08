@@ -756,5 +756,21 @@ namespace UmatoMusume
 			form.ShowDialog();
 		}
 		#endregion
+
+		protected override CreateParams CreateParams
+		{
+			get
+			{
+				var cp = base.CreateParams;
+				var isFullScreen = bool.Parse(Helper.GetConfigValue("FullScreen", "False"));
+				if (isFullScreen)
+				{
+					cp.ExStyle |= 0x80;
+					cp.ExStyle |= 0x8;
+				}
+
+				return cp;
+			}
+		}
 	}
 }
