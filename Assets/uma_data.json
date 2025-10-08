@@ -1,247 +1,229 @@
 ﻿[
   {
-    "UmaName": "Fuji Kiseki",
+    "UmaName": "Gold City",
     "UmaObjectives": [
       {
         "ObjectiveName": "1. Participate in the Junior Make Debut",
         "Turn": "Turn 12",
         "Time": "Junior Class, Late June",
-        "ObjectiveCondition": "Turf – 1600m – Mile"
+        "ObjectiveCondition": "Turf – 1500m – Mile"
       },
       {
-        "ObjectiveName": "2. Place 5th or better in the Asahi Hai Futurity Stakes",
+        "ObjectiveName": "2. Place 5th or better in the Hanshin Juvenile Fillies",
         "Turn": "Turn 23 (previous + 10)",
         "Time": "Junior Class, Early December",
         "ObjectiveCondition": "G1 – Turf – 1600m – Mile"
       },
       {
-        "ObjectiveName": "3. Place 5th or better in the Yayoi Sho",
-        "Turn": "Turn 29 (previous + 5)",
-        "Time": "Classic Class, Early March",
-        "ObjectiveCondition": "G2 – Turf – 2000m – Medium"
-      },
-      {
-        "ObjectiveName": "4. Place 5th or better in the Satsuki Sho",
-        "Turn": "Turn 31 (previous + 1)",
+        "ObjectiveName": "3. Place 5th or better in the Satsuki Sho",
+        "Turn": "Turn 31 (previous + 7)",
         "Time": "Classic Class, Early April",
         "ObjectiveCondition": "G1 – Turf – 2000m – Medium"
       },
       {
-        "ObjectiveName": "5. Place 5th or better in the NHK Mile Cup",
-        "Turn": "Turn 33 (previous + 1)",
-        "Time": "Classic Class, Early May",
-        "ObjectiveCondition": "G1 – Turf – 1600m – Mile"
+        "ObjectiveName": "4. Place 5th or better in the Tokyo Yushun (Japanese Derby)",
+        "Turn": "Turn 34 (previous + 2)",
+        "Time": "Classic Class, Late May",
+        "ObjectiveCondition": "G1 – Turf – 2400m – Medium"
       },
       {
-        "ObjectiveName": "6. Participate in the Kikuka Sho",
-        "Turn": "Turn 44 (previous + 10)",
+        "ObjectiveName": "5. Place 3rd or better in the Kikuka Sho",
+        "Turn": "Turn 44 (previous + 9)",
         "Time": "Classic Class, Late October",
         "ObjectiveCondition": "G1 – Turf – 3000m – Long"
       },
       {
-        "ObjectiveName": "7. Place 3rd or better in the Takamatsunomiya Kinen",
-        "Turn": "Turn 54 (previous + 9)",
+        "ObjectiveName": "6. Place 3rd or better in the Arima Kinen",
+        "Turn": "Turn 48 (previous + 3)",
+        "Time": "Classic Class, Late December",
+        "ObjectiveCondition": "G1 – Turf – 2500m – Long"
+      },
+      {
+        "ObjectiveName": "7. Place 3rd or better in the Osaka Hai",
+        "Turn": "Turn 54 (previous + 5)",
         "Time": "Senior Class, Late March",
-        "ObjectiveCondition": "G1 – Turf – 1200m – Short"
-      },
-      {
-        "ObjectiveName": "8. Place 3rd or better in the Yasuda Kinen",
-        "Turn": "Turn 59 (previous + 4)",
-        "Time": "Senior Class, Early June",
-        "ObjectiveCondition": "G1 – Turf – 1600m – Mile"
-      },
-      {
-        "ObjectiveName": "9. Place 1st in the Tenno Sho (Autumn)",
-        "Turn": "Turn 68 (previous + 8)",
-        "Time": "Senior Class, Late October",
         "ObjectiveCondition": "G1 – Turf – 2000m – Medium"
       },
       {
-        "ObjectiveName": "10. Participate in the Arima Kinen",
-        "Turn": "Turn 72 (previous + 3)",
-        "Time": "Senior Class, Late December",
-        "ObjectiveCondition": "G1 – Turf – 2500m – Long"
+        "ObjectiveName": "8. Place 3rd or better in the Tenno Sho (Spring)",
+        "Turn": "Turn 56 (previous + 1)",
+        "Time": "Senior Class, Late April",
+        "ObjectiveCondition": "G1 – Turf – 3200m – Long"
+      },
+      {
+        "ObjectiveName": "9. Place 3rd or better in the Takarazuka Kinen",
+        "Turn": "Turn 60 (previous + 3)",
+        "Time": "Senior Class, Late June",
+        "ObjectiveCondition": "G1 – Turf – 2200m – Medium"
+      },
+      {
+        "ObjectiveName": "10. Place 1st in the Japan Cup",
+        "Turn": "Turn 70 (previous + 9)",
+        "Time": "Senior Class, Late November",
+        "ObjectiveCondition": "G1 – Turf – 2400m – Medium"
       }
     ],
     "UmaEvents": [
       {
-        "EventName": "What a Wonderful Stage!",
+        "EventName": "Client's Orders",
         "EventOptions": {
-          "Top Option": "Stamina +20"
+          "Top Option": "Speed +20"
         }
       },
       {
-        "EventName": "What a Wonderful Stage!",
+        "EventName": "Client's Orders",
         "EventOptions": {
-          "Bottom Option": "Speed +10\r\nPower +10"
+          "Bottom Option": "Guts +20"
         }
       },
       {
-        "EventName": "My Dear Sister",
+        "EventName": "Children and Adults",
         "EventOptions": {
-          "Top Option": "Power +20"
+          "Top Option": "Wit +20"
         }
       },
       {
-        "EventName": "My Dear Sister",
+        "EventName": "Children and Adults",
         "EventOptions": {
-          "Bottom Option": "Wit +20"
+          "Bottom Option": "Stamina +10\r\nGuts +10"
         }
       },
       {
-        "EventName": "A Quiet Moment",
+        "EventName": "Ideal Image",
         "EventOptions": {
-          "Top Option": "Guts +20\r\n(random) Get Practice Perfect ○ status"
+          "Top Option": "Speed +20\r\n(random) Get Charming ○ status"
         }
       },
       {
-        "EventName": "A Quiet Moment",
+        "EventName": "Ideal Image",
         "EventOptions": {
-          "Bottom Option": "Stamina +20\r\n(random) Get Practice Perfect ○ status"
+          "Bottom Option": "Power +20\r\n(random) Get Charming ○ status"
         }
       },
       {
-        "EventName": "Act 1: Smile",
+        "EventName": "City's Salon",
         "EventOptions": {
-          "Top Option": "Objective race changed to Tokyo Yushun (Japanese Derby)\r\nGuts +10"
+          "Top Option": "Guts +10"
         }
       },
       {
-        "EventName": "Act 1: Smile",
+        "EventName": "City's Salon",
         "EventOptions": {
-          "Bottom Option": "Objective race changed to NHK Mile Cup\r\nPower +10"
+          "Bottom Option": "Speed +10"
         }
       },
       {
-        "EventName": "A Gracious Doorkeeper",
-        "EventOptions": {
-          "Top Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "A Gracious Doorkeeper",
-        "EventOptions": {
-          "Bottom Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "@DREAM_MAKER",
+        "EventName": "Never Skip Meals",
         "EventOptions": {
           "Top Option": "Power +10"
         }
       },
       {
-        "EventName": "@DREAM_MAKER",
-        "EventOptions": {
-          "Bottom Option": "Wit +10"
-        }
-      },
-      {
-        "EventName": "Two Superstars Compete",
-        "EventOptions": {
-          "Top Option": "Guts +10\r\nSkill points +15"
-        }
-      },
-      {
-        "EventName": "Two Superstars Compete",
-        "EventOptions": {
-          "Bottom Option": "Disorient hint +1"
-        }
-      },
-      {
-        "EventName": "Go Easy on the Affection",
-        "EventOptions": {
-          "Top Option": "Energy +10\r\nSkill points +5"
-        }
-      },
-      {
-        "EventName": "Go Easy on the Affection",
-        "EventOptions": {
-          "Bottom Option": "Randomly either (~90%)\r\nEnergy +30\r\nSkill points +10\r\nor (~10%)\r\nEnergy +30\r\nSkill points +10\r\nSpeed -5\r\nPower +5\r\nGet Slow Metabolism status"
-        }
-      },
-      {
-        "EventName": "No Regrets",
-        "EventOptions": {
-          "Top Option": "Wit +10"
-        }
-      },
-      {
-        "EventName": "No Regrets",
-        "EventOptions": {
-          "Bottom Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "For Your Sake Alone",
-        "EventOptions": {
-          "Top Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "For Your Sake Alone",
-        "EventOptions": {
-          "Bottom Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "The Greatest Blessing in Life",
-        "EventOptions": {
-          "Top Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "The Greatest Blessing in Life",
-        "EventOptions": {
-          "Middle Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "The Greatest Blessing in Life",
-        "EventOptions": {
-          "Bottom Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "One Act from the Wings",
-        "EventOptions": {
-          "Top Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "One Act from the Wings",
+        "EventName": "Never Skip Meals",
         "EventOptions": {
           "Bottom Option": "Stamina +10"
         }
       },
       {
-        "EventName": "Stargazing",
+        "EventName": "Dorm Quiz Battle",
         "EventOptions": {
-          "Top Option": "Speed +10"
+          "Top Option": "Speed +10\r\nPower +5"
         }
       },
       {
-        "EventName": "Stargazing",
+        "EventName": "Dorm Quiz Battle",
+        "EventOptions": {
+          "Bottom Option": "Unyielding Spirit hint +1"
+        }
+      },
+      {
+        "EventName": "The Work of a Model",
+        "EventOptions": {
+          "Top Option": "Energy -15\r\nSkill points +40"
+        }
+      },
+      {
+        "EventName": "The Work of a Model",
+        "EventOptions": {
+          "Bottom Option": "Mood +1\r\n1 random stat +10"
+        }
+      },
+      {
+        "EventName": "A Delicious Trap?",
+        "EventOptions": {
+          "Top Option": "Energy +10\r\nSkill points +5"
+        }
+      },
+      {
+        "EventName": "A Delicious Trap?",
+        "EventOptions": {
+          "Bottom Option": "Randomly either (~90%)\r\nEnergy +30\r\nSkill points +10\r\nor (~10%)\r\nEnergy +30\r\nSkill points +10\r\nSpeed -5\r\nPower +5\r\nGet Slow Metabolism status"
+        }
+      },
+      {
+        "EventName": "Might as Well",
+        "EventOptions": {
+          "Top Option": "Wit +10"
+        }
+      },
+      {
+        "EventName": "Might as Well",
+        "EventOptions": {
+          "Bottom Option": "Speed +5\r\nSkill points +15"
+        }
+      },
+      {
+        "EventName": "Words Unspoken",
+        "EventOptions": {
+          "Top Option": "Stamina +5\r\nPower +5"
+        }
+      },
+      {
+        "EventName": "Words Unspoken",
+        "EventOptions": {
+          "Bottom Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "Barefoot",
+        "EventOptions": {
+          "Top Option": "Stamina +10"
+        }
+      },
+      {
+        "EventName": "Barefoot",
+        "EventOptions": {
+          "Middle Option": "Speed +10"
+        }
+      },
+      {
+        "EventName": "Barefoot",
         "EventOptions": {
           "Bottom Option": "Power +10"
         }
       },
       {
-        "EventName": "Words Do No Justice",
+        "EventName": "Wanderlust",
         "EventOptions": {
-          "": "Speed +10\r\nStamina +10\r\nPower +10\r\nPrepared to Pass hint +1"
+          "Top Option": "Stamina +10"
         }
       },
       {
-        "EventName": "Can't Stop the Beat",
+        "EventName": "Wanderlust",
         "EventOptions": {
-          "": "Mood +1\r\nPower +10\r\nWit +10\r\nUnyielding Spirit hint +1"
+          "Bottom Option": "Speed +10"
         }
       },
       {
-        "EventName": "My Lucky Star",
+        "EventName": "Yoga Pose!",
         "EventOptions": {
-          "": "Mood +1\r\nSpeed +10\r\nStamina +10\r\nGuts +10\r\nPreferred Position hint +1"
+          "Top Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "Yoga Pose!",
+        "EventOptions": {
+          "Bottom Option": "Power +10"
         }
       },
       {
@@ -307,19 +289,19 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Top Option": "Speed +10"
+          "Top Option": "Guts +10"
         }
       },
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Stamina +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
         "EventName": "New Year's Resolutions",
         "EventOptions": {
-          "Top Option": "Wit +10"
+          "Top Option": "Speed +10"
         }
       },
       {
@@ -545,73 +527,85 @@
         }
       },
       {
-        "EventName": "Act 2: Tonight, the World Is Wild",
+        "EventName": "Trust and Awkward Smiles",
+        "EventOptions": {
+          "": "Speed +5"
+        }
+      },
+      {
+        "EventName": "Support and Expectations",
+        "EventOptions": {
+          "": "Power +5"
+        }
+      },
+      {
+        "EventName": "Anger and Frustration",
+        "EventOptions": {
+          "": "Guts +5"
+        }
+      },
+      {
+        "EventName": "Exaltation and Impatience",
+        "EventOptions": {
+          "": "Speed +5"
+        }
+      },
+      {
+        "EventName": "Empty",
         "EventOptions": {
           "": "Stamina +5"
         }
       },
       {
-        "EventName": "Act 3: A Rose by Any Other Name",
-        "EventOptions": {
-          "": "Speed +5"
-        }
-      },
-      {
-        "EventName": "Act 4: You're Beautiful",
+        "EventName": "Golden Sunset",
         "EventOptions": {
           "": "Wit +5"
         }
       },
       {
-        "EventName": "Act 5: As You Like It",
+        "EventName": "Boba Trap",
         "EventOptions": {
-          "": "Speed +5"
+          "": "Stamina -5\r\nMood -1"
         }
       },
       {
-        "EventName": "So Sweet It Gives You Heartburn",
+        "EventName": "I Overslept!",
         "EventOptions": {
-          "": "Mood -1\r\nSpeed -5"
-        }
-      },
-      {
-        "EventName": "Intermission: Ready to Love",
-        "EventOptions": {
-          "": "Randomly either\r\nEnergy +10\r\nMood +1\r\nSpeed +10/+20\r\nor\r\nEnergy +5\r\nSpeed +5"
+          "": "Energy +25\r\nHeal a negative status effect\r\n4 random types of training will be disabled for one turn"
         }
       },
       {
         "EventName": "Master Trainer",
         "EventOptions": {
-          "": "Wit +10\r\n(random) Get Practice Perfect ○ status"
+          "": "Speed +10\r\n(random) Get Practice Perfect ○ status"
         }
       },
       {
-        "EventName": "Finale: Light through Yonder Window",
+        "EventName": "Running Toward the Light",
         "EventOptions": {
           "": "All stats +5\r\nSkill points +5"
         }
       },
       {
-        "EventName": "Magical Mishap",
+        "EventName": "The Road Home",
         "EventOptions": {
           "": "Mood -1"
         }
       },
       {
-        "EventName": "A Hoarse Voice",
+        "EventName": "A Taxing Photo Shoot",
         "EventOptions": {
           "": "Energy -10\r\nMood -1"
         }
       },
       {
-        "EventName": "A Prince in the Darkness",
+        "EventName": "Learn from the Runway",
         "EventOptions": {
           "": "All stats +5\r\nSkill points +30\r\nMood +2\r\n(random) Get Fast Learner status"
         }
       },
       {
-        "EventName": "As You Wish...",
+        "EventName": "Early Morning Shoot",
         "EventOptions": {
           "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }

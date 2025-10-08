@@ -1,5 +1,47 @@
 ﻿[
   {
+    "EventName": "(❯) Brian, the Race Planner",
+    "EventOptions": {
+      "": "Maximum Energy +4\r\nSpeed +5"
+    }
+  },
+  {
+    "EventName": "(❯❯) Only a Sister Knows",
+    "EventOptions": {
+      "": "Energy -10\r\nSpeed +20"
+    }
+  },
+  {
+    "EventName": "(❯❯❯) Running for the Dream",
+    "EventOptions": {
+      "": "Energy -10\r\nSpeed +20\r\nShatterproof hint +1"
+    }
+  },
+  {
+    "EventName": "Student Council Member!",
+    "EventOptions": {
+      "Top Option": "Mood +1\r\nSpeed +5\r\nNarita Brian bond +5"
+    }
+  },
+  {
+    "EventName": "Student Council Member!",
+    "EventOptions": {
+      "Bottom Option": "Maximum Energy +4\r\nNarita Brian bond +5"
+    }
+  },
+  {
+    "EventName": "Lone Wolf",
+    "EventOptions": {
+      "Top Option": "Speed +3\r\nStamina +3\r\nPower +3\r\nNarita Brian bond +5"
+    }
+  },
+  {
+    "EventName": "Lone Wolf",
+    "EventOptions": {
+      "Bottom Option": "Lone Wolf hint +1\r\nNarita Brian bond +5"
+    }
+  },
+  {
     "EventName": "(❯) Flustered Afternoon Tea!",
     "EventOptions": {
       "Top Option": "Energy +10\r\nMood +1"
@@ -866,7 +908,7 @@
   {
     "EventName": "(❯❯❯) Turbo Is Strong!",
     "EventOptions": {
-      "Bottom Option": "Energy +15\r\nWatchful Eye hint +1"
+      "Bottom Option": "Energy +15\r\nWatchful Eye hint +3"
     }
   },
   {
@@ -3288,6 +3330,30 @@
     }
   },
   {
+    "EventName": "Student Council Member!",
+    "EventOptions": {
+      "Top Option": "Mood +1\r\nSpeed +5\r\nNarita Brian bond +5"
+    }
+  },
+  {
+    "EventName": "Student Council Member!",
+    "EventOptions": {
+      "Bottom Option": "Maximum Energy +4\r\nNarita Brian bond +5"
+    }
+  },
+  {
+    "EventName": "Lone Wolf",
+    "EventOptions": {
+      "Top Option": "Speed +3\r\nStamina +3\r\nPower +3\r\nNarita Brian bond +5"
+    }
+  },
+  {
+    "EventName": "Lone Wolf",
+    "EventOptions": {
+      "Bottom Option": "Lone Wolf hint +1\r\nNarita Brian bond +5"
+    }
+  },
+  {
     "EventName": "The Glass Girl Wants to Study",
     "EventOptions": {
       "Top Option": "Speed +10\r\nMejiro Ardan bond +5"
@@ -5001,96 +5067,6 @@
     "EventName": "Misdirection",
     "EventOptions": {
       "Bottom Option": "Skill points +30\r\nFuji Kiseki bond +5"
-    }
-  },
-  {
-    "EventName": "(❯) Special Drinks Made with Friends ♪",
-    "EventOptions": {
-      "Top Option": "Randomly either\r\nEnergy +10\r\nSpeed +5\r\nWit +5\r\nSkill points +10\r\nor\r\nWit +10"
-    }
-  },
-  {
-    "EventName": "(❯) Special Drinks Made with Friends ♪",
-    "EventOptions": {
-      "Bottom Option": "Mood +1\r\nSpeed +10"
-    }
-  },
-  {
-    "EventName": "(❯❯) The Place I Wish to Stand",
-    "EventOptions": {
-      "": "Energy +30\r\nMood +1"
-    }
-  },
-  {
-    "EventName": "The Glass Girl Wants to Study",
-    "EventOptions": {
-      "Top Option": "Speed +10\r\nMejiro Ardan bond +5"
-    }
-  },
-  {
-    "EventName": "The Glass Girl Wants to Study",
-    "EventOptions": {
-      "Bottom Option": "Energy +10\r\nWit +5\r\nMejiro Ardan bond +5"
-    }
-  },
-  {
-    "EventName": "The Glass Girl Wants to Play",
-    "EventOptions": {
-      "Top Option": "Speed +10\r\nWit +10\r\nMejiro Ardan bond +5"
-    }
-  },
-  {
-    "EventName": "The Glass Girl Wants to Play",
-    "EventOptions": {
-      "Bottom Option": "Hesitant Pace Chasers hint +1\r\nMejiro Ardan bond +5"
-    }
-  },
-  {
-    "EventName": "(❯) Flustered Afternoon Tea!",
-    "EventOptions": {
-      "Top Option": "Energy +10\r\nMood +1"
-    }
-  },
-  {
-    "EventName": "(❯) Flustered Afternoon Tea!",
-    "EventOptions": {
-      "Bottom Option": "Wit +10\r\nSkill points +15\r\nPace Chaser Savvy ○ hint +3"
-    }
-  },
-  {
-    "EventName": "(❯❯) Home Run Derby!",
-    "EventOptions": {
-      "": "Power +10\r\nGuts +5"
-    }
-  },
-  {
-    "EventName": "(❯❯❯) Indomitable Hearts on Fire!",
-    "EventOptions": {
-      "": "Power +10\r\nGuts +5\r\nUnyielding hint +1"
-    }
-  },
-  {
-    "EventName": "My Muscles and Me, Onward to Tomorrow!",
-    "EventOptions": {
-      "Top Option": "Energy -10\r\nPower +15\r\nMejiro Ryan bond +5"
-    }
-  },
-  {
-    "EventName": "My Muscles and Me, Onward to Tomorrow!",
-    "EventOptions": {
-      "Bottom Option": "Maximum Energy +4\r\nPower +5\r\nMejiro Ryan bond +5"
-    }
-  },
-  {
-    "EventName": "It's Not Like I Like Romance!",
-    "EventOptions": {
-      "Top Option": "Pace Strategy hint +1\r\nMejiro Ryan bond +5"
-    }
-  },
-  {
-    "EventName": "It's Not Like I Like Romance!",
-    "EventOptions": {
-      "Bottom Option": "Energy +30\r\nMejiro Ryan bond +5"
     }
   },
   {
