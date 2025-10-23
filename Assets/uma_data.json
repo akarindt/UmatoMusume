@@ -1,5 +1,630 @@
 ﻿[
   {
+    "UmaName": "Meisho Doto",
+    "UmaObjectives": [
+      {
+        "ObjectiveName": "1. Participate in the Junior Make Debut",
+        "Turn": "Turn 12",
+        "Time": "Junior Class, Late June",
+        "ObjectiveCondition": "Turf – 2000m – Medium"
+      },
+      {
+        "ObjectiveName": "2. Have at least 6000 fans",
+        "Turn": "Turn 31 (previous + 18)",
+        "Time": "Classic Class, Early April",
+        "ObjectiveCondition": ""
+      },
+      {
+        "ObjectiveName": "3. Have at least 15000 fans",
+        "Turn": "Turn 44 (previous + 12)",
+        "Time": "Classic Class, Late October",
+        "ObjectiveCondition": ""
+      },
+      {
+        "ObjectiveName": "4. Place 3rd or better in the Nikkei Shinshun Hai",
+        "Turn": "Turn 49 (previous + 4)",
+        "Time": "Senior Class, Early January",
+        "ObjectiveCondition": "G2 – Turf – 2400m – Medium"
+      },
+      {
+        "ObjectiveName": "5. Place 1st in the Kinko Sho",
+        "Turn": "Turn 53 (previous + 3)",
+        "Time": "Senior Class, Early March",
+        "ObjectiveCondition": "G2 – Turf – 2000m – Medium"
+      },
+      {
+        "ObjectiveName": "6. Place 2nd or better in the Takarazuka Kinen",
+        "Turn": "Turn 60 (previous + 6)",
+        "Time": "Senior Class, Late June",
+        "ObjectiveCondition": "G1 – Turf – 2200m – Medium"
+      },
+      {
+        "ObjectiveName": "7. Place 2nd or better in the Tenno Sho (Autumn)",
+        "Turn": "Turn 68 (previous + 7)",
+        "Time": "Senior Class, Late October",
+        "ObjectiveCondition": "G1 – Turf – 2000m – Medium"
+      },
+      {
+        "ObjectiveName": "8. Place 2nd or better in the Japan Cup",
+        "Turn": "Turn 70 (previous + 1)",
+        "Time": "Senior Class, Late November",
+        "ObjectiveCondition": "G1 – Turf – 2400m – Medium"
+      },
+      {
+        "ObjectiveName": "9. Place 1st in the Arima Kinen",
+        "Turn": "Turn 72 (previous + 1)",
+        "Time": "Senior Class, Late December",
+        "ObjectiveCondition": "G1 – Turf – 2500m – Long"
+      }
+    ],
+    "UmaEvents": [
+      {
+        "EventName": "Fierce Fight! A Spicy Match",
+        "EventOptions": {
+          "Top Option": "Stamina +20"
+        }
+      },
+      {
+        "EventName": "Fierce Fight! A Spicy Match",
+        "EventOptions": {
+          "Bottom Option": "Speed +20"
+        }
+      },
+      {
+        "EventName": "A Little Bag of Help",
+        "EventOptions": {
+          "Top Option": "Wit +10\r\nSkill points +15"
+        }
+      },
+      {
+        "EventName": "A Little Bag of Help",
+        "EventOptions": {
+          "Bottom Option": "Power +20"
+        }
+      },
+      {
+        "EventName": "Uma Umya Umyam Myam?",
+        "EventOptions": {
+          "Top Option": "Power +10\r\nWit +10\r\n(random) Get Practice Perfect ○ status"
+        }
+      },
+      {
+        "EventName": "Uma Umya Umyam Myam?",
+        "EventOptions": {
+          "Bottom Option": "Guts +20\r\n(random) Get Practice Perfect ○ status"
+        }
+      },
+      {
+        "EventName": "Best Shot",
+        "EventOptions": {
+          "Top Option": "Wit +10"
+        }
+      },
+      {
+        "EventName": "Best Shot",
+        "EventOptions": {
+          "Bottom Option": "Stamina +10"
+        }
+      },
+      {
+        "EventName": "First Step to Flawlessness",
+        "EventOptions": {
+          "Top Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "First Step to Flawlessness",
+        "EventOptions": {
+          "Bottom Option": "Energy +10"
+        }
+      },
+      {
+        "EventName": "Words of Aid",
+        "EventOptions": {
+          "Top Option": "Power +10\r\nSkill points +15"
+        }
+      },
+      {
+        "EventName": "Words of Aid",
+        "EventOptions": {
+          "Bottom Option": "Tactical Tweak hint +1"
+        }
+      },
+      {
+        "EventName": "Positively Tickled!",
+        "EventOptions": {
+          "Top Option": "Randomly either\r\nEnergy -5\r\nMood +1\r\n2 random stats +10\r\nor\r\nEnergy -10\r\nGuts +10"
+        }
+      },
+      {
+        "EventName": "Positively Tickled!",
+        "EventOptions": {
+          "Bottom Option": "Energy +10"
+        }
+      },
+      {
+        "EventName": "Monumental Calories",
+        "EventOptions": {
+          "Top Option": "Energy +10\r\nSkill points +5"
+        }
+      },
+      {
+        "EventName": "Monumental Calories",
+        "EventOptions": {
+          "Bottom Option": "Randomly either (~90%)\r\nEnergy +30\r\nSkill points +10\r\nor (~10%)\r\nEnergy +30\r\nSkill points +10\r\nSpeed -5\r\nPower +5\r\nGet Slow Metabolism status"
+        }
+      },
+      {
+        "EventName": "Pack a Punch",
+        "EventOptions": {
+          "Top Option": "Power +10"
+        }
+      },
+      {
+        "EventName": "Pack a Punch",
+        "EventOptions": {
+          "Bottom Option": "Stamina +10"
+        }
+      },
+      {
+        "EventName": "Lost and Alone",
+        "EventOptions": {
+          "Top Option": "Stamina +10"
+        }
+      },
+      {
+        "EventName": "Lost and Alone",
+        "EventOptions": {
+          "Bottom Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "Are My Feelings Reaching You?",
+        "EventOptions": {
+          "Top Option": "Power +10"
+        }
+      },
+      {
+        "EventName": "Are My Feelings Reaching You?",
+        "EventOptions": {
+          "Middle Option": "Speed +10"
+        }
+      },
+      {
+        "EventName": "Are My Feelings Reaching You?",
+        "EventOptions": {
+          "Bottom Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "Twilight Ice Cream",
+        "EventOptions": {
+          "Top Option": "Wit +10"
+        }
+      },
+      {
+        "EventName": "Twilight Ice Cream",
+        "EventOptions": {
+          "Bottom Option": "Speed +5\r\nStamina +5"
+        }
+      },
+      {
+        "EventName": "Equivalent Exchange?",
+        "EventOptions": {
+          "Top Option": "Speed +10"
+        }
+      },
+      {
+        "EventName": "Equivalent Exchange?",
+        "EventOptions": {
+          "Bottom Option": "Wit +10"
+        }
+      },
+      {
+        "EventName": "After the Debut: Feeling... Dizzy...",
+        "EventOptions": {
+          "": "All stats +3\r\nSkill points +20\r\nGet Not Ready status\r\nYayoi Akikawa bond +4"
+        }
+      },
+      {
+        "EventName": "Goal Achieved: A Fallen Star",
+        "EventOptions": {
+          "": "All stats +3\r\nSkill points +20\r\nHeal Not Ready\r\nYayoi Akikawa bond +4"
+        }
+      },
+      {
+        "EventName": "Triumph! I'm the Overlord?!",
+        "EventOptions": {
+          "": "All stats +10\r\nSkill points +20\r\nPrepared to Pass hint +1\r\nUp-Tempo hint +1"
+        }
+      },
+      {
+        "EventName": "Bonus at start",
+        "EventOptions": {
+          "": "Skill points +120"
+        }
+      },
+      {
+        "EventName": "Failed training (Get Well Soon!)",
+        "EventOptions": {
+          "Top Option": "Mood -1\r\nLast trained stat -5\r\n(random) Get Practice Poor status"
+        }
+      },
+      {
+        "EventName": "Failed training (Get Well Soon!)",
+        "EventOptions": {
+          "Bottom Option": "Randomly either\r\nMood -1\r\nLast trained stat -10\r\n(random) Get Practice Poor status\r\nor\r\nGet Practice Perfect ○ status"
+        }
+      },
+      {
+        "EventName": "Failed training (Don't Overdo It!)",
+        "EventOptions": {
+          "Top Option": "Energy +10\r\nMood -2\r\nLast trained stat -10\r\n2 random stats -10\r\n(random) Get Practice Poor status"
+        }
+      },
+      {
+        "EventName": "Failed training (Don't Overdo It!)",
+        "EventOptions": {
+          "Bottom Option": "Randomly either\r\nMood -3\r\nLast trained stat -10\r\n2 random stats -10\r\nGet Practice Poor status\r\nor\r\nEnergy +10\r\nGet Practice Perfect ○ status"
+        }
+      },
+      {
+        "EventName": "Extra Training",
+        "EventOptions": {
+          "Top Option": "Energy -5\r\nLast trained stat +5\r\n(random) Heal a negative status effect\r\nYayoi Akikawa bond +5"
+        }
+      },
+      {
+        "EventName": "Extra Training",
+        "EventOptions": {
+          "Bottom Option": "Energy +5"
+        }
+      },
+      {
+        "EventName": "At Summer Camp (Year 2)",
+        "EventOptions": {
+          "Top Option": "Power +10"
+        }
+      },
+      {
+        "EventName": "At Summer Camp (Year 2)",
+        "EventOptions": {
+          "Bottom Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "Fan Letter",
+        "EventOptions": {
+          "": "Mood +1\r\nSkill points +30"
+        }
+      },
+      {
+        "EventName": "Dance Lesson",
+        "EventOptions": {
+          "Top Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "Dance Lesson",
+        "EventOptions": {
+          "Bottom Option": "Power +10"
+        }
+      },
+      {
+        "EventName": "New Year's Resolutions",
+        "EventOptions": {
+          "Top Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "New Year's Resolutions",
+        "EventOptions": {
+          "Middle Option": "Energy +20"
+        }
+      },
+      {
+        "EventName": "New Year's Resolutions",
+        "EventOptions": {
+          "Bottom Option": "Skill points +20"
+        }
+      },
+      {
+        "EventName": "New Year's Shrine Visit",
+        "EventOptions": {
+          "Top Option": "Energy +30"
+        }
+      },
+      {
+        "EventName": "New Year's Shrine Visit",
+        "EventOptions": {
+          "Middle Option": "All stats +5"
+        }
+      },
+      {
+        "EventName": "New Year's Shrine Visit",
+        "EventOptions": {
+          "Bottom Option": "Skill points +35"
+        }
+      },
+      {
+        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
+        "EventOptions": {
+          "Option 1": "Randomly either (~30%)\r\nAll stats +20\r\nor (~70%)\r\nMood -2\r\nAll stats -15\r\nGet Night Owl status"
+        }
+      },
+      {
+        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
+        "EventOptions": {
+          "Option 2": "Randomly either (~45%)\r\nObtain Corner Recovery ○ skill\r\nObtain Straightaway Recovery skill\r\nor (~55%)\r\nEnergy -20\r\nMood -2"
+        }
+      },
+      {
+        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
+        "EventOptions": {
+          "Option 3": "Randomly either (~70%)\r\nMaximum Energy +12\r\nEnergy +40\r\nHeal all negative status effects\r\nor (~30%)\r\nEnergy -20\r\nMood -2\r\nGet Practice Poor status"
+        }
+      },
+      {
+        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
+        "EventOptions": {
+          "Option 4": "Randomly either (~85%)\r\nEnergy +20\r\nMood +1\r\nGet Charming ○ status\r\nor (~15%)\r\nEnergy -10/-20\r\nMood -1\r\n(random) Get Practice Poor status"
+        }
+      },
+      {
+        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
+        "EventOptions": {
+          "Option 5": "Energy +10"
+        }
+      },
+      {
+        "EventName": "Victory! (G1)",
+        "EventOptions": {
+          "Top Option": "Energy -15\r\n1 random stat +10\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Victory! (G1)",
+        "EventOptions": {
+          "Bottom Option": "Energy -5/-20\r\n1 random stat +10\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Victory! (G2/G3)",
+        "EventOptions": {
+          "Top Option": "Energy -15\r\n1 random stat +8\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Victory! (G2/G3)",
+        "EventOptions": {
+          "Bottom Option": "Energy -5/-20\r\n1 random stat +8\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Victory! (Pre/OP)",
+        "EventOptions": {
+          "Top Option": "Energy -15\r\n1 random stat +5\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Victory! (Pre/OP)",
+        "EventOptions": {
+          "Bottom Option": "Energy -5/-20\r\n1 random stat +5\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (G1)",
+        "EventOptions": {
+          "Top Option": "Energy -20\r\n1 random stat +8\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (G1)",
+        "EventOptions": {
+          "Bottom Option": "Energy -10/-30\r\n1 random stat +8\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (G2/G3)",
+        "EventOptions": {
+          "Top Option": "Energy -20\r\n1 random stat +5\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (G2/G3)",
+        "EventOptions": {
+          "Bottom Option": "Energy -10/-30\r\n1 random stat +5\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (Pre/OP)",
+        "EventOptions": {
+          "Top Option": "Energy -20\r\n1 random stat +3\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (Pre/OP)",
+        "EventOptions": {
+          "Bottom Option": "Energy -10/-30\r\n1 random stat +3\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (G1)",
+        "EventOptions": {
+          "Top Option": "Energy -25\r\n1 random stat +4\r\nSkill points +25\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (G1)",
+        "EventOptions": {
+          "Bottom Option": "Energy -15/-35\r\n1 random stat +4\r\nSkill points +25\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (G2/G3)",
+        "EventOptions": {
+          "Top Option": "Energy -25\r\n1 random stat +3\r\nSkill points +20\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (G2/G3)",
+        "EventOptions": {
+          "Bottom Option": "Energy -15/-35\r\n1 random stat +3\r\nSkill points +20\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (Pre/OP)",
+        "EventOptions": {
+          "Top Option": "Energy -25\r\nSkill points +10\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (Pre/OP)",
+        "EventOptions": {
+          "Bottom Option": "Energy -15/-35\r\nSkill points +10\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Etsuko's Elated Coverage (G1)",
+        "EventOptions": {
+          "": "Energy -15\r\nMood +1\r\n1 random stat +10\r\nSkill points +45\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Elated Coverage (G2/G3)",
+        "EventOptions": {
+          "": "Energy -15\r\nMood +1\r\n1 random stat +8\r\nSkill points +35\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Elated Coverage (Pre/OP)",
+        "EventOptions": {
+          "": "Energy -15\r\nMood +1\r\n1 random stat +5\r\nSkill points +30\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (G1)",
+        "EventOptions": {
+          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (G1)",
+        "EventOptions": {
+          "Bottom Option": "Energy -20\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond +10"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (G2/G3)",
+        "EventOptions": {
+          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (G2/G3)",
+        "EventOptions": {
+          "Bottom Option": "Energy -20\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond +10"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (Pre/OP)",
+        "EventOptions": {
+          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\nSkill points +10\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\nSkill points +10\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (Pre/OP)",
+        "EventOptions": {
+          "Bottom Option": "Energy -20\r\nSkill points +10\r\nEtsuko Otonashi bond +10"
+        }
+      },
+      {
+        "EventName": "The Derby?! Already?!",
+        "EventOptions": {
+          "": "Power +5"
+        }
+      },
+      {
+        "EventName": "Arrival of the Lone Star",
+        "EventOptions": {
+          "": "Stamina +5"
+        }
+      },
+      {
+        "EventName": "How the River Runs...",
+        "EventOptions": {
+          "": "Wit +5"
+        }
+      },
+      {
+        "EventName": "Air Shakur's Derby",
+        "EventOptions": {
+          "": "Guts +5"
+        }
+      },
+      {
+        "EventName": "Steadfast Steps",
+        "EventOptions": {
+          "": "Speed +10"
+        }
+      },
+      {
+        "EventName": "Huh? That's Strange",
+        "EventOptions": {
+          "": "Wit -5\r\nMood -1"
+        }
+      },
+      {
+        "EventName": "Sleepy Stumble",
+        "EventOptions": {
+          "": "Energy -5"
+        }
+      },
+      {
+        "EventName": "Eyes Wide Open",
+        "EventOptions": {
+          "": "Stamina +10\r\nPower +10\r\nGuts +10"
+        }
+      },
+      {
+        "EventName": "Master Trainer",
+        "EventOptions": {
+          "": "Guts +10\r\n(random) Get Practice Perfect ○ status"
+        }
+      },
+      {
+        "EventName": "Their Era",
+        "EventOptions": {
+          "": "All stats +5\r\nSkill points +5"
+        }
+      },
+      {
+        "EventName": "And Then, And Theeen?!",
+        "EventOptions": {
+          "": "Mood -1"
+        }
+      },
+      {
+        "EventName": "How Could This Happen?",
+        "EventOptions": {
+          "": "Energy -10\r\nMood -1"
+        }
+      },
+      {
+        "EventName": "Move Like the Wind!",
+        "EventOptions": {
+          "": "All stats +5\r\nSkill points +30\r\nMood +2\r\n(random) Get Fast Learner status"
+        }
+      },
+      {
+        "EventName": "Lucky Item",
+        "EventOptions": {
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
+        }
+      }
+    ]
+  },
+  {
     "UmaName": "Special Week",
     "UmaObjectives": [
       {
@@ -2421,619 +3046,6 @@
       },
       {
         "EventName": "As You Wish...",
-        "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
-        }
-      }
-    ]
-  },
-  {
-    "UmaName": "Gold City",
-    "UmaObjectives": [
-      {
-        "ObjectiveName": "1. Participate in the Junior Make Debut",
-        "Turn": "Turn 12",
-        "Time": "Junior Class, Late June",
-        "ObjectiveCondition": "Turf – 1500m – Mile"
-      },
-      {
-        "ObjectiveName": "2. Place 5th or better in the Hanshin Juvenile Fillies",
-        "Turn": "Turn 23 (previous + 10)",
-        "Time": "Junior Class, Early December",
-        "ObjectiveCondition": "G1 – Turf – 1600m – Mile"
-      },
-      {
-        "ObjectiveName": "3. Place 5th or better in the Satsuki Sho",
-        "Turn": "Turn 31 (previous + 7)",
-        "Time": "Classic Class, Early April",
-        "ObjectiveCondition": "G1 – Turf – 2000m – Medium"
-      },
-      {
-        "ObjectiveName": "4. Place 5th or better in the Tokyo Yushun (Japanese Derby)",
-        "Turn": "Turn 34 (previous + 2)",
-        "Time": "Classic Class, Late May",
-        "ObjectiveCondition": "G1 – Turf – 2400m – Medium"
-      },
-      {
-        "ObjectiveName": "5. Place 3rd or better in the Kikuka Sho",
-        "Turn": "Turn 44 (previous + 9)",
-        "Time": "Classic Class, Late October",
-        "ObjectiveCondition": "G1 – Turf – 3000m – Long"
-      },
-      {
-        "ObjectiveName": "6. Place 3rd or better in the Arima Kinen",
-        "Turn": "Turn 48 (previous + 3)",
-        "Time": "Classic Class, Late December",
-        "ObjectiveCondition": "G1 – Turf – 2500m – Long"
-      },
-      {
-        "ObjectiveName": "7. Place 3rd or better in the Osaka Hai",
-        "Turn": "Turn 54 (previous + 5)",
-        "Time": "Senior Class, Late March",
-        "ObjectiveCondition": "G1 – Turf – 2000m – Medium"
-      },
-      {
-        "ObjectiveName": "8. Place 3rd or better in the Tenno Sho (Spring)",
-        "Turn": "Turn 56 (previous + 1)",
-        "Time": "Senior Class, Late April",
-        "ObjectiveCondition": "G1 – Turf – 3200m – Long"
-      },
-      {
-        "ObjectiveName": "9. Place 3rd or better in the Takarazuka Kinen",
-        "Turn": "Turn 60 (previous + 3)",
-        "Time": "Senior Class, Late June",
-        "ObjectiveCondition": "G1 – Turf – 2200m – Medium"
-      },
-      {
-        "ObjectiveName": "10. Place 1st in the Japan Cup",
-        "Turn": "Turn 70 (previous + 9)",
-        "Time": "Senior Class, Late November",
-        "ObjectiveCondition": "G1 – Turf – 2400m – Medium"
-      }
-    ],
-    "UmaEvents": [
-      {
-        "EventName": "Client's Orders",
-        "EventOptions": {
-          "Top Option": "Speed +20"
-        }
-      },
-      {
-        "EventName": "Client's Orders",
-        "EventOptions": {
-          "Bottom Option": "Guts +20"
-        }
-      },
-      {
-        "EventName": "Children and Adults",
-        "EventOptions": {
-          "Top Option": "Wit +20"
-        }
-      },
-      {
-        "EventName": "Children and Adults",
-        "EventOptions": {
-          "Bottom Option": "Stamina +10\r\nGuts +10"
-        }
-      },
-      {
-        "EventName": "Ideal Image",
-        "EventOptions": {
-          "Top Option": "Speed +20\r\n(random) Get Charming ○ status"
-        }
-      },
-      {
-        "EventName": "Ideal Image",
-        "EventOptions": {
-          "Bottom Option": "Power +20\r\n(random) Get Charming ○ status"
-        }
-      },
-      {
-        "EventName": "City's Salon",
-        "EventOptions": {
-          "Top Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "City's Salon",
-        "EventOptions": {
-          "Bottom Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "Never Skip Meals",
-        "EventOptions": {
-          "Top Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "Never Skip Meals",
-        "EventOptions": {
-          "Bottom Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "Dorm Quiz Battle",
-        "EventOptions": {
-          "Top Option": "Speed +10\r\nPower +5"
-        }
-      },
-      {
-        "EventName": "Dorm Quiz Battle",
-        "EventOptions": {
-          "Bottom Option": "Unyielding Spirit hint +1"
-        }
-      },
-      {
-        "EventName": "The Work of a Model",
-        "EventOptions": {
-          "Top Option": "Energy -15\r\nSkill points +40"
-        }
-      },
-      {
-        "EventName": "The Work of a Model",
-        "EventOptions": {
-          "Bottom Option": "Mood +1\r\n1 random stat +10"
-        }
-      },
-      {
-        "EventName": "A Delicious Trap?",
-        "EventOptions": {
-          "Top Option": "Energy +10\r\nSkill points +5"
-        }
-      },
-      {
-        "EventName": "A Delicious Trap?",
-        "EventOptions": {
-          "Bottom Option": "Randomly either (~90%)\r\nEnergy +30\r\nSkill points +10\r\nor (~10%)\r\nEnergy +30\r\nSkill points +10\r\nSpeed -5\r\nPower +5\r\nGet Slow Metabolism status"
-        }
-      },
-      {
-        "EventName": "Might as Well",
-        "EventOptions": {
-          "Top Option": "Wit +10"
-        }
-      },
-      {
-        "EventName": "Might as Well",
-        "EventOptions": {
-          "Bottom Option": "Speed +5\r\nSkill points +15"
-        }
-      },
-      {
-        "EventName": "Words Unspoken",
-        "EventOptions": {
-          "Top Option": "Stamina +5\r\nPower +5"
-        }
-      },
-      {
-        "EventName": "Words Unspoken",
-        "EventOptions": {
-          "Bottom Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "Barefoot",
-        "EventOptions": {
-          "Top Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "Barefoot",
-        "EventOptions": {
-          "Middle Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "Barefoot",
-        "EventOptions": {
-          "Bottom Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "Wanderlust",
-        "EventOptions": {
-          "Top Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "Wanderlust",
-        "EventOptions": {
-          "Bottom Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "Yoga Pose!",
-        "EventOptions": {
-          "Top Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "Yoga Pose!",
-        "EventOptions": {
-          "Bottom Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "Bonus at start",
-        "EventOptions": {
-          "": "Skill points +120"
-        }
-      },
-      {
-        "EventName": "Failed training (Get Well Soon!)",
-        "EventOptions": {
-          "Top Option": "Mood -1\r\nLast trained stat -5\r\n(random) Get Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Failed training (Get Well Soon!)",
-        "EventOptions": {
-          "Bottom Option": "Randomly either\r\nMood -1\r\nLast trained stat -10\r\n(random) Get Practice Poor status\r\nor\r\nGet Practice Perfect ○ status"
-        }
-      },
-      {
-        "EventName": "Failed training (Don't Overdo It!)",
-        "EventOptions": {
-          "Top Option": "Energy +10\r\nMood -2\r\nLast trained stat -10\r\n2 random stats -10\r\n(random) Get Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Failed training (Don't Overdo It!)",
-        "EventOptions": {
-          "Bottom Option": "Randomly either\r\nMood -3\r\nLast trained stat -10\r\n2 random stats -10\r\nGet Practice Poor status\r\nor\r\nEnergy +10\r\nGet Practice Perfect ○ status"
-        }
-      },
-      {
-        "EventName": "Extra Training",
-        "EventOptions": {
-          "Top Option": "Energy -5\r\nLast trained stat +5\r\n(random) Heal a negative status effect\r\nYayoi Akikawa bond +5"
-        }
-      },
-      {
-        "EventName": "Extra Training",
-        "EventOptions": {
-          "Bottom Option": "Energy +5"
-        }
-      },
-      {
-        "EventName": "At Summer Camp (Year 2)",
-        "EventOptions": {
-          "Top Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "At Summer Camp (Year 2)",
-        "EventOptions": {
-          "Bottom Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "Fan Letter",
-        "EventOptions": {
-          "": "Mood +1\r\nSkill points +30"
-        }
-      },
-      {
-        "EventName": "Dance Lesson",
-        "EventOptions": {
-          "Top Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "Dance Lesson",
-        "EventOptions": {
-          "Bottom Option": "Wit +10"
-        }
-      },
-      {
-        "EventName": "New Year's Resolutions",
-        "EventOptions": {
-          "Top Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "New Year's Resolutions",
-        "EventOptions": {
-          "Middle Option": "Energy +20"
-        }
-      },
-      {
-        "EventName": "New Year's Resolutions",
-        "EventOptions": {
-          "Bottom Option": "Skill points +20"
-        }
-      },
-      {
-        "EventName": "New Year's Shrine Visit",
-        "EventOptions": {
-          "Top Option": "Energy +30"
-        }
-      },
-      {
-        "EventName": "New Year's Shrine Visit",
-        "EventOptions": {
-          "Middle Option": "All stats +5"
-        }
-      },
-      {
-        "EventName": "New Year's Shrine Visit",
-        "EventOptions": {
-          "Bottom Option": "Skill points +35"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 1": "Randomly either (~30%)\r\nAll stats +20\r\nor (~70%)\r\nMood -2\r\nAll stats -15\r\nGet Night Owl status"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 2": "Randomly either (~45%)\r\nObtain Corner Recovery ○ skill\r\nObtain Straightaway Recovery skill\r\nor (~55%)\r\nEnergy -20\r\nMood -2"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 3": "Randomly either (~70%)\r\nMaximum Energy +12\r\nEnergy +40\r\nHeal all negative status effects\r\nor (~30%)\r\nEnergy -20\r\nMood -2\r\nGet Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 4": "Randomly either (~85%)\r\nEnergy +20\r\nMood +1\r\nGet Charming ○ status\r\nor (~15%)\r\nEnergy -10/-20\r\nMood -1\r\n(random) Get Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 5": "Energy +10"
-        }
-      },
-      {
-        "EventName": "Victory! (G1)",
-        "EventOptions": {
-          "Top Option": "Energy -15\r\n1 random stat +10\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -5/-20\r\n1 random stat +10\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Energy -15\r\n1 random stat +8\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -5/-20\r\n1 random stat +8\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Energy -15\r\n1 random stat +5\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -5/-20\r\n1 random stat +5\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G1)",
-        "EventOptions": {
-          "Top Option": "Energy -20\r\n1 random stat +8\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -10/-30\r\n1 random stat +8\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Energy -20\r\n1 random stat +5\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -10/-30\r\n1 random stat +5\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Energy -20\r\n1 random stat +3\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -10/-30\r\n1 random stat +3\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G1)",
-        "EventOptions": {
-          "Top Option": "Energy -25\r\n1 random stat +4\r\nSkill points +25\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -15/-35\r\n1 random stat +4\r\nSkill points +25\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Energy -25\r\n1 random stat +3\r\nSkill points +20\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -15/-35\r\n1 random stat +3\r\nSkill points +20\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Energy -25\r\nSkill points +10\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -15/-35\r\nSkill points +10\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Etsuko's Elated Coverage (G1)",
-        "EventOptions": {
-          "": "Energy -15\r\nMood +1\r\n1 random stat +10\r\nSkill points +45\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Elated Coverage (G2/G3)",
-        "EventOptions": {
-          "": "Energy -15\r\nMood +1\r\n1 random stat +8\r\nSkill points +35\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Elated Coverage (Pre/OP)",
-        "EventOptions": {
-          "": "Energy -15\r\nMood +1\r\n1 random stat +5\r\nSkill points +30\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G1)",
-        "EventOptions": {
-          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -20\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond +10"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -20\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond +10"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\nSkill points +10\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\nSkill points +10\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -20\r\nSkill points +10\r\nEtsuko Otonashi bond +10"
-        }
-      },
-      {
-        "EventName": "Trust and Awkward Smiles",
-        "EventOptions": {
-          "": "Speed +5"
-        }
-      },
-      {
-        "EventName": "Support and Expectations",
-        "EventOptions": {
-          "": "Power +5"
-        }
-      },
-      {
-        "EventName": "Anger and Frustration",
-        "EventOptions": {
-          "": "Guts +5"
-        }
-      },
-      {
-        "EventName": "Exaltation and Impatience",
-        "EventOptions": {
-          "": "Speed +5"
-        }
-      },
-      {
-        "EventName": "Empty",
-        "EventOptions": {
-          "": "Stamina +5"
-        }
-      },
-      {
-        "EventName": "Golden Sunset",
-        "EventOptions": {
-          "": "Wit +5"
-        }
-      },
-      {
-        "EventName": "Boba Trap",
-        "EventOptions": {
-          "": "Stamina -5\r\nMood -1"
-        }
-      },
-      {
-        "EventName": "I Overslept!",
-        "EventOptions": {
-          "": "Energy +25\r\nHeal a negative status effect\r\n4 random types of training will be disabled for one turn"
-        }
-      },
-      {
-        "EventName": "Master Trainer",
-        "EventOptions": {
-          "": "Speed +10\r\n(random) Get Practice Perfect ○ status"
-        }
-      },
-      {
-        "EventName": "Running Toward the Light",
-        "EventOptions": {
-          "": "All stats +5\r\nSkill points +5"
-        }
-      },
-      {
-        "EventName": "The Road Home",
-        "EventOptions": {
-          "": "Mood -1"
-        }
-      },
-      {
-        "EventName": "A Taxing Photo Shoot",
-        "EventOptions": {
-          "": "Energy -10\r\nMood -1"
-        }
-      },
-      {
-        "EventName": "Learn from the Runway",
-        "EventOptions": {
-          "": "All stats +5\r\nSkill points +30\r\nMood +2\r\n(random) Get Fast Learner status"
-        }
-      },
-      {
-        "EventName": "Early Morning Shoot",
         "EventOptions": {
           "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
@@ -6064,1262 +6076,6 @@
     ]
   },
   {
-    "UmaName": "Seiun Sky",
-    "UmaObjectives": [
-      {
-        "ObjectiveName": "1. Participate in the Junior Make Debut",
-        "Turn": "Turn 12",
-        "Time": "Junior Class, Late June",
-        "ObjectiveCondition": "Turf – 2000m – Medium"
-      },
-      {
-        "ObjectiveName": "2. Have at least 3000 fans",
-        "Turn": "Turn 25 (previous + 12)",
-        "Time": "Classic Class, Early January",
-        "ObjectiveCondition": ""
-      },
-      {
-        "ObjectiveName": "3. Place 5th or better in the Satsuki Sho",
-        "Turn": "Turn 31 (previous + 5)",
-        "Time": "Classic Class, Early April",
-        "ObjectiveCondition": "G1 – Turf – 2000m – Medium"
-      },
-      {
-        "ObjectiveName": "4. Place 5th or better in the Tokyo Yushun (Japanese Derby)",
-        "Turn": "Turn 34 (previous + 2)",
-        "Time": "Classic Class, Late May",
-        "ObjectiveCondition": "G1 – Turf – 2400m – Medium"
-      },
-      {
-        "ObjectiveName": "5. Place 3rd or better in the Kikuka Sho",
-        "Turn": "Turn 44 (previous + 9)",
-        "Time": "Classic Class, Late October",
-        "ObjectiveCondition": "G1 – Turf – 3000m – Long"
-      },
-      {
-        "ObjectiveName": "6. Place 3rd or better in the Arima Kinen",
-        "Turn": "Turn 48 (previous + 3)",
-        "Time": "Classic Class, Late December",
-        "ObjectiveCondition": "G1 – Turf – 2500m – Long"
-      },
-      {
-        "ObjectiveName": "7. Place 3rd or better in the Tenno Sho (Spring)",
-        "Turn": "Turn 56 (previous + 7)",
-        "Time": "Senior Class, Late April",
-        "ObjectiveCondition": "G1 – Turf – 3200m – Long"
-      },
-      {
-        "ObjectiveName": "8. Place 3rd or better in the Takarazuka Kinen",
-        "Turn": "Turn 60 (previous + 3)",
-        "Time": "Senior Class, Late June",
-        "ObjectiveCondition": "G1 – Turf – 2200m – Medium"
-      },
-      {
-        "ObjectiveName": "9. Place 1st in the Tenno Sho (Autumn)",
-        "Turn": "Turn 68 (previous + 7)",
-        "Time": "Senior Class, Late October",
-        "ObjectiveCondition": "G1 – Turf – 2000m – Medium"
-      },
-      {
-        "ObjectiveName": "10. Place 1st in the Arima Kinen",
-        "Turn": "Turn 72 (previous + 3)",
-        "Time": "Senior Class, Late December",
-        "ObjectiveCondition": "G1 – Turf – 2500m – Long"
-      }
-    ],
-    "UmaEvents": [
-      {
-        "EventName": "Sleepy Time Incense",
-        "EventOptions": {
-          "Top Option": "Wisdom +20"
-        }
-      },
-      {
-        "EventName": "Sleepy Time Incense",
-        "EventOptions": {
-          "Bottom Option": "Stamina +20"
-        }
-      },
-      {
-        "EventName": "Tactician vs. King",
-        "EventOptions": {
-          "Top Option": "Guts +20"
-        }
-      },
-      {
-        "EventName": "Tactician vs. King",
-        "EventOptions": {
-          "Bottom Option": "Speed +20"
-        }
-      },
-      {
-        "EventName": "Who Do You Run For?",
-        "EventOptions": {
-          "Top Option": "Stamina +20\r\n(random) Get Charming ○ status"
-        }
-      },
-      {
-        "EventName": "Who Do You Run For?",
-        "EventOptions": {
-          "Bottom Option": "Power +20\r\n(random) Get Charming ○ status"
-        }
-      },
-      {
-        "EventName": "Is Cat Language Real?",
-        "EventOptions": {
-          "Top Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "Is Cat Language Real?",
-        "EventOptions": {
-          "Bottom Option": "Wisdom +10"
-        }
-      },
-      {
-        "EventName": "Shady Dealings",
-        "EventOptions": {
-          "Top Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "Shady Dealings",
-        "EventOptions": {
-          "Bottom Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "Sei's Escape Plan",
-        "EventOptions": {
-          "Top Option": "Speed +10\r\nSkill points +15"
-        }
-      },
-      {
-        "EventName": "Sei's Escape Plan",
-        "EventOptions": {
-          "Bottom Option": "Subdued Late Surgers hint +1"
-        }
-      },
-      {
-        "EventName": "Sunny Day Standoff",
-        "EventOptions": {
-          "Top Option": "Randomly either\r\nSpeed +20\r\nor\r\nSpeed +5\r\nMood -1"
-        }
-      },
-      {
-        "EventName": "Sunny Day Standoff",
-        "EventOptions": {
-          "Middle Option": "Randomly either\r\nEnergy +20\r\nDeep Breaths hint +1\r\nor\r\nEnergy +10\r\nGet Slacker status"
-        }
-      },
-      {
-        "EventName": "Sunny Day Standoff",
-        "EventOptions": {
-          "Bottom Option": "Energy +5\r\nSpeed +5"
-        }
-      },
-      {
-        "EventName": "I Can Unwind Outdoors Too",
-        "EventOptions": {
-          "Top Option": "Energy +10\r\nSkill points +5"
-        }
-      },
-      {
-        "EventName": "I Can Unwind Outdoors Too",
-        "EventOptions": {
-          "Bottom Option": "Randomly either (~90%)\r\nEnergy +30\r\nSkill points +10\r\nor (~10%)\r\nEnergy +30\r\nSkill points +10\r\nSpeed -5\r\nPower +5\r\nGet Slow Metabolism status"
-        }
-      },
-      {
-        "EventName": "Cat Expert",
-        "EventOptions": {
-          "Top Option": "Wisdom +10"
-        }
-      },
-      {
-        "EventName": "Cat Expert",
-        "EventOptions": {
-          "Bottom Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "Cat Patrol",
-        "EventOptions": {
-          "Top Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "Cat Patrol",
-        "EventOptions": {
-          "Bottom Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "Goodbye, Cat",
-        "EventOptions": {
-          "Top Option": "Wisdom +10"
-        }
-      },
-      {
-        "EventName": "Goodbye, Cat",
-        "EventOptions": {
-          "Middle Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "Goodbye, Cat",
-        "EventOptions": {
-          "Bottom Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "Nap Master",
-        "EventOptions": {
-          "Top Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "Nap Master",
-        "EventOptions": {
-          "Bottom Option": "Wisdom +10"
-        }
-      },
-      {
-        "EventName": "Cloudy, Followed By...",
-        "EventOptions": {
-          "Top Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "Cloudy, Followed By...",
-        "EventOptions": {
-          "Bottom Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "Landed That Triple Crown!",
-        "EventOptions": {
-          "": "Mood +1\r\nSpeed +5\r\nPower +5\r\nFast-Paced hint +2"
-        }
-      },
-      {
-        "EventName": "Bonus at start",
-        "EventOptions": {
-          "": "Skill points +120"
-        }
-      },
-      {
-        "EventName": "Failed training (Get Well Soon!)",
-        "EventOptions": {
-          "Top Option": "Mood -1\r\nLast trained stat -5\r\n(random) Get Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Failed training (Get Well Soon!)",
-        "EventOptions": {
-          "Bottom Option": "Randomly either\r\nMood -1\r\nLast trained stat -10\r\n(random) Get Practice Poor status\r\nor\r\nGet Practice Perfect ○ status"
-        }
-      },
-      {
-        "EventName": "Failed training (Don't Overdo It!)",
-        "EventOptions": {
-          "Top Option": "Energy +10\r\nMood -2\r\nLast trained stat -10\r\n2 random stats -10\r\n(random) Get Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Failed training (Don't Overdo It!)",
-        "EventOptions": {
-          "Bottom Option": "Randomly either\r\nMood -3\r\nLast trained stat -10\r\n2 random stats -10\r\nGet Practice Poor status\r\nor\r\nEnergy +10\r\nGet Practice Perfect ○ status"
-        }
-      },
-      {
-        "EventName": "Extra Training",
-        "EventOptions": {
-          "Top Option": "Energy -5\r\nLast trained stat +5\r\n(random) Heal a negative status effect\r\nYayoi Akikawa bond +5"
-        }
-      },
-      {
-        "EventName": "Extra Training",
-        "EventOptions": {
-          "Bottom Option": "Energy +5"
-        }
-      },
-      {
-        "EventName": "At Summer Camp (Year 2)",
-        "EventOptions": {
-          "Top Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "At Summer Camp (Year 2)",
-        "EventOptions": {
-          "Bottom Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "Fan Letter",
-        "EventOptions": {
-          "": "Mood +1\r\nSkill points +30"
-        }
-      },
-      {
-        "EventName": "Dance Lesson",
-        "EventOptions": {
-          "Top Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "Dance Lesson",
-        "EventOptions": {
-          "Bottom Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "New Year's Resolutions",
-        "EventOptions": {
-          "Top Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "New Year's Resolutions",
-        "EventOptions": {
-          "Middle Option": "Energy +20"
-        }
-      },
-      {
-        "EventName": "New Year's Resolutions",
-        "EventOptions": {
-          "Bottom Option": "Skill points +20"
-        }
-      },
-      {
-        "EventName": "New Year's Shrine Visit",
-        "EventOptions": {
-          "Top Option": "Energy +30"
-        }
-      },
-      {
-        "EventName": "New Year's Shrine Visit",
-        "EventOptions": {
-          "Middle Option": "All stats +5"
-        }
-      },
-      {
-        "EventName": "New Year's Shrine Visit",
-        "EventOptions": {
-          "Bottom Option": "Skill points +35"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 1": "Randomly either (~30%)\r\nAll stats +20\r\nor (~70%)\r\nMood -2\r\nAll stats -15\r\nGet Night Owl status"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 2": "Randomly either (~45%)\r\nObtain Corner Recovery ○ skill\r\nObtain Straightaway Recovery skill\r\nor (~55%)\r\nEnergy -20\r\nMood -2"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 3": "Randomly either (~70%)\r\nMaximum Energy +12\r\nEnergy +40\r\nHeal all negative status effects\r\nor (~30%)\r\nEnergy -20\r\nMood -2\r\nGet Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 4": "Randomly either (~85%)\r\nEnergy +20\r\nMood +1\r\nGet Charming ○ status\r\nor (~15%)\r\nEnergy -10/-20\r\nMood -1\r\n(random) Get Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 5": "Energy +10"
-        }
-      },
-      {
-        "EventName": "Victory! (G1)",
-        "EventOptions": {
-          "Top Option": "Energy -15\r\n1 random stat +10\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -5/-20\r\n1 random stat +10\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Energy -15\r\n1 random stat +8\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -5/-20\r\n1 random stat +8\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Energy -15\r\n1 random stat +5\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -5/-20\r\n1 random stat +5\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G1)",
-        "EventOptions": {
-          "Top Option": "Energy -20\r\n1 random stat +8\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -10/-30\r\n1 random stat +8\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Energy -20\r\n1 random stat +5\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -10/-30\r\n1 random stat +5\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Energy -20\r\n1 random stat +3\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -10/-30\r\n1 random stat +3\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G1)",
-        "EventOptions": {
-          "Top Option": "Energy -25\r\n1 random stat +4\r\nSkill points +25\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -15/-35\r\n1 random stat +4\r\nSkill points +25\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Energy -25\r\n1 random stat +3\r\nSkill points +20\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -15/-35\r\n1 random stat +3\r\nSkill points +20\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Energy -25\r\nSkill points +10\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -15/-35\r\nSkill points +10\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Etsuko's Elated Coverage (G1)",
-        "EventOptions": {
-          "": "Energy -15\r\nMood +1\r\n1 random stat +10\r\nSkill points +45\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Elated Coverage (G2/G3)",
-        "EventOptions": {
-          "": "Energy -15\r\nMood +1\r\n1 random stat +8\r\nSkill points +35\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Elated Coverage (Pre/OP)",
-        "EventOptions": {
-          "": "Energy -15\r\nMood +1\r\n1 random stat +5\r\nSkill points +30\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G1)",
-        "EventOptions": {
-          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -20\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond +10"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -20\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond +10"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\nSkill points +10\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\nSkill points +10\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -20\r\nSkill points +10\r\nEtsuko Otonashi bond +10"
-        }
-      },
-      {
-        "EventName": "The Ultimate Generation",
-        "EventOptions": {
-          "": "Stamina +5"
-        }
-      },
-      {
-        "EventName": "East vs. West",
-        "EventOptions": {
-          "": "Nothing happens"
-        }
-      },
-      {
-        "EventName": "Facing the Otherworldly Front-Runner",
-        "EventOptions": {
-          "": "Nothing happens"
-        }
-      },
-      {
-        "EventName": "A Shadow on the Trickster's Path",
-        "EventOptions": {
-          "": "Power +5"
-        }
-      },
-      {
-        "EventName": "Zero Bites",
-        "EventOptions": {
-          "": "Nothing happens"
-        }
-      },
-      {
-        "EventName": "Zero Bites +1",
-        "EventOptions": {
-          "": "Guts +5"
-        }
-      },
-      {
-        "EventName": "Got a Bite",
-        "EventOptions": {
-          "": "Randomly either\r\n※ The outcome depends on which training facility has the highest level (ties decided at random)\r\n\r\n\r\nSpeed +10\r\nFront Runner Straightaways ○ hint +1\r\nor\r\nStamina +10\r\nShake It Out hint +1\r\nor\r\nPower +10\r\nHighlander hint +1\r\nor\r\nGuts +10\r\nSteadfast hint +1\r\nor\r\nWisdom +10\r\nHesitant Late Surgers hint +1"
-        }
-      },
-      {
-        "EventName": "The Sweetest Storm",
-        "EventOptions": {
-          "": "Guts +5"
-        }
-      },
-      {
-        "EventName": "A Trap Unsprung...",
-        "EventOptions": {
-          "": "Mood -1\r\nStamina -5"
-        }
-      },
-      {
-        "EventName": "Master Trainer",
-        "EventOptions": {
-          "": "Power +10\r\n(random) Get Practice Perfect ○ status"
-        }
-      },
-      {
-        "EventName": "Happily Ever After?",
-        "EventOptions": {
-          "": "All stats +5\r\nSkill points +5"
-        }
-      },
-      {
-        "EventName": "I Hate Tight Spaces",
-        "EventOptions": {
-          "": "Mood -1"
-        }
-      },
-      {
-        "EventName": "The Nap Master's Blunder",
-        "EventOptions": {
-          "": "Energy -10\r\nMood -1"
-        }
-      },
-      {
-        "EventName": "Luck Is a Talent?",
-        "EventOptions": {
-          "": "All stats +5\r\nSkill points +30\r\nMood +2\r\n(random) Get Fast Learner status"
-        }
-      },
-      {
-        "EventName": "An Angler's Disgrace",
-        "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
-        }
-      }
-    ]
-  },
-  {
-    "UmaName": "Air Groove",
-    "UmaObjectives": [
-      {
-        "ObjectiveName": "1. Participate in the Junior Make Debut",
-        "Turn": "Turn 12",
-        "Time": "Junior Class, Late June",
-        "ObjectiveCondition": "Turf – 2000m – Medium"
-      },
-      {
-        "ObjectiveName": "2. Place 5th or better in the Hanshin Juvenile Fillies",
-        "Turn": "Turn 23 (previous + 10)",
-        "Time": "Junior Class, Early December",
-        "ObjectiveCondition": "G1 – Turf – 1600m – Mile"
-      },
-      {
-        "ObjectiveName": "3. Place 5th or better in the Oka Sho",
-        "Turn": "Turn 31 (previous + 7)",
-        "Time": "Classic Class, Early April",
-        "ObjectiveCondition": "G1 – Turf – 1600m – Mile"
-      },
-      {
-        "ObjectiveName": "4. Place 5th or better in the Japanese Oaks",
-        "Turn": "Turn 34 (previous + 2)",
-        "Time": "Classic Class, Late May",
-        "ObjectiveCondition": "G1 – Turf – 2400m – Medium"
-      },
-      {
-        "ObjectiveName": "5. Place 3rd or better in the Shuka Sho",
-        "Turn": "Turn 44 (previous + 9)",
-        "Time": "Classic Class, Late October",
-        "ObjectiveCondition": "G1 – Turf – 2000m – Medium"
-      },
-      {
-        "ObjectiveName": "6. Place 3rd or better in the Osaka Hai",
-        "Turn": "Turn 54 (previous + 9)",
-        "Time": "Senior Class, Late March",
-        "ObjectiveCondition": "G1 – Turf – 2000m – Medium"
-      },
-      {
-        "ObjectiveName": "7. Place 3rd or better in the Takarazuka Kinen",
-        "Turn": "Turn 60 (previous + 5)",
-        "Time": "Senior Class, Late June",
-        "ObjectiveCondition": "G1 – Turf – 2200m – Medium"
-      },
-      {
-        "ObjectiveName": "8. Place 1st in the Sapporo Kinen",
-        "Turn": "Turn 64 (previous + 3)",
-        "Time": "Senior Class, Late August",
-        "ObjectiveCondition": "G2 – Turf – 2000m – Medium"
-      },
-      {
-        "ObjectiveName": "9. Place 1st in the Tenno Sho (Autumn)",
-        "Turn": "Turn 68 (previous + 3)",
-        "Time": "Senior Class, Late October",
-        "ObjectiveCondition": "G1 – Turf – 2000m – Medium"
-      }
-    ],
-    "UmaEvents": [
-      {
-        "EventName": "Who Will Stand Beside Her?",
-        "EventOptions": {
-          "Top Option": "Go with the Flow hint +2"
-        }
-      },
-      {
-        "EventName": "Who Will Stand Beside Her?",
-        "EventOptions": {
-          "Bottom Option": "Guts +10\r\nWisdom +10"
-        }
-      },
-      {
-        "EventName": "Never-Ending Road",
-        "EventOptions": {
-          "Top Option": "Up-Tempo hint +2"
-        }
-      },
-      {
-        "EventName": "Never-Ending Road",
-        "EventOptions": {
-          "Bottom Option": "Power +20"
-        }
-      },
-      {
-        "EventName": "The Empress and Mom",
-        "EventOptions": {
-          "Top Option": "Speed +10\r\nStamina +10\r\n(random) Get Charming ○ status"
-        }
-      },
-      {
-        "EventName": "The Empress and Mom",
-        "EventOptions": {
-          "Bottom Option": "Stamina +10\r\nPower +10\r\n(random) Get Charming ○ status"
-        }
-      },
-      {
-        "EventName": "Empress and Monarch",
-        "EventOptions": {
-          "Top Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "Empress and Monarch",
-        "EventOptions": {
-          "Bottom Option": "Wisdom +10"
-        }
-      },
-      {
-        "EventName": "Operation: Flowerbed",
-        "EventOptions": {
-          "Top Option": "Energy +5\r\nWisdom +5"
-        }
-      },
-      {
-        "EventName": "Operation: Flowerbed",
-        "EventOptions": {
-          "Bottom Option": "Energy -10\r\nSpeed +10\r\nPower +10"
-        }
-      },
-      {
-        "EventName": "Empress and Emperor",
-        "EventOptions": {
-          "Top Option": "Homestretch Haste hint +1"
-        }
-      },
-      {
-        "EventName": "Empress and Emperor",
-        "EventOptions": {
-          "Bottom Option": "Mood +1\r\nSkill points +15"
-        }
-      },
-      {
-        "EventName": "Seize Her!",
-        "EventOptions": {
-          "Top Option": "Energy +10"
-        }
-      },
-      {
-        "EventName": "Seize Her!",
-        "EventOptions": {
-          "Bottom Option": "Energy -10\r\nMood +1\r\nSpeed +10"
-        }
-      },
-      {
-        "EventName": "Take Good Care of Your Tail",
-        "EventOptions": {
-          "Top Option": "Energy +10"
-        }
-      },
-      {
-        "EventName": "Take Good Care of Your Tail",
-        "EventOptions": {
-          "Bottom Option": "Energy -10\r\nMood +1\r\nPower +10"
-        }
-      },
-      {
-        "EventName": "Suggestion Box of Freedom",
-        "EventOptions": {
-          "Top Option": "Energy +10"
-        }
-      },
-      {
-        "EventName": "Suggestion Box of Freedom",
-        "EventOptions": {
-          "Bottom Option": "Energy -10\r\nMood +1\r\nWisdom +10"
-        }
-      },
-      {
-        "EventName": "A Taste of Effort",
-        "EventOptions": {
-          "Top Option": "Energy +10\r\nSkill points +5"
-        }
-      },
-      {
-        "EventName": "A Taste of Effort",
-        "EventOptions": {
-          "Bottom Option": "Randomly either (~90%)\r\nEnergy +30\r\nSkill points +10\r\nor (~10%)\r\nEnergy +30\r\nSkill points +10\r\nSpeed -5\r\nPower +5\r\nGet Slow Metabolism status"
-        }
-      },
-      {
-        "EventName": "A Little Encounter",
-        "EventOptions": {
-          "Top Option": "Wisdom +10"
-        }
-      },
-      {
-        "EventName": "A Little Encounter",
-        "EventOptions": {
-          "Bottom Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "Sweet Potato Cake",
-        "EventOptions": {
-          "Top Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "Sweet Potato Cake",
-        "EventOptions": {
-          "Bottom Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "Imprinted Memories",
-        "EventOptions": {
-          "Top Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "Imprinted Memories",
-        "EventOptions": {
-          "Middle Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "Imprinted Memories",
-        "EventOptions": {
-          "Bottom Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "A Blinking Light Means Stop",
-        "EventOptions": {
-          "Top Option": "Wisdom +10"
-        }
-      },
-      {
-        "EventName": "A Blinking Light Means Stop",
-        "EventOptions": {
-          "Bottom Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "Smoldering Silently",
-        "EventOptions": {
-          "Top Option": "Stamina +10"
-        }
-      },
-      {
-        "EventName": "Smoldering Silently",
-        "EventOptions": {
-          "Bottom Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "After the Shuka Sho: Reign",
-        "EventOptions": {
-          "": "All stats +3\r\nSkill points +59\r\nYayoi Akikawa bond +4"
-        }
-      },
-      {
-        "EventName": "Bonus at start",
-        "EventOptions": {
-          "": "Skill points +120"
-        }
-      },
-      {
-        "EventName": "Failed training (Get Well Soon!)",
-        "EventOptions": {
-          "Top Option": "Mood -1\r\nLast trained stat -5\r\n(random) Get Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Failed training (Get Well Soon!)",
-        "EventOptions": {
-          "Bottom Option": "Randomly either\r\nMood -1\r\nLast trained stat -10\r\n(random) Get Practice Poor status\r\nor\r\nGet Practice Perfect ○ status"
-        }
-      },
-      {
-        "EventName": "Failed training (Don't Overdo It!)",
-        "EventOptions": {
-          "Top Option": "Energy +10\r\nMood -2\r\nLast trained stat -10\r\n2 random stats -10\r\n(random) Get Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Failed training (Don't Overdo It!)",
-        "EventOptions": {
-          "Bottom Option": "Randomly either\r\nMood -3\r\nLast trained stat -10\r\n2 random stats -10\r\nGet Practice Poor status\r\nor\r\nEnergy +10\r\nGet Practice Perfect ○ status"
-        }
-      },
-      {
-        "EventName": "Extra Training",
-        "EventOptions": {
-          "Top Option": "Energy -5\r\nLast trained stat +5\r\n(random) Heal a negative status effect\r\nYayoi Akikawa bond +5"
-        }
-      },
-      {
-        "EventName": "Extra Training",
-        "EventOptions": {
-          "Bottom Option": "Energy +5"
-        }
-      },
-      {
-        "EventName": "At Summer Camp (Year 2)",
-        "EventOptions": {
-          "Top Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "At Summer Camp (Year 2)",
-        "EventOptions": {
-          "Bottom Option": "Guts +10"
-        }
-      },
-      {
-        "EventName": "Fan Letter",
-        "EventOptions": {
-          "": "Mood +1\r\nSkill points +30"
-        }
-      },
-      {
-        "EventName": "Dance Lesson",
-        "EventOptions": {
-          "Top Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "Dance Lesson",
-        "EventOptions": {
-          "Bottom Option": "Speed +10"
-        }
-      },
-      {
-        "EventName": "New Year's Resolutions",
-        "EventOptions": {
-          "Top Option": "Power +10"
-        }
-      },
-      {
-        "EventName": "New Year's Resolutions",
-        "EventOptions": {
-          "Middle Option": "Energy +20"
-        }
-      },
-      {
-        "EventName": "New Year's Resolutions",
-        "EventOptions": {
-          "Bottom Option": "Skill points +20"
-        }
-      },
-      {
-        "EventName": "New Year's Shrine Visit",
-        "EventOptions": {
-          "Top Option": "Energy +30"
-        }
-      },
-      {
-        "EventName": "New Year's Shrine Visit",
-        "EventOptions": {
-          "Middle Option": "All stats +5"
-        }
-      },
-      {
-        "EventName": "New Year's Shrine Visit",
-        "EventOptions": {
-          "Bottom Option": "Skill points +35"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 1": "Randomly either (~30%)\r\nAll stats +20\r\nor (~70%)\r\nMood -2\r\nAll stats -15\r\nGet Night Owl status"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 2": "Randomly either (~45%)\r\nObtain Corner Recovery ○ skill\r\nObtain Straightaway Recovery skill\r\nor (~55%)\r\nEnergy -20\r\nMood -2"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 3": "Randomly either (~70%)\r\nMaximum Energy +12\r\nEnergy +40\r\nHeal all negative status effects\r\nor (~30%)\r\nEnergy -20\r\nMood -2\r\nGet Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 4": "Randomly either (~85%)\r\nEnergy +20\r\nMood +1\r\nGet Charming ○ status\r\nor (~15%)\r\nEnergy -10/-20\r\nMood -1\r\n(random) Get Practice Poor status"
-        }
-      },
-      {
-        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
-        "EventOptions": {
-          "Option 5": "Energy +10"
-        }
-      },
-      {
-        "EventName": "Victory! (G1)",
-        "EventOptions": {
-          "Top Option": "Energy -15\r\n1 random stat +10\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -5/-20\r\n1 random stat +10\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Energy -15\r\n1 random stat +8\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -5/-20\r\n1 random stat +8\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Energy -15\r\n1 random stat +5\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Victory! (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -5/-20\r\n1 random stat +5\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G1)",
-        "EventOptions": {
-          "Top Option": "Energy -20\r\n1 random stat +8\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -10/-30\r\n1 random stat +8\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Energy -20\r\n1 random stat +5\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -10/-30\r\n1 random stat +5\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Energy -20\r\n1 random stat +3\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Solid Showing (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -10/-30\r\n1 random stat +3\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G1)",
-        "EventOptions": {
-          "Top Option": "Energy -25\r\n1 random stat +4\r\nSkill points +25\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -15/-35\r\n1 random stat +4\r\nSkill points +25\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Energy -25\r\n1 random stat +3\r\nSkill points +20\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -15/-35\r\n1 random stat +3\r\nSkill points +20\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Energy -25\r\nSkill points +10\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Defeat (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -15/-35\r\nSkill points +10\r\n(random) Hint for a skill related to the race"
-        }
-      },
-      {
-        "EventName": "Etsuko's Elated Coverage (G1)",
-        "EventOptions": {
-          "": "Energy -15\r\nMood +1\r\n1 random stat +10\r\nSkill points +45\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Elated Coverage (G2/G3)",
-        "EventOptions": {
-          "": "Energy -15\r\nMood +1\r\n1 random stat +8\r\nSkill points +35\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Elated Coverage (Pre/OP)",
-        "EventOptions": {
-          "": "Energy -15\r\nMood +1\r\n1 random stat +5\r\nSkill points +30\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G1)",
-        "EventOptions": {
-          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G1)",
-        "EventOptions": {
-          "Bottom Option": "Energy -20\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond +10"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G2/G3)",
-        "EventOptions": {
-          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (G2/G3)",
-        "EventOptions": {
-          "Bottom Option": "Energy -20\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond +10"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (Pre/OP)",
-        "EventOptions": {
-          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\nSkill points +10\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\nSkill points +10\r\nEtsuko Otonashi bond +15"
-        }
-      },
-      {
-        "EventName": "Etsuko's Exhaustive Coverage (Pre/OP)",
-        "EventOptions": {
-          "Bottom Option": "Energy -20\r\nSkill points +10\r\nEtsuko Otonashi bond +10"
-        }
-      },
-      {
-        "EventName": "To Be a Scepter",
-        "EventOptions": {
-          "": "Power +5"
-        }
-      },
-      {
-        "EventName": "Ideals for Whose Benefit?",
-        "EventOptions": {
-          "": "Wisdom +5"
-        }
-      },
-      {
-        "EventName": "She Who Races Ahead",
-        "EventOptions": {
-          "": "Guts +5"
-        }
-      },
-      {
-        "EventName": "Please Rise",
-        "EventOptions": {
-          "": "Power +10"
-        }
-      },
-      {
-        "EventName": "Mother and Daughter",
-        "EventOptions": {
-          "": "Wisdom +5"
-        }
-      },
-      {
-        "EventName": "Confused by a Joke",
-        "EventOptions": {
-          "": "Mood -1\r\nWisdom -5"
-        }
-      },
-      {
-        "EventName": "Master Trainer",
-        "EventOptions": {
-          "": "Power +10\r\n(random) Get Practice Perfect ○ status"
-        }
-      },
-      {
-        "EventName": "Your Ideal",
-        "EventOptions": {
-          "": "All stats +5\r\nSkill points +5"
-        }
-      },
-      {
-        "EventName": "Flowers and Distraction",
-        "EventOptions": {
-          "": "Mood -1"
-        }
-      },
-      {
-        "EventName": "A Glint of Anger",
-        "EventOptions": {
-          "": "Energy -10\r\nMood -1"
-        }
-      },
-      {
-        "EventName": "After the Sticker Demon!",
-        "EventOptions": {
-          "": "All stats +5\r\nSkill points +30\r\nMood +2\r\n(random) Get Fast Learner status"
-        }
-      },
-      {
-        "EventName": "Of Storms and Flowers",
-        "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
-        }
-      }
-    ]
-  },
-  {
     "UmaName": "Mayano Top Gun",
     "UmaObjectives": [
       {
@@ -7423,7 +6179,7 @@
       {
         "EventName": "Maya Will Teach You ☆",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -7501,7 +6257,7 @@
       {
         "EventName": "Maya's Twinkly ☆ Determination!",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -7519,7 +6275,7 @@
       {
         "EventName": "Wish on a Star",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -7831,7 +6587,7 @@
       {
         "EventName": "I Wanna Twinkle!",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -7861,19 +6617,19 @@
       {
         "EventName": "This Excitement Is Hard to Crack! ☆",
         "EventOptions": {
-          "": "Mood -1\r\nWisdom -5"
+          "": "Mood -1\r\nWit -5"
         }
       },
       {
         "EventName": "Maya's Love Advice?!",
         "EventOptions": {
-          "": "Wisdom +10\r\n(random) Get Fast Learner status"
+          "": "Wit +10\r\n(random) Get Fast Learner status"
         }
       },
       {
         "EventName": "Get Me in the Mood ☆",
         "EventOptions": {
-          "": "Randomly either\r\nMood +1\r\nor\r\nMood -1"
+          "": "Randomly either\r\nMood +2\r\nor\r\nMood +1\r\nor\r\nMood -1"
         }
       },
       {
@@ -7909,7 +6665,7 @@
       {
         "EventName": "Chase Me ☆",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -8006,7 +6762,7 @@
       {
         "EventName": "Tact",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20"
+          "Bottom Option": "Wit +20"
         }
       },
       {
@@ -8060,7 +6816,7 @@
       {
         "EventName": "Starving Warriors",
         "EventOptions": {
-          "Option 1": "Energy +5\r\nWisdom +10"
+          "Option 1": "Energy +5\r\nWit +10"
         }
       },
       {
@@ -8144,7 +6900,7 @@
       {
         "EventName": "A Lone Wolf Hunts Alone",
         "EventOptions": {
-          "Bottom Option": "Power +5\r\nWisdom +5"
+          "Bottom Option": "Power +5\r\nWit +5"
         }
       },
       {
@@ -8156,7 +6912,7 @@
       {
         "EventName": "Breakthrough",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -8252,7 +7008,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -8504,7 +7260,7 @@
       {
         "EventName": "Proposition",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -8528,7 +7284,7 @@
       {
         "EventName": "Sister",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -8570,7 +7326,7 @@
       {
         "EventName": "Perfect Weather",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -8661,7 +7417,7 @@
       {
         "EventName": "Umadol ☆ Friendship!",
         "EventOptions": {
-          "Top Option": "Wisdom +20"
+          "Top Option": "Wit +20"
         }
       },
       {
@@ -8691,7 +7447,7 @@
       {
         "EventName": "Studying Umadols?",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -8733,7 +7489,7 @@
       {
         "EventName": "Test Recovery ☆",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -8787,13 +7543,19 @@
       {
         "EventName": "Location ☆ Scouting",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
         "EventName": "Location ☆ Scouting",
         "EventOptions": {
           "Bottom Option": "Power +10"
+        }
+      },
+      {
+        "EventName": "Coming to a City Near You ☆",
+        "EventOptions": {
+          "": "Randomly either\r\nGet Fan Promise (Hokkaido) status\r\nor\r\nGet Fan Promise (Hokuto) status\r\nor\r\nGet Fan Promise (Nakayama) status\r\nor\r\nGet Fan Promise (Kansai) status\r\nor\r\nGet Fan Promise (Kokura) status"
         }
       },
       {
@@ -8806,12 +7568,6 @@
         "EventName": "Center of Everyone's Heart ☆",
         "EventOptions": {
           "": "Mood +1\r\nGuts +20\r\nTop Pick hint +3"
-        }
-      },
-      {
-        "EventName": "川崎記念の後に・ぎゅるるん！",
-        "EventOptions": {
-          "": "Energy -15\r\nPower +20\r\n1 random stat +10\r\nSkill points +45\r\nKawasaki Racetrack ○ hint +1\r\nPromising Omen hint +1"
         }
       },
       {
@@ -8883,7 +7639,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -9141,7 +7897,7 @@
       {
         "EventName": "Failing Grade Frustration",
         "EventOptions": {
-          "": "Wisdom -5\r\nMood -1"
+          "": "Wit -5\r\nMood -1"
         }
       },
       {
@@ -9177,7 +7933,7 @@
       {
         "EventName": "Full of Cuteness ☆",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -9256,7 +8012,7 @@
       {
         "EventName": "Taishin's SOS",
         "EventOptions": {
-          "Top Option": "Speed +10\r\nWisdom +10"
+          "Top Option": "Speed +10\r\nWit +10"
         }
       },
       {
@@ -9274,7 +8030,7 @@
       {
         "EventName": "Anxious Survival",
         "EventOptions": {
-          "Bottom Option": "Guts +10\r\nWisdom +10\r\n(random) Get Charming ○ status"
+          "Bottom Option": "Guts +10\r\nWit +10\r\n(random) Get Charming ○ status"
         }
       },
       {
@@ -9298,7 +8054,7 @@
       {
         "EventName": "Unknown Music",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -9394,7 +8150,7 @@
       {
         "EventName": "ggwp",
         "EventOptions": {
-          "Middle Option": "Wisdom +10"
+          "Middle Option": "Wit +10"
         }
       },
       {
@@ -9430,7 +8186,7 @@
       {
         "EventName": "After the Nikkei Sho: Here Is Fine",
         "EventOptions": {
-          "": "※ Practice Poor was healed\r\nMood +4\r\nAll stats +20\r\nSkill points +70\r\nGet Practice Perfect ◎ status\r\n\r\n\r\n※ Practice Poor was not healed\r\nMood +1\r\nAll stats +15\r\nSkill points +70\r\nHeal Practice Poor"
+          "": "※ Practice Poor was healed\r\nMood +4\r\nAll stats +20\r\nSkill points +70\r\nGet Practice Perfect ◎ status\r\n\r\n\r\n※ Practice Poor was not healed\r\nMood +4\r\nAll stats +15\r\nSkill points +70\r\nHeal Practice Poor"
         }
       },
       {
@@ -9502,7 +8258,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -9802,7 +8558,7 @@
       {
         "EventName": "Tranquil Time with Taishin",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -9887,7 +8643,7 @@
       {
         "EventName": "How Curren Handles Social Media ♪",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20"
+          "Bottom Option": "Wit +20"
         }
       },
       {
@@ -9911,7 +8667,7 @@
       {
         "EventName": "One, Two, Three, Curren Chan!",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -9959,7 +8715,7 @@
       {
         "EventName": "Making Friends",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -9989,7 +8745,7 @@
       {
         "EventName": "Universal Cutie",
         "EventOptions": {
-          "Bottom Option": "Speed +5\r\nWisdom +5"
+          "Bottom Option": "Speed +5\r\nWit +5"
         }
       },
       {
@@ -10007,7 +8763,7 @@
       {
         "EventName": "Rattle, Rattle, Clunk",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -10343,7 +9099,7 @@
       {
         "EventName": "A Cute Plan?",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -10355,7 +9111,7 @@
       {
         "EventName": "Oh So Lonely!",
         "EventOptions": {
-          "": "Mood -1\r\nWisdom -5"
+          "": "Mood -1\r\nWit -5"
         }
       },
       {
@@ -10397,7 +9153,7 @@
       {
         "EventName": "Conveying Cuteness",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -10476,7 +9232,7 @@
       {
         "EventName": "The Secret to Teio Tenacity",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10\r\nSkill points +15"
+          "Bottom Option": "Wit +10\r\nSkill points +15"
         }
       },
       {
@@ -10488,7 +9244,7 @@
       {
         "EventName": "I'm Never Giving Up!",
         "EventOptions": {
-          "Bottom Option": "Power +5\r\nWisdom +15\r\n(random) Get Practice Perfect ○ status"
+          "Bottom Option": "Power +5\r\nWit +15\r\n(random) Get Practice Perfect ○ status"
         }
       },
       {
@@ -10578,7 +9334,7 @@
       {
         "EventName": "I Got Scolded!",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -10596,7 +9352,7 @@
       {
         "EventName": "I Figured It Out!",
         "EventOptions": {
-          "Middle Option": "Guts +5\r\nWisdom +5"
+          "Middle Option": "Guts +5\r\nWit +5"
         }
       },
       {
@@ -10614,7 +9370,7 @@
       {
         "EventName": "Grown-Up Time",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -11016,7 +9772,7 @@
       {
         "EventName": "Teio's Got This ♪",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -11089,7 +9845,7 @@
       {
         "EventName": "My Family Make a Difficult Decision",
         "EventOptions": {
-          "Bottom Option": "Stamina +7\r\nGuts +7\r\nWisdom +7"
+          "Bottom Option": "Stamina +7\r\nGuts +7\r\nWit +7"
         }
       },
       {
@@ -11101,7 +9857,7 @@
       {
         "EventName": "My Rival, No Matter the Stage",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10\r\nSkill points +15\r\n(random) Get Hot Topic status"
+          "Bottom Option": "Wit +10\r\nSkill points +15\r\n(random) Get Hot Topic status"
         }
       },
       {
@@ -11173,7 +9929,7 @@
       {
         "EventName": "Two Tickets for the Silver Screen",
         "EventOptions": {
-          "Bottom Option": "Wisdom +5\r\nSkill points +15"
+          "Bottom Option": "Wit +5\r\nSkill points +15"
         }
       },
       {
@@ -11197,7 +9953,7 @@
       {
         "EventName": "Endless Kingdom",
         "EventOptions": {
-          "Middle Option": "Wisdom +10"
+          "Middle Option": "Wit +10"
         }
       },
       {
@@ -11305,7 +10061,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -11539,7 +10295,7 @@
       {
         "EventName": "Blame Game",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -11605,7 +10361,7 @@
       {
         "EventName": "Attack of the Space Baseball Zombies!",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -11672,7 +10428,7 @@
       {
         "EventName": "To Keep, or Not to Keep?",
         "EventOptions": {
-          "Top Option": "Wisdom +20"
+          "Top Option": "Wit +20"
         }
       },
       {
@@ -11696,13 +10452,13 @@
       {
         "EventName": "Theory, the Greatest Weapon",
         "EventOptions": {
-          "Top Option": "Randomly either\r\nStamina +20\r\n(random) Get Hot Topic status\r\nor\r\nWisdom +20\r\n(random) Get Hot Topic status"
+          "Top Option": "Randomly either\r\nStamina +20\r\n(random) Get Hot Topic status\r\nor\r\nWit +20\r\n(random) Get Hot Topic status"
         }
       },
       {
         "EventName": "Theory, the Greatest Weapon",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20\r\n(random) Get Practice Perfect ○ status\r\n(random) Get Hot Topic status"
+          "Bottom Option": "Wit +20\r\n(random) Get Practice Perfect ○ status\r\n(random) Get Hot Topic status"
         }
       },
       {
@@ -11714,7 +10470,7 @@
       {
         "EventName": "Memories of Cooking and Sisterhood",
         "EventOptions": {
-          "Bottom Option": "Stamina +5\r\nWisdom +5"
+          "Bottom Option": "Stamina +5\r\nWit +5"
         }
       },
       {
@@ -11768,7 +10524,7 @@
       {
         "EventName": "Sharp Contrast",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -11780,7 +10536,7 @@
       {
         "EventName": "Emergency Presentation",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -11810,7 +10566,7 @@
       {
         "EventName": "Game Theory",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -11900,7 +10656,7 @@
       {
         "EventName": "New Year's Resolutions",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -12128,7 +10884,7 @@
       {
         "EventName": "A Description of the Present Moment",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -12152,7 +10908,7 @@
       {
         "EventName": "Authoring the Equation",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -12194,7 +10950,7 @@
       {
         "EventName": "Optimal Glasses",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -12285,7 +11041,7 @@
       {
         "EventName": "Who to Count On",
         "EventOptions": {
-          "Top Option": "Wisdom +20\r\n(random) Get Hot Topic status"
+          "Top Option": "Wit +20\r\n(random) Get Hot Topic status"
         }
       },
       {
@@ -12315,7 +11071,7 @@
       {
         "EventName": "Operation: Extra Classes",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -12375,7 +11131,7 @@
       {
         "EventName": "Bourbon's Challenge?",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -12405,7 +11161,7 @@
       {
         "EventName": "Operation: Dance Fever",
         "EventOptions": {
-          "Bottom Option": "Stamina +5\r\nWisdom +5"
+          "Bottom Option": "Stamina +5\r\nWit +5"
         }
       },
       {
@@ -12429,7 +11185,7 @@
       {
         "EventName": "After the Kikuka Sho: Triple Crown Champion",
         "EventOptions": {
-          "": "Standard race rewards\r\nGuts +15"
+          "": "All stats +3\r\nSkill points +45\r\nYayoi Akikawa bond +4"
         }
       },
       {
@@ -12801,7 +11557,7 @@
       {
         "EventName": "Cheerful Shopping",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -12868,7 +11624,7 @@
       {
         "EventName": "Fit for a King",
         "EventOptions": {
-          "Top Option": "Wisdom +20"
+          "Top Option": "Wit +20"
         }
       },
       {
@@ -12892,7 +11648,7 @@
       {
         "EventName": "Strength of Will",
         "EventOptions": {
-          "Top Option": "Wisdom +20\r\n(random) Get Fast Learner status"
+          "Top Option": "Wit +20\r\n(random) Get Fast Learner status"
         }
       },
       {
@@ -12910,7 +11666,7 @@
       {
         "EventName": "Fantastic Voyeur",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -12964,7 +11720,7 @@
       {
         "EventName": "What the Mirror Reflects",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -12988,7 +11744,7 @@
       {
         "EventName": "My Radiance is Yours",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -13000,7 +11756,7 @@
       {
         "EventName": "Maintaining Magnificence",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -13330,13 +12086,13 @@
       {
         "EventName": "Find a Rival!",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
         "EventName": "Our One-Year War",
         "EventOptions": {
-          "": "Stamina +5\r\nWisdom +5"
+          "": "Stamina +5\r\nWit +5"
         }
       },
       {
@@ -13396,7 +12152,7 @@
       {
         "EventName": "Floral Dialogue",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -13481,7 +12237,7 @@
       {
         "EventName": "Today and Tomorrow, Too",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20\r\n(random) Get Hot Topic status"
+          "Bottom Option": "Wit +20\r\n(random) Get Hot Topic status"
         }
       },
       {
@@ -13511,7 +12267,7 @@
       {
         "EventName": "Early Afternoon Payback",
         "EventOptions": {
-          "Top Option": "Energy +5\r\nWisdom +5"
+          "Top Option": "Energy +5\r\nWit +5"
         }
       },
       {
@@ -13547,7 +12303,7 @@
       {
         "EventName": "A Place I Want to Take You",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -13901,7 +12657,7 @@
       {
         "EventName": "Derby Trainer",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -13967,7 +12723,7 @@
       {
         "EventName": "A Place I Miss...",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -14046,7 +12802,7 @@
       {
         "EventName": "Hobbies and Talents",
         "EventOptions": {
-          "Bottom Option": "Speed +10\r\nWisdom +10"
+          "Bottom Option": "Speed +10\r\nWit +10"
         }
       },
       {
@@ -14058,7 +12814,7 @@
       {
         "EventName": "Umadol ☆ Special Class!",
         "EventOptions": {
-          "Bottom Option": "Guts +10\r\nWisdom +10\r\n(random) Get Hot Topic status"
+          "Bottom Option": "Guts +10\r\nWit +10\r\n(random) Get Hot Topic status"
         }
       },
       {
@@ -14070,7 +12826,7 @@
       {
         "EventName": "Teaching Suzuka's Style",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -14118,7 +12874,7 @@
       {
         "EventName": "My Little Snowscape",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -14160,7 +12916,7 @@
       {
         "EventName": "How to Spend a Rainy Day",
         "EventOptions": {
-          "Bottom Option": "Speed +5\r\nWisdom +5"
+          "Bottom Option": "Speed +5\r\nWit +5"
         }
       },
       {
@@ -14244,7 +13000,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -14514,7 +13270,7 @@
       {
         "EventName": "Onward, to the Future",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -14562,7 +13318,7 @@
       {
         "EventName": "Naptime Escape",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -14629,7 +13385,7 @@
       {
         "EventName": "Good Luck Charm",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20"
+          "Bottom Option": "Wit +20"
         }
       },
       {
@@ -14647,7 +13403,7 @@
       {
         "EventName": "Racewear Like Prez",
         "EventOptions": {
-          "Top Option": "Speed +10\r\nWisdom +10\r\n(random) Get Hot Topic status"
+          "Top Option": "Speed +10\r\nWit +10\r\n(random) Get Hot Topic status"
         }
       },
       {
@@ -14743,7 +13499,7 @@
       {
         "EventName": "I Got Scolded!",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -14761,7 +13517,7 @@
       {
         "EventName": "I Figured It Out!",
         "EventOptions": {
-          "Middle Option": "Guts +5\r\nWisdom +5"
+          "Middle Option": "Guts +5\r\nWit +5"
         }
       },
       {
@@ -14779,7 +13535,7 @@
       {
         "EventName": "Grown-Up Time",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -15181,7 +13937,7 @@
       {
         "EventName": "Teio's Got This ♪",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -15248,7 +14004,7 @@
       {
         "EventName": "Trendsetter",
         "EventOptions": {
-          "Top Option": "Speed +10\r\nWisdom +10"
+          "Top Option": "Speed +10\r\nWit +10"
         }
       },
       {
@@ -15290,7 +14046,7 @@
       {
         "EventName": "Hot Rod",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -15338,7 +14094,7 @@
       {
         "EventName": "The Road to a Rad Victory!",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -15404,7 +14160,7 @@
       {
         "EventName": "Take the Wheel",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -15416,13 +14172,13 @@
       {
         "EventName": "Meeting New People Is Trendy ☆",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
         "EventName": "The Fun Never Stops ♪",
         "EventOptions": {
-          "Top Option": "Speed +5\r\nWisdom +5"
+          "Top Option": "Speed +5\r\nWit +5"
         }
       },
       {
@@ -15506,7 +14262,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -15758,7 +14514,7 @@
       {
         "EventName": "A Fun Race",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -15806,7 +14562,7 @@
       {
         "EventName": "Shockingly Careless",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -15873,7 +14629,7 @@
       {
         "EventName": "Pinned Hopes",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20"
+          "Bottom Option": "Wit +20"
         }
       },
       {
@@ -15963,7 +14719,7 @@
       {
         "EventName": "Oguri Makes a Resolution",
         "EventOptions": {
-          "Top Option": "Speed +5\r\nWisdom +5"
+          "Top Option": "Speed +5\r\nWit +5"
         }
       },
       {
@@ -15987,7 +14743,7 @@
       {
         "EventName": "Oguri Matures",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -16023,7 +14779,7 @@
       {
         "EventName": "High-Level Rival",
         "EventOptions": {
-          "Bottom Option": "Power +5\r\nWisdom +5"
+          "Bottom Option": "Power +5\r\nWit +5"
         }
       },
       {
@@ -16407,7 +15163,7 @@
       {
         "EventName": "Oguri and the Fluffy Feline",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -16474,13 +15230,13 @@
       {
         "EventName": "Quick Draw Showdown",
         "EventOptions": {
-          "Bottom Option": "Energy +10\r\nWisdom +10"
+          "Bottom Option": "Energy +10\r\nWit +10"
         }
       },
       {
         "EventName": "Must-Win Match",
         "EventOptions": {
-          "Top Option": "Wisdom +20"
+          "Top Option": "Wit +20"
         }
       },
       {
@@ -16498,7 +15254,7 @@
       {
         "EventName": "To the Top!",
         "EventOptions": {
-          "Bottom Option": "Speed +10\r\nWisdom +10\r\n(random) Get Fast Learner status"
+          "Bottom Option": "Speed +10\r\nWit +10\r\n(random) Get Fast Learner status"
         }
       },
       {
@@ -16546,7 +15302,7 @@
       {
         "EventName": "Serial Riddler",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -16558,7 +15314,7 @@
       {
         "EventName": "Taste of Home",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -16594,7 +15350,7 @@
       {
         "EventName": "Rainy Choice",
         "EventOptions": {
-          "Bottom Option": "Stamina +5\r\nWisdom +5"
+          "Bottom Option": "Stamina +5\r\nWit +5"
         }
       },
       {
@@ -16606,7 +15362,7 @@
       {
         "EventName": "Rainy Rescue",
         "EventOptions": {
-          "Middle Option": "Power +5\r\nWisdom +5"
+          "Middle Option": "Power +5\r\nWit +5"
         }
       },
       {
@@ -17032,7 +15788,7 @@
       {
         "EventName": "Friendly Distraction",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -17087,7 +15843,7 @@
       {
         "EventName": "Resolve and Duty",
         "EventOptions": {
-          "Top Option": "Speed +10\r\nWisdom +10"
+          "Top Option": "Speed +10\r\nWit +10"
         }
       },
       {
@@ -17117,7 +15873,7 @@
       {
         "EventName": "Elegance",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20\r\n(random) Get Practice Perfect ○ status"
+          "Bottom Option": "Wit +20\r\n(random) Get Practice Perfect ○ status"
         }
       },
       {
@@ -17189,7 +15945,7 @@
       {
         "EventName": "Two Tickets for the Silver Screen",
         "EventOptions": {
-          "Bottom Option": "Wisdom +5\r\nSkill points +15"
+          "Bottom Option": "Wit +5\r\nSkill points +15"
         }
       },
       {
@@ -17213,7 +15969,7 @@
       {
         "EventName": "Endless Kingdom",
         "EventOptions": {
-          "Middle Option": "Wisdom +10"
+          "Middle Option": "Wit +10"
         }
       },
       {
@@ -17321,7 +16077,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -17555,7 +16311,7 @@
       {
         "EventName": "Blame Game",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -17621,7 +16377,7 @@
       {
         "EventName": "Attack of the Space Baseball Zombies!",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -17700,7 +16456,7 @@
       {
         "EventName": "The Smiling Emperor's New Clothes",
         "EventOptions": {
-          "Top Option": "Wisdom +20"
+          "Top Option": "Wit +20"
         }
       },
       {
@@ -17742,13 +16498,13 @@
       {
         "EventName": "The Emperor's Social Studies",
         "EventOptions": {
-          "Bottom Option": "Wisdom +5\r\nSkill points +15"
+          "Bottom Option": "Wit +5\r\nSkill points +15"
         }
       },
       {
         "EventName": "The Emperor's Spare Time",
         "EventOptions": {
-          "Top Option": "Wisdom +10\r\nSkill points +15"
+          "Top Option": "Wit +10\r\nSkill points +15"
         }
       },
       {
@@ -17820,7 +16576,7 @@
       {
         "EventName": "Well-Earned Respect",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -17838,7 +16594,7 @@
       {
         "EventName": "A Clear and Beautiful Night",
         "EventOptions": {
-          "Middle Option": "Wisdom +10"
+          "Middle Option": "Wit +10"
         }
       },
       {
@@ -17862,7 +16618,7 @@
       {
         "EventName": "The Emperor's Path",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -17875,6 +16631,12 @@
         "EventName": "After the Kikuka Sho: Three Crowns Attained",
         "EventOptions": {
           "": "Standard race rewards"
+        }
+      },
+      {
+        "EventName": "Challenge Met",
+        "EventOptions": {
+          "": "1 random stat +10"
         }
       },
       {
@@ -17952,7 +16714,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -17964,7 +16726,7 @@
       {
         "EventName": "New Year's Resolutions",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -18192,7 +16954,7 @@
       {
         "EventName": "Trusty Aids",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -18216,7 +16978,7 @@
       {
         "EventName": "Blood, Sweat, and Tears",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -18228,7 +16990,7 @@
       {
         "EventName": "The Fog Lifts",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -18240,7 +17002,7 @@
       {
         "EventName": "Master Trainer",
         "EventOptions": {
-          "": "Wisdom +10\r\n(random) Get Practice Perfect ○ status"
+          "": "Wit +10\r\n(random) Get Practice Perfect ○ status"
         }
       },
       {
@@ -18270,7 +17032,7 @@
       {
         "EventName": "The Emperor's Blunder",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -18349,13 +17111,13 @@
       {
         "EventName": "Sweet & Lively Joy",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20"
+          "Bottom Option": "Wit +20"
         }
       },
       {
         "EventName": "I Am Enough",
         "EventOptions": {
-          "Top Option": "Guts +10\r\nWisdom +10\r\n(random) Get Charming ○ status"
+          "Top Option": "Guts +10\r\nWit +10\r\n(random) Get Charming ○ status"
         }
       },
       {
@@ -18385,7 +17147,7 @@
       {
         "EventName": "Wonderful New Worlds",
         "EventOptions": {
-          "Bottom Option": "Speed +5\r\nWisdom +5"
+          "Bottom Option": "Speed +5\r\nWit +5"
         }
       },
       {
@@ -18421,7 +17183,7 @@
       {
         "EventName": "Even When the Ladybugs Are Gone",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -18439,7 +17201,7 @@
       {
         "EventName": "My Sun",
         "EventOptions": {
-          "Top Option": "Guts +5\r\nWisdom +5"
+          "Top Option": "Guts +5\r\nWit +5"
         }
       },
       {
@@ -18475,7 +17237,7 @@
       {
         "EventName": "A Page about Sunsets",
         "EventOptions": {
-          "Bottom Option": "Stamina +5\r\nWisdom +5"
+          "Bottom Option": "Stamina +5\r\nWit +5"
         }
       },
       {
@@ -18847,7 +17609,7 @@
       {
         "EventName": "A Page about Books",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -18914,7 +17676,7 @@
       {
         "EventName": "The Red of the Protagonist!",
         "EventOptions": {
-          "Top Option": "Wisdom +20"
+          "Top Option": "Wit +20"
         }
       },
       {
@@ -18938,7 +17700,7 @@
       {
         "EventName": "A Sudden Episode from Golshi's Past!",
         "EventOptions": {
-          "Top Option": "Stamina +10\r\nWisdom +10\r\n(random) Get Fast Learner status"
+          "Top Option": "Stamina +10\r\nWit +10\r\n(random) Get Fast Learner status"
         }
       },
       {
@@ -19046,7 +17808,7 @@
       {
         "EventName": "Hello From About 1.5 Billion Years Ago",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -19076,7 +17838,7 @@
       {
         "EventName": "A Lovely Place",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -19478,7 +18240,7 @@
       {
         "EventName": "Into the Sky?",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -19611,7 +18373,7 @@
       {
         "EventName": "Showdown by the River!",
         "EventOptions": {
-          "Top Option": "Wisdom +10\r\nSkill points +15"
+          "Top Option": "Wit +10\r\nSkill points +15"
         }
       },
       {
@@ -19635,7 +18397,7 @@
       {
         "EventName": "The Standards of Coolness",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -19699,66 +18461,6 @@
         }
       },
       {
-        "EventName": "After the Tulip Sho: Preliminary Victory",
-        "EventOptions": {
-          "": "Standard race rewards"
-        }
-      },
-      {
-        "EventName": "After the Tulip Sho: Preliminary Defeat",
-        "EventOptions": {
-          "": "Standard race rewards"
-        }
-      },
-      {
-        "EventName": "After the Oka Sho: Red-Hot Afterglow",
-        "EventOptions": {
-          "": "Standard race rewards"
-        }
-      },
-      {
-        "EventName": "After the Oka Sho: A Lost Loser",
-        "EventOptions": {
-          "": "Standard race rewards"
-        }
-      },
-      {
-        "EventName": "After the Shuka Sho: Drunk on Victory",
-        "EventOptions": {
-          "": "Standard race rewards"
-        }
-      },
-      {
-        "EventName": "After the Shuka Sho: Bad Dreamin'",
-        "EventOptions": {
-          "": "Standard race rewards"
-        }
-      },
-      {
-        "EventName": "After the Queen Elizabeth II Cup: Tyrannical Queen!",
-        "EventOptions": {
-          "": "Standard race rewards\r\nMood +1"
-        }
-      },
-      {
-        "EventName": "After the Queen Elizabeth II Cup: Tsundere Queen",
-        "EventOptions": {
-          "": "Standard race rewards"
-        }
-      },
-      {
-        "EventName": "After the Arima Kinen: Hollow Victory",
-        "EventOptions": {
-          "": "Standard race rewards"
-        }
-      },
-      {
-        "EventName": "After the Arima Kinen: Veering off Course",
-        "EventOptions": {
-          "": "Standard race rewards"
-        }
-      },
-      {
         "EventName": "After the Yasuda Kinen: Pedal to the Metal!",
         "EventOptions": {
           "": "Standard race rewards\r\nNimble Navigator hint +1"
@@ -19767,7 +18469,7 @@
       {
         "EventName": "After the Yasuda Kinen: Consecutive Celebration",
         "EventOptions": {
-          "": "Standard race rewards\r\nPower +20\r\nSkill points +20\r\nNimble Navigator hint +1\r\nGet Practice Perfect ○ status"
+          "": "All stats +3\r\nSkill points +45\r\nNimble Navigator hint +1\r\nGet Practice Perfect ○ status\r\nYayoi Akikawa bond +4"
         }
       },
       {
@@ -20103,7 +18805,7 @@
       {
         "EventName": "This is a Nightmare!",
         "EventOptions": {
-          "": "Mood -1\r\nWisdom -5"
+          "": "Mood -1\r\nWit -5"
         }
       },
       {
@@ -20139,7 +18841,7 @@
       {
         "EventName": "Hot Ride",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -20212,7 +18914,7 @@
       {
         "EventName": "The Best Pose",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20"
+          "Bottom Option": "Wit +20"
         }
       },
       {
@@ -20230,7 +18932,7 @@
       {
         "EventName": "Looking Good",
         "EventOptions": {
-          "Top Option": "Stamina +10\r\nWisdom +10\r\n(random) Get Hot Topic status"
+          "Top Option": "Stamina +10\r\nWit +10\r\n(random) Get Hot Topic status"
         }
       },
       {
@@ -20302,7 +19004,7 @@
       {
         "EventName": "As a Model Student...",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -20350,7 +19052,7 @@
       {
         "EventName": "Rained On",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -20362,7 +19064,7 @@
       {
         "EventName": "How to Spend a Day Off",
         "EventOptions": {
-          "Bottom Option": "Mood +1\r\nWisdom +5"
+          "Bottom Option": "Mood +1\r\nWit +5"
         }
       },
       {
@@ -20464,7 +19166,7 @@
       {
         "EventName": "New Year's Resolutions",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -20692,25 +19394,25 @@
       {
         "EventName": "There Can Only Be One",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
         "EventName": "My Number One",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
         "EventName": "Empty Room",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
         "EventName": "Number-One Rival",
         "EventOptions": {
-          "": "Guts +5\r\nWisdom +5"
+          "": "Guts +5\r\nWit +5"
         }
       },
       {
@@ -20722,7 +19424,7 @@
       {
         "EventName": "Master Trainer",
         "EventOptions": {
-          "": "Wisdom +10\r\n(random) Get Practice Perfect ○ status"
+          "": "Wit +10\r\n(random) Get Practice Perfect ○ status"
         }
       },
       {
@@ -20752,7 +19454,7 @@
       {
         "EventName": "Enthusiastic Reading",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -20837,7 +19539,7 @@
       {
         "EventName": "Hate to Lose",
         "EventOptions": {
-          "Top Option": "Wisdom +20\r\n(random) Get Fast Learner status"
+          "Top Option": "Wit +20\r\n(random) Get Fast Learner status"
         }
       },
       {
@@ -20855,13 +19557,13 @@
       {
         "EventName": "Errands Have Perks",
         "EventOptions": {
-          "Bottom Option": "Energy +5\r\nWisdom +5"
+          "Bottom Option": "Energy +5\r\nWit +5"
         }
       },
       {
         "EventName": "Beauteaful",
         "EventOptions": {
-          "Top Option": "Wisdom +5\r\nSkill points +15"
+          "Top Option": "Wit +5\r\nSkill points +15"
         }
       },
       {
@@ -20873,7 +19575,7 @@
       {
         "EventName": "Tracen Karuta Queen",
         "EventOptions": {
-          "Top Option": "Speed +10\r\nWisdom +5"
+          "Top Option": "Speed +10\r\nWit +5"
         }
       },
       {
@@ -20891,7 +19593,7 @@
       {
         "EventName": "In Search of Refreshment",
         "EventOptions": {
-          "Bottom Option": "Mood -1\r\nWisdom +25"
+          "Bottom Option": "Mood -1\r\nWit +25"
         }
       },
       {
@@ -20909,7 +19611,7 @@
       {
         "EventName": "Yamato Nadeshiko",
         "EventOptions": {
-          "Top Option": "Power +5\r\nWisdom +5"
+          "Top Option": "Power +5\r\nWit +5"
         }
       },
       {
@@ -20939,7 +19641,7 @@
       {
         "EventName": "Nadeshiko Gal",
         "EventOptions": {
-          "Middle Option": "Wisdom +10"
+          "Middle Option": "Wit +10"
         }
       },
       {
@@ -20957,13 +19659,13 @@
       {
         "EventName": "Childhood Dream",
         "EventOptions": {
-          "Bottom Option": "Stamina +5\r\nWisdom +5"
+          "Bottom Option": "Stamina +5\r\nWit +5"
         }
       },
       {
         "EventName": "Flower Vase",
         "EventOptions": {
-          "Top Option": "Guts +5\r\nWisdom +5"
+          "Top Option": "Guts +5\r\nWit +5"
         }
       },
       {
@@ -21047,7 +19749,7 @@
       {
         "EventName": "New Year's Resolutions",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -21275,7 +19977,7 @@
       {
         "EventName": "The Beast's Successor",
         "EventOptions": {
-          "": "Speed +5\r\nWisdom +5"
+          "": "Speed +5\r\nWit +5"
         }
       },
       {
@@ -21293,7 +19995,7 @@
       {
         "EventName": "Rival Awakening",
         "EventOptions": {
-          "": "Wisdom +10"
+          "": "Wit +10"
         }
       },
       {
@@ -21305,7 +20007,7 @@
       {
         "EventName": "Master Trainer",
         "EventOptions": {
-          "": "Wisdom +10\r\n(random) Get Practice Perfect ○ status"
+          "": "Wit +10\r\n(random) Get Practice Perfect ○ status"
         }
       },
       {
@@ -21335,7 +20037,7 @@
       {
         "EventName": "Help! Pre-Test Panic",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -21414,7 +20116,7 @@
       {
         "EventName": "Cactus Feast",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20"
+          "Bottom Option": "Wit +20"
         }
       },
       {
@@ -21534,7 +20236,7 @@
       {
         "EventName": "Flower Language",
         "EventOptions": {
-          "Top Option": "Mood +1\r\nWisdom +5"
+          "Top Option": "Mood +1\r\nWit +5"
         }
       },
       {
@@ -21612,7 +20314,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -21918,7 +20620,7 @@
       {
         "EventName": "Forget Something?",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -21985,7 +20687,7 @@
       {
         "EventName": "Flowers for You",
         "EventOptions": {
-          "Top Option": "Wisdom +20"
+          "Top Option": "Wit +20"
         }
       },
       {
@@ -22027,13 +20729,13 @@
       {
         "EventName": "Empress and Monarch",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
         "EventName": "Operation: Flowerbed",
         "EventOptions": {
-          "Top Option": "Energy +5\r\nWisdom +5"
+          "Top Option": "Energy +5\r\nWit +5"
         }
       },
       {
@@ -22087,7 +20789,7 @@
       {
         "EventName": "Suggestion Box of Freedom",
         "EventOptions": {
-          "Bottom Option": "Energy -10\r\nMood +1\r\nWisdom +10"
+          "Bottom Option": "Energy -10\r\nMood +1\r\nWit +10"
         }
       },
       {
@@ -22105,7 +20807,7 @@
       {
         "EventName": "A Little Encounter",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -22147,7 +20849,7 @@
       {
         "EventName": "A Blinking Light Means Stop",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -22483,7 +21185,7 @@
       {
         "EventName": "Ideals for Whose Benefit?",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -22501,13 +21203,13 @@
       {
         "EventName": "Mother and Daughter",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
         "EventName": "Confused by a Joke",
         "EventOptions": {
-          "": "Mood -1\r\nWisdom -5"
+          "": "Mood -1\r\nWit -5"
         }
       },
       {
@@ -22543,7 +21245,7 @@
       {
         "EventName": "Of Storms and Flowers",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -22628,7 +21330,7 @@
       {
         "EventName": "Sweet Feelings for You ♪",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20"
+          "Bottom Option": "Wit +20"
         }
       },
       {
@@ -22652,7 +21354,7 @@
       {
         "EventName": "Maya Will Teach You ☆",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -22730,7 +21432,7 @@
       {
         "EventName": "Maya's Twinkly ☆ Determination!",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -22748,7 +21450,7 @@
       {
         "EventName": "Wish on a Star",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -23060,7 +21762,7 @@
       {
         "EventName": "I Wanna Twinkle!",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -23090,19 +21792,19 @@
       {
         "EventName": "This Excitement Is Hard to Crack! ☆",
         "EventOptions": {
-          "": "Mood -1\r\nWisdom -5"
+          "": "Mood -1\r\nWit -5"
         }
       },
       {
         "EventName": "Maya's Love Advice?!",
         "EventOptions": {
-          "": "Wisdom +10\r\n(random) Get Fast Learner status"
+          "": "Wit +10\r\n(random) Get Fast Learner status"
         }
       },
       {
         "EventName": "Get Me in the Mood ☆",
         "EventOptions": {
-          "": "Randomly either\r\nMood +1\r\nor\r\nMood -1"
+          "": "Randomly either\r\nMood +2\r\nor\r\nMood +1\r\nor\r\nMood -1"
         }
       },
       {
@@ -23138,7 +21840,7 @@
       {
         "EventName": "Chase Me ☆",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -23211,13 +21913,13 @@
       {
         "EventName": "Fill Life with Love",
         "EventOptions": {
-          "Top Option": "Randomly either\r\nSpeed +10\r\nStamina +10\r\nor\r\nWisdom +20"
+          "Top Option": "Randomly either\r\nSpeed +10\r\nStamina +10\r\nor\r\nWit +20"
         }
       },
       {
         "EventName": "Fill Life with Love",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20"
+          "Bottom Option": "Wit +20"
         }
       },
       {
@@ -23235,7 +21937,7 @@
       {
         "EventName": "One-Day Experience ☆ Ceramics Class",
         "EventOptions": {
-          "Top Option": "Speed +5\r\nWisdom +5"
+          "Top Option": "Speed +5\r\nWit +5"
         }
       },
       {
@@ -23253,7 +21955,7 @@
       {
         "EventName": "Find the Lost Child!",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -23301,7 +22003,7 @@
       {
         "EventName": "Is Relaxing Being Spoiled?",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -23343,7 +22045,7 @@
       {
         "EventName": "Rough Massage!",
         "EventOptions": {
-          "Bottom Option": "Speed +5\r\nWisdom +5"
+          "Bottom Option": "Speed +5\r\nWit +5"
         }
       },
       {
@@ -23356,6 +22058,12 @@
         "EventName": "Stargazing is Better Together",
         "EventOptions": {
           "Bottom Option": "Stamina +10"
+        }
+      },
+      {
+        "EventName": "After the Sumire S.: Short of Breath",
+        "EventOptions": {
+          "": "3 random stats +3\r\nSkill points +30\r\nGet Under the Weather status\r\nYayoi Akikawa bond +4"
         }
       },
       {
@@ -23697,7 +22405,7 @@
       {
         "EventName": "Birth of a Supervillain",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -23745,7 +22453,7 @@
       {
         "EventName": "I Feel Like Cooking",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -23824,13 +22532,13 @@
       {
         "EventName": "Heart-Pounding Aquarium",
         "EventOptions": {
-          "Top Option": "Power +10\r\nWisdom +10"
+          "Top Option": "Power +10\r\nWit +10"
         }
       },
       {
         "EventName": "Heart-Pounding Aquarium",
         "EventOptions": {
-          "Bottom Option": "Stamina +10\r\nWisdom +10"
+          "Bottom Option": "Stamina +10\r\nWit +10"
         }
       },
       {
@@ -23854,7 +22562,7 @@
       {
         "EventName": "Muscle Jealousy",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -23908,7 +22616,7 @@
       {
         "EventName": "Flush with Feelings",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -23956,7 +22664,7 @@
       {
         "EventName": "The Little Fans of the Umadol",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -24328,7 +23036,7 @@
       {
         "EventName": "Training for... Love Stories?!",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -24407,7 +23115,7 @@
       {
         "EventName": "Obtain Data!",
         "EventOptions": {
-          "Top Option": "Wisdom +20"
+          "Top Option": "Wit +20"
         }
       },
       {
@@ -24425,7 +23133,7 @@
       {
         "EventName": "Tachyon the Spoiled Child",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20\r\n(random) Get Fast Learner status"
+          "Bottom Option": "Wit +20\r\n(random) Get Fast Learner status"
         }
       },
       {
@@ -24449,13 +23157,13 @@
       {
         "EventName": "The Strongest Collaborator?!",
         "EventOptions": {
-          "Bottom Option": "Energy +5\r\nWisdom +5"
+          "Bottom Option": "Energy +5\r\nWit +5"
         }
       },
       {
         "EventName": "The Pressure of Justice?",
         "EventOptions": {
-          "Top Option": "Wisdom +10\r\nSkill points +15"
+          "Top Option": "Wit +10\r\nSkill points +15"
         }
       },
       {
@@ -24485,13 +23193,13 @@
       {
         "EventName": "Medicine That Makes You Faster?",
         "EventOptions": {
-          "Bottom Option": "Speed +5\r\nWisdom +5"
+          "Bottom Option": "Speed +5\r\nWit +5"
         }
       },
       {
         "EventName": "The Significance of Research",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -24509,7 +23217,7 @@
       {
         "EventName": "No Shortcuts",
         "EventOptions": {
-          "Middle Option": "Wisdom +10"
+          "Middle Option": "Wit +10"
         }
       },
       {
@@ -24533,7 +23241,7 @@
       {
         "EventName": "Body Modification!",
         "EventOptions": {
-          "Top Option": "Power +5\r\nWisdom +5"
+          "Top Option": "Power +5\r\nWit +5"
         }
       },
       {
@@ -24545,7 +23253,7 @@
       {
         "EventName": "Report: A Clear Gaze",
         "EventOptions": {
-          "": "※ Mood Good or better\r\nWisdom +5\r\n\r\n\r\n※ Mood Normal or worse\r\nWisdom +5\r\nObjective race changed to NHK Mile Cup"
+          "": "※ Mood Good or better\r\nWit +5\r\n\r\n\r\n※ Mood Normal or worse\r\nWit +5\r\nObjective race changed to NHK Mile Cup"
         }
       },
       {
@@ -24623,7 +23331,7 @@
       {
         "EventName": "New Year's Resolutions",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -24857,13 +23565,13 @@
       {
         "EventName": "Report: Will",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
         "EventName": "Report: Change of Course",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -24893,19 +23601,19 @@
       {
         "EventName": "Midnight Pool",
         "EventOptions": {
-          "": "(random) Mood -1\r\nEnergy -15\r\nPower +25"
+          "": "Randomly either\r\nMood -1\r\nPower +25\r\nor\r\nEnergy -15\r\nPower +25"
         }
       },
       {
         "EventName": "Energetic Brain Cells",
         "EventOptions": {
-          "": "Energy -15\r\nWisdom +25\r\n(random) Mood -1"
+          "": "Energy -15\r\nWit +25\r\n(random) Mood -1"
         }
       },
       {
         "EventName": "Master Trainer",
         "EventOptions": {
-          "": "Wisdom +10\r\n(random) Get Practice Perfect ○ status"
+          "": "Wit +10\r\n(random) Get Practice Perfect ○ status"
         }
       },
       {
@@ -24935,7 +23643,7 @@
       {
         "EventName": "Engrossed in Research!",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -25026,7 +23734,7 @@
       {
         "EventName": "Full-Power Effort!",
         "EventOptions": {
-          "Top Option": "Speed +10\r\nWisdom +10\r\n(random) Get Hot Topic status"
+          "Top Option": "Speed +10\r\nWit +10\r\n(random) Get Hot Topic status"
         }
       },
       {
@@ -25218,7 +23926,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -25482,7 +24190,7 @@
       {
         "EventName": "Lost Umamusume",
         "EventOptions": {
-          "": "Wisdom -5\r\nMood -1"
+          "": "Wit -5\r\nMood -1"
         }
       },
       {
@@ -25518,7 +24226,7 @@
       {
         "EventName": "Perfect Weather for Tinkering?",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -25597,7 +24305,7 @@
       {
         "EventName": "Bakushin for Love!",
         "EventOptions": {
-          "Top Option": "Stamina +10\r\nWisdom +10"
+          "Top Option": "Stamina +10\r\nWit +10"
         }
       },
       {
@@ -25627,13 +24335,13 @@
       {
         "EventName": "Bakushin in Signature Racewear!",
         "EventOptions": {
-          "Bottom Option": "Wisdom +20\r\n(random) Get Hot Topic status"
+          "Bottom Option": "Wit +20\r\n(random) Get Hot Topic status"
         }
       },
       {
         "EventName": "The Bakushin Book!",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -25687,13 +24395,13 @@
       {
         "EventName": "Bakushin-ing with a Classmate!",
         "EventOptions": {
-          "Bottom Option": "Speed +5\r\nWisdom +5"
+          "Bottom Option": "Speed +5\r\nWit +5"
         }
       },
       {
         "EventName": "The Best Bakushin!",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -25711,7 +24419,7 @@
       {
         "EventName": "Bakushin, Now and Forever!",
         "EventOptions": {
-          "Middle Option": "Guts +5\r\nWisdom +5"
+          "Middle Option": "Guts +5\r\nWit +5"
         }
       },
       {
@@ -25735,7 +24443,7 @@
       {
         "EventName": "The Speed King",
         "EventOptions": {
-          "Top Option": "Power +5\r\nWisdom +5"
+          "Top Option": "Power +5\r\nWit +5"
         }
       },
       {
@@ -25819,7 +24527,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -26095,7 +24803,7 @@
       {
         "EventName": "All Rep Showdown!",
         "EventOptions": {
-          "": "Wisdom +10\r\nGet Charming ○ status"
+          "": "Wit +10\r\nGet Charming ○ status"
         }
       },
       {
@@ -26131,7 +24839,7 @@
       {
         "EventName": "The Class Rep Is Very Busy!",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -26234,7 +24942,7 @@
       {
         "EventName": "Arm-Wrestling Contest",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -26318,7 +25026,7 @@
       {
         "EventName": "Secret Day Off Plan!",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -26330,7 +25038,7 @@
       {
         "EventName": "So Cool!",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -26420,7 +25128,7 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -26678,7 +25386,7 @@
       {
         "EventName": "I'll Do My Best",
         "EventOptions": {
-          "": "Guts +5\r\nWisdom +5"
+          "": "Guts +5\r\nWit +5"
         }
       },
       {
@@ -26732,7 +25440,7 @@
       {
         "EventName": "Mmm-Mmm Temptation!",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -26805,7 +25513,7 @@
       {
         "EventName": "Better Fortune! Lucky Telephone",
         "EventOptions": {
-          "Top Option": "Stamina +10\r\nWisdom +10"
+          "Top Option": "Stamina +10\r\nWit +10"
         }
       },
       {
@@ -26829,7 +25537,7 @@
       {
         "EventName": "Cursed Camera",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -26901,7 +25609,7 @@
       {
         "EventName": "Punch in a Pinch",
         "EventOptions": {
-          "Bottom Option": "Stamina +5\r\nWisdom +5"
+          "Bottom Option": "Stamina +5\r\nWit +5"
         }
       },
       {
@@ -26919,7 +25627,7 @@
       {
         "EventName": "Fukukitaru's Unique Good-Luck Spell",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -26931,7 +25639,7 @@
       {
         "EventName": "Taking the Plunge",
         "EventOptions": {
-          "Bottom Option": "Speed +5\r\nWisdom +5"
+          "Bottom Option": "Speed +5\r\nWit +5"
         }
       },
       {
@@ -27015,13 +25723,13 @@
       {
         "EventName": "Dance Lesson",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
         "EventName": "New Year's Resolutions",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -27249,7 +25957,7 @@
       {
         "EventName": "Scarier than a Ghost!",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -27267,13 +25975,13 @@
       {
         "EventName": "Lifespans",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
         "EventName": "Hear My Vow!",
         "EventOptions": {
-          "": "Guts +5\r\nWisdom +5"
+          "": "Guts +5\r\nWit +5"
         }
       },
       {
@@ -27285,7 +25993,7 @@
       {
         "EventName": "Master Trainer",
         "EventOptions": {
-          "": "Wisdom +10\r\n(random) Get Practice Perfect ○ status"
+          "": "Wit +10\r\n(random) Get Practice Perfect ○ status"
         }
       },
       {
@@ -27315,7 +26023,7 @@
       {
         "EventName": "A Rush at Luck",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -27418,7 +26126,7 @@
       {
         "EventName": "Rainy-Day Fun",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -27502,7 +26210,7 @@
       {
         "EventName": "Bittersweet Twilight",
         "EventOptions": {
-          "Bottom Option": "Wisdom +10"
+          "Bottom Option": "Wit +10"
         }
       },
       {
@@ -27634,7 +26342,7 @@
       {
         "EventName": "New Year's Resolutions",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -27862,7 +26570,7 @@
       {
         "EventName": "Doting Family",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -27874,7 +26582,7 @@
       {
         "EventName": "Behind the Throne",
         "EventOptions": {
-          "": "Wisdom +5"
+          "": "Wit +5"
         }
       },
       {
@@ -27898,7 +26606,7 @@
       {
         "EventName": "Master Trainer",
         "EventOptions": {
-          "": "Wisdom +10\r\n(random) Get Practice Perfect ○ status"
+          "": "Wit +10\r\n(random) Get Practice Perfect ○ status"
         }
       },
       {
@@ -27928,7 +26636,7 @@
       {
         "EventName": "The Bronze Collector's Target",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
@@ -28025,7 +26733,7 @@
       {
         "EventName": "Manners Are Common Sense",
         "EventOptions": {
-          "Bottom Option": "Stamina +10\r\nWisdom +10\r\n(random) Get Practice Perfect ○ status"
+          "Bottom Option": "Stamina +10\r\nWit +10\r\n(random) Get Practice Perfect ○ status"
         }
       },
       {
@@ -28055,7 +26763,7 @@
       {
         "EventName": "First-Rate in Studies Too",
         "EventOptions": {
-          "Top Option": "Wisdom +10\r\nSkill points +15"
+          "Top Option": "Wit +10\r\nSkill points +15"
         }
       },
       {
@@ -28079,7 +26787,7 @@
       {
         "EventName": "Three Heads Are Better than One",
         "EventOptions": {
-          "Top Option": "Wisdom +10"
+          "Top Option": "Wit +10"
         }
       },
       {
@@ -28133,7 +26841,7 @@
       {
         "EventName": "First-Rate Terms",
         "EventOptions": {
-          "Middle Option": "Wisdom +10"
+          "Middle Option": "Wit +10"
         }
       },
       {
@@ -28157,7 +26865,7 @@
       {
         "EventName": "Breaking Curfew is Second-Rate",
         "EventOptions": {
-          "Top Option": "Guts +5\r\nWisdom +5"
+          "Top Option": "Guts +5\r\nWit +5"
         }
       },
       {
@@ -28541,7 +27249,632 @@
       {
         "EventName": "First-Rate... Predictions?",
         "EventOptions": {
-          "": "Randomly either\r\nEnergy +15\r\nGuts -5\r\nMood -1\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status"
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
+        }
+      }
+    ]
+  },
+  {
+    "UmaName": "Meisho Doto",
+    "UmaObjectives": [
+      {
+        "ObjectiveName": "1. Participate in the Junior Make Debut",
+        "Turn": "Turn 12",
+        "Time": "Junior Class, Late June",
+        "ObjectiveCondition": "Turf – 2000m – Medium"
+      },
+      {
+        "ObjectiveName": "2. Have at least 6000 fans",
+        "Turn": "Turn 31 (previous + 18)",
+        "Time": "Classic Class, Early April",
+        "ObjectiveCondition": ""
+      },
+      {
+        "ObjectiveName": "3. Have at least 15000 fans",
+        "Turn": "Turn 44 (previous + 12)",
+        "Time": "Classic Class, Late October",
+        "ObjectiveCondition": ""
+      },
+      {
+        "ObjectiveName": "4. Place 3rd or better in the Nikkei Shinshun Hai",
+        "Turn": "Turn 49 (previous + 4)",
+        "Time": "Senior Class, Early January",
+        "ObjectiveCondition": "G2 – Turf – 2400m – Medium"
+      },
+      {
+        "ObjectiveName": "5. Place 1st in the Kinko Sho",
+        "Turn": "Turn 53 (previous + 3)",
+        "Time": "Senior Class, Early March",
+        "ObjectiveCondition": "G2 – Turf – 2000m – Medium"
+      },
+      {
+        "ObjectiveName": "6. Place 2nd or better in the Takarazuka Kinen",
+        "Turn": "Turn 60 (previous + 6)",
+        "Time": "Senior Class, Late June",
+        "ObjectiveCondition": "G1 – Turf – 2200m – Medium"
+      },
+      {
+        "ObjectiveName": "7. Place 2nd or better in the Tenno Sho (Autumn)",
+        "Turn": "Turn 68 (previous + 7)",
+        "Time": "Senior Class, Late October",
+        "ObjectiveCondition": "G1 – Turf – 2000m – Medium"
+      },
+      {
+        "ObjectiveName": "8. Place 2nd or better in the Japan Cup",
+        "Turn": "Turn 70 (previous + 1)",
+        "Time": "Senior Class, Late November",
+        "ObjectiveCondition": "G1 – Turf – 2400m – Medium"
+      },
+      {
+        "ObjectiveName": "9. Place 1st in the Arima Kinen",
+        "Turn": "Turn 72 (previous + 1)",
+        "Time": "Senior Class, Late December",
+        "ObjectiveCondition": "G1 – Turf – 2500m – Long"
+      }
+    ],
+    "UmaEvents": [
+      {
+        "EventName": "Fierce Fight! A Spicy Match",
+        "EventOptions": {
+          "Top Option": "Stamina +20"
+        }
+      },
+      {
+        "EventName": "Fierce Fight! A Spicy Match",
+        "EventOptions": {
+          "Bottom Option": "Speed +20"
+        }
+      },
+      {
+        "EventName": "A Little Bag of Help",
+        "EventOptions": {
+          "Top Option": "Wit +10\r\nSkill points +15"
+        }
+      },
+      {
+        "EventName": "A Little Bag of Help",
+        "EventOptions": {
+          "Bottom Option": "Power +20"
+        }
+      },
+      {
+        "EventName": "Uma Umya Umyam Myam?",
+        "EventOptions": {
+          "Top Option": "Power +10\r\nWit +10\r\n(random) Get Practice Perfect ○ status"
+        }
+      },
+      {
+        "EventName": "Uma Umya Umyam Myam?",
+        "EventOptions": {
+          "Bottom Option": "Guts +20\r\n(random) Get Practice Perfect ○ status"
+        }
+      },
+      {
+        "EventName": "Best Shot",
+        "EventOptions": {
+          "Top Option": "Wit +10"
+        }
+      },
+      {
+        "EventName": "Best Shot",
+        "EventOptions": {
+          "Bottom Option": "Stamina +10"
+        }
+      },
+      {
+        "EventName": "First Step to Flawlessness",
+        "EventOptions": {
+          "Top Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "First Step to Flawlessness",
+        "EventOptions": {
+          "Bottom Option": "Energy +10"
+        }
+      },
+      {
+        "EventName": "Words of Aid",
+        "EventOptions": {
+          "Top Option": "Power +10\r\nSkill points +15"
+        }
+      },
+      {
+        "EventName": "Words of Aid",
+        "EventOptions": {
+          "Bottom Option": "Tactical Tweak hint +1"
+        }
+      },
+      {
+        "EventName": "Positively Tickled!",
+        "EventOptions": {
+          "Top Option": "Randomly either\r\nEnergy -5\r\nMood +1\r\n2 random stats +10\r\nor\r\nEnergy -10\r\nGuts +10"
+        }
+      },
+      {
+        "EventName": "Positively Tickled!",
+        "EventOptions": {
+          "Bottom Option": "Energy +10"
+        }
+      },
+      {
+        "EventName": "Monumental Calories",
+        "EventOptions": {
+          "Top Option": "Energy +10\r\nSkill points +5"
+        }
+      },
+      {
+        "EventName": "Monumental Calories",
+        "EventOptions": {
+          "Bottom Option": "Randomly either (~90%)\r\nEnergy +30\r\nSkill points +10\r\nor (~10%)\r\nEnergy +30\r\nSkill points +10\r\nSpeed -5\r\nPower +5\r\nGet Slow Metabolism status"
+        }
+      },
+      {
+        "EventName": "Pack a Punch",
+        "EventOptions": {
+          "Top Option": "Power +10"
+        }
+      },
+      {
+        "EventName": "Pack a Punch",
+        "EventOptions": {
+          "Bottom Option": "Stamina +10"
+        }
+      },
+      {
+        "EventName": "Lost and Alone",
+        "EventOptions": {
+          "Top Option": "Stamina +10"
+        }
+      },
+      {
+        "EventName": "Lost and Alone",
+        "EventOptions": {
+          "Bottom Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "Are My Feelings Reaching You?",
+        "EventOptions": {
+          "Top Option": "Power +10"
+        }
+      },
+      {
+        "EventName": "Are My Feelings Reaching You?",
+        "EventOptions": {
+          "Middle Option": "Speed +10"
+        }
+      },
+      {
+        "EventName": "Are My Feelings Reaching You?",
+        "EventOptions": {
+          "Bottom Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "Twilight Ice Cream",
+        "EventOptions": {
+          "Top Option": "Wit +10"
+        }
+      },
+      {
+        "EventName": "Twilight Ice Cream",
+        "EventOptions": {
+          "Bottom Option": "Speed +5\r\nStamina +5"
+        }
+      },
+      {
+        "EventName": "Equivalent Exchange?",
+        "EventOptions": {
+          "Top Option": "Speed +10"
+        }
+      },
+      {
+        "EventName": "Equivalent Exchange?",
+        "EventOptions": {
+          "Bottom Option": "Wit +10"
+        }
+      },
+      {
+        "EventName": "After the Debut: Feeling... Dizzy...",
+        "EventOptions": {
+          "": "All stats +3\r\nSkill points +20\r\nGet Not Ready status\r\nYayoi Akikawa bond +4"
+        }
+      },
+      {
+        "EventName": "Goal Achieved: A Fallen Star",
+        "EventOptions": {
+          "": "All stats +3\r\nSkill points +20\r\nHeal Not Ready\r\nYayoi Akikawa bond +4"
+        }
+      },
+      {
+        "EventName": "Triumph! I'm the Overlord?!",
+        "EventOptions": {
+          "": "All stats +10\r\nSkill points +20\r\nPrepared to Pass hint +1\r\nUp-Tempo hint +1"
+        }
+      },
+      {
+        "EventName": "Bonus at start",
+        "EventOptions": {
+          "": "Skill points +120"
+        }
+      },
+      {
+        "EventName": "Failed training (Get Well Soon!)",
+        "EventOptions": {
+          "Top Option": "Mood -1\r\nLast trained stat -5\r\n(random) Get Practice Poor status"
+        }
+      },
+      {
+        "EventName": "Failed training (Get Well Soon!)",
+        "EventOptions": {
+          "Bottom Option": "Randomly either\r\nMood -1\r\nLast trained stat -10\r\n(random) Get Practice Poor status\r\nor\r\nGet Practice Perfect ○ status"
+        }
+      },
+      {
+        "EventName": "Failed training (Don't Overdo It!)",
+        "EventOptions": {
+          "Top Option": "Energy +10\r\nMood -2\r\nLast trained stat -10\r\n2 random stats -10\r\n(random) Get Practice Poor status"
+        }
+      },
+      {
+        "EventName": "Failed training (Don't Overdo It!)",
+        "EventOptions": {
+          "Bottom Option": "Randomly either\r\nMood -3\r\nLast trained stat -10\r\n2 random stats -10\r\nGet Practice Poor status\r\nor\r\nEnergy +10\r\nGet Practice Perfect ○ status"
+        }
+      },
+      {
+        "EventName": "Extra Training",
+        "EventOptions": {
+          "Top Option": "Energy -5\r\nLast trained stat +5\r\n(random) Heal a negative status effect\r\nYayoi Akikawa bond +5"
+        }
+      },
+      {
+        "EventName": "Extra Training",
+        "EventOptions": {
+          "Bottom Option": "Energy +5"
+        }
+      },
+      {
+        "EventName": "At Summer Camp (Year 2)",
+        "EventOptions": {
+          "Top Option": "Power +10"
+        }
+      },
+      {
+        "EventName": "At Summer Camp (Year 2)",
+        "EventOptions": {
+          "Bottom Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "Fan Letter",
+        "EventOptions": {
+          "": "Mood +1\r\nSkill points +30"
+        }
+      },
+      {
+        "EventName": "Dance Lesson",
+        "EventOptions": {
+          "Top Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "Dance Lesson",
+        "EventOptions": {
+          "Bottom Option": "Power +10"
+        }
+      },
+      {
+        "EventName": "New Year's Resolutions",
+        "EventOptions": {
+          "Top Option": "Guts +10"
+        }
+      },
+      {
+        "EventName": "New Year's Resolutions",
+        "EventOptions": {
+          "Middle Option": "Energy +20"
+        }
+      },
+      {
+        "EventName": "New Year's Resolutions",
+        "EventOptions": {
+          "Bottom Option": "Skill points +20"
+        }
+      },
+      {
+        "EventName": "New Year's Shrine Visit",
+        "EventOptions": {
+          "Top Option": "Energy +30"
+        }
+      },
+      {
+        "EventName": "New Year's Shrine Visit",
+        "EventOptions": {
+          "Middle Option": "All stats +5"
+        }
+      },
+      {
+        "EventName": "New Year's Shrine Visit",
+        "EventOptions": {
+          "Bottom Option": "Skill points +35"
+        }
+      },
+      {
+        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
+        "EventOptions": {
+          "Option 1": "Randomly either (~30%)\r\nAll stats +20\r\nor (~70%)\r\nMood -2\r\nAll stats -15\r\nGet Night Owl status"
+        }
+      },
+      {
+        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
+        "EventOptions": {
+          "Option 2": "Randomly either (~45%)\r\nObtain Corner Recovery ○ skill\r\nObtain Straightaway Recovery skill\r\nor (~55%)\r\nEnergy -20\r\nMood -2"
+        }
+      },
+      {
+        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
+        "EventOptions": {
+          "Option 3": "Randomly either (~70%)\r\nMaximum Energy +12\r\nEnergy +40\r\nHeal all negative status effects\r\nor (~30%)\r\nEnergy -20\r\nMood -2\r\nGet Practice Poor status"
+        }
+      },
+      {
+        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
+        "EventOptions": {
+          "Option 4": "Randomly either (~85%)\r\nEnergy +20\r\nMood +1\r\nGet Charming ○ status\r\nor (~15%)\r\nEnergy -10/-20\r\nMood -1\r\n(random) Get Practice Poor status"
+        }
+      },
+      {
+        "EventName": "Acupuncture (Just an Acupuncturist, No Worries! ☆)",
+        "EventOptions": {
+          "Option 5": "Energy +10"
+        }
+      },
+      {
+        "EventName": "Victory! (G1)",
+        "EventOptions": {
+          "Top Option": "Energy -15\r\n1 random stat +10\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Victory! (G1)",
+        "EventOptions": {
+          "Bottom Option": "Energy -5/-20\r\n1 random stat +10\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Victory! (G2/G3)",
+        "EventOptions": {
+          "Top Option": "Energy -15\r\n1 random stat +8\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Victory! (G2/G3)",
+        "EventOptions": {
+          "Bottom Option": "Energy -5/-20\r\n1 random stat +8\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Victory! (Pre/OP)",
+        "EventOptions": {
+          "Top Option": "Energy -15\r\n1 random stat +5\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Victory! (Pre/OP)",
+        "EventOptions": {
+          "Bottom Option": "Energy -5/-20\r\n1 random stat +5\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (G1)",
+        "EventOptions": {
+          "Top Option": "Energy -20\r\n1 random stat +8\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (G1)",
+        "EventOptions": {
+          "Bottom Option": "Energy -10/-30\r\n1 random stat +8\r\nSkill points +45\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (G2/G3)",
+        "EventOptions": {
+          "Top Option": "Energy -20\r\n1 random stat +5\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (G2/G3)",
+        "EventOptions": {
+          "Bottom Option": "Energy -10/-30\r\n1 random stat +5\r\nSkill points +35\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (Pre/OP)",
+        "EventOptions": {
+          "Top Option": "Energy -20\r\n1 random stat +3\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Solid Showing (Pre/OP)",
+        "EventOptions": {
+          "Bottom Option": "Energy -10/-30\r\n1 random stat +3\r\nSkill points +30\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (G1)",
+        "EventOptions": {
+          "Top Option": "Energy -25\r\n1 random stat +4\r\nSkill points +25\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (G1)",
+        "EventOptions": {
+          "Bottom Option": "Energy -15/-35\r\n1 random stat +4\r\nSkill points +25\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (G2/G3)",
+        "EventOptions": {
+          "Top Option": "Energy -25\r\n1 random stat +3\r\nSkill points +20\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (G2/G3)",
+        "EventOptions": {
+          "Bottom Option": "Energy -15/-35\r\n1 random stat +3\r\nSkill points +20\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (Pre/OP)",
+        "EventOptions": {
+          "Top Option": "Energy -25\r\nSkill points +10\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Defeat (Pre/OP)",
+        "EventOptions": {
+          "Bottom Option": "Energy -15/-35\r\nSkill points +10\r\n(random) Hint for a skill related to the race"
+        }
+      },
+      {
+        "EventName": "Etsuko's Elated Coverage (G1)",
+        "EventOptions": {
+          "": "Energy -15\r\nMood +1\r\n1 random stat +10\r\nSkill points +45\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Elated Coverage (G2/G3)",
+        "EventOptions": {
+          "": "Energy -15\r\nMood +1\r\n1 random stat +8\r\nSkill points +35\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Elated Coverage (Pre/OP)",
+        "EventOptions": {
+          "": "Energy -15\r\nMood +1\r\n1 random stat +5\r\nSkill points +30\r\nFans +500\r\n(random) Hint for a skill related to the race\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (G1)",
+        "EventOptions": {
+          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (G1)",
+        "EventOptions": {
+          "Bottom Option": "Energy -20\r\n1 random stat +4\r\nSkill points +25\r\nEtsuko Otonashi bond +10"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (G2/G3)",
+        "EventOptions": {
+          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (G2/G3)",
+        "EventOptions": {
+          "Bottom Option": "Energy -20\r\n1 random stat +3\r\nSkill points +20\r\nEtsuko Otonashi bond +10"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (Pre/OP)",
+        "EventOptions": {
+          "Top Option": "Randomly either\r\nEnergy -25\r\nMood -1\r\nSkill points +10\r\nEtsuko Otonashi bond -10\r\nor\r\nEnergy -15\r\nMood +1\r\nSkill points +10\r\nEtsuko Otonashi bond +15"
+        }
+      },
+      {
+        "EventName": "Etsuko's Exhaustive Coverage (Pre/OP)",
+        "EventOptions": {
+          "Bottom Option": "Energy -20\r\nSkill points +10\r\nEtsuko Otonashi bond +10"
+        }
+      },
+      {
+        "EventName": "The Derby?! Already?!",
+        "EventOptions": {
+          "": "Power +5"
+        }
+      },
+      {
+        "EventName": "Arrival of the Lone Star",
+        "EventOptions": {
+          "": "Stamina +5"
+        }
+      },
+      {
+        "EventName": "How the River Runs...",
+        "EventOptions": {
+          "": "Wit +5"
+        }
+      },
+      {
+        "EventName": "Air Shakur's Derby",
+        "EventOptions": {
+          "": "Guts +5"
+        }
+      },
+      {
+        "EventName": "Steadfast Steps",
+        "EventOptions": {
+          "": "Speed +10"
+        }
+      },
+      {
+        "EventName": "Huh? That's Strange",
+        "EventOptions": {
+          "": "Wit -5\r\nMood -1"
+        }
+      },
+      {
+        "EventName": "Sleepy Stumble",
+        "EventOptions": {
+          "": "Energy -5"
+        }
+      },
+      {
+        "EventName": "Eyes Wide Open",
+        "EventOptions": {
+          "": "Stamina +10\r\nPower +10\r\nGuts +10"
+        }
+      },
+      {
+        "EventName": "Master Trainer",
+        "EventOptions": {
+          "": "Guts +10\r\n(random) Get Practice Perfect ○ status"
+        }
+      },
+      {
+        "EventName": "Their Era",
+        "EventOptions": {
+          "": "All stats +5\r\nSkill points +5"
+        }
+      },
+      {
+        "EventName": "And Then, And Theeen?!",
+        "EventOptions": {
+          "": "Mood -1"
+        }
+      },
+      {
+        "EventName": "How Could This Happen?",
+        "EventOptions": {
+          "": "Energy -10\r\nMood -1"
+        }
+      },
+      {
+        "EventName": "Move Like the Wind!",
+        "EventOptions": {
+          "": "All stats +5\r\nSkill points +30\r\nMood +2\r\n(random) Get Fast Learner status"
+        }
+      },
+      {
+        "EventName": "Lucky Item",
+        "EventOptions": {
+          "": "Randomly either\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nor\r\nEnergy +15\r\nGuts -5\r\nGet Slacker status\r\nor\r\nEnergy +15\r\nMood -1\r\nGuts -5\r\nGet Slacker status"
         }
       }
     ]
