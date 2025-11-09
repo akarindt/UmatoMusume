@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using UmatoMusume.Data;
@@ -408,7 +409,7 @@ namespace UmatoMusume
 				_rectConfigData.Get("DATETIME_RECT"),
 				_rectConfigData.Get("WINDOW_RECT"),
 			};
-
+			Game8Resolver_Config.EnsureDirs();
 			var results = await Task.WhenAll(configTasks);
 			var eventRect = results[0];
 			var dateTimeRect = results[1];
@@ -463,8 +464,82 @@ namespace UmatoMusume
 				cboCharacterName.EndUpdate();
 			}
 		}
-
 		private void SetData()
+		{
+			SetDataGame8();
+		}
+		private async void SetDataGame8()
+		{
+			try
+			{
+				rtbOptions.Clear();
+				var selectedUma = cboCharacterName.GetSelectedValue<string>();
+				if (!string.IsNullOrEmpty(lblEventName.Text))
+				{
+					var resolver = new Game8Resolver_Config.Game8Resolver();
+					List<Task<JObject>> tasks = new();
+					List<JObject> resultList = new();
+
+					JObject results = await resolver.ResolveAsync(lblEventName.Text, selectedUma);
+					if (results["status"].ToString() == "not_found")
+						return;
+
+					if (results["status"].ToString() == "ambiguous")
+					{
+						foreach (var eventResult in results["events"])
+						{
+							tasks.Add(resolver.ResolveAsync(eventResult["name"].ToString()));
+						}
+					}
+					else
+					{
+						resultList.Add(results);
+					}
+					if (tasks.Count > 0)
+					{
+						var taskResult = await Task.WhenAll(tasks);
+						foreach (var task in taskResult)
+						{
+							resultList.Add(task);
+						}
+					}
+
+
+					foreach (JObject result in resultList)
+					{
+						foreach (var events in result["events"])
+						{
+							var matching = events["matching"];
+							rtbOptions.SelectionFont = _boldFont;
+							rtbOptions.AppendText(matching["normalized_query"] + ":\n");
+							foreach (var choices in events["choices"])
+							{
+								string choiceText = choices["label"].ToString();
+								string cleanChoiceText = choiceText.Replace("\n", " ");
+								cleanChoiceText = System.Text.RegularExpressions.Regex.Replace(cleanChoiceText, @"\s+", " ");
+								rtbOptions.SelectionFont = _regularFont;
+								rtbOptions.AppendText($"{cleanChoiceText} {(bool.Parse(choices["random"].ToString()) ? "\n(* Random)" : "")}\n");
+								foreach (var effects in choices["effects"])
+								{
+									rtbOptions.SelectionFont = _regularFont;
+									rtbOptions.AppendText($"  - {effects["display_text"]}\n");
+								}
+								rtbOptions.AppendText($"{(string.IsNullOrEmpty(result["message"].ToString()) ? $"{result["message"]}" : "" )}---------------\n");
+
+							}
+						}
+					}
+					tasks.Clear();
+					resultList.Clear();
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.Error.WriteLine("Fatal: " + ex);
+				return;
+			}
+		}
+		private void SetDataGameTora()
 		{
 			rtbOptions.Clear();
 
