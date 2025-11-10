@@ -49,9 +49,20 @@ The application uses OCR (Optical Character Recognition) to capture text directl
 - Set area for date/time: [Watch the video](https://www.youtube.com/watch?v=UFjU6cFelxo)
 - The event box only display choices after you choose an uma from combobox.
 ## Download/Crawl new data
-This now automaticly web scraping the data from [game8](https://game8.co/games/Umamusume-Pretty-Derby/archives/539612) to grab the events and uma`s name. Every data is cache every new Card Event is being trigger.
-- ~This feature helps you to get the latest data from [gametora](https://gametora.com/umamusume). Basically, it just a web crawler.~
-- ~At the main menu, when click the [Download data], a dialog will appear:~
+- This feature helps you to get the latest data from [gametora](https://gametora.com/umamusume). Basically, it just a web crawler.
+- At the main menu, when click the [Download data], a dialog will appear:
+
+![Alt text](md_files/downloader.png)
+
+- Download button: Fetches JSON files directly from GitHub, which is faster than crawling.
+- Crawl button: Use this when the repo hasn’t been updated recently. It allows you to fetch the data yourself.
+
+| Button                     | Description                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| Download/Crawl uma data    | Get umas events and objectives                                              |
+| Download/Crawl support     | Get support cards events                                                    |
+| Download/Crawl career      | Get careers events                                                          |
+| Download/Crawl races       | Get races infos with date/time                                              |
 
 ## Choose OCR engine from config
 - I gave you two options for OCR engine: PaddleOCR & RapidOCR.
@@ -78,7 +89,7 @@ cd UmatoMusume
 # License
 - This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 # Acknowledgments
-- Game data sourced from [GameTora](https://gametora.com/umamusume) and [Game8](https://game8.co/games/Umamusume-Pretty-Derby/archives/539612)
+- Game data sourced from [GameTora](https://gametora.com/umamusume)
 - Special thanks to the Umamusume community
 
 
