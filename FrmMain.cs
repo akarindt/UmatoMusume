@@ -422,7 +422,7 @@ namespace UmatoMusume
 			_appHeight = appSize?.Height ?? _appHeight;
 			_appWidth = appSize?.Width ?? _appWidth;
 
-			BeginInvoke(new Action(() => UpdateUIAfterConfig()));
+			BeginInvoke(new Action(() => UpdateUIAfterConfigAsync()));
 
 			if (checkForUpdates)
 			{
@@ -446,7 +446,7 @@ namespace UmatoMusume
 			}
 		}
 
-		private void UpdateUIAfterConfig()
+		private async Task UpdateUIAfterConfigAsync()
 		{
 			Height = _appHeight;
 			Width = _appWidth;
@@ -454,10 +454,22 @@ namespace UmatoMusume
 			try
 			{
 				cboCharacterName.Items.Clear();
+
+				// using Game8
+				var resolver = new Game8Resolver_Config.Game8Resolver();
+				var umaList = await resolver.FetchAllUmaNameAsync();
+				umaList.Sort();
+				foreach (var uma in umaList)
+				{
+					cboCharacterName.Items.Add(uma);
+				}
+				/*
+				// using GameTora
 				foreach (var uma in _umaList)
 				{
 					cboCharacterName.Items.Add(uma.UmaName);
 				}
+				*/
 			}
 			finally
 			{
@@ -474,6 +486,8 @@ namespace UmatoMusume
 			{
 				rtbOptions.Clear();
 				var selectedUma = cboCharacterName.GetSelectedValue<string>();
+				if (selectedUma != null)
+					selectedUma = selectedUma.Substring(0, selectedUma.IndexOf('(')-2);
 				if (!string.IsNullOrEmpty(lblEventName.Text))
 				{
 					var resolver = new Game8Resolver_Config.Game8Resolver();
@@ -522,9 +536,9 @@ namespace UmatoMusume
 								foreach (var effects in choices["effects"])
 								{
 									rtbOptions.SelectionFont = _regularFont;
-									rtbOptions.AppendText($"  - {effects["display_text"]}\n");
+									rtbOptions.AppendText($"  {effects["display_text"]}\n");
 								}
-								rtbOptions.AppendText($"{(string.IsNullOrEmpty(result["message"].ToString()) ? $"{result["message"]}" : "" )}---------------\n");
+								rtbOptions.AppendText($"{(string.IsNullOrEmpty(result["message"].ToString()) ? $"{result["message"]}" : "")}---------------\n");
 
 							}
 						}
@@ -672,7 +686,7 @@ namespace UmatoMusume
 
 		#region Event Handlers
 		private void EventTimer_Tick(object? sender, EventArgs e) => StartCapture();
-
+		readonly object timerLock = new();
 		private void AttachTimer_Tick(object? sender, EventArgs e)
 		{
 			try

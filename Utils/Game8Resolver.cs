@@ -127,7 +127,7 @@ namespace UmatoMusume.Utils
 				{
 					var text = File.ReadAllText(IndexCachePath, Encoding.UTF8);
 					var jo = JObject.Parse(text);
-					var fetched = DateTimeOffset.Parse(jo.Value<string>("fetched_at"));
+					var fetched = DateTimeOffset.Parse(jo.Value<string>("fetched_at"), CultureInfo.InvariantCulture);
 					if (DateTimeOffset.UtcNow - fetched <= TimeSpan.FromHours(INDEX_TTL_HOURS))
 					{
 						var links = (JArray)jo["links"];
@@ -625,6 +625,232 @@ namespace UmatoMusume.Utils
 				}
 				cands.Sort((a, b) => b.score.CompareTo(a.score));
 				return cands.Take(12).ToList();
+			}
+			// --------------------------
+			// UMA cache helpers & scraping
+			// --------------------------
+			static readonly string UMA_LIST_CACHE = Path.Combine(CACHE_DIR, "uma_list.json");
+			private JObject LoadUmaCache()
+			{
+				try
+				{
+					if (!File.Exists(UMA_LIST_CACHE)) return null;
+					var text = File.ReadAllText(UMA_LIST_CACHE, Encoding.UTF8);
+					var jo = JObject.Parse(text);
+					return jo;
+				}
+				catch (Exception ex)
+				{
+					if (DEBUG) Console.WriteLine("[DEBUG] LoadUmaCache error: " + ex.Message);
+					return null;
+				}
+			}
+
+			private void SaveUmaCache(JObject jo)
+			{
+				try
+				{
+					File.WriteAllText(UMA_LIST_CACHE, jo.ToString(Formatting.Indented), Encoding.UTF8);
+				}
+				catch (Exception ex)
+				{
+					if (DEBUG) Console.WriteLine("[DEBUG] SaveUmaCache error: " + ex.Message);
+				}
+			}
+
+			/// <summary>
+			/// Fetches UMA names for the fixed button indices 6..8.
+			/// Uses uma_list.json cache (per-index entries) with TTL UMA_TTL_DAYS.
+			/// Returns a map: index -> list of td texts (empty list if not found).
+			/// </summary>
+			public async Task<List<string>> FetchAllUmaNameAsync()
+			{
+				const string baseUrl = "https://game8.co/games/Umamusume-Pretty-Derby/archives/535926";
+				var result = new List<string>();
+				var indices = new[] { 5, 6, 7 };
+
+				// Ensure cache directory exists (LoadUmaCache/SaveUmaCache handle file IO, but ensure root exists)
+				try { Directory.CreateDirectory(CACHE_DIR); } catch { /* ignore */ }
+
+				// Load cache (may be null)
+				var cache = LoadUmaCache() ?? new JObject();
+				bool cacheChanged = false;
+
+				// Try to reuse base page HTML (fetch once)
+				string baseHtml = null;
+				HtmlDocument baseDoc = null;
+
+				// If any index has a fresh cache entry, use it. For others we'll fetch.
+				foreach (var idx in indices)
+				{
+					var key = idx.ToString();
+					var texts = new List<string>();
+
+					// Check cache entry
+					if (cache.TryGetValue(key, out var token))
+					{
+						try
+						{
+							var entry = (JObject)token;
+							var fetchedStr = entry.Value<string>("retrieved_at");
+							if (!string.IsNullOrEmpty(fetchedStr))
+							{
+								var fetched = DateTimeOffset.Parse(fetchedStr, CultureInfo.InvariantCulture);
+								if (DateTimeOffset.Now - fetched <= TimeSpan.FromDays(EVENT_TTL_DAYS))
+								{
+									var arr = entry["texts"] as JArray;
+									if (arr != null)
+									{
+										texts = arr.Select(x => x.ToString()).Where(s => !string.IsNullOrEmpty(s)).ToList();
+										result.AddRange(texts);
+										if (DEBUG) Console.WriteLine($"[DEBUG] UMA cache hit for index {idx}");
+										continue; // next index
+									}
+								}
+							}
+						}
+						catch (Exception ex)
+						{
+							if (DEBUG) Console.WriteLine("[DEBUG] parse cache entry error: " + ex.Message);
+							// fall through to re-fetch
+						}
+					}
+
+					// Need to fetch details for this index
+					// Fetch base page (once)
+					if (baseDoc == null)
+					{
+						baseHtml = await HttpGetAsync(baseUrl);
+						if (string.IsNullOrEmpty(baseHtml))
+						{
+							if (DEBUG) Console.WriteLine("[DEBUG] failed to fetch UMA base page");
+							continue;
+						}
+						baseDoc = new HtmlDocument();
+						baseDoc.LoadHtml(baseHtml);
+					}
+
+					// Attempt primary XPath for anchor
+					string xpathAnchor = $"/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/p[{idx}]/a";
+					var aNode = baseDoc.DocumentNode.SelectSingleNode(xpathAnchor);
+
+					// Fallback: pick nth <p> under container and find <a>
+					if (aNode == null)
+					{
+						if (DEBUG) Console.WriteLine($"[DEBUG] anchor not found by exact XPath {xpathAnchor}, trying fallback for index {idx}.");
+						var container = baseDoc.DocumentNode.SelectSingleNode("/html/body/div[1]/div[1]/div[2]/div[1]/div[2]");
+						if (container != null)
+						{
+							var pNodes = container.SelectNodes("./p") ?? container.SelectNodes(".//p");
+							if (pNodes != null && pNodes.Count >= idx)
+							{
+								var pNode = pNodes[idx - 1];
+								aNode = pNode.SelectSingleNode(".//a");
+							}
+						}
+					}
+
+					if (aNode == null)
+					{
+						if (DEBUG) Console.WriteLine($"[DEBUG] could not locate anchor for button index {idx}");
+						continue;
+					}
+
+					var href = aNode.GetAttributeValue("href", null);
+					if (string.IsNullOrEmpty(href))
+					{
+						if (DEBUG) Console.WriteLine("[DEBUG] anchor has no href for index " + idx);
+						continue;
+					}
+
+					var hrefAbs = MakeAbsoluteUrl(baseUrl, href);
+					if (DEBUG) Console.WriteLine($"[DEBUG] following href for index {idx}: {hrefAbs}");
+
+					var detailHtml = await HttpGetAsync(hrefAbs);
+					if (string.IsNullOrEmpty(detailHtml))
+					{
+						if (DEBUG) Console.WriteLine("[DEBUG] failed to fetch details page: " + hrefAbs);
+						continue;
+					}
+
+					var detailDoc = new HtmlDocument();
+					detailDoc.LoadHtml(detailHtml);
+
+					// Primary XPath for td nodes
+					var tdNodes = detailDoc.DocumentNode.SelectNodes("/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody/tr/td");
+
+					// Fallback: first table under container
+					if (tdNodes == null || tdNodes.Count == 0)
+					{
+						if (DEBUG) Console.WriteLine("[DEBUG] primary td XPath not found for index " + idx + ", trying fallback.");
+						var container2 = detailDoc.DocumentNode.SelectSingleNode("/html/body/div[1]/div[1]/div[2]/div[1]/div[2]");
+						if (container2 != null)
+						{
+							var firstTable = container2.SelectSingleNode(".//table");
+							if (firstTable != null)
+							{
+								tdNodes = firstTable.SelectNodes(".//td");
+							}
+						}
+					}
+					List<string> textsList = new();
+					if (tdNodes != null && tdNodes.Count > 0)
+					{
+						// Build texts list
+						textsList = tdNodes
+							.Select(td => HtmlEntity.DeEntitize(td.InnerText ?? "").Trim())
+							.Where(s => !string.IsNullOrEmpty(s))
+							.ToList();
+
+						result.AddRange(textsList);
+					}
+					else
+					{
+						if (DEBUG) Console.WriteLine("[DEBUG] no td nodes found on detail page for index " + idx);
+					}
+
+					// Update cache for this index
+					var newEntry = new JObject
+					{
+						["retrieved_at"] = NowIso(),
+						["href"] = hrefAbs,
+						["texts"] = new JArray(textsList)
+					};
+					cache[idx.ToString()] = newEntry;
+					cacheChanged = true;
+				} // end foreach index
+
+				// Save cache if changed
+				if (cacheChanged)
+				{
+					try
+					{
+						SaveUmaCache(cache);
+						if (DEBUG) Console.WriteLine("[DEBUG] UMA cache updated.");
+					}
+					catch (Exception ex)
+					{
+						if (DEBUG) Console.WriteLine("[DEBUG] failed saving UMA cache: " + ex.Message);
+					}
+				}
+
+				return result;
+			}
+
+
+			private static string MakeAbsoluteUrl(string baseUrl, string href)
+			{
+				try
+				{
+					if (Uri.IsWellFormedUriString(href, UriKind.Absolute)) return href;
+					var baseUri = new Uri(baseUrl);
+					var abs = new Uri(baseUri, href).ToString();
+					return abs;
+				}
+				catch
+				{
+					return href;
+				}
 			}
 		} // end Game8Resolver class
 	}
