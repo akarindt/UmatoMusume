@@ -49,6 +49,7 @@ The application uses OCR (Optical Character Recognition) to capture text directl
 - Set area for date/time: [Watch the video](https://www.youtube.com/watch?v=UFjU6cFelxo)
 - The event box only display choices after you choose an uma from combobox.
 ## **NEW** Game8 Scraping Method
+- This setting is available in **Config** menu called "**Use Game8 Scraping Method**".
 - Using [Game8](https://game8.co/games/Umamusume-Pretty-Derby) Scraping method will automatically scrap [Game8](https://game8.co/games/Umamusume-Pretty-Derby/archives/539612) website and match the event name.
 - Choosing Uma name is optional but it will give you more accurate result.
 - Scrap Data will be cache automatically for faster latency and will be renew every 7 days.
