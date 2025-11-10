@@ -27,6 +27,7 @@ namespace UmatoMusume
 		private List<string> _filterDistanceTypes = new List<string>();
 		private List<string> _filterTerrainTypes = new List<string>();
 		private bool _firstTimeSetWindowState = false;
+		private bool _isUseDefaultData = false;
 		private CancellationTokenSource _cts = new CancellationTokenSource();
 		private DateTime _lastUpdateDate = DateTime.MinValue;
 		private readonly TimeSpan _debounceInterval = TimeSpan.FromMilliseconds(200);
@@ -86,6 +87,8 @@ namespace UmatoMusume
 			_supportCardList = Helper.LoadFromJson<SupportCard>(SUPPORT_CARD_PATH);
 			_careerList = Helper.LoadFromJson<Career>(CAREER_DATA_PATH);
 			_raceList = Helper.LoadFromJson<Race>(RACE_DATA_PATH);
+
+			_isUseDefaultData = bool.Parse(Helper.GetConfigValue("UseDefaultData", "False"));
 
 			var primaryScreen = Screen.PrimaryScreen;
 			if (primaryScreen != null)
@@ -454,22 +457,25 @@ namespace UmatoMusume
 			try
 			{
 				cboCharacterName.Items.Clear();
-
-				// using Game8
-				var resolver = new Game8Resolver_Config.Game8Resolver();
-				var umaList = await resolver.FetchAllUmaNameAsync();
-				umaList.Sort();
-				foreach (var uma in umaList)
+				if (_isUseDefaultData)
 				{
-					cboCharacterName.Items.Add(uma);
+					// using Default Data
+					foreach (var uma in _umaList)
+					{
+						cboCharacterName.Items.Add(uma.UmaName);
+					}
 				}
-				/*
-				// using GameTora
-				foreach (var uma in _umaList)
+				else
 				{
-					cboCharacterName.Items.Add(uma.UmaName);
+					// using Game8 Scraping
+					var resolver = new Game8Resolver_Config.Game8Resolver();
+					var umaList = await resolver.FetchAllUmaNameAsync();
+					umaList.Sort();
+					foreach (var uma in umaList)
+					{
+						cboCharacterName.Items.Add(uma);
+					}
 				}
-				*/
 			}
 			finally
 			{
@@ -478,7 +484,14 @@ namespace UmatoMusume
 		}
 		private void SetData()
 		{
-			SetDataGame8();
+			if (_isUseDefaultData)
+			{
+				SetDataGameTora();
+			}
+			else
+			{
+				SetDataGame8();
+			}
 		}
 		private async void SetDataGame8()
 		{
