@@ -1,3 +1,6 @@
+# Since the new updates arrived, you guys don’t really need this anymore.
+
+
 # UmatoMusume
 A Windows desktop application that assists players of Umamusume Pretty Derby by providing a real-time event tracker and choice assistant using OCR (Optical Character Recognition).
 
