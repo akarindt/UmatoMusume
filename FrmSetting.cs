@@ -14,6 +14,8 @@ namespace UmatoMusume
 			chkFullScreen.Checked = bool.Parse(Helper.GetConfigValue("FullScreen", "False"));
 			chkUsePaddle.Checked = bool.Parse(Helper.GetConfigValue("UsePaddleOCR", "False"));
 			chkUseRapid.Checked = bool.Parse(Helper.GetConfigValue("UseRapidOCR", "False"));
+			chkUseGame8Scraping.Checked = bool.Parse(Helper.GetConfigValue("UseGame8Scraping", "False"));
+			chkUseDefaultData.Checked = bool.Parse(Helper.GetConfigValue("UseDefaultData", "False"));
 		}
 
 		private void chkCheckForUpdates_CheckedChanged(object sender, EventArgs e)
@@ -30,7 +32,18 @@ namespace UmatoMusume
 		{
 			Helper.UpdateConfigValue("FullScreen", chkFullScreen.Checked.ToString());
 		}
-
+		private void chkUseGame8_CheckedChanged(object sender, EventArgs e)
+		{
+			Helper.UpdateConfigValue("UseGame8Scraping", chkUseGame8Scraping.Checked.ToString());
+			Helper.UpdateConfigValue("UseDefaultData", (!chkUseGame8Scraping.Checked).ToString());
+			chkUseDefaultData.Checked = !chkUseGame8Scraping.Checked;
+		}
+		private void chkUseDefaultData_CheckedChanged(object sender, EventArgs e)
+		{
+			Helper.UpdateConfigValue("UseDefaultData", chkUseDefaultData.Checked.ToString());
+			Helper.UpdateConfigValue("UseGame8Scraping", (!chkUseDefaultData.Checked).ToString());
+			chkUseGame8Scraping.Checked = !chkUseDefaultData.Checked;
+		}
 		private void chkUsePaddle_CheckedChanged(object sender, EventArgs e)
 		{
 			Helper.UpdateConfigValue("UsePaddleOCR", chkUsePaddle.Checked.ToString());

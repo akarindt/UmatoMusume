@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using UmatoMusume.Data;
@@ -26,6 +27,7 @@ namespace UmatoMusume
 		private List<string> _filterDistanceTypes = new List<string>();
 		private List<string> _filterTerrainTypes = new List<string>();
 		private bool _firstTimeSetWindowState = false;
+		private bool _isUseDefaultData = false;
 		private CancellationTokenSource _cts = new CancellationTokenSource();
 		private DateTime _lastUpdateDate = DateTime.MinValue;
 		private readonly TimeSpan _debounceInterval = TimeSpan.FromMilliseconds(200);
@@ -85,6 +87,8 @@ namespace UmatoMusume
 			_supportCardList = Helper.LoadFromJson<SupportCard>(SUPPORT_CARD_PATH);
 			_careerList = Helper.LoadFromJson<Career>(CAREER_DATA_PATH);
 			_raceList = Helper.LoadFromJson<Race>(RACE_DATA_PATH);
+
+			_isUseDefaultData = bool.Parse(Helper.GetConfigValue("UseDefaultData", "False"));
 
 			var primaryScreen = Screen.PrimaryScreen;
 			if (primaryScreen != null)
@@ -408,7 +412,7 @@ namespace UmatoMusume
 				_rectConfigData.Get("DATETIME_RECT"),
 				_rectConfigData.Get("WINDOW_RECT"),
 			};
-
+			Game8Resolver_Config.EnsureDirs();
 			var results = await Task.WhenAll(configTasks);
 			var eventRect = results[0];
 			var dateTimeRect = results[1];
@@ -421,7 +425,7 @@ namespace UmatoMusume
 			_appHeight = appSize?.Height ?? _appHeight;
 			_appWidth = appSize?.Width ?? _appWidth;
 
-			BeginInvoke(new Action(() => UpdateUIAfterConfig()));
+			BeginInvoke(new Action(() => UpdateUIAfterConfigAsync()));
 
 			if (checkForUpdates)
 			{
@@ -445,7 +449,7 @@ namespace UmatoMusume
 			}
 		}
 
-		private void UpdateUIAfterConfig()
+		private async Task UpdateUIAfterConfigAsync()
 		{
 			Height = _appHeight;
 			Width = _appWidth;
@@ -453,9 +457,24 @@ namespace UmatoMusume
 			try
 			{
 				cboCharacterName.Items.Clear();
-				foreach (var uma in _umaList)
+				if (_isUseDefaultData)
 				{
-					cboCharacterName.Items.Add(uma.UmaName);
+					// using Default Data
+					foreach (var uma in _umaList)
+					{
+						cboCharacterName.Items.Add(uma.UmaName);
+					}
+				}
+				else
+				{
+					// using Game8 Scraping
+					var resolver = new Game8Resolver_Config.Game8Resolver();
+					var umaList = await resolver.FetchAllUmaNameAsync();
+					umaList.Sort();
+					foreach (var uma in umaList)
+					{
+						cboCharacterName.Items.Add(uma);
+					}
 				}
 			}
 			finally
@@ -463,8 +482,91 @@ namespace UmatoMusume
 				cboCharacterName.EndUpdate();
 			}
 		}
-
 		private void SetData()
+		{
+			if (_isUseDefaultData)
+			{
+				SetDataGameTora();
+			}
+			else
+			{
+				SetDataGame8();
+			}
+		}
+		private async void SetDataGame8()
+		{
+			try
+			{
+				rtbOptions.Clear();
+				var selectedUma = cboCharacterName.GetSelectedValue<string>();
+				if (selectedUma != null)
+					selectedUma = selectedUma.Substring(0, selectedUma.IndexOf('(')-2);
+				if (!string.IsNullOrEmpty(lblEventName.Text))
+				{
+					var resolver = new Game8Resolver_Config.Game8Resolver();
+					List<Task<JObject>> tasks = new();
+					List<JObject> resultList = new();
+
+					JObject results = await resolver.ResolveAsync(lblEventName.Text, selectedUma);
+					if (results["status"].ToString() == "not_found")
+						return;
+
+					if (results["status"].ToString() == "ambiguous")
+					{
+						foreach (var eventResult in results["events"])
+						{
+							tasks.Add(resolver.ResolveAsync(eventResult["name"].ToString()));
+						}
+					}
+					else
+					{
+						resultList.Add(results);
+					}
+					if (tasks.Count > 0)
+					{
+						var taskResult = await Task.WhenAll(tasks);
+						foreach (var task in taskResult)
+						{
+							resultList.Add(task);
+						}
+					}
+
+
+					foreach (JObject result in resultList)
+					{
+						foreach (var events in result["events"])
+						{
+							var matching = events["matching"];
+							rtbOptions.SelectionFont = _boldFont;
+							rtbOptions.AppendText(matching["normalized_query"] + ":\n");
+							foreach (var choices in events["choices"])
+							{
+								string choiceText = choices["label"].ToString();
+								string cleanChoiceText = choiceText.Replace("\n", " ");
+								cleanChoiceText = System.Text.RegularExpressions.Regex.Replace(cleanChoiceText, @"\s+", " ");
+								rtbOptions.SelectionFont = _regularFont;
+								rtbOptions.AppendText($"{cleanChoiceText} {(bool.Parse(choices["random"].ToString()) ? "\n(* Random)" : "")}\n");
+								foreach (var effects in choices["effects"])
+								{
+									rtbOptions.SelectionFont = _regularFont;
+									rtbOptions.AppendText($"  {effects["display_text"]}\n");
+								}
+								rtbOptions.AppendText($"{(string.IsNullOrEmpty(result["message"].ToString()) ? $"{result["message"]}" : "")}---------------\n");
+
+							}
+						}
+					}
+					tasks.Clear();
+					resultList.Clear();
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.Error.WriteLine("Fatal: " + ex);
+				return;
+			}
+		}
+		private void SetDataGameTora()
 		{
 			rtbOptions.Clear();
 
@@ -597,7 +699,7 @@ namespace UmatoMusume
 
 		#region Event Handlers
 		private void EventTimer_Tick(object? sender, EventArgs e) => StartCapture();
-
+		readonly object timerLock = new();
 		private void AttachTimer_Tick(object? sender, EventArgs e)
 		{
 			try
